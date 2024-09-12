@@ -12,7 +12,7 @@
       <link>https://conventional-branch.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://conventional-branch.github.io/about/</guid>
-      <description>About The Conventional Branch specification is inspired by Conventional Commits.&#xA;Tooling for Conventional Branch conventional-branch: Commit Check supports checking commit messages, branch naming, committer name/email, commit signoff, customizing error messages, suggested commands and more. conventional-branch-action: A Github Action for checking commit message formatting, branch naming, committer name, email, commit signoff and more. Git Commit Template: Add Conventional Branch support to JetBrains Editors (IntelliJ IDEA, PyCharm, PhpStorm&amp;hellip;). VSCode Conventional Branch: Add Conventional Branch supports for VSCode.</description>
+      <description>About The Conventional Branch specification is inspired by Conventional Commits.&#xA;Tooling for Conventional Branch commit-check: Commit Check supports checking commit messages, branch naming, committer name/email, commit signoff, customizing error messages, suggested commands and more. commit-check-action: A Github Action for checking commit message formatting, branch naming, committer name, email, commit signoff and more. VSCode Conventional Branch: Add Conventional Branch supports for VSCode. Projects Using Conventional Branch commit-check: Supports checking commit messages, branch naming, committer name/email, commit signoff, customizing error messages, suggested commands and more.</description>
     </item>
     <item>
       <title></title>

@@ -72,19 +72,49 @@
   <article class="container markdown-body">
     <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
 <h2 id="summary">Summary</h2>
-<p>The Conventional Branch specification to define a branch based workflow for your project. When you map your workflow to branch types, you can ensure that branches are named consistently by configuring which branch types to make available. We&rsquo;ve suggested some branch prefixes you might want to use but you can also specify your own naming convention. A consistent naming convention makes it easier to identify branches by type. You can also define which branches are your development and production branches, which allows us to better suggest source and target branches for creation and pull requests.</p>
+<p>The Conventional Branch specification to define a branch based workflow for your project. When you map your workflow to branch types, you can ensure that branches are named consistently by configuring which branch types to make available. We&rsquo;ve suggested some branch prefixes you might want to use but you can also specify your own naming convention. A consistent naming convention makes it easier to identify branches by type.</p>
 <h2 id="specification">Specification</h2>
 <p>The branch specification by describing with <code>feature</code>, <code>bugfix</code>, <code>release</code> <code>hotfix</code> and it should be structured as follows:</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
 </code></pre><hr>
-<!-- raw HTML omitted -->
-<ol>
-<li><strong>feature/:</strong> Used for specific feature work or improvements. Generally branches from, and merges back into, the development branch, using pull requests.</li>
-<li><strong>bugfix/</strong> Typically used to fix Release branches.</li>
-<li><strong>release/</strong> Used for release tasks and long-term maintenance versions. They are branched from the development branch and then merged into the production branch.</li>
-<li><strong>hotfix/</strong> Used to quickly fix a Production branch without interrupting changes in the development branch. In a Git-based workflow, changes are usually merged into the production and development branches.</li>
-</ol>
+<p>There are several types of branches that are frequently used in software development. This table explains what each branch type is for, and the typical prefix convention for each branch type.</p>
+<table>
+<thead>
+<tr>
+<th>Branch types</th>
+<th>Branch name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Development branch</td>
+<td><code>main</code>, <code>master</code>, <code>develop</code></td>
+<td>Usually the integration branch for feature work and is often the default branch or a named branch. For pull request workflows, the branch where new feature branches are targeted.</td>
+</tr>
+<tr>
+<td>Feature branch</td>
+<td><code>feature/</code></td>
+<td>Used for specific feature work or improvements. Generally branches from, and merges back into, the development branch, using pull requests.</td>
+</tr>
+<tr>
+<td>Bugfix branch</td>
+<td><code>bugfix/</code></td>
+<td>Typically used to fix issues for any branches.</td>
+</tr>
+<tr>
+<td>Hotfix branch</td>
+<td><code>hotfix/</code></td>
+<td>Used to quickly fix a Production branch without interrupting changes in the development branch. In a Git-based workflow, changes are usually merged into the production and development branches.</td>
+</tr>
+<tr>
+<td>Release branch</td>
+<td><code>release/</code></td>
+<td>Used for release tasks and long-term maintenance versions. They are branched from the development branch and then merged into the production branch.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="examples">Examples</h2>
 <h3 id="branch-with-description">Branch with description</h3>
 <pre tabindex="0"><code>feature/support-cmake-build
@@ -100,13 +130,12 @@ release/XYZ-6789
 </code></pre><h2 id="why-use-conventional-branch">Why Use Conventional Branch</h2>
 <ul>
 <li>Communicating the nature of changes to teammates, the public, and other stakeholders.</li>
-<li>Triggering build and publish processes.</li>
-<li>Making it easier for people to contribute to your projects, by allowing them to explore
-a more structured branch history.</li>
+<li>Triggering specific types of build and publish processes.</li>
+<li>Making it easier for people to contribute to your projects, by allowing them to explore a more structured branch history.</li>
 </ul>
 <h2 id="faq">FAQ</h2>
 <h3 id="what-tools-can-be-used-to-automatically-identify-if-a-team-member-does-not-meet-this-specification">What tools can be used to automatically identify if a team member does not meet this specification?</h3>
-<p>You can used <a href="https://github.com/conventional-branch/conventional-branch">conventional-branch</a> to check branch specification or <a href="https://github.com/conventional-branch/conventional-branch-action">conventional-branch-action</a> if your codes are hosted on GitHub.</p>
+<p>You can used <a href="https://github.com/commit-check/commit-check">commit-check</a> to check branch specification or <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> if your codes are hosted on GitHub.</p>
 
   </article>
 </main><footer class="footer">
