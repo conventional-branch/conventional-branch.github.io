@@ -74,7 +74,14 @@
     <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
 <h2 id="summary">Summary</h2>
 <p>Git&rsquo;s Conventional Branch refers to a structured and standardized naming convention for Git branches which aims to make branch more readable and actionable. We&rsquo;ve suggested some branch prefixes you might want to use but you can also specify your own naming convention. A consistent naming convention makes it easier to identify branches by type.</p>
+<h3 id="key-points">Key Points</h3>
+<ol>
+<li><strong>Purpose-driven Branch Names</strong>: Each branch name clearly indicates its purpose, making it easy for all developers to understand what the branch is for.</li>
+<li><strong>Integration with CI/CD</strong>: By using consistent branch names, it can help automated systems (like Continuous Integration/Continuous Deployment pipelines) to trigger specific actions based on the branch type (e.g., auto-deployment from release branches).</li>
+<li><strong>Team Collaboration</strong> : It encourages collaboration within teams by making branch purpose explicit, reducing misunderstandings and making it easier for team members to switch between tasks without confusion.</li>
+</ol>
 <h2 id="specification">Specification</h2>
+<h3 id="branch-naming-prefixes">Branch Naming Prefixes</h3>
 <p>The branch specification by describing with <code>feature/</code>, <code>bugfix/</code>, <code>hotfix/</code>, <code>release/</code> and <code>chore/</code> and it should be structured as follows:</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
@@ -84,22 +91,25 @@
 <li><strong>bugfix/</strong>: For bug fixes (e.g., <code>bugfix/fix-header-bug</code>)</li>
 <li><strong>hotfix/</strong>: For urgent fixes (e.g., <code>hotfix/security-patch</code>)</li>
 <li><strong>release/</strong>: For branches preparing a release (e.g., <code>release/v1.2.0</code>)</li>
-<li><strong>chore/</strong>: For non-code tasks like dependency updates (e.g., <code>chore/update-dependencies</code>)</li>
+<li><strong>chore/</strong>: For non-code tasks like dependency, docs updates (e.g., <code>chore/update-dependencies</code>)</li>
 </ul>
 <hr>
-<h2 id="key-points">Key Points</h2>
+<h3 id="basic-rules">Basic Rules</h3>
 <ol>
-<li><strong>Purpose-driven Branch Names</strong>: Each branch name clearly indicates its purpose, making it easy for all developers to understand what the branch is for.</li>
-<li><strong>Integration with CI/CD</strong>: By using consistent branch names, it can help automated systems (like Continuous Integration/Continuous Deployment pipelines) to trigger specific actions based on the branch type (e.g., auto-deployment from release branches).</li>
-<li><strong>Team Collaboration</strong> : It encourages collaboration within teams by making branch purpose explicit, reducing misunderstandings and making it easier for team members to switch between tasks without confusion.</li>
+<li><strong>Lowercase and Hyphen-Separated</strong>: Always use lowercase letters, and separate words with hyphens. For example, <code>feature/new-login</code> or <code>bugfix/header-styling</code>.</li>
+<li><strong>Alphanumeric and Hyphens Only</strong>: Use only lowercase letters (a-z), numbers (0-9), and hyphens. Avoid special characters like spaces, punctuation, and underscores.</li>
+<li><strong>No Consecutive Hyphens</strong>: Ensure that hyphens are used singly, with no consecutive hyphens (e.g., <code>feature/new-login</code>, not <code>feature/new--login</code>).</li>
+<li><strong>No Trailing Hyphens</strong>: Do not add a hyphen at the end of the branch name. For instance, use <code>feature/new-login</code> instead of <code>feature/new-login-</code>.</li>
+<li><strong>Clear and Concise</strong>: Make branch names descriptive but concise. The name should clearly indicate the work being done.</li>
+<li><strong>Include Jira (or Other Tool) Ticket Numbers</strong>: If applicable, include the ticket number from your project management tool to make tracking easier. For example, for a ticket <code>T-123</code>, the branch name could be <code>feature/T-123-new-login</code>.</li>
 </ol>
-<h3 id="benefits">Benefits:</h3>
+<h2 id="conclusion">Conclusion</h2>
 <ul>
-<li><strong>Clear Communication</strong>: The branch name alone provides a clear understanding of its purpose without needing to dig into the code.</li>
+<li><strong>Clear Communication</strong>: The branch name alone provides a clear understanding of its purpose the code change.</li>
 <li><strong>Automation-Friendly</strong>: Easily hooks into automation processes (e.g., different workflows for <code>feature</code>, <code>release</code>, etc.).</li>
 <li><strong>Scalability</strong>: Works well in large teams where many developers are working on different tasks simultaneously.</li>
 </ul>
-<p>In summary, conventional branch naming is designed to improve project organization, communication, and automation within Git workflows.</p>
+<p>In summary, conventional branch is designed to improve project organization, communication, and automation within Git workflows.</p>
 <h2 id="faq">FAQ</h2>
 <h3 id="what-tools-can-be-used-to-automatically-identify-if-a-team-member-does-not-meet-this-specification">What tools can be used to automatically identify if a team member does not meet this specification?</h3>
 <p>You can used <a href="https://github.com/commit-check/commit-check">commit-check</a> to check branch specification or <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> if your codes are hosted on GitHub.</p>
