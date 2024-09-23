@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="generator" content="Hugo 0.128.0">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2173276-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-2173276-5');
+  </script>
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>约定式分支</title>
+  <meta name="description" content="一种用于给分支增加人机可读含义的规范"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  
+  <meta name="twitter:card" content="一种用于给分支增加人机可读含义的规范">
+  <meta name="twitter:title" content="约定式分支">
+  <meta name="twitter:description" content="一种用于给分支增加人机可读含义的规范">
+
+  
+  <meta property="og:title" content="约定式分支"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="/zh/"/>
+  <meta property="og:description" content="一种用于给分支增加人机可读含义的规范"/>
+  <meta property="og:site_name" content="约定式分支"/>
+</head>
+<body class="conventional-branch--loading"><header class="header">
+  <div class="container">
+    <a href="/">
+      <div class="logo"></div>
+    </a>
+    <ul class="header__menu">
+      
+        
+      
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">Languages</button>
+        <ul class="dropdown__options">
+          
+          <li class="dropdown__option"><a href="/">English</a></li>
+          
+          <li class="dropdown__option"><a href="/zh/">中文</a></li>
+          
+        </ul>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">
+          <a href="/about" class="no-style-a">About</a>
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
+<section class="welcome">
+  <div class="container">
+    <h1 class="welcome__title">约定式分支</h1>
+    <p class="welcome__description">一种用于给分支增加人机可读含义的规范</p>
+    
+    <div class="welcome__actions">
+      
+      <a class="welcome__action" href="#%e6%a6%82%e8%bf%b0">概述</a>
+      
+      <a class="welcome__action" href="#%e8%a7%84%e8%8c%83">完整规范</a>
+      
+      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">贡献</a>
+      
+    </div>
+    
+    <figure class="welcome__image">
+      <img src='/img/git-flow-welcome.png'>
+    </figure>
+  </div>
+</section>
+<main>
+  <article class="container markdown-body">
+    <h1 id="约定式分支">约定式分支</h1>
+<h2 id="概述">概述</h2>
+<p>约定式分支是指 Git 分支的结构化和标准化命名约定，旨在使分支更具可读性和可操作性。我们建议了一些您可能想要使用的分支前缀，但您也可以指定自己的命名约定。一致的命名约定使按类型识别分支变得更加容易。</p>
+<h3 id="要点">要点</h3>
+<ol>
+<li><strong>以目的为导向的分支名称</strong>：每个分支名称都清楚地表明了其目的，使所有开发人员都能轻松了解该分支的用途。</li>
+<li><strong>与 CI/CD 集成</strong>：通过使用一致的分支名称，它可以帮助自动化系统（如持续集成/持续部署管道）根据分支类型触发特定操作（例如，从发布分支自动部署）。</li>
+<li><strong>团队协作</strong>：它通过明确分支目的来鼓励团队内部的协作，减少误解并使团队成员更容易在任务之间切换而不会产生混淆。</li>
+</ol>
+<h2 id="规范">规范</h2>
+<h3 id="分支命名前缀">分支命名前缀</h3>
+<p>分支规范通过 <code>feature/</code>，<code>bugfix/</code>，<code>hotfix/</code>，<code>release/</code>和<code>chore/</code> 来描述，其结构应如下：</p>
+<hr>
+<pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
+</code></pre><ul>
+<li><strong>main</strong>：主要开发分支（例如 <code>main</code>、<code>master</code> 或 <code>develop</code>）</li>
+<li><strong>feature/</strong>：用于新功能（例如 <code>feature/add-login-page</code>）</li>
+<li><strong>bugfix/</strong>：用于错误修复（例如 <code>bugfix/fix-header-bug</code>）</li>
+<li><strong>hotfix/</strong>：用于紧急修复（例如 <code>hotfix/security-patch</code>）</li>
+<li><strong>release/</strong>：用于准备发布的分支（例如 <code>release/v1.2.0</code>）</li>
+<li><strong>chore/</strong>：用于非代码任务，如依赖项、文档更新（例如 <code>chore/update-dependencies</code>）</li>
+</ul>
+<hr>
+<h3 id="基本规则">基本规则</h3>
+<ol>
+<li><strong>小写字母和连字符分隔</strong>：始终使用小写字母，并使用连字符分隔单词。例如，<code>feature/new-login</code> 或 <code>bugfix/header-styling</code>。</li>
+<li><strong>仅使用字母数字和连字符</strong>：仅使用小写字母 (a-z)、数字 (0-9) 和连字符。避免使用空格、标点符号和下划线等特殊字符。</li>
+<li><strong>无连续连字符</strong>：确保连字符单独使用，没有连续的连字符（例如，<code>feature/new-login</code>，而不是 <code>feature/new--login</code>）。</li>
+<li><strong>无尾随连字符</strong>：请勿在分支名称末尾添加连字符。例如，使用 <code>feature/new-login</code> 而不是 <code>feature/new-login-</code>。</li>
+<li><strong>清晰简洁</strong>：使分支名称具有描述性但简洁。名称应清楚地表明正在完成的工作。</li>
+<li><strong>包括 Jira（或其他工具）票号</strong>：如果适用，请包括项目管理工具中的票号，以便于跟踪。例如，对于票号 <code>T-123</code>，分支名称可以是 <code>feature/T-123-new-login</code>。</li>
+</ol>
+<h2 id="结论">结论</h2>
+<ul>
+<li><strong>清晰的沟通</strong>：仅凭分支名称就能清楚地了解代码更改的目的。</li>
+<li><strong>自动化友好</strong>：轻松挂接自动化流程（例如，针对 <code>feature</code>, <code>release</code> 等的不同工作流程）。</li>
+<li><strong>可扩展性</strong>：适用于许多开发人员同时处理不同任务的大型团队。</li>
+</ul>
+<p>总之，约定式分支旨在改善 Git 工作流程中的项目组织、沟通和自动化。</p>
+<h2 id="常见问题">常见问题</h2>
+<h3 id="如果团队成员不符合此规范可以使用哪些工具来自动识别">如果团队成员不符合此规范，可以使用哪些工具来自动识别？</h3>
+<p>你可以使用 <a href="https://github.com/commit-check/commit-check">commit-check</a> 来检查分支规范，或者如果你的代码托管在 GitHub 上，则使用 <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>。</p>
+
+  </article>
+</main><footer class="footer">
+  <div class="container">
+    
+    <div class="footer__license">
+      
+      <p>License</p>
+      
+      
+      <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons - CC BY 3.0</a>
+      
+    </div>
+    
+    
+    <div class="footer__logos">
+      
+      
+      <a class="footer__logo" href="https://github.com/conventional-branch/conventional-branch"><svg class="github" viewBox="0 0 128 128">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"></path>
+  <path
+    d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm-.743-.55M28.93 94.535c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm-.575-.618M31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm0 0M34.573 101.373c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm0 0M39.073 103.324c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm0 0M44.016 103.685c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm0 0M48.614 102.903c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
+</svg>
+</a>
+      
+      
+    </div>
+  </div>
+</footer>
+<script src="/js/bundle.js"></script>
+</body>
+</html>
