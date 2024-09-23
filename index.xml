@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>https://conventional-branch.github.io/</link>
+    <link>/</link>
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://conventional-branch.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://conventional-branch.github.io/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://conventional-branch.github.io/about/</guid>
+      <guid>/about/</guid>
       <description>About The Conventional Branch specification was inspired by Conventional Commits.&#xA;Tooling for Conventional Branch commit-check: Commit Check supports checking commit messages, branch naming, committer name/email, commit signoff, customizing error messages, suggested commands and more. commit-check-action: A Github Action for checking commit message formatting, branch naming, committer name, email, commit signoff and more. VSCode Conventional Branch: Add Conventional Branch supports for VSCode. Projects Using Conventional Branch commit-check: Supports checking commit messages, branch naming, committer name/email, commit signoff, customizing error messages, suggested commands and more.</description>
     </item>
   </channel>
