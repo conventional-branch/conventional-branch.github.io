@@ -27,6 +27,8 @@ body {
 
 .container.markdown-body {
   margin: 0 auto;
+  background-color: index.$color-neutral-light !important;
+  color: black !important;
 }
 
 main {
