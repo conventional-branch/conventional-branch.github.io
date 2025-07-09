@@ -105,8 +105,8 @@
 <hr>
 <h3 id="基本规则">基本规则</h3>
 <ol>
-<li><strong>使用小写字母、数字和连字符</strong>：分支名称应全部使用小写字母 (<code>a-z</code>)、数字 (<code>0-9</code>) 及连字符 (<code>-</code>) 进行分隔。避免使用特殊字符、下划线或空格。</li>
-<li><strong>禁止连续或结尾连字符</strong>：确保连字符不连续使用 (<code>feature/new--login</code>)，且不出现在名称末尾 (<code>feature/new-login-</code>)。</li>
+<li><strong>使用小写字母、数字、连字符和点</strong>：分支名称应全部使用小写字母 (<code>a-z</code>)、数字 (<code>0-9</code>) 及连字符 (<code>-</code>) 进行分隔。避免使用特殊字符、下划线或空格。对于 release 分支，可以在描述中使用点 (<code>.</code>) 来表示版本号（例如 <code>release/v1.2.0</code>）。</li>
+<li><strong>禁止连续、开头或结尾的连字符或点</strong>：确保连字符和点不能连续出现（例如 <code>feature/new--login</code>, <code>release/v1.-2.0</code>），也不能出现在描述的开头或结尾（例如 <code>feature/-new-login</code>, <code>release/v1.2.0.</code>）。</li>
 <li><strong>保持清晰简洁</strong>：分支名称应简明扼要，清楚表达工作的内容和目的。</li>
 <li><strong>包含工单编号</strong>：如果适用，应包含项目管理工具中的工单编号，以便于追踪。例如，对于工单 <code>issue-123</code>，分支名称可以是 <code>feature/issue-123-new-login</code>。</li>
 </ol>
