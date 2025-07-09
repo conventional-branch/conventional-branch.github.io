@@ -44,6 +44,8 @@
           
           <li class="dropdown__option"><a href="/">English</a></li>
           
+          <li class="dropdown__option"><a href="/pt-br/">Português brasileiro</a></li>
+          
           <li class="dropdown__option"><a href="/zh/">中文</a></li>
           
         </ul>
@@ -93,17 +95,17 @@
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
 </code></pre><ul>
-<li><strong>main</strong>：主要开发分支（例如 <code>main</code>、<code>master</code> 或 <code>develop</code>）</li>
-<li><strong>feature/</strong>：用于新功能（例如 <code>feature/add-login-page</code>）</li>
-<li><strong>bugfix/</strong>：用于错误修复（例如 <code>bugfix/fix-header-bug</code>）</li>
-<li><strong>hotfix/</strong>：用于紧急修复（例如 <code>hotfix/security-patch</code>）</li>
-<li><strong>release/</strong>：用于准备发布的分支（例如 <code>release/v1.2.0</code>）</li>
-<li><strong>chore/</strong>：用于非代码任务，如依赖项、文档更新（例如 <code>chore/update-dependencies</code>）</li>
+<li><strong><code>main</code></strong>：主要开发分支（例如 <code>main</code>、<code>master</code> 或 <code>develop</code>）</li>
+<li><strong><code>feature/</code></strong>：用于新功能（例如 <code>feature/add-login-page</code>）</li>
+<li><strong><code>bugfix/</code></strong>：用于错误修复（例如 <code>bugfix/fix-header-bug</code>）</li>
+<li><strong><code>hotfix/</code></strong>：用于紧急修复（例如 <code>hotfix/security-patch</code>）</li>
+<li><strong><code>release/</code></strong>：用于准备发布的分支（例如 <code>release/v1.2.0</code>）</li>
+<li><strong><code>chore/</code></strong>：用于非代码任务，如依赖项、文档更新（例如 <code>chore/update-dependencies</code>）</li>
 </ul>
 <hr>
 <h3 id="基本规则">基本规则</h3>
 <ol>
-<li><strong>使用小写字母、数字和连字符</strong>：分支名称应全部使用小写字母 (a-z)、数字 (0-9) 及连字符 (-) 进行分隔。避免使用特殊字符、下划线或空格。</li>
+<li><strong>使用小写字母、数字和连字符</strong>：分支名称应全部使用小写字母 (<code>a-z</code>)、数字 (<code>0-9</code>) 及连字符 (<code>-</code>) 进行分隔。避免使用特殊字符、下划线或空格。</li>
 <li><strong>禁止连续或结尾连字符</strong>：确保连字符不连续使用 (<code>feature/new--login</code>)，且不出现在名称末尾 (<code>feature/new-login-</code>)。</li>
 <li><strong>保持清晰简洁</strong>：分支名称应简明扼要，清楚表达工作的内容和目的。</li>
 <li><strong>包含工单编号</strong>：如果适用，应包含项目管理工具中的工单编号，以便于追踪。例如，对于工单 <code>issue-123</code>，分支名称可以是 <code>feature/issue-123-new-login</code>。</li>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="generator" content="Hugo 0.128.0">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RH9YBHW509');
+  </script>
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>Conventional Branch</title>
+  <meta name="description" content="Uma especificação para dar aos nomes branches um significado legível para humanos e máquinas"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  
+  <meta name="twitter:card" content="Uma especificação para dar aos nomes branches um significado legível para humanos e máquinas">
+  <meta name="twitter:title" content="Conventional Branch">
+  <meta name="twitter:description" content="Uma especificação para dar aos nomes branches um significado legível para humanos e máquinas">
+
+  
+  <meta property="og:title" content="Conventional Branch"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="/pt-br/"/>
+  <meta property="og:description" content="Uma especificação para dar aos nomes branches um significado legível para humanos e máquinas"/>
+  <meta property="og:site_name" content="Conventional Branch"/>
+</head>
+<body class="conventional-branch--loading"><header class="header">
+  <div class="container">
+    <a href="/">
+      <div class="logo"></div>
+    </a>
+    <ul class="header__menu">
+      
+        
+      
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">Languages</button>
+        <ul class="dropdown__options">
+          
+          <li class="dropdown__option"><a href="/">English</a></li>
+          
+          <li class="dropdown__option"><a href="/pt-br/">Português brasileiro</a></li>
+          
+          <li class="dropdown__option"><a href="/zh/">中文</a></li>
+          
+        </ul>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">
+          <a href="/about" class="no-style-a">About</a>
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
+<section class="welcome">
+  <div class="container">
+    <h1 class="welcome__title">Conventional Branch</h1>
+    <p class="welcome__description">Uma especificação para dar aos nomes branches um significado legível para humanos e máquinas</p>
+    
+    <div class="welcome__actions">
+      
+      <a class="welcome__action" href="#resumo">Resumo</a>
+      
+      <a class="welcome__action" href="#especifica%c3%a7%c3%a3o">Especificação Completa</a>
+      
+      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">GitHub</a>
+      
+    </div>
+    
+    <figure class="welcome__image">
+      <img src='/img/git-flow-welcome.png'>
+    </figure>
+  </div>
+</section>
+<main>
+  <article class="container markdown-body">
+    <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
+<h2 id="resumo">Resumo</h2>
+<p>Conventional Branch é uma convenção estruturada e padronizada para nomeação de branches no Git, que visa tornar os nomes dos branches mais legíveis e acionáveis. Sugerimos alguns prefixos de branch que você pode usar, mas também é possível especificar sua própria convenção de nomes. Uma convenção consistente facilita a identificação dos branches pelo tipo.</p>
+<h3 id="pontos-chave">Pontos-chave</h3>
+<ol>
+<li><strong>Nomes de branches orientados ao propósito</strong>: cada nome de branch indica claramente seu propósito, facilitando para todos os desenvolvedores entenderem para que serve o branch.</li>
+<li><strong>Integração com CI/CD</strong>: ao usar nomes de branch consistentes, é possível auxiliar sistemas automatizados (como pipelines de integração contínua/entrega contínua) a disparar ações específicas com base no tipo de branch (como implantação automática a partir de branches de release).</li>
+<li><strong>Colaboração em equipe</strong>: incentiva a colaboração dentro das equipes ao tornar explícito o propósito do branch, reduzindo mal-entendidos e facilitando a troca de tarefas entre membros sem confusão.</li>
+</ol>
+<h2 id="especificação">Especificação</h2>
+<h3 id="prefixos-de-nomeação-de-branch">Prefixos de nomeação de branch</h3>
+<p>A especificação de um branch é descrita com <code>feature/</code>, <code>bugfix/</code>, <code>hotfix/</code>, <code>release/</code> e <code>chore/</code> e deve ser estruturada da seguinte forma:</p>
+<hr>
+<pre tabindex="0"><code>&lt;tipo&gt;/&lt;descrição&gt;
+</code></pre><ul>
+<li><strong><code>main</code></strong>: o branch principal de desenvolvimento (ex.: <code>main</code>, <code>master</code> ou <code>develop</code>);</li>
+<li><strong><code>feature/</code></strong>: para novas funcionalidades (ex.: <code>feature/adicionar-pagina-login</code>);</li>
+<li><strong><code>bugfix/</code></strong>: para correções de bugs (ex.: <code>bugfix/corrigir-bug-header</code>);</li>
+<li><strong><code>hotfix/</code></strong>: para correções urgentes (ex.: <code>hotfix/correcao-seguranca</code>);</li>
+<li><strong><code>release/</code></strong>: para branches de release (ex.: <code>release/v1.2.0</code>); e</li>
+<li><strong><code>chore/</code></strong>: para tarefas não relacionadas ao código, como atualização de dependências ou documentação (ex.: <code>chore/atualizar-dependencias</code>).</li>
+</ul>
+<hr>
+<h3 id="regras-básicas">Regras básicas</h3>
+<ol>
+<li><strong>Use letras minúsculas, números, hífens e pontos</strong>: sempre use letras minúsculas (<code>a-z</code>), números (<code>0-9</code>) e hífens (<code>-</code>) para separar palavras. Evite caracteres especiais, underlines ou espaços. Para branches de release, pontos (<code>.</code>) podem ser usados na descrição para representar versões (ex.: <code>release/v1.2.0</code>).</li>
+<li><strong>Sem hífens ou pontos consecutivos, iniciais ou finais</strong>: certifique-se de que hífens e pontos não apareçam consecutivamente (ex.: <code>feature/novo--login</code>, <code>release/v1.-2.0</code>), nem no início ou fim da descrição (ex.: <code>feature/-novo-login</code>, <code>release/v1.2.0.</code>).</li>
+<li><strong>Seja claro e conciso</strong>: o nome do branch deve ser descritivo, mas conciso, indicando claramente o propósito do trabalho.</li>
+<li><strong>Inclua o número do ticket</strong>: se aplicável, inclua o número do ticket da sua ferramenta de gestão de projetos para facilitar o rastreamento. Por exemplo, para o ticket <code>issue-123</code>, o nome do branch pode ser <code>feature/issue-123-novo-login</code>.</li>
+</ol>
+<h2 id="conclusão">Conclusão</h2>
+<ul>
+<li><strong>Comunicação clara</strong>: o nome do branch por si só já fornece um entendimento claro do propósito da alteração de código.</li>
+<li><strong>Amigável para automação</strong>: facilmente integrável a processos automatizados, possibilitando, por exemplo, a configuração de diferentes workflows para <code>feature</code>, <code>release</code> etc.</li>
+<li><strong>Escalabilidade</strong>: funciona bem em equipes grandes, onde muitos desenvolvedores trabalham em tarefas diferentes simultaneamente.</li>
+</ul>
+<p>Em resumo, o Conventional Branch foi projetado para melhorar a organização do projeto, a comunicação e a automação nos fluxos de trabalho com Git.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="quais-ferramentas-podem-ser-usadas-para-identificar-automaticamente-se-um-membro-da-equipe-não-segue-esta-especificação">Quais ferramentas podem ser usadas para identificar automaticamente se um membro da equipe não segue esta especificação?</h3>
+<p>Você pode usar o <a href="https://github.com/commit-check/commit-check">commit-check</a> para verificar a especificação de branch ou o <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> se seu código estiver hospedado no GitHub.</p>
+
+  </article>
+</main><footer class="footer">
+  <div class="container">
+    
+    <div class="footer__license">
+      
+      <p>License</p>
+      
+      
+      <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons - CC BY 3.0</a>
+      
+    </div>
+    
+    
+    <div class="footer__logos">
+      
+      
+      <a class="footer__logo" href="https://github.com/conventional-branch/conventional-branch"><svg class="github" viewBox="0 0 128 128">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"></path>
+  <path
+    d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm-.743-.55M28.93 94.535c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm-.575-.618M31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm0 0M34.573 101.373c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm0 0M39.073 103.324c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm0 0M44.016 103.685c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm0 0M48.614 102.903c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
+</svg>
+</a>
+      
+      
+    </div>
+  </div>
+</footer>
+<script src="/js/bundle.js"></script>
+</body>
+</html>

@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>/pt-br/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="/pt-br/"
+                hreflang="en"
+                href="/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -15,17 +15,15 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="/"
+                hreflang="pt-br"
+                href="/pt-br/"
                 />
   </url><url>
-    <loc>/about/</loc>
-  </url><url>
-    <loc>/categories/</loc>
+    <loc>/pt-br/categories/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="/pt-br/categories/"
+                hreflang="en"
+                href="/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -34,15 +32,15 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="/categories/"
+                hreflang="pt-br"
+                href="/pt-br/categories/"
                 />
   </url><url>
-    <loc>/tags/</loc>
+    <loc>/pt-br/tags/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="/pt-br/tags/"
+                hreflang="en"
+                href="/tags/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -51,8 +49,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="/tags/"
+                hreflang="pt-br"
+                href="/pt-br/tags/"
                 />
   </url>
 </urlset>
