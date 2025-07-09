@@ -103,8 +103,8 @@
 <hr>
 <h3 id="basic-rules">Basic Rules</h3>
 <ol>
-<li><strong>Use Lowercase Alphanumeric and Hyphens</strong>: Always use lowercase letters (a-z), numbers (0-9), and hyphens to separate words. Avoid special characters, underscores, or spaces.</li>
-<li><strong>No Consecutive or Trailing Hyphens</strong>: Ensure that hyphens are used singly, with no consecutive hyphens (<code>feature/new--login</code>) or at the end (<code>feature/new-login-</code>).</li>
+<li><strong>Use Lowercase Alphanumerics, Hyphens, and Dots</strong>: Always use lowercase letters (<code>a-z</code>), numbers (<code>0-9</code>), and hyphens(<code>-</code>) to separate words. Avoid special characters, underscores, or spaces. For release branches, dots (<code>.</code>) may be used in the description to represent version numbers (e.g., <code>release/v1.2.0</code>).</li>
+<li><strong>No Consecutive, Leading, or Trailing Hyphens or Dots</strong>: Ensure that hyphens and dots do not appear consecutively (e.g., <code>feature/new--login</code>, <code>release/v1.-2.0</code>), nor at the start or end of the description (e.g., <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
 <li><strong>Keep It Clear and Concise</strong>: The branch name should be descriptive yet concise, clearly indicating the purpose of the work.</li>
 <li><strong>Include Ticket Numbers</strong>: If applicable, include the ticket number from your project management tool to make tracking easier. For example, for a ticket <code>issue-123</code>, the branch name could be <code>feature/issue-123-new-login</code>.</li>
 </ol>
