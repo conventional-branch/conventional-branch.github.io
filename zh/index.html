@@ -91,13 +91,13 @@
 </ol>
 <h2 id="规范">规范</h2>
 <h3 id="分支命名前缀">分支命名前缀</h3>
-<p>分支规范通过 <code>feature/</code>，<code>bugfix/</code>，<code>hotfix/</code>，<code>release/</code>和<code>chore/</code> 来描述，其结构应如下：</p>
+<p>分支规范支持以下前缀，其结构应如下：</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
 </code></pre><ul>
 <li><strong><code>main</code></strong>：主要开发分支（例如 <code>main</code>、<code>master</code> 或 <code>develop</code>）</li>
-<li><strong><code>feature/</code></strong>：用于新功能（例如 <code>feature/add-login-page</code>）</li>
-<li><strong><code>bugfix/</code></strong>：用于错误修复（例如 <code>bugfix/fix-header-bug</code>）</li>
+<li><strong><code>feature/</code></strong> (或 <strong><code>feat/</code></strong>)：用于新功能（例如 <code>feature/add-login-page</code>, <code>feat/add-login-page</code>）</li>
+<li><strong><code>bugfix/</code></strong> (或 <strong><code>fix/</code></strong>)：用于错误修复（例如 <code>bugfix/fix-header-bug</code>, <code>fix/header-bug</code>）</li>
 <li><strong><code>hotfix/</code></strong>：用于紧急修复（例如 <code>hotfix/security-patch</code>）</li>
 <li><strong><code>release/</code></strong>：用于准备发布的分支（例如 <code>release/v1.2.0</code>）</li>
 <li><strong><code>chore/</code></strong>：用于非代码任务，如依赖项、文档更新（例如 <code>chore/update-dependencies</code>）</li>
