@@ -12,7 +12,7 @@
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/about/</guid>
-      <description>About The Conventional Branch specification was inspired by Conventional Commits.&#xA;Tooling for Conventional Branch commit-check: Commit Check supports checking commit messages, branch naming, committer name/email, commit signoff, customizing error messages, suggested commands and more. commit-check-action: A Github Action for checking commit message formatting, branch naming, committer name, email, commit signoff and more. VSCode Conventional Branch: Add Conventional Branch supports for VSCode. Projects Using Conventional Branch ansible/metrics-utility: Standalone utility for github.com/ansible/awx. cuhacking/2025: Flagship platform for cuHacking&amp;rsquo;s 2025 hackathon.</description>
+      <description>About The Conventional Branch specification was inspired by Conventional Commits.&#xA;Tooling for Conventional Branch commit-check: Commit Check supports checking commit messages, branch naming, committer name/email, commit signoff, customizing error messages, suggested commands and more. commit-check-action: A Github Action for checking commit message formatting, branch naming, committer name, email, commit signoff and more. VSCode Conventional Branch: Customizable Conventional Branch for VSCode. Projects Using Conventional Branch ansible/metrics-utility: Standalone utility for github.com/ansible/awx. cuhacking/2025: Flagship platform for cuHacking&amp;rsquo;s 2025 hackathon.</description>
     </item>
   </channel>
 </rss>
