@@ -2,12 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/zh/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="/de/"
-                />
+    <loc>/de/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -33,17 +28,17 @@
                 hreflang="zh"
                 href="/zh/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="/de/"
+                />
   </url><url>
-    <loc>/zh/categories/</loc>
+    <loc>/de/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
                 href="/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="/de/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -65,17 +60,17 @@
                 hreflang="zh"
                 href="/zh/categories/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="/de/categories/"
+                />
   </url><url>
-    <loc>/zh/tags/</loc>
+    <loc>/de/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
                 href="/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="/de/tags/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -96,6 +91,11 @@
                 rel="alternate"
                 hreflang="zh"
                 href="/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="/de/tags/"
                 />
   </url>
 </urlset>

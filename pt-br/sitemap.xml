@@ -5,6 +5,11 @@
     <loc>/pt-br/</loc>
     <xhtml:link
                 rel="alternate"
+                hreflang="de"
+                href="/de/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="fr"
                 href="/fr/"
                 />
@@ -37,6 +42,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="de"
+                href="/de/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="fr"
                 href="/fr/categories/"
                 />
@@ -61,6 +71,11 @@
                 rel="alternate"
                 hreflang="en"
                 href="/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="/de/tags/"
                 />
     <xhtml:link
                 rel="alternate"
