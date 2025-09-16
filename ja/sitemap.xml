@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/fr/</loc>
+    <loc>/ja/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="ja"
-                href="/ja/"
+                hreflang="fr"
+                href="/fr/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -25,11 +25,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="/fr/"
+                hreflang="ja"
+                href="/ja/"
                 />
   </url><url>
-    <loc>/fr/categories/</loc>
+    <loc>/ja/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -37,8 +37,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ja"
-                href="/ja/categories/"
+                hreflang="fr"
+                href="/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -52,11 +52,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="/fr/categories/"
+                hreflang="ja"
+                href="/ja/categories/"
                 />
   </url><url>
-    <loc>/fr/tags/</loc>
+    <loc>/ja/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -64,8 +64,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ja"
-                href="/ja/tags/"
+                hreflang="fr"
+                href="/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -79,8 +79,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/"
+                hreflang="ja"
+                href="/ja/tags/"
                 />
   </url>
 </urlset>

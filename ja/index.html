@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="generator" content="Hugo 0.128.0">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RH9YBHW509');
+  </script>
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>慣例的ブランチ</title>
+  <meta name="description" content="ブランチに人間と機械が読める意味を追加する仕様"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  
+  <meta name="twitter:card" content="ブランチに人間と機械が読める意味を追加する仕様">
+  <meta name="twitter:title" content="慣例的ブランチ">
+  <meta name="twitter:description" content="ブランチに人間と機械が読める意味を追加する仕様">
+
+  
+  <meta property="og:title" content="慣例的ブランチ"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="/ja/"/>
+  <meta property="og:description" content="ブランチに人間と機械が読める意味を追加する仕様"/>
+  <meta property="og:site_name" content="慣例的ブランチ"/>
+</head>
+<body class="conventional-branch--loading"><header class="header">
+  <div class="container">
+    <a href="/">
+      <div class="logo"></div>
+    </a>
+    <ul class="header__menu">
+      
+        
+      
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">Languages</button>
+        <ul class="dropdown__options">
+          
+          <li class="dropdown__option"><a href="/fr/">Français</a></li>
+          
+          <li class="dropdown__option"><a href="/ja/">日本語</a></li>
+          
+          <li class="dropdown__option"><a href="/">English</a></li>
+          
+          <li class="dropdown__option"><a href="/pt-br/">Português brasileiro</a></li>
+          
+          <li class="dropdown__option"><a href="/zh/">中文</a></li>
+          
+        </ul>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">
+          <a href="/about" class="no-style-a">About</a>
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
+<section class="welcome">
+  <div class="container">
+    <h1 class="welcome__title">慣例的ブランチ</h1>
+    <p class="welcome__description">ブランチに人間と機械が読める意味を追加する仕様</p>
+    
+    <div class="welcome__actions">
+      
+      <a class="welcome__action" href="#%e8%a6%81%e7%b4%84">要約</a>
+      
+      <a class="welcome__action" href="#%e4%bb%95%e6%a7%98">完全な仕様</a>
+      
+      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">貢献</a>
+      
+    </div>
+    
+    <figure class="welcome__image">
+      <img src='/img/git-flow-welcome.png'>
+    </figure>
+  </div>
+</section>
+<main>
+  <article class="container markdown-body">
+    <h1 id="慣例的ブランチ-100">慣例的ブランチ 1.0.0</h1>
+<h2 id="要約">要約</h2>
+<p>慣例的ブランチとは、Git ブランチの構造化された標準的な命名規則を指し、ブランチをより読みやすく実用的にすることを目的としています。使用したいブランチのプレフィックスをいくつか提案していますが、独自の命名規則を指定することもできます。一貫した命名規則により、タイプ別にブランチを識別しやすくなります。</p>
+<h3 id="重要なポイント">重要なポイント</h3>
+<ol>
+<li><strong>目的主導のブランチ名</strong>: 各ブランチ名はその目的を明確に示し、すべての開発者がそのブランチの用途を理解しやすくします。</li>
+<li><strong>CI/CD との統合</strong>: 一貫したブランチ名を使用することで、自動化システム（継続的インテグレーション/継続的デプロイメントパイプラインなど）がブランチタイプに基づいて特定のアクションをトリガーするのに役立ちます（例：リリースブランチからの自動デプロイ）。</li>
+<li><strong>チーム連携</strong>: ブランチの目的を明確にすることでチーム内の連携を促進し、誤解を減らし、チームメンバーが混乱することなくタスク間を切り替えやすくします。</li>
+</ol>
+<h2 id="仕様">仕様</h2>
+<h3 id="ブランチ命名のプレフィックス">ブランチ命名のプレフィックス</h3>
+<p>ブランチ仕様は以下のプレフィックスをサポートし、次のような構造にする必要があります：</p>
+<hr>
+<pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
+</code></pre><ul>
+<li><strong><code>main</code></strong>: メイン開発ブランチ（例：<code>main</code>、<code>master</code>）</li>
+<li><strong><code>feature/</code></strong>（または <strong><code>feat/</code></strong>）: 新機能用（例：<code>feature/add-login-page</code>、<code>feat/add-login-page</code>）</li>
+<li><strong><code>bugfix/</code></strong>（または <strong><code>fix/</code></strong>）: バグ修正用（例：<code>bugfix/fix-header-bug</code>、<code>fix/header-bug</code>）</li>
+<li><strong><code>hotfix/</code></strong>: 緊急修正用（例：<code>hotfix/security-patch</code>）</li>
+<li><strong><code>release/</code></strong>: リリース準備ブランチ用（例：<code>release/v1.2.0</code>）</li>
+<li><strong><code>chore/</code></strong>: 依存関係やドキュメント更新などの非コードタスク用（例：<code>chore/update-dependencies</code>）</li>
+</ul>
+<hr>
+<h3 id="基本ルール">基本ルール</h3>
+<ol>
+<li><strong>小文字の英数字、ハイフン、ドットを使用</strong>: 常に小文字（<code>a-z</code>）、数字（<code>0-9</code>）、ハイフン（<code>-</code>）を使用して単語を区切ります。特殊文字、アンダースコア、スペースは避けてください。リリースブランチでは、バージョン番号を表すために説明部分でドット（<code>.</code>）を使用できます（例：<code>release/v1.2.0</code>）。</li>
+<li><strong>連続、先頭、末尾のハイフンやドットは禁止</strong>: ハイフンとドットが連続して表示されないように（例：<code>feature/new--login</code>、<code>release/v1.-2.0</code>）、説明の先頭や末尾に表示されないようにしてください（例：<code>feature/-new-login</code>、<code>release/v1.2.0.</code>）。</li>
+<li><strong>明確で簡潔に保つ</strong>: ブランチ名は説明的でありながら簡潔で、作業の目的を明確に示す必要があります。</li>
+<li><strong>チケット番号を含める</strong>: 該当する場合、プロジェクト管理ツールからのチケット番号を含めて追跡を容易にします。例えば、チケット <code>issue-123</code> の場合、ブランチ名は <code>feature/issue-123-new-login</code> とすることができます。</li>
+</ol>
+<h2 id="結論">結論</h2>
+<ul>
+<li><strong>明確なコミュニケーション</strong>: ブランチ名だけで、そのコード変更の目的を明確に理解できます。</li>
+<li><strong>自動化フレンドリー</strong>: 自動化プロセスに簡単にフックできます（例：<code>feature</code>、<code>release</code> などの異なるワークフロー）。</li>
+<li><strong>スケーラビリティ</strong>: 多くの開発者が同時に異なるタスクに取り組む大規模なチームでうまく機能します。</li>
+</ul>
+<p>要約すると、慣例的ブランチは Git ワークフロー内のプロジェクト組織、コミュニケーション、自動化を改善するために設計されています。</p>
+<h2 id="よくある質問">よくある質問</h2>
+<h3 id="チームメンバーがこの仕様を満たしていない場合自動的に識別するために使用できるツールは何ですか">チームメンバーがこの仕様を満たしていない場合、自動的に識別するために使用できるツールは何ですか？</h3>
+<p><a href="https://github.com/commit-check/commit-check">commit-check</a> を使用してブランチ仕様をチェックするか、コードが GitHub でホストされている場合は <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> を使用できます。</p>
+
+  </article>
+</main><footer class="footer">
+  <div class="container">
+    
+    <div class="footer__license">
+      
+      <p>License</p>
+      
+      
+      <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons - CC BY 3.0</a>
+      
+    </div>
+    
+    
+    <div class="footer__logos">
+      
+      
+      <a class="footer__logo" href="https://github.com/conventional-branch/conventional-branch"><svg class="github" viewBox="0 0 128 128">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"></path>
+  <path
+    d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm-.743-.55M28.93 94.535c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm-.575-.618M31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm0 0M34.573 101.373c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm0 0M39.073 103.324c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm0 0M44.016 103.685c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm0 0M48.614 102.903c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
+</svg>
+</a>
+      
+      
+    </div>
+  </div>
+</footer>
+<script src="/js/bundle.js"></script>
+</body>
+</html>
