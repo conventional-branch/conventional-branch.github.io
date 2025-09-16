@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/pt-br/</loc>
+    <loc>/ru/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -25,8 +25,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ru"
-                href="/ru/"
+                hreflang="pt-br"
+                href="/pt-br/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -35,11 +35,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="/pt-br/"
+                hreflang="ru"
+                href="/ru/"
                 />
   </url><url>
-    <loc>/pt-br/categories/</loc>
+    <loc>/ru/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -62,8 +62,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ru"
-                href="/ru/categories/"
+                hreflang="pt-br"
+                href="/pt-br/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -72,11 +72,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="/pt-br/categories/"
+                hreflang="ru"
+                href="/ru/categories/"
                 />
   </url><url>
-    <loc>/pt-br/tags/</loc>
+    <loc>/ru/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -99,8 +99,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ru"
-                href="/ru/tags/"
+                hreflang="pt-br"
+                href="/pt-br/tags/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -109,8 +109,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="/pt-br/tags/"
+                hreflang="ru"
+                href="/ru/tags/"
                 />
   </url>
 </urlset>

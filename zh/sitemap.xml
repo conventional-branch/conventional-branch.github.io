@@ -30,6 +30,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="ru"
+                href="/ru/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh"
                 href="/zh/"
                 />
@@ -62,6 +67,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="ru"
+                href="/ru/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh"
                 href="/zh/categories/"
                 />
@@ -91,6 +101,11 @@
                 rel="alternate"
                 hreflang="pt-br"
                 href="/pt-br/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="/ru/tags/"
                 />
     <xhtml:link
                 rel="alternate"

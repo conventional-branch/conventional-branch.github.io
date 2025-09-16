@@ -27,6 +27,11 @@
   </sitemap>
   
   <sitemap>
+    <loc>/ru/sitemap.xml</loc>
+    
+  </sitemap>
+  
+  <sitemap>
     <loc>/zh/sitemap.xml</loc>
     
   </sitemap>
