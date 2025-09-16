@@ -25,6 +25,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="pl"
+                href="/pl/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="ru"
                 href="/ru/"
                 />
@@ -62,6 +67,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="pl"
+                href="/pl/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="ru"
                 href="/ru/categories/"
                 />
@@ -96,6 +106,11 @@
                 rel="alternate"
                 hreflang="ja"
                 href="/ja/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pl"
+                href="/pl/tags/"
                 />
     <xhtml:link
                 rel="alternate"

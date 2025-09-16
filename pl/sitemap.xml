@@ -2,11 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/fr/</loc>
+    <loc>/pl/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
                 href="/de/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -17,11 +22,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pl"
-                href="/pl/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -40,11 +40,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="/fr/"
+                hreflang="pl"
+                href="/pl/"
                 />
   </url><url>
-    <loc>/fr/categories/</loc>
+    <loc>/pl/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -57,13 +57,13 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ja"
-                href="/ja/categories/"
+                hreflang="fr"
+                href="/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pl"
-                href="/pl/categories/"
+                hreflang="ja"
+                href="/ja/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -82,11 +82,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="/fr/categories/"
+                hreflang="pl"
+                href="/pl/categories/"
                 />
   </url><url>
-    <loc>/fr/tags/</loc>
+    <loc>/pl/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -99,13 +99,13 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ja"
-                href="/ja/tags/"
+                hreflang="fr"
+                href="/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pl"
-                href="/pl/tags/"
+                hreflang="ja"
+                href="/ja/tags/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -124,8 +124,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/"
+                hreflang="pl"
+                href="/pl/tags/"
                 />
   </url>
 </urlset>
