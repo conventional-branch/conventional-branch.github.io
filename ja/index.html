@@ -128,6 +128,8 @@
 </ul>
 <p>要約すると、慣例的ブランチは Git ワークフロー内のプロジェクト組織、コミュニケーション、自動化を改善するために設計されています。</p>
 <h2 id="よくある質問">よくある質問</h2>
+<h3 id="なぜブランチの種類はconventional-commits例buildcidocsstylerefactorほど詳細ではないのですか">なぜブランチの種類はConventional Commits（例：<code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）ほど詳細ではないのですか？</h3>
+<p>ブランチはコミットとは異なり、一時的なもので、主にマージされるまで使用されます。ブランチにあまり多くの種類を導入することは不要で、管理や記憶が難しくなります。</p>
 <h3 id="チームメンバーがこの仕様を満たしていない場合自動的に識別するために使用できるツールは何ですか">チームメンバーがこの仕様を満たしていない場合、自動的に識別するために使用できるツールは何ですか？</h3>
 <p><a href="https://github.com/commit-check/commit-check">commit-check</a> を使用してブランチ仕様をチェックするか、コードが GitHub でホストされている場合は <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> を使用できます。</p>
 
