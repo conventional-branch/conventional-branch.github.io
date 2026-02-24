@@ -41,4 +41,9 @@
     
   </sitemap>
   
+  <sitemap>
+    <loc>/zh-hant/sitemap.xml</loc>
+    
+  </sitemap>
+  
 </sitemapindex>

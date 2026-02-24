@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/ru/</loc>
+    <loc>/zh-hant/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -35,8 +35,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-hant"
-                href="/zh-hant/"
+                hreflang="ru"
+                href="/ru/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -45,11 +45,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ru"
-                href="/ru/"
+                hreflang="zh-hant"
+                href="/zh-hant/"
                 />
   </url><url>
-    <loc>/ru/categories/</loc>
+    <loc>/zh-hant/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -82,6 +82,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="ru"
+                href="/ru/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh"
                 href="/zh/categories/"
                 />
@@ -90,13 +95,8 @@
                 hreflang="zh-hant"
                 href="/zh-hant/categories/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru"
-                href="/ru/categories/"
-                />
   </url><url>
-    <loc>/ru/tags/</loc>
+    <loc>/zh-hant/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -129,6 +129,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="ru"
+                href="/ru/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh"
                 href="/zh/tags/"
                 />
@@ -136,11 +141,6 @@
                 rel="alternate"
                 hreflang="zh-hant"
                 href="/zh-hant/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru"
-                href="/ru/tags/"
                 />
   </url>
 </urlset>

@@ -40,6 +40,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="zh-hant"
+                href="/zh-hant/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh"
                 href="/zh/"
                 />
@@ -82,6 +87,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="zh-hant"
+                href="/zh-hant/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh"
                 href="/zh/categories/"
                 />
@@ -121,6 +131,11 @@
                 rel="alternate"
                 hreflang="ru"
                 href="/ru/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hant"
+                href="/zh-hant/tags/"
                 />
     <xhtml:link
                 rel="alternate"

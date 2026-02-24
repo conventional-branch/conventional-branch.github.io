@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="generator" content="Hugo 0.128.0">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RH9YBHW509');
+  </script>
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>約定式分支</title>
+  <meta name="description" content="一種為 Git branch 增添人機可讀含義的規範"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  
+  <meta name="twitter:card" content="一種為 Git branch 增添人機可讀含義的規範">
+  <meta name="twitter:title" content="約定式分支">
+  <meta name="twitter:description" content="一種為 Git branch 增添人機可讀含義的規範">
+
+  
+  <meta property="og:title" content="約定式分支"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="/zh-hant/"/>
+  <meta property="og:description" content="一種為 Git branch 增添人機可讀含義的規範"/>
+  <meta property="og:site_name" content="約定式分支"/>
+</head>
+<body class="conventional-branch--loading"><header class="header">
+  <div class="container">
+    <a href="/">
+      <div class="logo"></div>
+    </a>
+    <ul class="header__menu">
+      
+        
+      
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">Languages</button>
+        <ul class="dropdown__options">
+          
+          <li class="dropdown__option"><a href="/de/">Deutsch</a></li>
+          
+          <li class="dropdown__option"><a href="/fr/">Français</a></li>
+          
+          <li class="dropdown__option"><a href="/ja/">日本語</a></li>
+          
+          <li class="dropdown__option"><a href="/">English</a></li>
+          
+          <li class="dropdown__option"><a href="/pl/">Polski</a></li>
+          
+          <li class="dropdown__option"><a href="/pt-br/">Português brasileiro</a></li>
+          
+          <li class="dropdown__option"><a href="/ru/">Русский</a></li>
+          
+          <li class="dropdown__option"><a href="/zh-hant/">繁體中文</a></li>
+          
+          <li class="dropdown__option"><a href="/zh/">中文</a></li>
+          
+        </ul>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">
+          <a href="/about" class="no-style-a">About</a>
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
+<section class="welcome">
+  <div class="container">
+    <h1 class="welcome__title">約定式分支</h1>
+    <p class="welcome__description">一種為 Git branch 增添人機可讀含義的規範</p>
+    
+    <div class="welcome__actions">
+      
+      <a class="welcome__action" href="#%e6%a6%82%e8%bf%b0">概述</a>
+      
+      <a class="welcome__action" href="#%e8%a6%8f%e7%af%84">完整規範</a>
+      
+      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">貢獻</a>
+      
+    </div>
+    
+    <figure class="welcome__image">
+      <img src='/img/git-flow-welcome.png'>
+    </figure>
+  </div>
+</section>
+<main>
+  <article class="container markdown-body">
+    <h1 id="約定式分支-100">約定式分支 1.0.0</h1>
+<h2 id="概述">概述</h2>
+<p>約定式分支（Conventional Branch）是指針對 Git branch 的結構化、標準化命名慣例，旨在讓 branch 更易讀且更具可操作性。我們提供一些您可能想採用的 branch 前綴建議，但您也可以自行制定命名慣例。一致的命名慣例能讓您更容易依類型辨識 branch。</p>
+<h3 id="要點">要點</h3>
+<ol>
+<li><strong>以目的為導向的 branch 名稱</strong>：每個 branch 名稱都清楚表明其目的，讓所有開發人員都能輕鬆理解該 branch 的用途。</li>
+<li><strong>與 CI/CD 整合</strong>：透過一致的 branch 命名，它可以協助自動化系統（例如 Continuous Integration/Continuous Deployment 管線）根據 branch 類型觸發特定動作（例如，從 release branch 自動部署）。</li>
+<li><strong>團隊協作</strong>：藉由明確標示 branch 的目的，促進團隊協作、降低誤解，並讓成員更容易在不同任務間切換而不致混淆。</li>
+</ol>
+<h2 id="規範">規範</h2>
+<h3 id="branch-命名前綴">branch 命名前綴</h3>
+<p>此 branch 規範支援以下前綴，並應採用如下結構：</p>
+<hr>
+<pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
+</code></pre><ul>
+<li><strong><code>main</code></strong>：主要開發 branch（例如 <code>main</code>、<code>master</code> 或 <code>develop</code>）</li>
+<li><strong><code>feature/</code></strong>（或 <strong><code>feat/</code></strong>）：用於新功能（例如 <code>feature/add-login-page</code>、<code>feat/add-login-page</code>）</li>
+<li><strong><code>bugfix/</code></strong>（或 <strong><code>fix/</code></strong>）：用於 bug 修復（例如 <code>bugfix/fix-header-bug</code>、<code>fix/header-bug</code>）</li>
+<li><strong><code>hotfix/</code></strong>：用於緊急修復（例如 <code>hotfix/security-patch</code>）</li>
+<li><strong><code>release/</code></strong>：用於準備發布的 branch（例如 <code>release/v1.2.0</code>）</li>
+<li><strong><code>chore/</code></strong>：用於非程式碼任務，例如相依套件、文件更新（例如 <code>chore/update-dependencies</code>）</li>
+</ul>
+<hr>
+<h3 id="基本規則">基本規則</h3>
+<ol>
+<li><strong>使用小寫英數、連字號與點</strong>：一律使用小寫字母（<code>a-z</code>）、數字（<code>0-9</code>）與連字號（<code>-</code>）分隔單字，避免特殊字元、底線或空白。對於 release branch，可在描述中使用點（<code>.</code>）表示版本號（例如 <code>release/v1.2.0</code>）。</li>
+<li><strong>禁止連續、開頭或結尾的連字號或點</strong>：連字號與點不得連續出現（例如 <code>feature/new--login</code>、<code>release/v1.-2.0</code>），也不得出現在描述的開頭或結尾（例如 <code>feature/-new-login</code>、<code>release/v1.2.0.</code>）。</li>
+<li><strong>保持清楚且精簡</strong>：branch 名稱應在具描述性的同時保持精簡，清楚表達工作的內容與目的。</li>
+<li><strong>包含工單編號</strong>：若適用，請包含專案管理工具的工單編號，方便追蹤。例如，對於工單 <code>issue-123</code>，branch 名稱可以是 <code>feature/issue-123-new-login</code>。</li>
+</ol>
+<h2 id="結論">結論</h2>
+<ul>
+<li><strong>清楚溝通</strong>：僅從 branch 名稱即可清楚理解此程式碼變更的目的。</li>
+<li><strong>自動化友善</strong>：容易串接自動化流程（例如針對 <code>feature</code>、<code>release</code> 等的不同工作流程）。</li>
+<li><strong>可擴充性</strong>：適用於大型團隊，同時有許多開發人員處理不同任務的情境。</li>
+</ul>
+<p>總結來說，Conventional Branch 的設計目標是改善 Git 工作流程中的專案組織、溝通與自動化。</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="為什麼-branch-type-不像-conventional-commits例如-buildcidocsstylerefactor那麼詳細">為什麼 branch type 不像 Conventional Commits（例如 <code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）那麼詳細？</h3>
+<p>branch 與 commit 不同——branch 是暫時性的，通常只會使用到 merge 為止。若為 branch 引入過多 type 並無必要，反而會讓管理與記憶變得更困難。</p>
+<h3 id="有哪些工具可以自動識別團隊成員是否符合此規範">有哪些工具可以自動識別團隊成員是否符合此規範？</h3>
+<p>您可以使用 <a href="https://github.com/commit-check/commit-check">commit-check</a> 檢查 branch 規範；若您的程式碼託管於 GitHub，則可使用 <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>。</p>
+
+  </article>
+</main><footer class="footer">
+  <div class="container">
+    
+    <div class="footer__license">
+      
+      <p>License</p>
+      
+      
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons - CC BY 4.0</a>
+      
+    </div>
+    
+    
+    <div class="footer__logos">
+      
+      
+      <a class="footer__logo" href="https://github.com/conventional-branch/conventional-branch"><svg class="github" viewBox="0 0 128 128">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"></path>
+  <path
+    d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm-.743-.55M28.93 94.535c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm-.575-.618M31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm0 0M34.573 101.373c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm0 0M39.073 103.324c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm0 0M44.016 103.685c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm0 0M48.614 102.903c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
+</svg>
+</a>
+      
+      
+    </div>
+  </div>
+</footer>
+<script src="/js/bundle.js"></script>
+</body>
+</html>
