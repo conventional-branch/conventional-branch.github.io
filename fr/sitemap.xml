@@ -10,6 +10,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="es"
+                href="/es/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="ja"
                 href="/ja/"
                 />
@@ -62,6 +67,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="es"
+                href="/es/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="ja"
                 href="/ja/categories/"
                 />
@@ -106,6 +116,11 @@
                 rel="alternate"
                 hreflang="de"
                 href="/de/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="/es/tags/"
                 />
     <xhtml:link
                 rel="alternate"
