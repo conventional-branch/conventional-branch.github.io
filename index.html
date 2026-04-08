@@ -124,6 +124,127 @@
 <li><strong>Keep It Clear and Concise</strong>: The branch name should be descriptive yet concise, clearly indicating the purpose of the work.</li>
 <li><strong>Include Ticket Numbers</strong>: If applicable, include the ticket number from your project management tool to make tracking easier. For example, for a ticket <code>issue-123</code>, the branch name could be <code>feature/issue-123-new-login</code>.</li>
 </ol>
+<h3 id="formal-grammar">Formal Grammar</h3>
+<p>The following Augmented Backus-Naur Form (ABNF) grammar formally defines valid branch names:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; lowercase a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; 0-9</span>
+</span></span></code></pre></div><blockquote>
+<p>Note: Consecutive hyphens or dots, and hyphens or dots at the start or end of the description, are not permitted.</p>
+</blockquote>
+<h3 id="examples">Examples</h3>
+<table>
+<thead>
+<tr>
+<th>Branch Name</th>
+<th>Valid</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>✅</td>
+<td>Trunk branch</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>✅</td>
+<td>Trunk branch</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>✅</td>
+<td>Trunk branch</td>
+</tr>
+<tr>
+<td><code>feature/add-login-page</code></td>
+<td>✅</td>
+<td>New feature</td>
+</tr>
+<tr>
+<td><code>feat/add-login-page</code></td>
+<td>✅</td>
+<td>Short alias for feature</td>
+</tr>
+<tr>
+<td><code>bugfix/fix-header-bug</code></td>
+<td>✅</td>
+<td>Bug fix</td>
+</tr>
+<tr>
+<td><code>fix/header-bug</code></td>
+<td>✅</td>
+<td>Short alias for bugfix</td>
+</tr>
+<tr>
+<td><code>hotfix/security-patch</code></td>
+<td>✅</td>
+<td>Urgent fix</td>
+</tr>
+<tr>
+<td><code>release/v1.2.0</code></td>
+<td>✅</td>
+<td>Release with version</td>
+</tr>
+<tr>
+<td><code>chore/update-dependencies</code></td>
+<td>✅</td>
+<td>Non-code task</td>
+</tr>
+<tr>
+<td><code>feature/issue-123-new-login</code></td>
+<td>✅</td>
+<td>Feature with ticket number</td>
+</tr>
+<tr>
+<td><code>Feature/Add-Login</code></td>
+<td>❌</td>
+<td>Uppercase letters not allowed</td>
+</tr>
+<tr>
+<td><code>feature/new--login</code></td>
+<td>❌</td>
+<td>Consecutive hyphens not allowed</td>
+</tr>
+<tr>
+<td><code>feature/-new-login</code></td>
+<td>❌</td>
+<td>Leading hyphen in description</td>
+</tr>
+<tr>
+<td><code>feature/new-login-</code></td>
+<td>❌</td>
+<td>Trailing hyphen in description</td>
+</tr>
+<tr>
+<td><code>release/v1.-2.0</code></td>
+<td>❌</td>
+<td>Hyphen adjacent to dot</td>
+</tr>
+<tr>
+<td><code>fix/header bug</code></td>
+<td>❌</td>
+<td>Spaces not allowed</td>
+</tr>
+<tr>
+<td><code>fix/header_bug</code></td>
+<td>❌</td>
+<td>Underscores not allowed</td>
+</tr>
+<tr>
+<td><code>unknown/some-task</code></td>
+<td>❌</td>
+<td>Unknown prefix type</td>
+</tr>
+</tbody>
+</table>
 <h2 id="conclusion">Conclusion</h2>
 <ul>
 <li><strong>Clear Communication</strong>: The branch name alone provides a clear understanding of its purpose the code change.</li>
@@ -132,10 +253,16 @@
 </ul>
 <p>In summary, conventional branch is designed to improve project organization, communication, and automation within Git workflows.</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="why-arent-branch-types-as-detailed-as-conventional-commits-eg-build-ci-docs-style-refactor">Why aren’t branch types as detailed as Conventional Commits (e.g., <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<h3 id="why-arent-branch-types-as-detailed-as-conventional-commits-eg-build-ci-docs-style-refactor">Why aren&rsquo;t branch types as detailed as Conventional Commits (e.g., <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Branches are different from commits—they are temporary and mainly used until merged. Introducing too many types for branches would be unnecessary and would make them harder to manage and remember.</p>
 <h3 id="what-tools-can-be-used-to-automatically-identify-if-a-team-member-does-not-meet-this-specification">What tools can be used to automatically identify if a team member does not meet this specification?</h3>
 <p>You can use <a href="https://github.com/commit-check/commit-check">commit-check</a> to check branch specification or <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> if your codes are hosted on GitHub.</p>
+<h3 id="can-i-define-my-own-branch-types-beyond-the-ones-listed">Can I define my own branch types beyond the ones listed?</h3>
+<p>Yes. The specification defines a recommended set of types, but teams can define additional custom types to fit their workflow. It is important, however, to document custom types clearly so that all team members and automated tooling are aware of them.</p>
+<h3 id="how-does-conventional-branch-relate-to-conventional-commits">How does Conventional Branch relate to Conventional Commits?</h3>
+<p>Conventional Branch is inspired by <a href="https://www.conventionalcommits.org">Conventional Commits</a> and follows a similar philosophy: bring human- and machine-readable structure to Git metadata. While Conventional Commits standardizes commit messages, Conventional Branch standardizes branch names. The two specifications complement each other naturally.</p>
+<h3 id="how-should-i-handle-long-lived-branches-like-develop-or-staging">How should I handle long-lived branches like <code>develop</code> or <code>staging</code>?</h3>
+<p>Long-lived integration or environment branches that are part of the core specification (see the <code>trunk-branch</code> rule in the grammar) such as <code>main</code>, <code>master</code>, or <code>develop</code> are treated as trunk branches and do not require a prefix. Teams may additionally choose to treat other long-lived branches (for example, <code>staging</code> or <code>production</code>) as “trunk-like” branches by convention, but these are team-specific extensions outside the formal grammar. In all cases, such branches should be named consistently across your project.</p>
 
   </article>
 </main><footer class="footer">

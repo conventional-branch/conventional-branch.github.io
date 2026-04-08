@@ -124,6 +124,127 @@
 <li><strong>Zachowaj jasność i zwięzłość</strong>: Nazwa gałęzi powinna być opisowa, ale zwięzła, jasno wskazująca cel pracy.</li>
 <li><strong>Dołącz numery biletów</strong>: Jeśli to możliwe, dołącz numer biletu z narzędzia zarządzania projektami, aby ułatwić śledzenie. Na przykład, dla biletu <code>issue-123</code>, nazwa gałęzi mogłaby być <code>feature/issue-123-new-login</code>.</li>
 </ol>
+<h3 id="formalna-gramatyka">Formalna gramatyka</h3>
+<p>Poniższa gramatyka ABNF (Augmented Backus-Naur Form) formalnie definiuje prawidłowe nazwy gałęzi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; małe litery a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; cyfry 0-9</span>
+</span></span></code></pre></div><blockquote>
+<p>Uwaga: Kolejne myślniki lub kropki oraz myślniki lub kropki na początku lub końcu opisu nie są dozwolone.</p>
+</blockquote>
+<h3 id="przykłady">Przykłady</h3>
+<table>
+<thead>
+<tr>
+<th>Nazwa gałęzi</th>
+<th>Prawidłowa</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>✅</td>
+<td>Gałąź główna</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>✅</td>
+<td>Gałąź główna</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>✅</td>
+<td>Gałąź główna</td>
+</tr>
+<tr>
+<td><code>feature/add-login-page</code></td>
+<td>✅</td>
+<td>Nowa funkcja</td>
+</tr>
+<tr>
+<td><code>feat/add-login-page</code></td>
+<td>✅</td>
+<td>Krótki alias dla feature</td>
+</tr>
+<tr>
+<td><code>bugfix/fix-header-bug</code></td>
+<td>✅</td>
+<td>Naprawa błędu</td>
+</tr>
+<tr>
+<td><code>fix/header-bug</code></td>
+<td>✅</td>
+<td>Krótki alias dla bugfix</td>
+</tr>
+<tr>
+<td><code>hotfix/security-patch</code></td>
+<td>✅</td>
+<td>Pilna naprawa</td>
+</tr>
+<tr>
+<td><code>release/v1.2.0</code></td>
+<td>✅</td>
+<td>Wydanie z numerem wersji</td>
+</tr>
+<tr>
+<td><code>chore/update-dependencies</code></td>
+<td>✅</td>
+<td>Zadanie niezwiązane z kodem</td>
+</tr>
+<tr>
+<td><code>feature/issue-123-new-login</code></td>
+<td>✅</td>
+<td>Funkcja z numerem biletu</td>
+</tr>
+<tr>
+<td><code>Feature/Add-Login</code></td>
+<td>❌</td>
+<td>Wielkie litery są niedozwolone</td>
+</tr>
+<tr>
+<td><code>feature/new--login</code></td>
+<td>❌</td>
+<td>Kolejne myślniki są niedozwolone</td>
+</tr>
+<tr>
+<td><code>feature/-new-login</code></td>
+<td>❌</td>
+<td>Opis nie może zaczynać się myślnikiem</td>
+</tr>
+<tr>
+<td><code>feature/new-login-</code></td>
+<td>❌</td>
+<td>Opis nie może kończyć się myślnikiem</td>
+</tr>
+<tr>
+<td><code>release/v1.-2.0</code></td>
+<td>❌</td>
+<td>Myślnik obok kropki jest niedozwolony</td>
+</tr>
+<tr>
+<td><code>fix/header bug</code></td>
+<td>❌</td>
+<td>Spacje są niedozwolone</td>
+</tr>
+<tr>
+<td><code>fix/header_bug</code></td>
+<td>❌</td>
+<td>Podkreślenia są niedozwolone</td>
+</tr>
+<tr>
+<td><code>unknown/some-task</code></td>
+<td>❌</td>
+<td>Nieznany typ prefiksu</td>
+</tr>
+</tbody>
+</table>
 <h2 id="wnioski">Wnioski</h2>
 <ul>
 <li><strong>Jasna komunikacja</strong>: Sama nazwa gałęzi zapewnia jasne zrozumienie jej celu i zmiany kodu.</li>
@@ -136,6 +257,12 @@
 <p>Gałęzie różnią się od commitów — są tymczasowe i używane głównie do momentu scalenia. Wprowadzenie zbyt wielu typów dla gałęzi byłoby niepotrzebne i utrudniłoby ich zarządzanie oraz zapamiętywanie.</p>
 <h3 id="jakich-narzędzi-można-użyć-aby-automatycznie-sprawdzić-czy-członek-zespołu-nie-spełnia-tej-specyfikacji">Jakich narzędzi można użyć, aby automatycznie sprawdzić, czy członek zespołu nie spełnia tej specyfikacji?</h3>
 <p>Możesz użyć <a href="https://github.com/commit-check/commit-check">commit-check</a> do sprawdzania specyfikacji gałęzi lub <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, jeśli twój kod jest hostowany na GitHub.</p>
+<h3 id="czy-mogę-zdefiniować-własne-typy-gałęzi-poza-wymienionymi">Czy mogę zdefiniować własne typy gałęzi poza wymienionymi?</h3>
+<p>Tak. Specyfikacja definiuje zalecany zestaw typów, ale zespoły mogą definiować dodatkowe niestandardowe typy dla swojego przepływu pracy. Ważne jest jednak, aby jasno dokumentować niestandardowe typy, tak aby wszyscy członkowie zespołu i zautomatyzowane narzędzia były ich świadome.</p>
+<h3 id="jak-conventional-branch-ma-się-do-conventional-commits">Jak Conventional Branch ma się do Conventional Commits?</h3>
+<p>Conventional Branch jest zainspirowany przez <a href="https://www.conventionalcommits.org">Conventional Commits</a> i podąża za podobną filozofią: wprowadzenie struktury czytelnej dla ludzi i maszyn do metadanych Git. Podczas gdy Conventional Commits standaryzuje wiadomości commitów, Conventional Branch standaryzuje nazwy gałęzi. Obie specyfikacje naturalnie się uzupełniają.</p>
+<h3 id="jak-radzić-sobie-z-długo-żyjącymi-gałęziami-takimi-jak-develop-lub-staging">Jak radzić sobie z długo żyjącymi gałęziami, takimi jak <code>develop</code> lub <code>staging</code>?</h3>
+<p>Długo żyjące gałęzie integracyjne lub środowiskowe (np. <code>develop</code>, <code>staging</code>, <code>production</code>) są w praktyce często traktowane jak gałęzie główne i nie wymagają prefiksu, o ile w danym projekcie zostanie to jasno ustalone. Formalna gramatyka ABNF definiuje jednak gałąź główną (<code>trunk-branch</code>) jedynie jako <code>main</code>, <code>master</code> lub <code>develop</code>, a dodatkowe nazwy (takie jak <code>staging</code> czy <code>production</code>) są opcjonalnymi konwencjami specyficznymi dla projektu, które należy odpowiednio udokumentować i skonfigurować w narzędziach.</p>
 
   </article>
 </main><footer class="footer">

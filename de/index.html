@@ -124,6 +124,127 @@
 <li><strong>Halten Sie es klar und prägnant</strong>: Der Branch-Name sollte beschreibend aber prägnant sein und den Zweck der Arbeit klar angeben.</li>
 <li><strong>Ticket-Nummern einbeziehen</strong>: Falls zutreffend, beziehen Sie die Ticket-Nummer aus Ihrem Projektmanagement-Tool ein, um die Verfolgung zu erleichtern. Zum Beispiel könnte für ein Ticket <code>issue-123</code> der Branch-Name <code>feature/issue-123-new-login</code> lauten.</li>
 </ol>
+<h3 id="formale-grammatik">Formale Grammatik</h3>
+<p>Die folgende ABNF-Grammatik (Augmented Backus-Naur Form) definiert formal gültige Branch-Namen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; Kleinbuchstaben a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; Ziffern 0-9</span>
+</span></span></code></pre></div><blockquote>
+<p>Hinweis: Aufeinanderfolgende Bindestriche oder Punkte sowie Bindestriche oder Punkte am Anfang oder Ende der Beschreibung sind nicht erlaubt.</p>
+</blockquote>
+<h3 id="beispiele">Beispiele</h3>
+<table>
+<thead>
+<tr>
+<th>Branch-Name</th>
+<th>Gültig</th>
+<th>Hinweise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>✅</td>
+<td>Trunk-Branch</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>✅</td>
+<td>Trunk-Branch</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>✅</td>
+<td>Trunk-Branch</td>
+</tr>
+<tr>
+<td><code>feature/add-login-page</code></td>
+<td>✅</td>
+<td>Neues Feature</td>
+</tr>
+<tr>
+<td><code>feat/add-login-page</code></td>
+<td>✅</td>
+<td>Kurzform für feature</td>
+</tr>
+<tr>
+<td><code>bugfix/fix-header-bug</code></td>
+<td>✅</td>
+<td>Fehlerbehebung</td>
+</tr>
+<tr>
+<td><code>fix/header-bug</code></td>
+<td>✅</td>
+<td>Kurzform für bugfix</td>
+</tr>
+<tr>
+<td><code>hotfix/security-patch</code></td>
+<td>✅</td>
+<td>Dringende Korrektur</td>
+</tr>
+<tr>
+<td><code>release/v1.2.0</code></td>
+<td>✅</td>
+<td>Release mit Versionsnummer</td>
+</tr>
+<tr>
+<td><code>chore/update-dependencies</code></td>
+<td>✅</td>
+<td>Nicht-Code-Aufgabe</td>
+</tr>
+<tr>
+<td><code>feature/issue-123-new-login</code></td>
+<td>✅</td>
+<td>Feature mit Ticket-Nummer</td>
+</tr>
+<tr>
+<td><code>Feature/Add-Login</code></td>
+<td>❌</td>
+<td>Großbuchstaben nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>feature/new--login</code></td>
+<td>❌</td>
+<td>Aufeinanderfolgende Bindestriche nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>feature/-new-login</code></td>
+<td>❌</td>
+<td>Beschreibung darf nicht mit Bindestrich beginnen</td>
+</tr>
+<tr>
+<td><code>feature/new-login-</code></td>
+<td>❌</td>
+<td>Beschreibung darf nicht mit Bindestrich enden</td>
+</tr>
+<tr>
+<td><code>release/v1.-2.0</code></td>
+<td>❌</td>
+<td>Bindestrich neben Punkt nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>fix/header bug</code></td>
+<td>❌</td>
+<td>Leerzeichen nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>fix/header_bug</code></td>
+<td>❌</td>
+<td>Unterstriche nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>unknown/some-task</code></td>
+<td>❌</td>
+<td>Unbekannter Präfixtyp</td>
+</tr>
+</tbody>
+</table>
 <h2 id="fazit">Fazit</h2>
 <ul>
 <li><strong>Klare Kommunikation</strong>: Der Branch-Name allein bietet ein klares Verständnis seines Zwecks und der Code-Änderung.</li>
@@ -136,6 +257,12 @@
 <p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>
 <h3 id="welche-tools-können-verwendet-werden-um-automatisch-zu-identifizieren-ob-ein-teammitglied-diese-spezifikation-nicht-erfüllt">Welche Tools können verwendet werden, um automatisch zu identifizieren, ob ein Teammitglied diese Spezifikation nicht erfüllt?</h3>
 <p>Sie können <a href="https://github.com/commit-check/commit-check">commit-check</a> verwenden, um die Branch-Spezifikation zu überprüfen, oder <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, wenn Ihr Code auf GitHub gehostet wird.</p>
+<h3 id="kann-ich-eigene-branch-typen-über-die-aufgeführten-hinaus-definieren">Kann ich eigene Branch-Typen über die aufgeführten hinaus definieren?</h3>
+<p>Ja. Die Spezifikation definiert eine empfohlene Menge von Typen, aber Teams können zusätzliche benutzerdefinierte Typen für ihren Workflow definieren. Es ist jedoch wichtig, benutzerdefinierte Typen klar zu dokumentieren, damit alle Teammitglieder und automatisierte Tools davon wissen.</p>
+<h3 id="wie-verhält-sich-conventional-branch-zu-conventional-commits">Wie verhält sich Conventional Branch zu Conventional Commits?</h3>
+<p>Conventional Branch wurde von <a href="https://www.conventionalcommits.org">Conventional Commits</a> inspiriert und verfolgt eine ähnliche Philosophie: menschlich- und maschinenlesbaren Struktur in Git-Metadaten einzubringen. Während Conventional Commits Commit-Nachrichten standardisiert, standardisiert Conventional Branch Branch-Namen. Die beiden Spezifikationen ergänzen sich auf natürliche Weise.</p>
+<h3 id="wie-soll-ich-mit-langlebigen-branches-wie-develop-oder-staging-umgehen">Wie soll ich mit langlebigen Branches wie <code>develop</code> oder <code>staging</code> umgehen?</h3>
+<p>In der formalen Grammatik dieser Spezifikation sind nur <code>main</code>, <code>master</code> und <code>develop</code> explizit als Trunk-Branches definiert und benötigen kein Präfix. Als projektspezifische Erweiterung können Teams jedoch zusätzliche langlebige Integrations- oder Umgebungs-Branches (z. B. <code>staging</code>, <code>production</code>) ohne Präfix verwenden, sofern diese konsistent benannt und in den eingesetzten Tools entsprechend konfiguriert bzw. dokumentiert sind.</p>
 
   </article>
 </main><footer class="footer">

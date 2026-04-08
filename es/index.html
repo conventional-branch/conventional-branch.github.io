@@ -124,6 +124,127 @@
 <li><strong>Ser claro y conciso</strong>: El nombre de la rama debe ser descriptivo pero conciso, indicando claramente el propósito del trabajo.</li>
 <li><strong>Incluir números de ticket</strong>: Si corresponde, incluya el número de ticket de su herramienta de gestión de proyectos para facilitar el seguimiento. Por ejemplo, para un ticket <code>issue-123</code>, el nombre de la rama podría ser <code>feature/issue-123-new-login</code>.</li>
 </ol>
+<h3 id="gramática-formal">Gramática formal</h3>
+<p>La siguiente gramática ABNF (Augmented Backus-Naur Form) define formalmente los nombres de ramas válidos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; letras minúsculas a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; dígitos 0-9</span>
+</span></span></code></pre></div><blockquote>
+<p>Nota: No se permiten guiones o puntos consecutivos, ni guiones o puntos al inicio o al final de la descripción.</p>
+</blockquote>
+<h3 id="ejemplos">Ejemplos</h3>
+<table>
+<thead>
+<tr>
+<th>Nombre de rama</th>
+<th>Válido</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>✅</td>
+<td>Rama principal</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>✅</td>
+<td>Rama principal</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>✅</td>
+<td>Rama principal</td>
+</tr>
+<tr>
+<td><code>feature/add-login-page</code></td>
+<td>✅</td>
+<td>Nueva funcionalidad</td>
+</tr>
+<tr>
+<td><code>feat/add-login-page</code></td>
+<td>✅</td>
+<td>Alias corto para feature</td>
+</tr>
+<tr>
+<td><code>bugfix/fix-header-bug</code></td>
+<td>✅</td>
+<td>Corrección de error</td>
+</tr>
+<tr>
+<td><code>fix/header-bug</code></td>
+<td>✅</td>
+<td>Alias corto para bugfix</td>
+</tr>
+<tr>
+<td><code>hotfix/security-patch</code></td>
+<td>✅</td>
+<td>Corrección urgente</td>
+</tr>
+<tr>
+<td><code>release/v1.2.0</code></td>
+<td>✅</td>
+<td>Release con número de versión</td>
+</tr>
+<tr>
+<td><code>chore/update-dependencies</code></td>
+<td>✅</td>
+<td>Tarea no relacionada con código</td>
+</tr>
+<tr>
+<td><code>feature/issue-123-new-login</code></td>
+<td>✅</td>
+<td>Funcionalidad con número de ticket</td>
+</tr>
+<tr>
+<td><code>Feature/Add-Login</code></td>
+<td>❌</td>
+<td>Mayúsculas no permitidas</td>
+</tr>
+<tr>
+<td><code>feature/new--login</code></td>
+<td>❌</td>
+<td>Guiones consecutivos no permitidos</td>
+</tr>
+<tr>
+<td><code>feature/-new-login</code></td>
+<td>❌</td>
+<td>La descripción no puede comenzar con guion</td>
+</tr>
+<tr>
+<td><code>feature/new-login-</code></td>
+<td>❌</td>
+<td>La descripción no puede terminar con guion</td>
+</tr>
+<tr>
+<td><code>release/v1.-2.0</code></td>
+<td>❌</td>
+<td>Guion adyacente a punto no permitido</td>
+</tr>
+<tr>
+<td><code>fix/header bug</code></td>
+<td>❌</td>
+<td>Espacios no permitidos</td>
+</tr>
+<tr>
+<td><code>fix/header_bug</code></td>
+<td>❌</td>
+<td>Guiones bajos no permitidos</td>
+</tr>
+<tr>
+<td><code>unknown/some-task</code></td>
+<td>❌</td>
+<td>Tipo de prefijo desconocido</td>
+</tr>
+</tbody>
+</table>
 <h2 id="conclusión">Conclusión</h2>
 <ul>
 <li><strong>Comunicación clara</strong>: El nombre de la rama por sí solo proporciona una comprensión clara de su propósito y del cambio de código.</li>
@@ -136,6 +257,12 @@
 <p>Las ramas son diferentes de los commits: son temporales y se usan principalmente hasta que se fusionan. Introducir demasiados tipos para las ramas sería innecesario y dificultaría su gestión y memorización.</p>
 <h3 id="qué-herramientas-se-pueden-usar-para-identificar-automáticamente-si-un-miembro-del-equipo-no-cumple-con-esta-especificación">¿Qué herramientas se pueden usar para identificar automáticamente si un miembro del equipo no cumple con esta especificación?</h3>
 <p>Puede usar <a href="https://github.com/commit-check/commit-check">commit-check</a> para verificar la especificación de ramas o <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> si su código está alojado en GitHub.</p>
+<h3 id="puedo-definir-mis-propios-tipos-de-ramas-más-allá-de-los-listados">¿Puedo definir mis propios tipos de ramas más allá de los listados?</h3>
+<p>Sí. La especificación define un conjunto recomendado de tipos, pero los equipos pueden definir tipos personalizados adicionales para su flujo de trabajo. Sin embargo, es importante documentar claramente los tipos personalizados para que todos los miembros del equipo y las herramientas automatizadas estén al tanto de ellos.</p>
+<h3 id="cómo-se-relaciona-conventional-branch-con-conventional-commits">¿Cómo se relaciona Conventional Branch con Conventional Commits?</h3>
+<p>Conventional Branch está inspirado en <a href="https://www.conventionalcommits.org">Conventional Commits</a> y sigue una filosofía similar: aportar estructura legible por humanos y máquinas a los metadatos de Git. Mientras que Conventional Commits estandariza los mensajes de commit, Conventional Branch estandariza los nombres de ramas. Ambas especificaciones se complementan de forma natural.</p>
+<h3 id="cómo-debo-manejar-ramas-de-larga-duración-como-develop-o-staging">¿Cómo debo manejar ramas de larga duración como <code>develop</code> o <code>staging</code>?</h3>
+<p>Dentro de la gramática anterior, las ramas de tronco válidas son únicamente las definidas allí (por ejemplo, <code>main</code>/<code>master</code>/<code>develop</code>) y no requieren prefijo. Algunos equipos además utilizan ramas de integración o de entorno de larga duración (como <code>staging</code> o <code>production</code>); estas son una convención opcional de cada equipo y pueden no estar cubiertas por la gramática básica ni ser reconocidas por todas las herramientas, por lo que deben documentarse y configurarse explícitamente si se desea que las validen.</p>
 
   </article>
 </main><footer class="footer">

@@ -124,6 +124,127 @@
 <li><strong>保持清晰简洁</strong>：分支名称应简明扼要，清楚表达工作的内容和目的。</li>
 <li><strong>包含工单编号</strong>：如果适用，应包含项目管理工具中的工单编号，以便于追踪。例如，对于工单 <code>issue-123</code>，分支名称可以是 <code>feature/issue-123-new-login</code>。</li>
 </ol>
+<h3 id="形式文法">形式文法</h3>
+<p>以下 ABNF（扩充巴科斯-诺尔范式）文法正式定义了有效的分支名称：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; 小写字母 a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; 数字 0-9</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：禁止连续的连字符或点，以及出现在描述开头或结尾的连字符或点。</p>
+</blockquote>
+<h3 id="示例">示例</h3>
+<table>
+<thead>
+<tr>
+<th>分支名称</th>
+<th>有效</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>✅</td>
+<td>主干分支</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>✅</td>
+<td>主干分支</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>✅</td>
+<td>主干分支</td>
+</tr>
+<tr>
+<td><code>feature/add-login-page</code></td>
+<td>✅</td>
+<td>新功能</td>
+</tr>
+<tr>
+<td><code>feat/add-login-page</code></td>
+<td>✅</td>
+<td>feature 的简写形式</td>
+</tr>
+<tr>
+<td><code>bugfix/fix-header-bug</code></td>
+<td>✅</td>
+<td>错误修复</td>
+</tr>
+<tr>
+<td><code>fix/header-bug</code></td>
+<td>✅</td>
+<td>bugfix 的简写形式</td>
+</tr>
+<tr>
+<td><code>hotfix/security-patch</code></td>
+<td>✅</td>
+<td>紧急修复</td>
+</tr>
+<tr>
+<td><code>release/v1.2.0</code></td>
+<td>✅</td>
+<td>含版本号的发布分支</td>
+</tr>
+<tr>
+<td><code>chore/update-dependencies</code></td>
+<td>✅</td>
+<td>非代码任务</td>
+</tr>
+<tr>
+<td><code>feature/issue-123-new-login</code></td>
+<td>✅</td>
+<td>含工单编号的功能分支</td>
+</tr>
+<tr>
+<td><code>Feature/Add-Login</code></td>
+<td>❌</td>
+<td>不允许大写字母</td>
+</tr>
+<tr>
+<td><code>feature/new--login</code></td>
+<td>❌</td>
+<td>不允许连续连字符</td>
+</tr>
+<tr>
+<td><code>feature/-new-login</code></td>
+<td>❌</td>
+<td>描述不能以连字符开头</td>
+</tr>
+<tr>
+<td><code>feature/new-login-</code></td>
+<td>❌</td>
+<td>描述不能以连字符结尾</td>
+</tr>
+<tr>
+<td><code>release/v1.-2.0</code></td>
+<td>❌</td>
+<td>连字符不能紧邻点号</td>
+</tr>
+<tr>
+<td><code>fix/header bug</code></td>
+<td>❌</td>
+<td>不允许空格</td>
+</tr>
+<tr>
+<td><code>fix/header_bug</code></td>
+<td>❌</td>
+<td>不允许下划线</td>
+</tr>
+<tr>
+<td><code>unknown/some-task</code></td>
+<td>❌</td>
+<td>未知的前缀类型</td>
+</tr>
+</tbody>
+</table>
 <h2 id="结论">结论</h2>
 <ul>
 <li><strong>清晰的沟通</strong>：仅凭分支名称就能清楚地了解代码更改的目的。</li>
@@ -136,6 +257,12 @@
 <p>分支与提交不同 —— 分支是临时的，大部分只出现在合并前。为分支引入过多类型是没有必要的，也会让管理和记忆变得更困难。</p>
 <h3 id="如果团队成员不符合此规范可以使用哪些工具来自动识别">如果团队成员不符合此规范，可以使用哪些工具来自动识别？</h3>
 <p>你可以使用 <a href="https://github.com/commit-check/commit-check">commit-check</a> 来检查分支规范，或者如果你的代码托管在 GitHub 上，则使用 <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>。</p>
+<h3 id="我可以定义规范列表之外的自定义分支类型吗">我可以定义规范列表之外的自定义分支类型吗？</h3>
+<p>可以。本规范定义了一套推荐的类型，但团队可以根据工作流程定义额外的自定义类型。重要的是，需要将自定义类型清楚地记录下来，以便所有团队成员和自动化工具都能了解。</p>
+<h3 id="约定式分支与约定式提交conventional-commits有什么关系">约定式分支与约定式提交（Conventional Commits）有什么关系？</h3>
+<p>约定式分支的灵感来源于 <a href="https://www.conventionalcommits.org">Conventional Commits</a>，遵循相似的理念：为 Git 元数据引入人机可读的结构。约定式提交规范化了提交信息，约定式分支规范化了分支名称。两者相辅相成，天然互补。</p>
+<h3 id="如何处理-develop-或-staging-等长期存在的分支">如何处理 <code>develop</code> 或 <code>staging</code> 等长期存在的分支？</h3>
+<p>长期存在的集成或环境分支（如 <code>develop</code>，以及某些项目约定使用的 <code>staging</code>、<code>production</code> 等）通常被视为主干分支，不需要前缀，并应在整个项目中保持一致的命名。需要注意的是，在上文给出的 ABNF 语法中，<code>trunk-branch</code> 形式规则只包含 <code>main</code> / <code>master</code> / <code>develop</code>；<code>staging</code>、<code>production</code> 等仅作为各团队可选的长期分支示例，不属于该形式语法的一部分，语法校验工具可按需要在此基础上扩展支持。</p>
 
   </article>
 </main><footer class="footer">

@@ -124,6 +124,127 @@
 <li><strong>明確で簡潔に保つ</strong>: ブランチ名は説明的でありながら簡潔で、作業の目的を明確に示す必要があります。</li>
 <li><strong>チケット番号を含める</strong>: 該当する場合、プロジェクト管理ツールからのチケット番号を含めて追跡を容易にします。例えば、チケット <code>issue-123</code> の場合、ブランチ名は <code>feature/issue-123-new-login</code> とすることができます。</li>
 </ol>
+<h3 id="形式文法">形式文法</h3>
+<p>以下の ABNF（拡張バッカス・ナウア記法）文法は、有効なブランチ名を形式的に定義します：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; 小文字 a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; 数字 0-9</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：連続するハイフンやドット、および説明の先頭や末尾のハイフンやドットは使用できません。</p>
+</blockquote>
+<h3 id="例">例</h3>
+<table>
+<thead>
+<tr>
+<th>ブランチ名</th>
+<th>有効</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>✅</td>
+<td>トランクブランチ</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>✅</td>
+<td>トランクブランチ</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>✅</td>
+<td>トランクブランチ</td>
+</tr>
+<tr>
+<td><code>feature/add-login-page</code></td>
+<td>✅</td>
+<td>新機能</td>
+</tr>
+<tr>
+<td><code>feat/add-login-page</code></td>
+<td>✅</td>
+<td>feature の短縮形</td>
+</tr>
+<tr>
+<td><code>bugfix/fix-header-bug</code></td>
+<td>✅</td>
+<td>バグ修正</td>
+</tr>
+<tr>
+<td><code>fix/header-bug</code></td>
+<td>✅</td>
+<td>bugfix の短縮形</td>
+</tr>
+<tr>
+<td><code>hotfix/security-patch</code></td>
+<td>✅</td>
+<td>緊急修正</td>
+</tr>
+<tr>
+<td><code>release/v1.2.0</code></td>
+<td>✅</td>
+<td>バージョン番号付きリリース</td>
+</tr>
+<tr>
+<td><code>chore/update-dependencies</code></td>
+<td>✅</td>
+<td>非コードタスク</td>
+</tr>
+<tr>
+<td><code>feature/issue-123-new-login</code></td>
+<td>✅</td>
+<td>チケット番号付き機能</td>
+</tr>
+<tr>
+<td><code>Feature/Add-Login</code></td>
+<td>❌</td>
+<td>大文字は使用不可</td>
+</tr>
+<tr>
+<td><code>feature/new--login</code></td>
+<td>❌</td>
+<td>連続するハイフンは使用不可</td>
+</tr>
+<tr>
+<td><code>feature/-new-login</code></td>
+<td>❌</td>
+<td>説明をハイフンで始めることは不可</td>
+</tr>
+<tr>
+<td><code>feature/new-login-</code></td>
+<td>❌</td>
+<td>説明をハイフンで終わらせることは不可</td>
+</tr>
+<tr>
+<td><code>release/v1.-2.0</code></td>
+<td>❌</td>
+<td>ドットに隣接するハイフンは不可</td>
+</tr>
+<tr>
+<td><code>fix/header bug</code></td>
+<td>❌</td>
+<td>スペースは使用不可</td>
+</tr>
+<tr>
+<td><code>fix/header_bug</code></td>
+<td>❌</td>
+<td>アンダースコアは使用不可</td>
+</tr>
+<tr>
+<td><code>unknown/some-task</code></td>
+<td>❌</td>
+<td>未知のプレフィックスタイプ</td>
+</tr>
+</tbody>
+</table>
 <h2 id="結論">結論</h2>
 <ul>
 <li><strong>明確なコミュニケーション</strong>: ブランチ名だけで、そのコード変更の目的を明確に理解できます。</li>
@@ -136,6 +257,12 @@
 <p>ブランチはコミットとは異なり、一時的なもので、主にマージされるまで使用されます。ブランチにあまり多くの種類を導入することは不要で、管理や記憶が難しくなります。</p>
 <h3 id="チームメンバーがこの仕様を満たしていない場合自動的に識別するために使用できるツールは何ですか">チームメンバーがこの仕様を満たしていない場合、自動的に識別するために使用できるツールは何ですか？</h3>
 <p><a href="https://github.com/commit-check/commit-check">commit-check</a> を使用してブランチ仕様をチェックするか、コードが GitHub でホストされている場合は <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> を使用できます。</p>
+<h3 id="仕様に記載されているもの以外に独自のブランチタイプを定義できますか">仕様に記載されているもの以外に独自のブランチタイプを定義できますか？</h3>
+<p>はい。この仕様は推奨されるタイプのセットを定義しますが、チームはワークフローに合わせて追加のカスタムタイプを定義することができます。ただし、すべてのチームメンバーと自動化ツールが認識できるよう、カスタムタイプを明確に文書化することが重要です。</p>
+<h3 id="conventional-branch-と-conventional-commits-の関係は">Conventional Branch と Conventional Commits の関係は？</h3>
+<p>Conventional Branch は <a href="https://www.conventionalcommits.org">Conventional Commits</a> に触発され、同様の哲学に基づいています：人間と機械が読めるような構造を Git メタデータに組み込むこと。Conventional Commits がコミットメッセージを標準化するのに対して、Conventional Branch はブランチ名を標準化します。両者は自然に補完し合います。</p>
+<h3 id="develop-や-staging-のような長期存在するブランチはどう扱えばよいですか"><code>develop</code> や <code>staging</code> のような長期存在するブランチはどう扱えばよいですか？</h3>
+<p>仕様の ABNF では <code>trunk-branch</code> は <code>main</code> / <code>master</code> / <code>develop</code> のみを指しますが、運用上、それ以外の長期存在する統合用または環境用ブランチ（例：<code>staging</code>、<code>production</code>）をプロジェクト独自のトランク相当ブランチとして扱っても構いません（この場合もプレフィックスは不要です）。その際は、これらのブランチ名が仕様の拡張であることを明確に文書化し、プロジェクト全体で一貫した命名を心がけてください。</p>
 
   </article>
 </main><footer class="footer">

@@ -124,6 +124,127 @@
 <li><strong>Сохраняйте ясность и краткость</strong>: Имя ветки должно быть описательным, но кратким, чётко указывающим цель работы.</li>
 <li><strong>Включайте номера тикетов</strong>: При необходимости включайте номер тикета из вашего инструмента управления проектами для упрощения отслеживания. Например, для тикета <code>issue-123</code> имя ветки может быть <code>feature/issue-123-new-login</code>.</li>
 </ol>
+<h3 id="формальная-грамматика">Формальная грамматика</h3>
+<p>Следующая грамматика ABNF (Augmented Backus-Naur Form) формально определяет допустимые имена веток:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; строчные буквы a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; цифры 0-9</span>
+</span></span></code></pre></div><blockquote>
+<p>Примечание: Последовательные дефисы или точки, а также дефисы или точки в начале или конце описания не допускаются.</p>
+</blockquote>
+<h3 id="примеры">Примеры</h3>
+<table>
+<thead>
+<tr>
+<th>Имя ветки</th>
+<th>Допустимо</th>
+<th>Примечания</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>✅</td>
+<td>Основная ветка</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>✅</td>
+<td>Основная ветка</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>✅</td>
+<td>Основная ветка</td>
+</tr>
+<tr>
+<td><code>feature/add-login-page</code></td>
+<td>✅</td>
+<td>Новая функциональность</td>
+</tr>
+<tr>
+<td><code>feat/add-login-page</code></td>
+<td>✅</td>
+<td>Короткий псевдоним для feature</td>
+</tr>
+<tr>
+<td><code>bugfix/fix-header-bug</code></td>
+<td>✅</td>
+<td>Исправление ошибки</td>
+</tr>
+<tr>
+<td><code>fix/header-bug</code></td>
+<td>✅</td>
+<td>Короткий псевдоним для bugfix</td>
+</tr>
+<tr>
+<td><code>hotfix/security-patch</code></td>
+<td>✅</td>
+<td>Срочное исправление</td>
+</tr>
+<tr>
+<td><code>release/v1.2.0</code></td>
+<td>✅</td>
+<td>Релиз с номером версии</td>
+</tr>
+<tr>
+<td><code>chore/update-dependencies</code></td>
+<td>✅</td>
+<td>Задача, не связанная с кодом</td>
+</tr>
+<tr>
+<td><code>feature/issue-123-new-login</code></td>
+<td>✅</td>
+<td>Функциональность с номером тикета</td>
+</tr>
+<tr>
+<td><code>Feature/Add-Login</code></td>
+<td>❌</td>
+<td>Прописные буквы не допускаются</td>
+</tr>
+<tr>
+<td><code>feature/new--login</code></td>
+<td>❌</td>
+<td>Последовательные дефисы не допускаются</td>
+</tr>
+<tr>
+<td><code>feature/-new-login</code></td>
+<td>❌</td>
+<td>Описание не может начинаться с дефиса</td>
+</tr>
+<tr>
+<td><code>feature/new-login-</code></td>
+<td>❌</td>
+<td>Описание не может заканчиваться дефисом</td>
+</tr>
+<tr>
+<td><code>release/v1.-2.0</code></td>
+<td>❌</td>
+<td>Дефис рядом с точкой не допускается</td>
+</tr>
+<tr>
+<td><code>fix/header bug</code></td>
+<td>❌</td>
+<td>Пробелы не допускаются</td>
+</tr>
+<tr>
+<td><code>fix/header_bug</code></td>
+<td>❌</td>
+<td>Подчёркивания не допускаются</td>
+</tr>
+<tr>
+<td><code>unknown/some-task</code></td>
+<td>❌</td>
+<td>Неизвестный тип префикса</td>
+</tr>
+</tbody>
+</table>
 <h2 id="заключение">Заключение</h2>
 <ul>
 <li><strong>Ясная коммуникация</strong>: Одно только имя ветки обеспечивает чёткое понимание её цели и изменения кода.</li>
@@ -136,6 +257,12 @@
 <p>Ветки отличаются от коммитов — они временные и используются в основном до слияния. Введение слишком большого количества типов веток было бы лишним и усложняло бы их управление и запоминание.</p>
 <h3 id="какие-инструменты-можно-использовать-для-автоматического-определения-того-что-член-команды-не-соответствует-данной-спецификации">Какие инструменты можно использовать для автоматического определения того, что член команды не соответствует данной спецификации?</h3>
 <p>Вы можете использовать <a href="https://github.com/commit-check/commit-check">commit-check</a> для проверки спецификации веток или <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, если ваш код размещён на GitHub.</p>
+<h3 id="могу-ли-я-определить-собственные-типы-веток-помимо-перечисленных">Могу ли я определить собственные типы веток помимо перечисленных?</h3>
+<p>Да. Спецификация определяет рекомендуемый набор типов, но команды могут определять дополнительные пользовательские типы для своего рабочего процесса. Однако важно чётко документировать пользовательские типы, чтобы все члены команды и автоматизированные инструменты были осведомлены о них.</p>
+<h3 id="как-conventional-branch-соотносится-с-conventional-commits">Как Conventional Branch соотносится с Conventional Commits?</h3>
+<p>Conventional Branch вдохновлён <a href="https://www.conventionalcommits.org">Conventional Commits</a> и следует схожей философии: привнести структуру, читаемую людьми и машинами, в метаданные Git. Conventional Commits стандартизирует сообщения коммитов, а Conventional Branch стандартизирует имена веток. Обе спецификации естественным образом дополняют друг друга.</p>
+<h3 id="как-следует-обращаться-с-долгоживущими-ветками-такими-как-develop-или-staging">Как следует обращаться с долгоживущими ветками, такими как <code>develop</code> или <code>staging</code>?</h3>
+<p>Долгоживущие интеграционные или средовые ветки (например, <code>develop</code>, <code>staging</code>, <code>production</code>) рассматриваются как основные ветки и не требуют префикса. В формальной грамматике ABNF к trunk‑веткам относятся только <code>main</code>/<code>master</code>/<code>develop</code>; использование дополнительных долгоживущих веток (таких как <code>staging</code>, <code>production</code> и т.п.) как trunk‑веток является командным расширением за пределами базовой спецификации и должно быть явно задокументировано. Их следует именовать последовательно во всём проекте.</p>
 
   </article>
 </main><footer class="footer">
