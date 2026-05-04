@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/pl/</loc>
+    <loc>/th/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -30,6 +30,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="pl"
+                href="/pl/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="pt-br"
                 href="/pt-br/"
                 />
@@ -37,11 +42,6 @@
                 rel="alternate"
                 hreflang="ru"
                 href="/ru/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="th"
-                href="/th/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -55,11 +55,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pl"
-                href="/pl/"
+                hreflang="th"
+                href="/th/"
                 />
   </url><url>
-    <loc>/pl/categories/</loc>
+    <loc>/th/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -87,6 +87,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="pl"
+                href="/pl/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="pt-br"
                 href="/pt-br/categories/"
                 />
@@ -94,11 +99,6 @@
                 rel="alternate"
                 hreflang="ru"
                 href="/ru/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="th"
-                href="/th/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -112,11 +112,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pl"
-                href="/pl/categories/"
+                hreflang="th"
+                href="/th/categories/"
                 />
   </url><url>
-    <loc>/pl/tags/</loc>
+    <loc>/th/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -144,6 +144,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="pl"
+                href="/pl/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="pt-br"
                 href="/pt-br/tags/"
                 />
@@ -151,11 +156,6 @@
                 rel="alternate"
                 hreflang="ru"
                 href="/ru/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="th"
-                href="/th/tags/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -169,8 +169,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pl"
-                href="/pl/tags/"
+                hreflang="th"
+                href="/th/tags/"
                 />
   </url>
 </urlset>
