@@ -254,6 +254,29 @@
 <li><strong>Escalabilidade</strong>: funciona bem em equipes grandes, onde muitos desenvolvedores trabalham em tarefas diferentes simultaneamente.</li>
 </ul>
 <p>Em resumo, o Conventional Branch foi projetado para melhorar a organização do projeto, a comunicação e a automação nos fluxos de trabalho com Git.</p>
+<h2 id="ferramentas">Ferramentas</h2>
+<p>Use estas ferramentas para adotar e aplicar Conventional Branch no seu projeto:</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    Verifique nomes de branches, mensagens de commit e metadados Git relacionados localmente.
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    Valide nomes de branches automaticamente no GitHub Actions.
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Crie nomes de branches Conventional Branch no Visual Studio Code.
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    Ensine assistentes de programação com IA a criar nomes válidos de Conventional Branch.
+  </li>
+  
+</ul><p>Instale a skill com:</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
 <h3 id="por-que-os-tipos-de-branch-não-são-tão-detalhados-quanto-os-conventional-commits-por-exemplo-build-ci-docs-style-refactor">Por que os tipos de branch não são tão detalhados quanto os Conventional Commits (por exemplo, <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Branches são diferentes de commits – são temporários e usados principalmente até serem mesclados. Introduzir muitos tipos de branch seria desnecessário e tornaria mais difícil gerenciá-los e lembrá-los.</p>

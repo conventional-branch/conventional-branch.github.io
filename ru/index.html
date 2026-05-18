@@ -254,6 +254,29 @@
 <li><strong>Масштабируемость</strong>: Хорошо работает в больших командах, где множество разработчиков одновременно работают над различными задачами.</li>
 </ul>
 <p>В заключение, conventional branch разработан для улучшения организации проекта, коммуникации и автоматизации в рабочих процессах Git.</p>
+<h2 id="инструменты">Инструменты</h2>
+<p>Используйте эти инструменты, чтобы внедрить и контролировать Conventional Branch в вашем проекте:</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    Локально проверяет имена веток, сообщения коммитов и связанные метаданные Git.
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    Автоматически проверяет имена веток в GitHub Actions.
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Создаёт имена веток Conventional Branch из Visual Studio Code.
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    Помогает AI-ассистентам для программирования создавать корректные имена Conventional Branch.
+  </li>
+  
+</ul><p>Установите skill командой:</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="часто-задаваемые-вопросы">Часто задаваемые вопросы</h2>
 <h3 id="почему-типы-веток-не-так-детализированы-как-conventional-commits-например-build-ci-docs-style-refactor">Почему типы веток не так детализированы, как Conventional Commits (например, <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Ветки отличаются от коммитов — они временные и используются в основном до слияния. Введение слишком большого количества типов веток было бы лишним и усложняло бы их управление и запоминание.</p>

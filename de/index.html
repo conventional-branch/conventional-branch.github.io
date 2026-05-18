@@ -254,6 +254,29 @@
 <li><strong>Skalierbarkeit</strong>: Funktioniert gut in großen Teams, wo viele Entwickler gleichzeitig an verschiedenen Aufgaben arbeiten.</li>
 </ul>
 <p>Zusammenfassend ist Conventional Branch darauf ausgelegt, die Projektorganisation, Kommunikation und Automatisierung innerhalb von Git-Workflows zu verbessern.</p>
+<h2 id="werkzeuge">Werkzeuge</h2>
+<p>Verwenden Sie diese Werkzeuge, um Conventional Branch in Ihrem Projekt einzuführen und durchzusetzen:</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    Prüft Branch-Namen, Commit-Nachrichten und zugehörige Git-Metadaten lokal.
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    Validiert Branch-Namen automatisch in GitHub Actions.
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Erstellt Conventional-Branch-Namen aus Visual Studio Code.
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    Bringt KI-Coding-Assistenten bei, gültige Conventional-Branch-Namen zu erstellen.
+  </li>
+  
+</ul><p>Installieren Sie den Skill mit:</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="faq">FAQ</h2>
 <h3 id="warum-sind-branch-typen-nicht-so-detailliert-wie-conventional-commits-zb-build-ci-docs-style-refactor">Warum sind Branch-Typen nicht so detailliert wie Conventional Commits (z. B. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>

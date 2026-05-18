@@ -254,6 +254,29 @@
 <li><strong>可擴充性</strong>：適用於大型團隊，同時有許多開發人員處理不同任務的情境。</li>
 </ul>
 <p>總結來說，Conventional Branch 的設計目標是改善 Git 工作流程中的專案組織、溝通與自動化。</p>
+<h2 id="工具">工具</h2>
+<p>使用這些工具在您的專案中採用並強制執行約定式分支：</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    在本機檢查 branch 名稱、commit 訊息與相關 Git metadata。
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    在 GitHub Actions 中自動驗證 branch 名稱。
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    在 Visual Studio Code 中建立約定式 branch 名稱。
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    教 AI 程式助理建立有效的約定式 branch 名稱。
+  </li>
+  
+</ul><p>使用以下指令安裝該 skill：</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="faq">FAQ</h2>
 <h3 id="為什麼-branch-type-不像-conventional-commits例如-buildcidocsstylerefactor那麼詳細">為什麼 branch type 不像 Conventional Commits（例如 <code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）那麼詳細？</h3>
 <p>branch 與 commit 不同——branch 是暫時性的，通常只會使用到 merge 為止。若為 branch 引入過多 type 並無必要，反而會讓管理與記憶變得更困難。</p>

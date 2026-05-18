@@ -254,6 +254,29 @@
 <li><strong>Scalability</strong>: Works well in large teams where many developers are working on different tasks simultaneously.</li>
 </ul>
 <p>In summary, conventional branch is designed to improve project organization, communication, and automation within Git workflows.</p>
+<h2 id="tooling">Tooling</h2>
+<p>Use these tools to adopt and enforce Conventional Branch in your project:</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    Check branch names, commit messages, and related Git metadata locally.
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    Validate branch names automatically in GitHub Actions.
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Create Conventional Branch names from Visual Studio Code.
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    Teach AI coding assistants how to create valid Conventional Branch names.
+  </li>
+  
+</ul><p>Install the skill with:</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="faq">FAQ</h2>
 <h3 id="why-arent-branch-types-as-detailed-as-conventional-commits-eg-build-ci-docs-style-refactor">Why aren&rsquo;t branch types as detailed as Conventional Commits (e.g., <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Branches are different from commits—they are temporary and mainly used until merged. Introducing too many types for branches would be unnecessary and would make them harder to manage and remember.</p>

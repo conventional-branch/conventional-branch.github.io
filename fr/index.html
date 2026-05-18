@@ -254,6 +254,29 @@
 <li><strong>Évolutivité</strong> : Fonctionne bien dans les grandes équipes où de nombreux développeurs travaillent simultanément sur différentes tâches.</li>
 </ul>
 <p>En résumé, conventional branch est conçu pour améliorer l&rsquo;organisation du projet, la communication et l&rsquo;automatisation dans les workflows Git.</p>
+<h2 id="outils">Outils</h2>
+<p>Utilisez ces outils pour adopter et appliquer Conventional Branch dans votre projet :</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    Vérifiez localement les noms de branches, les messages de commit et les métadonnées Git associées.
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    Validez automatiquement les noms de branches dans GitHub Actions.
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Créez des noms de branches Conventional Branch depuis Visual Studio Code.
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    Apprend aux assistants de codage IA à créer des noms de branches Conventional Branch valides.
+  </li>
+  
+</ul><p>Installez la skill avec :</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="faq">FAQ</h2>
 <h3 id="pourquoi-les-types-de-branches-ne-sont-ils-pas-aussi-détaillés-que-les-conventional-commits-par-ex-build-ci-docs-style-refactor-">Pourquoi les types de branches ne sont-ils pas aussi détaillés que les Conventional Commits (par ex. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>) ?</h3>
 <p>Les branches sont différentes des commits : elles sont temporaires et principalement utilisées jusqu’à leur fusion. Introduire trop de types pour les branches serait inutile et rendrait leur gestion et mémorisation plus difficiles.</p>

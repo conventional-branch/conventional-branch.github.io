@@ -254,6 +254,29 @@
 <li><strong>การขยายขนาด</strong>: ทำงานได้ดีในทีมขนาดใหญ่ที่มีนักพัฒนาหลายคนกำลังปฏิบัติงานหลายส่วนที่แตกต่างกันไปพร้อมๆ กัน</li>
 </ul>
 <p>โดยสรุปแล้ว Conventional Branch ถูกออกแบบมาเพื่อปรับปรุงการจัดระเบียบโปรเจกต์ การสื่อสาร และการทำงานแบบอัตโนมัติภายในเวิร์กโฟลว์ของ Git (Git workflows) ให้ดียิ่งขึ้น</p>
+<h2 id="เครองมอ">เครื่องมือ</h2>
+<p>ใช้เครื่องมือเหล่านี้เพื่อปรับใช้และบังคับใช้ Conventional Branch ในโปรเจกต์ของคุณ:</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    ตรวจสอบชื่อ branch, ข้อความ commit และ metadata ที่เกี่ยวข้องของ Git ในเครื่อง
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    ตรวจสอบชื่อ branch โดยอัตโนมัติใน GitHub Actions
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    สร้างชื่อ branch แบบ Conventional Branch จาก Visual Studio Code
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    สอนผู้ช่วยเขียนโค้ด AI ให้สร้างชื่อ branch แบบ Conventional Branch ที่ถูกต้อง
+  </li>
+  
+</ul><p>ติดตั้ง skill ด้วยคำสั่ง:</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="คำถามทพบบอย">คำถามที่พบบ่อย</h2>
 <h3 id="ทำไมประเภทของ-branch-ถงไมละเอยดเทา-conventional-commits-เชน-build-ci-docs-style-refactor">ทำไมประเภทของ Branch ถึงไม่ละเอียดเท่า Conventional Commits (เช่น <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Branch มีความแตกต่างจากการคอมมิต (Commits) — Branch เป็นเพียงสิ่งชั่วคราวและส่วนใหญ่จะถูกใช้งานจนกว่าจะถูกนำไปรวม (Merged) เท่านั้น การแนะนำประเภทของ Branch ให้มีมากเกินไปนั้นถือเป็นสิ่งไม่จำเป็น และจะทำให้ยากต่อการจัดการและการจดจำ</p>

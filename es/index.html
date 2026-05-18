@@ -254,6 +254,29 @@
 <li><strong>Escalabilidad</strong>: Funciona bien en equipos grandes donde muchos desarrolladores trabajan en diferentes tareas simultáneamente.</li>
 </ul>
 <p>En resumen, conventional branch está diseñado para mejorar la organización del proyecto, la comunicación y la automatización en los flujos de trabajo con Git.</p>
+<h2 id="herramientas">Herramientas</h2>
+<p>Use estas herramientas para adoptar y aplicar Conventional Branch en su proyecto:</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    Comprueba localmente los nombres de ramas, mensajes de commit y metadatos Git relacionados.
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    Valida automaticamente los nombres de ramas en GitHub Actions.
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Crea nombres de ramas Conventional Branch desde Visual Studio Code.
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    Enseña a los asistentes de programación con IA a crear nombres válidos de Conventional Branch.
+  </li>
+  
+</ul><p>Instale la skill con:</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="preguntas-frecuentes">Preguntas frecuentes</h2>
 <h3 id="por-qué-los-tipos-de-ramas-no-son-tan-detallados-como-los-conventional-commits-p-ej-build-ci-docs-style-refactor">¿Por qué los tipos de ramas no son tan detallados como los Conventional Commits (p. ej., <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Las ramas son diferentes de los commits: son temporales y se usan principalmente hasta que se fusionan. Introducir demasiados tipos para las ramas sería innecesario y dificultaría su gestión y memorización.</p>

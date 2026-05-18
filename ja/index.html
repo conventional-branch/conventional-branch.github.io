@@ -254,6 +254,29 @@
 <li><strong>スケーラビリティ</strong>: 多くの開発者が同時に異なるタスクに取り組む大規模なチームでうまく機能します。</li>
 </ul>
 <p>要約すると、慣例的ブランチは Git ワークフロー内のプロジェクト組織、コミュニケーション、自動化を改善するために設計されています。</p>
+<h2 id="ツール">ツール</h2>
+<p>これらのツールを使用して、プロジェクトで慣例的ブランチを導入し、適用できます：</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    ブランチ名、コミットメッセージ、関連する Git メタデータをローカルでチェックします。
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    GitHub Actions でブランチ名を自動的に検証します。
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Visual Studio Code から慣例的ブランチ名を作成します。
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    AI コーディングアシスタントに有効な慣例的ブランチ名の作成方法を教えます。
+  </li>
+  
+</ul><p>次のコマンドで skill をインストールします：</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="よくある質問">よくある質問</h2>
 <h3 id="なぜブランチの種類はconventional-commits例buildcidocsstylerefactorほど詳細ではないのですか">なぜブランチの種類はConventional Commits（例：<code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）ほど詳細ではないのですか？</h3>
 <p>ブランチはコミットとは異なり、一時的なもので、主にマージされるまで使用されます。ブランチにあまり多くの種類を導入することは不要で、管理や記憶が難しくなります。</p>

@@ -254,6 +254,29 @@
 <li><strong>可扩展性</strong>：适用于许多开发人员同时处理不同任务的大型团队。</li>
 </ul>
 <p>总之，约定式分支旨在改善 Git 工作流程中的项目组织、沟通和自动化。</p>
+<h2 id="工具">工具</h2>
+<p>使用这些工具在你的项目中采用并强制执行约定式分支：</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    在本地检查分支名称、提交信息和相关 Git 元数据。
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    在 GitHub Actions 中自动验证分支名称。
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    在 Visual Studio Code 中创建约定式分支名称。
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    教 AI 编程助手创建有效的约定式分支名称。
+  </li>
+  
+</ul><p>使用以下命令安装该 skill：</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="常见问题">常见问题</h2>
 <h3 id="为什么分支类型不像-conventional-commits例如-buildcidocsstylerefactor那么详细">为什么分支类型不像 Conventional Commits（例如 <code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）那么详细？</h3>
 <p>分支与提交不同 —— 分支是临时的，大部分只出现在合并前。为分支引入过多类型是没有必要的，也会让管理和记忆变得更困难。</p>

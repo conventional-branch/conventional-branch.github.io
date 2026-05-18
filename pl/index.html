@@ -254,6 +254,29 @@
 <li><strong>Skalowalność</strong>: Dobrze sprawdza się w dużych zespołach, gdzie wielu programistów pracuje jednocześnie nad różnymi zadaniami.</li>
 </ul>
 <p>Podsumowując, conventional branch został zaprojektowany w celu poprawy organizacji projektu, komunikacji i automatyzacji w przepływach pracy Git.</p>
+<h2 id="narzędzia">Narzędzia</h2>
+<p>Użyj tych narzędzi, aby wdrożyć i egzekwować Conventional Branch w swoim projekcie:</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    Lokalnie sprawdza nazwy gałęzi, komunikaty commitów i powiązane metadane Git.
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    Automatycznie weryfikuje nazwy galezi w GitHub Actions.
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Tworzy nazwy gałęzi Conventional Branch w Visual Studio Code.
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    Uczy asystentów programistycznych AI tworzenia poprawnych nazw Conventional Branch.
+  </li>
+  
+</ul><p>Zainstaluj skill poleceniem:</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
 <h2 id="faq">FAQ</h2>
 <h3 id="dlaczego-typy-gałęzi-nie-są-tak-szczegółowe-jak-w-conventional-commits-np-build-ci-docs-style-refactor">Dlaczego typy gałęzi nie są tak szczegółowe jak w Conventional Commits (np. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Gałęzie różnią się od commitów — są tymczasowe i używane głównie do momentu scalenia. Wprowadzenie zbyt wielu typów dla gałęzi byłoby niepotrzebne i utrudniłoby ich zarządzanie oraz zapamiętywanie.</p>
