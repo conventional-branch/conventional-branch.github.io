@@ -281,16 +281,16 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="faq">FAQ</h2>
-<h3 id="dlaczego-typy-gałęzi-nie-są-tak-szczegółowe-jak-w-conventional-commits-np-build-ci-docs-style-refactor">Dlaczego typy gałęzi nie są tak szczegółowe jak w Conventional Commits (np. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
-<p>Gałęzie różnią się od commitów — są tymczasowe i używane głównie do momentu scalenia. Wprowadzenie zbyt wielu typów dla gałęzi byłoby niepotrzebne i utrudniłoby ich zarządzanie oraz zapamiętywanie.</p>
-<h3 id="jakich-narzędzi-można-użyć-aby-automatycznie-sprawdzić-czy-członek-zespołu-nie-spełnia-tej-specyfikacji">Jakich narzędzi można użyć, aby automatycznie sprawdzić, czy członek zespołu nie spełnia tej specyfikacji?</h3>
-<p>Możesz użyć <a href="https://github.com/commit-check/commit-check">commit-check</a> do sprawdzania specyfikacji gałęzi lub <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, jeśli twój kod jest hostowany na GitHub.</p>
-<h3 id="czy-mogę-zdefiniować-własne-typy-gałęzi-poza-wymienionymi">Czy mogę zdefiniować własne typy gałęzi poza wymienionymi?</h3>
-<p>Tak. Specyfikacja definiuje zalecany zestaw typów, ale zespoły mogą definiować dodatkowe niestandardowe typy dla swojego przepływu pracy. Ważne jest jednak, aby jasno dokumentować niestandardowe typy, tak aby wszyscy członkowie zespołu i zautomatyzowane narzędzia były ich świadome.</p>
 <h3 id="jak-conventional-branch-ma-się-do-conventional-commits">Jak Conventional Branch ma się do Conventional Commits?</h3>
 <p>Conventional Branch jest zainspirowany przez <a href="https://www.conventionalcommits.org">Conventional Commits</a> i podąża za podobną filozofią: wprowadzenie struktury czytelnej dla ludzi i maszyn do metadanych Git. Podczas gdy Conventional Commits standaryzuje wiadomości commitów, Conventional Branch standaryzuje nazwy gałęzi. Obie specyfikacje naturalnie się uzupełniają.</p>
+<h3 id="dlaczego-typy-gałęzi-nie-są-tak-szczegółowe-jak-w-conventional-commits-np-build-ci-docs-style-refactor">Dlaczego typy gałęzi nie są tak szczegółowe jak w Conventional Commits (np. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<p>Gałęzie różnią się od commitów — są tymczasowe i używane głównie do momentu scalenia. Wprowadzenie zbyt wielu typów dla gałęzi byłoby niepotrzebne i utrudniłoby ich zarządzanie oraz zapamiętywanie.</p>
+<h3 id="czy-mogę-zdefiniować-własne-typy-gałęzi-poza-wymienionymi">Czy mogę zdefiniować własne typy gałęzi poza wymienionymi?</h3>
+<p>Tak. Specyfikacja definiuje zalecany zestaw typów, ale zespoły mogą definiować dodatkowe niestandardowe typy dla swojego przepływu pracy. Ważne jest jednak, aby jasno dokumentować niestandardowe typy, tak aby wszyscy członkowie zespołu i zautomatyzowane narzędzia były ich świadome.</p>
 <h3 id="jak-radzić-sobie-z-długo-żyjącymi-gałęziami-takimi-jak-develop-lub-staging">Jak radzić sobie z długo żyjącymi gałęziami, takimi jak <code>develop</code> lub <code>staging</code>?</h3>
 <p>Długo żyjące gałęzie integracyjne lub środowiskowe (np. <code>develop</code>, <code>staging</code>, <code>production</code>) są w praktyce często traktowane jak gałęzie główne i nie wymagają prefiksu, o ile w danym projekcie zostanie to jasno ustalone. Formalna gramatyka ABNF definiuje jednak gałąź główną (<code>trunk-branch</code>) jedynie jako <code>main</code>, <code>master</code> lub <code>develop</code>, a dodatkowe nazwy (takie jak <code>staging</code> czy <code>production</code>) są opcjonalnymi konwencjami specyficznymi dla projektu, które należy odpowiednio udokumentować i skonfigurować w narzędziach.</p>
+<h3 id="jakich-narzędzi-można-użyć-aby-automatycznie-sprawdzić-czy-członek-zespołu-nie-spełnia-tej-specyfikacji">Jakich narzędzi można użyć, aby automatycznie sprawdzić, czy członek zespołu nie spełnia tej specyfikacji?</h3>
+<p>Możesz użyć <a href="https://github.com/commit-check/commit-check">commit-check</a> do sprawdzania specyfikacji gałęzi lub <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, jeśli twój kod jest hostowany na GitHub.</p>
 
   </article>
 </main><footer class="footer">

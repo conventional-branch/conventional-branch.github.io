@@ -281,16 +281,16 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="faq">FAQ</h2>
-<h3 id="為什麼-branch-type-不像-conventional-commits例如-buildcidocsstylerefactor那麼詳細">為什麼 branch type 不像 Conventional Commits（例如 <code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）那麼詳細？</h3>
-<p>branch 與 commit 不同——branch 是暫時性的，通常只會使用到 merge 為止。若為 branch 引入過多 type 並無必要，反而會讓管理與記憶變得更困難。</p>
-<h3 id="有哪些工具可以自動識別團隊成員是否符合此規範">有哪些工具可以自動識別團隊成員是否符合此規範？</h3>
-<p>您可以使用 <a href="https://github.com/commit-check/commit-check">commit-check</a> 檢查 branch 規範；若您的程式碼託管於 GitHub，則可使用 <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>。</p>
-<h3 id="我可以定義規範列表之外的自訂-branch-type-嗎">我可以定義規範列表之外的自訂 branch type 嗎？</h3>
-<p>可以。本規範定義了一套推薦的 type，但團隊可根據工作流程定義額外的自訂 type。重要的是，需要將自訂 type 清楚記錄，讓所有團隊成員及自動化工具皆能知悉。</p>
 <h3 id="約定式分支與約定式提交conventional-commits有什麼關係">約定式分支與約定式提交（Conventional Commits）有什麼關係？</h3>
 <p>約定式分支的靈感來源於 <a href="https://www.conventionalcommits.org">Conventional Commits</a>，遵循相似的理念：為 Git 中繼資料引入人機可讀的結構。約定式提交規範提交訊息，約定式分支規範 branch 名稱，兩者相輔相成、天然互補。</p>
+<h3 id="為什麼-branch-type-不像-conventional-commits例如-buildcidocsstylerefactor那麼詳細">為什麼 branch type 不像 Conventional Commits（例如 <code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）那麼詳細？</h3>
+<p>branch 與 commit 不同——branch 是暫時性的，通常只會使用到 merge 為止。若為 branch 引入過多 type 並無必要，反而會讓管理與記憶變得更困難。</p>
+<h3 id="我可以定義規範列表之外的自訂-branch-type-嗎">我可以定義規範列表之外的自訂 branch type 嗎？</h3>
+<p>可以。本規範定義了一套推薦的 type，但團隊可根據工作流程定義額外的自訂 type。重要的是，需要將自訂 type 清楚記錄，讓所有團隊成員及自動化工具皆能知悉。</p>
 <h3 id="如何處理-develop-或-staging-等長期存在的-branch">如何處理 <code>develop</code> 或 <code>staging</code> 等長期存在的 branch？</h3>
 <p>長期存在的整合或環境 branch（例如 <code>develop</code>、<code>staging</code>、<code>production</code>）通常在專案層級被視為主幹分支，不需要前綴，且應在整個專案中保持一致的命名。依照本規範前文所述的 ABNF 正式文法，預設的 <code>trunk-branch</code> 僅包含標準主幹名稱（例如 <code>main</code>、<code>master</code>、<code>develop</code>）；其他名稱（如 <code>staging</code>、<code>production</code>）則屬於專案自訂的延伸，建議在團隊文件中明確記錄，以便工具與成員正確辨識。</p>
+<h3 id="有哪些工具可以自動識別團隊成員是否符合此規範">有哪些工具可以自動識別團隊成員是否符合此規範？</h3>
+<p>您可以使用 <a href="https://github.com/commit-check/commit-check">commit-check</a> 檢查 branch 規範；若您的程式碼託管於 GitHub，則可使用 <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>。</p>
 
   </article>
 </main><footer class="footer">

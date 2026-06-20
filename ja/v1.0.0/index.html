@@ -281,16 +281,16 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="よくある質問">よくある質問</h2>
-<h3 id="なぜブランチの種類はconventional-commits例buildcidocsstylerefactorほど詳細ではないのですか">なぜブランチの種類はConventional Commits（例：<code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）ほど詳細ではないのですか？</h3>
-<p>ブランチはコミットとは異なり、一時的なもので、主にマージされるまで使用されます。ブランチにあまり多くの種類を導入することは不要で、管理や記憶が難しくなります。</p>
-<h3 id="チームメンバーがこの仕様を満たしていない場合自動的に識別するために使用できるツールは何ですか">チームメンバーがこの仕様を満たしていない場合、自動的に識別するために使用できるツールは何ですか？</h3>
-<p><a href="https://github.com/commit-check/commit-check">commit-check</a> を使用してブランチ仕様をチェックするか、コードが GitHub でホストされている場合は <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> を使用できます。</p>
-<h3 id="仕様に記載されているもの以外に独自のブランチタイプを定義できますか">仕様に記載されているもの以外に独自のブランチタイプを定義できますか？</h3>
-<p>はい。この仕様は推奨されるタイプのセットを定義しますが、チームはワークフローに合わせて追加のカスタムタイプを定義することができます。ただし、すべてのチームメンバーと自動化ツールが認識できるよう、カスタムタイプを明確に文書化することが重要です。</p>
 <h3 id="conventional-branch-と-conventional-commits-の関係は">Conventional Branch と Conventional Commits の関係は？</h3>
 <p>Conventional Branch は <a href="https://www.conventionalcommits.org">Conventional Commits</a> に触発され、同様の哲学に基づいています：人間と機械が読めるような構造を Git メタデータに組み込むこと。Conventional Commits がコミットメッセージを標準化するのに対して、Conventional Branch はブランチ名を標準化します。両者は自然に補完し合います。</p>
+<h3 id="なぜブランチの種類はconventional-commits例buildcidocsstylerefactorほど詳細ではないのですか">なぜブランチの種類はConventional Commits（例：<code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）ほど詳細ではないのですか？</h3>
+<p>ブランチはコミットとは異なり、一時的なもので、主にマージされるまで使用されます。ブランチにあまり多くの種類を導入することは不要で、管理や記憶が難しくなります。</p>
+<h3 id="仕様に記載されているもの以外に独自のブランチタイプを定義できますか">仕様に記載されているもの以外に独自のブランチタイプを定義できますか？</h3>
+<p>はい。この仕様は推奨されるタイプのセットを定義しますが、チームはワークフローに合わせて追加のカスタムタイプを定義することができます。ただし、すべてのチームメンバーと自動化ツールが認識できるよう、カスタムタイプを明確に文書化することが重要です。</p>
 <h3 id="develop-や-staging-のような長期存在するブランチはどう扱えばよいですか"><code>develop</code> や <code>staging</code> のような長期存在するブランチはどう扱えばよいですか？</h3>
 <p>仕様の ABNF では <code>trunk-branch</code> は <code>main</code> / <code>master</code> / <code>develop</code> のみを指しますが、運用上、それ以外の長期存在する統合用または環境用ブランチ（例：<code>staging</code>、<code>production</code>）をプロジェクト独自のトランク相当ブランチとして扱っても構いません（この場合もプレフィックスは不要です）。その際は、これらのブランチ名が仕様の拡張であることを明確に文書化し、プロジェクト全体で一貫した命名を心がけてください。</p>
+<h3 id="チームメンバーがこの仕様を満たしていない場合自動的に識別するために使用できるツールは何ですか">チームメンバーがこの仕様を満たしていない場合、自動的に識別するために使用できるツールは何ですか？</h3>
+<p><a href="https://github.com/commit-check/commit-check">commit-check</a> を使用してブランチ仕様をチェックするか、コードが GitHub でホストされている場合は <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> を使用できます。</p>
 
   </article>
 </main><footer class="footer">

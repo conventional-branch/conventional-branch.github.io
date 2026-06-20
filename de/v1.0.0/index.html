@@ -281,16 +281,16 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="faq">FAQ</h2>
-<h3 id="warum-sind-branch-typen-nicht-so-detailliert-wie-conventional-commits-zb-build-ci-docs-style-refactor">Warum sind Branch-Typen nicht so detailliert wie Conventional Commits (z. B. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
-<p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>
-<h3 id="welche-tools-können-verwendet-werden-um-automatisch-zu-identifizieren-ob-ein-teammitglied-diese-spezifikation-nicht-erfüllt">Welche Tools können verwendet werden, um automatisch zu identifizieren, ob ein Teammitglied diese Spezifikation nicht erfüllt?</h3>
-<p>Sie können <a href="https://github.com/commit-check/commit-check">commit-check</a> verwenden, um die Branch-Spezifikation zu überprüfen, oder <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, wenn Ihr Code auf GitHub gehostet wird.</p>
-<h3 id="kann-ich-eigene-branch-typen-über-die-aufgeführten-hinaus-definieren">Kann ich eigene Branch-Typen über die aufgeführten hinaus definieren?</h3>
-<p>Ja. Die Spezifikation definiert eine empfohlene Menge von Typen, aber Teams können zusätzliche benutzerdefinierte Typen für ihren Workflow definieren. Es ist jedoch wichtig, benutzerdefinierte Typen klar zu dokumentieren, damit alle Teammitglieder und automatisierte Tools davon wissen.</p>
 <h3 id="wie-verhält-sich-conventional-branch-zu-conventional-commits">Wie verhält sich Conventional Branch zu Conventional Commits?</h3>
 <p>Conventional Branch wurde von <a href="https://www.conventionalcommits.org">Conventional Commits</a> inspiriert und verfolgt eine ähnliche Philosophie: menschlich- und maschinenlesbaren Struktur in Git-Metadaten einzubringen. Während Conventional Commits Commit-Nachrichten standardisiert, standardisiert Conventional Branch Branch-Namen. Die beiden Spezifikationen ergänzen sich auf natürliche Weise.</p>
+<h3 id="warum-sind-branch-typen-nicht-so-detailliert-wie-conventional-commits-zb-build-ci-docs-style-refactor">Warum sind Branch-Typen nicht so detailliert wie Conventional Commits (z. B. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>
+<h3 id="kann-ich-eigene-branch-typen-über-die-aufgeführten-hinaus-definieren">Kann ich eigene Branch-Typen über die aufgeführten hinaus definieren?</h3>
+<p>Ja. Die Spezifikation definiert eine empfohlene Menge von Typen, aber Teams können zusätzliche benutzerdefinierte Typen für ihren Workflow definieren. Es ist jedoch wichtig, benutzerdefinierte Typen klar zu dokumentieren, damit alle Teammitglieder und automatisierte Tools davon wissen.</p>
 <h3 id="wie-soll-ich-mit-langlebigen-branches-wie-develop-oder-staging-umgehen">Wie soll ich mit langlebigen Branches wie <code>develop</code> oder <code>staging</code> umgehen?</h3>
 <p>In der formalen Grammatik dieser Spezifikation sind nur <code>main</code>, <code>master</code> und <code>develop</code> explizit als Trunk-Branches definiert und benötigen kein Präfix. Als projektspezifische Erweiterung können Teams jedoch zusätzliche langlebige Integrations- oder Umgebungs-Branches (z. B. <code>staging</code>, <code>production</code>) ohne Präfix verwenden, sofern diese konsistent benannt und in den eingesetzten Tools entsprechend konfiguriert bzw. dokumentiert sind.</p>
+<h3 id="welche-tools-können-verwendet-werden-um-automatisch-zu-identifizieren-ob-ein-teammitglied-diese-spezifikation-nicht-erfüllt">Welche Tools können verwendet werden, um automatisch zu identifizieren, ob ein Teammitglied diese Spezifikation nicht erfüllt?</h3>
+<p>Sie können <a href="https://github.com/commit-check/commit-check">commit-check</a> verwenden, um die Branch-Spezifikation zu überprüfen, oder <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, wenn Ihr Code auf GitHub gehostet wird.</p>
 
   </article>
 </main><footer class="footer">

@@ -281,16 +281,16 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
-<h3 id="por-que-os-tipos-de-branch-não-são-tão-detalhados-quanto-os-conventional-commits-por-exemplo-build-ci-docs-style-refactor">Por que os tipos de branch não são tão detalhados quanto os Conventional Commits (por exemplo, <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
-<p>Branches são diferentes de commits – são temporários e usados principalmente até serem mesclados. Introduzir muitos tipos de branch seria desnecessário e tornaria mais difícil gerenciá-los e lembrá-los.</p>
-<h3 id="quais-ferramentas-podem-ser-usadas-para-identificar-automaticamente-se-um-membro-da-equipe-não-segue-esta-especificação">Quais ferramentas podem ser usadas para identificar automaticamente se um membro da equipe não segue esta especificação?</h3>
-<p>Você pode usar o <a href="https://github.com/commit-check/commit-check">commit-check</a> para verificar a especificação de branch ou o <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> se seu código estiver hospedado no GitHub.</p>
-<h3 id="posso-definir-meus-próprios-tipos-de-branch-além-dos-listados">Posso definir meus próprios tipos de branch além dos listados?</h3>
-<p>Sim. A especificação define um conjunto recomendado de tipos, mas equipes podem definir tipos personalizados adicionais para seu fluxo de trabalho. No entanto, é importante documentar claramente os tipos personalizados para que todos os membros da equipe e ferramentas automatizadas estejam cientes deles.</p>
 <h3 id="como-o-conventional-branch-se-relaciona-com-o-conventional-commits">Como o Conventional Branch se relaciona com o Conventional Commits?</h3>
 <p>O Conventional Branch foi inspirado pelo <a href="https://www.conventionalcommits.org">Conventional Commits</a> e segue uma filosofia semelhante: trazer estrutura legível por humanos e máquinas para os metadados do Git. Enquanto o Conventional Commits padroniza mensagens de commit, o Conventional Branch padroniza nomes de branches. As duas especificações se complementam naturalmente.</p>
+<h3 id="por-que-os-tipos-de-branch-não-são-tão-detalhados-quanto-os-conventional-commits-por-exemplo-build-ci-docs-style-refactor">Por que os tipos de branch não são tão detalhados quanto os Conventional Commits (por exemplo, <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<p>Branches são diferentes de commits – são temporários e usados principalmente até serem mesclados. Introduzir muitos tipos de branch seria desnecessário e tornaria mais difícil gerenciá-los e lembrá-los.</p>
+<h3 id="posso-definir-meus-próprios-tipos-de-branch-além-dos-listados">Posso definir meus próprios tipos de branch além dos listados?</h3>
+<p>Sim. A especificação define um conjunto recomendado de tipos, mas equipes podem definir tipos personalizados adicionais para seu fluxo de trabalho. No entanto, é importante documentar claramente os tipos personalizados para que todos os membros da equipe e ferramentas automatizadas estejam cientes deles.</p>
 <h3 id="como-devo-lidar-com-branches-de-longa-duração-como-develop-ou-staging">Como devo lidar com branches de longa duração como <code>develop</code> ou <code>staging</code>?</h3>
 <p>Na gramática formal da especificação, apenas <code>main</code>, <code>master</code> e <code>develop</code> são considerados <code>trunk-branch</code>. Outros branches de integração ou de ambiente de longa duração (por exemplo, <code>staging</code>, <code>production</code>) podem ser adotados por cada projeto como extensões específicas da convenção, também sem prefixo, desde que sejam documentados e usados de forma consistente em todo o projeto.</p>
+<h3 id="quais-ferramentas-podem-ser-usadas-para-identificar-automaticamente-se-um-membro-da-equipe-não-segue-esta-especificação">Quais ferramentas podem ser usadas para identificar automaticamente se um membro da equipe não segue esta especificação?</h3>
+<p>Você pode usar o <a href="https://github.com/commit-check/commit-check">commit-check</a> para verificar a especificação de branch ou o <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> se seu código estiver hospedado no GitHub.</p>
 
   </article>
 </main><footer class="footer">
