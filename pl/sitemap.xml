@@ -116,6 +116,63 @@
                 href="/pl/v1.0.0/"
                 />
   </url><url>
+    <loc>/pl/v1.1.0/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="/de/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="/es/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="/ja/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="/pt-br/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="/ru/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="th"
+                href="/th/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hant"
+                href="/zh-hant/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="/zh/v1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pl"
+                href="/pl/v1.1.0/"
+                />
+  </url><url>
     <loc>/pl/categories/</loc>
     <xhtml:link
                 rel="alternate"

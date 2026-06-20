@@ -35,9 +35,11 @@
       <div class="logo"></div>
     </a>
     <ul class="header__menu">
-      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.0.0</button>
-        <ul class="dropdown__options"><li class="dropdown__option dropdown__option--active">
+      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.1.0</button>
+        <ul class="dropdown__options"><li class="dropdown__option">
             <a href="/de/v1.0.0/">v1.0.0</a>
+          </li><li class="dropdown__option dropdown__option--active">
+            <a href="/de/v1.1.0/">v1.1.0</a>
           </li></ul>
       </li>
       <li class="header__menu-item dropdown">
@@ -98,7 +100,7 @@
 </section>
 <main>
   <article class="container markdown-body">
-    <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
+    <h1 id="conventional-branch-110">Conventional Branch 1.1.0</h1>
 <h2 id="zusammenfassung">Zusammenfassung</h2>
 <p>Conventional Branch bezieht sich auf eine strukturierte und standardisierte Namenskonvention für Git-Branches, die darauf abzielt, Branches lesbarer und umsetzbarer zu machen. Wir haben einige Branch-Präfixe vorgeschlagen, die Sie verwenden könnten, aber Sie können auch Ihre eigene Namenskonvention festlegen. Eine einheitliche Namenskonvention erleichtert die Identifizierung von Branches nach Typ.</p>
 <h3 id="wichtige-punkte">Wichtige Punkte</h3>
@@ -112,14 +114,23 @@
 <p>Die Branch-Spezifikation unterstützt die folgenden Präfixe und sollte wie folgt strukturiert sein:</p>
 <hr>
 <pre tabindex="0"><code>&lt;typ&gt;/&lt;beschreibung&gt;
-</code></pre><ul>
-<li><strong><code>main</code></strong>: Der Haupt-Entwicklungsbranch (z.B. <code>main</code>, <code>master</code>, oder <code>develop</code>)</li>
+</code></pre><p><strong>Zweck-Präfixe</strong> — beschreiben die Absicht der Arbeit:</p>
+<ul>
 <li><strong><code>feature/</code></strong> (oder <strong><code>feat/</code></strong>): Für neue Features (z.B. <code>feature/add-login-page</code>, <code>feat/add-login-page</code>)</li>
 <li><strong><code>bugfix/</code></strong> (oder <strong><code>fix/</code></strong>): Für Fehlerbehebungen (z.B. <code>bugfix/fix-header-bug</code>, <code>fix/header-bug</code>)</li>
 <li><strong><code>hotfix/</code></strong>: Für dringende Korrekturen (z.B. <code>hotfix/security-patch</code>)</li>
 <li><strong><code>release/</code></strong>: Für Branches, die ein Release vorbereiten (z.B. <code>release/v1.2.0</code>)</li>
 <li><strong><code>chore/</code></strong>: Für Nicht-Code-Aufgaben wie Abhängigkeiten, Dokumentation-Updates (z.B. <code>chore/update-dependencies</code>)</li>
 </ul>
+<p><strong>AI-Agenten-Quellpräfixe</strong> — identifizieren Branches, die von KI-Codierungsagenten erstellt wurden:</p>
+<ul>
+<li><strong><code>ai/</code></strong>: Generischer Präfix für jeden KI-Codierungsagenten (z.B. <code>ai/refactor-auth-flow</code>)</li>
+<li><strong><code>copilot/</code></strong>: GitHub Copilot (z.B. <code>copilot/add-login-page</code>)</li>
+<li><strong><code>cursor/</code></strong>: Cursor (z.B. <code>cursor/fix-header-bug</code>)</li>
+<li><strong><code>claude/</code></strong>: Claude Code von Anthropic (z.B. <code>claude/security-patch</code>)</li>
+<li><strong><code>codex/</code></strong>: OpenAI Codex (z.B. <code>codex/optimize-query</code>)</li>
+</ul>
+<p>Trunk-Branches (<code>main</code>, <code>master</code>, <code>develop</code>) verwenden kein Präfix.</p>
 <hr>
 <h3 id="grundregeln">Grundregeln</h3>
 <ol>
@@ -135,6 +146,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;ai&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;copilot&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;cursor&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;claude&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;codex&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; Kleinbuchstaben a-z</span>
@@ -243,6 +256,31 @@
 <td>Unterstriche nicht erlaubt</td>
 </tr>
 <tr>
+<td><code>ai/refactor-auth-flow</code></td>
+<td>✅</td>
+<td>Generischer KI-Agenten-Präfix</td>
+</tr>
+<tr>
+<td><code>copilot/add-login-page</code></td>
+<td>✅</td>
+<td>GitHub Copilot</td>
+</tr>
+<tr>
+<td><code>cursor/fix-header-bug</code></td>
+<td>✅</td>
+<td>Cursor</td>
+</tr>
+<tr>
+<td><code>claude/security-patch</code></td>
+<td>✅</td>
+<td>Claude Code von Anthropic</td>
+</tr>
+<tr>
+<td><code>codex/optimize-query</code></td>
+<td>✅</td>
+<td>OpenAI Codex</td>
+</tr>
+<tr>
 <td><code>unknown/some-task</code></td>
 <td>❌</td>
 <td>Unbekannter Präfixtyp</td>
@@ -280,16 +318,26 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="faq">FAQ</h2>
-<h3 id="warum-sind-branch-typen-nicht-so-detailliert-wie-conventional-commits-zb-build-ci-docs-style-refactor">Warum sind Branch-Typen nicht so detailliert wie Conventional Commits (z. B. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
-<p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>
-<h3 id="welche-tools-können-verwendet-werden-um-automatisch-zu-identifizieren-ob-ein-teammitglied-diese-spezifikation-nicht-erfüllt">Welche Tools können verwendet werden, um automatisch zu identifizieren, ob ein Teammitglied diese Spezifikation nicht erfüllt?</h3>
-<p>Sie können <a href="https://github.com/commit-check/commit-check">commit-check</a> verwenden, um die Branch-Spezifikation zu überprüfen, oder <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, wenn Ihr Code auf GitHub gehostet wird.</p>
-<h3 id="kann-ich-eigene-branch-typen-über-die-aufgeführten-hinaus-definieren">Kann ich eigene Branch-Typen über die aufgeführten hinaus definieren?</h3>
-<p>Ja. Die Spezifikation definiert eine empfohlene Menge von Typen, aber Teams können zusätzliche benutzerdefinierte Typen für ihren Workflow definieren. Es ist jedoch wichtig, benutzerdefinierte Typen klar zu dokumentieren, damit alle Teammitglieder und automatisierte Tools davon wissen.</p>
 <h3 id="wie-verhält-sich-conventional-branch-zu-conventional-commits">Wie verhält sich Conventional Branch zu Conventional Commits?</h3>
 <p>Conventional Branch wurde von <a href="https://www.conventionalcommits.org">Conventional Commits</a> inspiriert und verfolgt eine ähnliche Philosophie: menschlich- und maschinenlesbaren Struktur in Git-Metadaten einzubringen. Während Conventional Commits Commit-Nachrichten standardisiert, standardisiert Conventional Branch Branch-Namen. Die beiden Spezifikationen ergänzen sich auf natürliche Weise.</p>
+<h3 id="warum-sind-branch-typen-nicht-so-detailliert-wie-conventional-commits-zb-build-ci-docs-style-refactor">Warum sind Branch-Typen nicht so detailliert wie Conventional Commits (z. B. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>
+<h3 id="kann-ich-eigene-branch-typen-über-die-aufgeführten-hinaus-definieren">Kann ich eigene Branch-Typen über die aufgeführten hinaus definieren?</h3>
+<p>Ja. Die Spezifikation definiert eine empfohlene Menge von Typen, aber Teams können zusätzliche benutzerdefinierte Typen für ihren Workflow definieren. Es ist jedoch wichtig, benutzerdefinierte Typen klar zu dokumentieren, damit alle Teammitglieder und automatisierte Tools davon wissen.</p>
+<h3 id="was-sind-die-hauptunterschiede-zwischen-v110-und-v100">Was sind die Hauptunterschiede zwischen v1.1.0 und v1.0.0?</h3>
+<p>v1.1.0 führt <strong>AI-Agenten-Quellpräfixe</strong> als wichtigstes neues Feature ein (siehe den nächsten FAQ-Eintrag für die Gründe). Außerdem bietet die versionierte Website einen Versionsumschalter, mit dem Benutzer sowohl die v1.0.0- als auch die v1.1.0-Spezifikation durchsuchen können. Alle vorhandenen v1.0.0-Branch-Namen bleiben vollständig gültig — keine breaking changes.</p>
+<h3 id="warum-ai-agenten-quellpräfixe-hinzufügen">Warum AI-Agenten-Quellpräfixe hinzufügen?</h3>
+<p>KI-Codierungsagenten (GitHub Copilot, Cursor, Claude Code, OpenAI Codex usw.) werden zunehmend zur Codegenerierung und Erstellung von Pull Requests eingesetzt. Jeder Agent verwendet sein eigenes Branch-Präfix (z. B. <code>copilot/</code>, <code>cursor/</code>). Durch die Standardisierung dieser Präfixe in der Conventional-Branch-Spezifikation ermöglichen wir:</p>
+<ol>
+<li><strong>Schnelle Identifikation</strong> — Prüfer und Tools können KI-generierte PRs sofort erkennen</li>
+<li><strong>Tool-Validierung</strong> — Tools wie commit-check können KI-Agenten-Branches gegen die Spezifikation validieren</li>
+<li><strong>Einen Registrierungsstandard</strong> — neue KI-Agenten können ein dokumentiertes Präfix übernehmen, anstatt Ad-hoc-Muster zu erfinden</li>
+</ol>
+<p>Der generische <code>ai/</code>-Präfix steht für jeden KI-Agenten ohne dedizierten Präfix zur Verfügung, oder für Teams, die einen anbieterneutralen Identifikator bevorzugen. Dies ist das wichtigste neue Feature, das in <strong>v1.1.0</strong> veröffentlicht wurde — eine vollständige Zusammenfassung der Änderungen zwischen den Versionen finden Sie im FAQ-Eintrag oben.</p>
 <h3 id="wie-soll-ich-mit-langlebigen-branches-wie-develop-oder-staging-umgehen">Wie soll ich mit langlebigen Branches wie <code>develop</code> oder <code>staging</code> umgehen?</h3>
 <p>In der formalen Grammatik dieser Spezifikation sind nur <code>main</code>, <code>master</code> und <code>develop</code> explizit als Trunk-Branches definiert und benötigen kein Präfix. Als projektspezifische Erweiterung können Teams jedoch zusätzliche langlebige Integrations- oder Umgebungs-Branches (z. B. <code>staging</code>, <code>production</code>) ohne Präfix verwenden, sofern diese konsistent benannt und in den eingesetzten Tools entsprechend konfiguriert bzw. dokumentiert sind.</p>
+<h3 id="welche-tools-können-verwendet-werden-um-automatisch-zu-identifizieren-ob-ein-teammitglied-diese-spezifikation-nicht-erfüllt">Welche Tools können verwendet werden, um automatisch zu identifizieren, ob ein Teammitglied diese Spezifikation nicht erfüllt?</h3>
+<p>Sie können <a href="https://github.com/commit-check/commit-check">commit-check</a> verwenden, um die Branch-Spezifikation zu überprüfen, oder <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, wenn Ihr Code auf GitHub gehostet wird.</p>
 
   </article>
 </main><footer class="footer">

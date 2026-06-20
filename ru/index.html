@@ -35,9 +35,11 @@
       <div class="logo"></div>
     </a>
     <ul class="header__menu">
-      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.0.0</button>
-        <ul class="dropdown__options"><li class="dropdown__option dropdown__option--active">
+      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.1.0</button>
+        <ul class="dropdown__options"><li class="dropdown__option">
             <a href="/ru/v1.0.0/">v1.0.0</a>
+          </li><li class="dropdown__option dropdown__option--active">
+            <a href="/ru/v1.1.0/">v1.1.0</a>
           </li></ul>
       </li>
       <li class="header__menu-item dropdown">
@@ -98,7 +100,7 @@
 </section>
 <main>
   <article class="container markdown-body">
-    <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
+    <h1 id="conventional-branch-110">Conventional Branch 1.1.0</h1>
 <h2 id="краткое-изложение">Краткое изложение</h2>
 <p>Conventional Branch относится к структурированной и стандартизированной конвенции именования веток Git, которая направлена на то, чтобы сделать ветки более читаемыми и действенными. Мы предложили некоторые префиксы веток, которые вы можете использовать, но вы также можете указать свою собственную конвенцию именования. Последовательная конвенция именования упрощает идентификацию веток по типу.</p>
 <h3 id="ключевые-моменты">Ключевые моменты</h3>
@@ -112,14 +114,23 @@
 <p>Спецификация веток поддерживает следующие префиксы и должна быть структурирована как:</p>
 <hr>
 <pre tabindex="0"><code>&lt;тип&gt;/&lt;описание&gt;
-</code></pre><ul>
-<li><strong><code>main</code></strong>: Основная ветка разработки (например, <code>main</code>, <code>master</code> или <code>develop</code>)</li>
+</code></pre><p><strong>Префиксы назначения</strong> — описывают намерение работы:</p>
+<ul>
 <li><strong><code>feature/</code></strong> (или <strong><code>feat/</code></strong>): Для новых функций (например, <code>feature/add-login-page</code>, <code>feat/add-login-page</code>)</li>
 <li><strong><code>bugfix/</code></strong> (или <strong><code>fix/</code></strong>): Для исправления ошибок (например, <code>bugfix/fix-header-bug</code>, <code>fix/header-bug</code>)</li>
 <li><strong><code>hotfix/</code></strong>: Для срочных исправлений (например, <code>hotfix/security-patch</code>)</li>
 <li><strong><code>release/</code></strong>: Для веток, подготавливающих релиз (например, <code>release/v1.2.0</code>)</li>
 <li><strong><code>chore/</code></strong>: Для задач, не связанных с кодом, таких как зависимости, обновления документации (например, <code>chore/update-dependencies</code>)</li>
 </ul>
+<p><strong>Префиксы источника ИИ-агента</strong> — идентифицируют ветки, созданные ИИ-агентами кодирования:</p>
+<ul>
+<li><strong><code>ai/</code></strong>: Универсальный префикс для любого ИИ-агента кодирования (например, <code>ai/refactor-auth-flow</code>)</li>
+<li><strong><code>copilot/</code></strong>: GitHub Copilot (например, <code>copilot/add-login-page</code>)</li>
+<li><strong><code>cursor/</code></strong>: Cursor (например, <code>cursor/fix-header-bug</code>)</li>
+<li><strong><code>claude/</code></strong>: Claude Code от Anthropic (например, <code>claude/security-patch</code>)</li>
+<li><strong><code>codex/</code></strong>: OpenAI Codex (например, <code>codex/optimize-query</code>)</li>
+</ul>
+<p>Основные ветки (<code>main</code>, <code>master</code>, <code>develop</code>) не используют префикс.</p>
 <hr>
 <h3 id="основные-правила">Основные правила</h3>
 <ol>
@@ -135,6 +146,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;ai&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;copilot&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;cursor&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;claude&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;codex&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; строчные буквы a-z</span>
@@ -243,6 +256,31 @@
 <td>Подчёркивания не допускаются</td>
 </tr>
 <tr>
+<td><code>ai/refactor-auth-flow</code></td>
+<td>✅</td>
+<td>Универсальный префикс ИИ-агента</td>
+</tr>
+<tr>
+<td><code>copilot/add-login-page</code></td>
+<td>✅</td>
+<td>GitHub Copilot</td>
+</tr>
+<tr>
+<td><code>cursor/fix-header-bug</code></td>
+<td>✅</td>
+<td>Cursor</td>
+</tr>
+<tr>
+<td><code>claude/security-patch</code></td>
+<td>✅</td>
+<td>Claude Code от Anthropic</td>
+</tr>
+<tr>
+<td><code>codex/optimize-query</code></td>
+<td>✅</td>
+<td>OpenAI Codex</td>
+</tr>
+<tr>
 <td><code>unknown/some-task</code></td>
 <td>❌</td>
 <td>Неизвестный тип префикса</td>
@@ -280,16 +318,26 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="часто-задаваемые-вопросы">Часто задаваемые вопросы</h2>
-<h3 id="почему-типы-веток-не-так-детализированы-как-conventional-commits-например-build-ci-docs-style-refactor">Почему типы веток не так детализированы, как Conventional Commits (например, <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
-<p>Ветки отличаются от коммитов — они временные и используются в основном до слияния. Введение слишком большого количества типов веток было бы лишним и усложняло бы их управление и запоминание.</p>
-<h3 id="какие-инструменты-можно-использовать-для-автоматического-определения-того-что-член-команды-не-соответствует-данной-спецификации">Какие инструменты можно использовать для автоматического определения того, что член команды не соответствует данной спецификации?</h3>
-<p>Вы можете использовать <a href="https://github.com/commit-check/commit-check">commit-check</a> для проверки спецификации веток или <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, если ваш код размещён на GitHub.</p>
-<h3 id="могу-ли-я-определить-собственные-типы-веток-помимо-перечисленных">Могу ли я определить собственные типы веток помимо перечисленных?</h3>
-<p>Да. Спецификация определяет рекомендуемый набор типов, но команды могут определять дополнительные пользовательские типы для своего рабочего процесса. Однако важно чётко документировать пользовательские типы, чтобы все члены команды и автоматизированные инструменты были осведомлены о них.</p>
 <h3 id="как-conventional-branch-соотносится-с-conventional-commits">Как Conventional Branch соотносится с Conventional Commits?</h3>
 <p>Conventional Branch вдохновлён <a href="https://www.conventionalcommits.org">Conventional Commits</a> и следует схожей философии: привнести структуру, читаемую людьми и машинами, в метаданные Git. Conventional Commits стандартизирует сообщения коммитов, а Conventional Branch стандартизирует имена веток. Обе спецификации естественным образом дополняют друг друга.</p>
+<h3 id="почему-типы-веток-не-так-детализированы-как-conventional-commits-например-build-ci-docs-style-refactor">Почему типы веток не так детализированы, как Conventional Commits (например, <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<p>Ветки отличаются от коммитов — они временные и используются в основном до слияния. Введение слишком большого количества типов веток было бы лишним и усложняло бы их управление и запоминание.</p>
+<h3 id="могу-ли-я-определить-собственные-типы-веток-помимо-перечисленных">Могу ли я определить собственные типы веток помимо перечисленных?</h3>
+<p>Да. Спецификация определяет рекомендуемый набор типов, но команды могут определять дополнительные пользовательские типы для своего рабочего процесса. Однако важно чётко документировать пользовательские типы, чтобы все члены команды и автоматизированные инструменты были осведомлены о них.</p>
+<h3 id="в-чём-основные-различия-между-v110-и-v100">В чём основные различия между v1.1.0 и v1.0.0?</h3>
+<p>v1.1.0 добавляет <strong>Префиксы источника ИИ-агента</strong> в качестве основной новой функции (см. следующий вопрос FAQ о том, почему они были введены). Он также включает версионированный веб-сайт с переключателем версий, позволяющим пользователям просматривать спецификации v1.0.0 и v1.1.0. Все существующие имена веток v1.0.0 остаются полностью действительными — без обратно несовместимых изменений.</p>
+<h3 id="зачем-добавлять-префиксы-источника-ии-агента">Зачем добавлять префиксы источника ИИ-агента?</h3>
+<p>ИИ-агенты кодирования (GitHub Copilot, Cursor, Claude Code, OpenAI Codex и др.) всё чаще используются для генерации кода и создания pull request. Каждый агент использует свой собственный префикс ветки (например, <code>copilot/</code>, <code>cursor/</code>). Стандартизируя эти префиксы в спецификации Conventional Branch, мы обеспечиваем:</p>
+<ol>
+<li><strong>Быструю идентификацию</strong> — рецензенты и инструменты могут немедленно распознать PR, созданные ИИ</li>
+<li><strong>Проверку инструментами</strong> — такие инструменты, как commit-check, могут проверять ветки ИИ-агентов на соответствие спецификации</li>
+<li><strong>Стандарт регистрации</strong> — новые ИИ-агенты могут принять документированный префикс вместо изобретения ситуативных шаблонов</li>
+</ol>
+<p>Универсальный префикс <code>ai/</code> доступен для любого ИИ-агента без выделенного префикса или для команд, которые предпочитают нейтральный по отношению к поставщику идентификатор. Это ключевая новая функция, выпущенная в <strong>v1.1.0</strong> — полную сводку изменений между версиями см. в FAQ выше.</p>
 <h3 id="как-следует-обращаться-с-долгоживущими-ветками-такими-как-develop-или-staging">Как следует обращаться с долгоживущими ветками, такими как <code>develop</code> или <code>staging</code>?</h3>
 <p>Долгоживущие интеграционные или средовые ветки (например, <code>develop</code>, <code>staging</code>, <code>production</code>) рассматриваются как основные ветки и не требуют префикса. В формальной грамматике ABNF к trunk‑веткам относятся только <code>main</code>/<code>master</code>/<code>develop</code>; использование дополнительных долгоживущих веток (таких как <code>staging</code>, <code>production</code> и т.п.) как trunk‑веток является командным расширением за пределами базовой спецификации и должно быть явно задокументировано. Их следует именовать последовательно во всём проекте.</p>
+<h3 id="какие-инструменты-можно-использовать-для-автоматического-определения-того-что-член-команды-не-соответствует-данной-спецификации">Какие инструменты можно использовать для автоматического определения того, что член команды не соответствует данной спецификации?</h3>
+<p>Вы можете использовать <a href="https://github.com/commit-check/commit-check">commit-check</a> для проверки спецификации веток или <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, если ваш код размещён на GitHub.</p>
 
   </article>
 </main><footer class="footer">

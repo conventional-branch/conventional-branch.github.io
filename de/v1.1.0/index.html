@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html><head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RH9YBHW509');
+  </script>
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>Conventional Branch</title>
+  <meta name="description" content="Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  
+  <meta name="twitter:card" content="Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches">
+  <meta name="twitter:title" content="Conventional Branch">
+  <meta name="twitter:description" content="Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches">
+
+  
+  <meta property="og:title" content="Conventional Branch"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="/de/v1.1.0/"/>
+  <meta property="og:description" content="Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches"/>
+  <meta property="og:site_name" content="Conventional Branch"/>
+</head>
+<body class="conventional-branch--loading"><header class="header">
+  <div class="container">
+    <a href="/">
+      <div class="logo"></div>
+    </a>
+    <ul class="header__menu">
+      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.1.0</button>
+        <ul class="dropdown__options"><li class="dropdown__option">
+            <a href="/de/v1.0.0/">v1.0.0</a>
+          </li><li class="dropdown__option dropdown__option--active">
+            <a href="/de/v1.1.0/">v1.1.0</a>
+          </li></ul>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">Languages</button>
+        <ul class="dropdown__options">
+          
+          <li class="dropdown__option"><a href="/de/">Deutsch</a></li>
+          
+          <li class="dropdown__option"><a href="/es/">Español</a></li>
+          
+          <li class="dropdown__option"><a href="/fr/">Français</a></li>
+          
+          <li class="dropdown__option"><a href="/ja/">日本語</a></li>
+          
+          <li class="dropdown__option"><a href="/">English</a></li>
+          
+          <li class="dropdown__option"><a href="/pl/">Polski</a></li>
+          
+          <li class="dropdown__option"><a href="/pt-br/">Português brasileiro</a></li>
+          
+          <li class="dropdown__option"><a href="/ru/">Русский</a></li>
+          
+          <li class="dropdown__option"><a href="/th/">ภาษาไทย</a></li>
+          
+          <li class="dropdown__option"><a href="/zh-hant/">繁體中文</a></li>
+          
+          <li class="dropdown__option"><a href="/zh/">中文</a></li>
+          
+        </ul>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">
+          <a href="/about" class="no-style-a">About</a>
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
+<section class="welcome">
+  <div class="container">
+    <h1 class="welcome__title">Conventional Branch</h1>
+    <p class="welcome__description">Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches</p>
+    
+    <div class="welcome__actions">
+      
+      <a class="welcome__action" href="#zusammenfassung">Zusammenfassung</a>
+      
+      <a class="welcome__action" href="#spezifikation">Vollständige Spezifikation</a>
+      
+      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">Beitragen</a>
+      
+    </div>
+    
+    <figure class="welcome__image">
+      <img src='/img/git-flow-welcome.png'>
+    </figure>
+  </div>
+</section>
+<main>
+  <article class="container markdown-body">
+    <h1 id="conventional-branch-110">Conventional Branch 1.1.0</h1>
+<h2 id="zusammenfassung">Zusammenfassung</h2>
+<p>Conventional Branch bezieht sich auf eine strukturierte und standardisierte Namenskonvention für Git-Branches, die darauf abzielt, Branches lesbarer und umsetzbarer zu machen. Wir haben einige Branch-Präfixe vorgeschlagen, die Sie verwenden könnten, aber Sie können auch Ihre eigene Namenskonvention festlegen. Eine einheitliche Namenskonvention erleichtert die Identifizierung von Branches nach Typ.</p>
+<h3 id="wichtige-punkte">Wichtige Punkte</h3>
+<ol>
+<li><strong>Zweckgerichtete Branch-Namen</strong>: Jeder Branch-Name zeigt deutlich seinen Zweck an, wodurch es für alle Entwickler einfach wird zu verstehen, wofür der Branch gedacht ist.</li>
+<li><strong>Integration mit CI/CD</strong>: Durch die Verwendung einheitlicher Branch-Namen können automatisierte Systeme (wie Continuous Integration/Continuous Deployment-Pipelines) dabei helfen, spezifische Aktionen basierend auf dem Branch-Typ auszulösen (z.B. automatische Bereitstellung von Release-Branches).</li>
+<li><strong>Team-Zusammenarbeit</strong>: Es fördert die Zusammenarbeit innerhalb von Teams, indem der Branch-Zweck explizit gemacht wird, Missverständnisse reduziert werden und es Teammitgliedern erleichtert wird, zwischen Aufgaben ohne Verwirrung zu wechseln.</li>
+</ol>
+<h2 id="spezifikation">Spezifikation</h2>
+<h3 id="branch-namens-präfixe">Branch-Namens-Präfixe</h3>
+<p>Die Branch-Spezifikation unterstützt die folgenden Präfixe und sollte wie folgt strukturiert sein:</p>
+<hr>
+<pre tabindex="0"><code>&lt;typ&gt;/&lt;beschreibung&gt;
+</code></pre><p><strong>Zweck-Präfixe</strong> — beschreiben die Absicht der Arbeit:</p>
+<ul>
+<li><strong><code>feature/</code></strong> (oder <strong><code>feat/</code></strong>): Für neue Features (z.B. <code>feature/add-login-page</code>, <code>feat/add-login-page</code>)</li>
+<li><strong><code>bugfix/</code></strong> (oder <strong><code>fix/</code></strong>): Für Fehlerbehebungen (z.B. <code>bugfix/fix-header-bug</code>, <code>fix/header-bug</code>)</li>
+<li><strong><code>hotfix/</code></strong>: Für dringende Korrekturen (z.B. <code>hotfix/security-patch</code>)</li>
+<li><strong><code>release/</code></strong>: Für Branches, die ein Release vorbereiten (z.B. <code>release/v1.2.0</code>)</li>
+<li><strong><code>chore/</code></strong>: Für Nicht-Code-Aufgaben wie Abhängigkeiten, Dokumentation-Updates (z.B. <code>chore/update-dependencies</code>)</li>
+</ul>
+<p><strong>AI-Agenten-Quellpräfixe</strong> — identifizieren Branches, die von KI-Codierungsagenten erstellt wurden:</p>
+<ul>
+<li><strong><code>ai/</code></strong>: Generischer Präfix für jeden KI-Codierungsagenten (z.B. <code>ai/refactor-auth-flow</code>)</li>
+<li><strong><code>copilot/</code></strong>: GitHub Copilot (z.B. <code>copilot/add-login-page</code>)</li>
+<li><strong><code>cursor/</code></strong>: Cursor (z.B. <code>cursor/fix-header-bug</code>)</li>
+<li><strong><code>claude/</code></strong>: Claude Code von Anthropic (z.B. <code>claude/security-patch</code>)</li>
+<li><strong><code>codex/</code></strong>: OpenAI Codex (z.B. <code>codex/optimize-query</code>)</li>
+</ul>
+<p>Trunk-Branches (<code>main</code>, <code>master</code>, <code>develop</code>) verwenden kein Präfix.</p>
+<hr>
+<h3 id="grundregeln">Grundregeln</h3>
+<ol>
+<li><strong>Verwenden Sie kleine Buchstaben und Zahlen, Bindestriche und Punkte</strong>: Verwenden Sie immer Kleinbuchstaben (<code>a-z</code>), Zahlen (<code>0-9</code>) und Bindestriche (<code>-</code>), um Wörter zu trennen. Vermeiden Sie Sonderzeichen, Unterstriche oder Leerzeichen. Für Release-Branches können Punkte (<code>.</code>) in der Beschreibung verwendet werden, um Versionsnummern darzustellen (z.B. <code>release/v1.2.0</code>).</li>
+<li><strong>Keine aufeinanderfolgenden, führenden oder nachfolgenden Bindestriche oder Punkte</strong>: Stellen Sie sicher, dass Bindestriche und Punkte nicht aufeinanderfolgen (z.B. <code>feature/new--login</code>, <code>release/v1.-2.0</code>), noch am Anfang oder Ende der Beschreibung (z.B. <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
+<li><strong>Halten Sie es klar und prägnant</strong>: Der Branch-Name sollte beschreibend aber prägnant sein und den Zweck der Arbeit klar angeben.</li>
+<li><strong>Ticket-Nummern einbeziehen</strong>: Falls zutreffend, beziehen Sie die Ticket-Nummer aus Ihrem Projektmanagement-Tool ein, um die Verfolgung zu erleichtern. Zum Beispiel könnte für ein Ticket <code>issue-123</code> der Branch-Name <code>feature/issue-123-new-login</code> lauten.</li>
+</ol>
+<h3 id="formale-grammatik">Formale Grammatik</h3>
+<p>Die folgende ABNF-Grammatik (Augmented Backus-Naur Form) definiert formal gültige Branch-Namen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;ai&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;copilot&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;cursor&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;claude&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;codex&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; Kleinbuchstaben a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; Ziffern 0-9</span>
+</span></span></code></pre></div><blockquote>
+<p>Hinweis: Aufeinanderfolgende Bindestriche oder Punkte sowie Bindestriche oder Punkte am Anfang oder Ende der Beschreibung sind nicht erlaubt.</p>
+</blockquote>
+<h3 id="beispiele">Beispiele</h3>
+<table>
+<thead>
+<tr>
+<th>Branch-Name</th>
+<th>Gültig</th>
+<th>Hinweise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>✅</td>
+<td>Trunk-Branch</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>✅</td>
+<td>Trunk-Branch</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>✅</td>
+<td>Trunk-Branch</td>
+</tr>
+<tr>
+<td><code>feature/add-login-page</code></td>
+<td>✅</td>
+<td>Neues Feature</td>
+</tr>
+<tr>
+<td><code>feat/add-login-page</code></td>
+<td>✅</td>
+<td>Kurzform für feature</td>
+</tr>
+<tr>
+<td><code>bugfix/fix-header-bug</code></td>
+<td>✅</td>
+<td>Fehlerbehebung</td>
+</tr>
+<tr>
+<td><code>fix/header-bug</code></td>
+<td>✅</td>
+<td>Kurzform für bugfix</td>
+</tr>
+<tr>
+<td><code>hotfix/security-patch</code></td>
+<td>✅</td>
+<td>Dringende Korrektur</td>
+</tr>
+<tr>
+<td><code>release/v1.2.0</code></td>
+<td>✅</td>
+<td>Release mit Versionsnummer</td>
+</tr>
+<tr>
+<td><code>chore/update-dependencies</code></td>
+<td>✅</td>
+<td>Nicht-Code-Aufgabe</td>
+</tr>
+<tr>
+<td><code>feature/issue-123-new-login</code></td>
+<td>✅</td>
+<td>Feature mit Ticket-Nummer</td>
+</tr>
+<tr>
+<td><code>Feature/Add-Login</code></td>
+<td>❌</td>
+<td>Großbuchstaben nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>feature/new--login</code></td>
+<td>❌</td>
+<td>Aufeinanderfolgende Bindestriche nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>feature/-new-login</code></td>
+<td>❌</td>
+<td>Beschreibung darf nicht mit Bindestrich beginnen</td>
+</tr>
+<tr>
+<td><code>feature/new-login-</code></td>
+<td>❌</td>
+<td>Beschreibung darf nicht mit Bindestrich enden</td>
+</tr>
+<tr>
+<td><code>release/v1.-2.0</code></td>
+<td>❌</td>
+<td>Bindestrich neben Punkt nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>fix/header bug</code></td>
+<td>❌</td>
+<td>Leerzeichen nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>fix/header_bug</code></td>
+<td>❌</td>
+<td>Unterstriche nicht erlaubt</td>
+</tr>
+<tr>
+<td><code>ai/refactor-auth-flow</code></td>
+<td>✅</td>
+<td>Generischer KI-Agenten-Präfix</td>
+</tr>
+<tr>
+<td><code>copilot/add-login-page</code></td>
+<td>✅</td>
+<td>GitHub Copilot</td>
+</tr>
+<tr>
+<td><code>cursor/fix-header-bug</code></td>
+<td>✅</td>
+<td>Cursor</td>
+</tr>
+<tr>
+<td><code>claude/security-patch</code></td>
+<td>✅</td>
+<td>Claude Code von Anthropic</td>
+</tr>
+<tr>
+<td><code>codex/optimize-query</code></td>
+<td>✅</td>
+<td>OpenAI Codex</td>
+</tr>
+<tr>
+<td><code>unknown/some-task</code></td>
+<td>❌</td>
+<td>Unbekannter Präfixtyp</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fazit">Fazit</h2>
+<ul>
+<li><strong>Klare Kommunikation</strong>: Der Branch-Name allein bietet ein klares Verständnis seines Zwecks und der Code-Änderung.</li>
+<li><strong>Automatisierungsfreundlich</strong>: Lässt sich einfach in Automatisierungsprozesse einbinden (z.B. verschiedene Workflows für <code>feature</code>, <code>release</code>, etc.).</li>
+<li><strong>Skalierbarkeit</strong>: Funktioniert gut in großen Teams, wo viele Entwickler gleichzeitig an verschiedenen Aufgaben arbeiten.</li>
+</ul>
+<p>Zusammenfassend ist Conventional Branch darauf ausgelegt, die Projektorganisation, Kommunikation und Automatisierung innerhalb von Git-Workflows zu verbessern.</p>
+<h2 id="werkzeuge">Werkzeuge</h2>
+<p>Verwenden Sie diese Werkzeuge, um Conventional Branch in Ihrem Projekt einzuführen und durchzusetzen:</p>
+<ul>
+  <li>
+    <a href="https://github.com/commit-check/commit-check">commit-check</a>:
+    Prüft Branch-Namen, Commit-Nachrichten und zugehörige Git-Metadaten lokal.
+  </li>
+  <li>
+    <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
+    Validiert Branch-Namen automatisch in GitHub Actions.
+  </li>
+  <li>
+    <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
+    Erstellt Conventional-Branch-Namen aus Visual Studio Code.
+  </li>
+  <li>
+    <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
+    Bringt KI-Coding-Assistenten bei, gültige Conventional-Branch-Namen zu erstellen.
+  </li>
+  
+</ul><p>Installieren Sie den Skill mit:</p>
+<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+
+<h2 id="faq">FAQ</h2>
+<h3 id="wie-verhält-sich-conventional-branch-zu-conventional-commits">Wie verhält sich Conventional Branch zu Conventional Commits?</h3>
+<p>Conventional Branch wurde von <a href="https://www.conventionalcommits.org">Conventional Commits</a> inspiriert und verfolgt eine ähnliche Philosophie: menschlich- und maschinenlesbaren Struktur in Git-Metadaten einzubringen. Während Conventional Commits Commit-Nachrichten standardisiert, standardisiert Conventional Branch Branch-Namen. Die beiden Spezifikationen ergänzen sich auf natürliche Weise.</p>
+<h3 id="warum-sind-branch-typen-nicht-so-detailliert-wie-conventional-commits-zb-build-ci-docs-style-refactor">Warum sind Branch-Typen nicht so detailliert wie Conventional Commits (z. B. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>
+<h3 id="kann-ich-eigene-branch-typen-über-die-aufgeführten-hinaus-definieren">Kann ich eigene Branch-Typen über die aufgeführten hinaus definieren?</h3>
+<p>Ja. Die Spezifikation definiert eine empfohlene Menge von Typen, aber Teams können zusätzliche benutzerdefinierte Typen für ihren Workflow definieren. Es ist jedoch wichtig, benutzerdefinierte Typen klar zu dokumentieren, damit alle Teammitglieder und automatisierte Tools davon wissen.</p>
+<h3 id="warum-ai-agenten-quellpräfixe-hinzufügen">Warum AI-Agenten-Quellpräfixe hinzufügen?</h3>
+<p>KI-Codierungsagenten (GitHub Copilot, Cursor, Claude Code, OpenAI Codex usw.) werden zunehmend zur Codegenerierung und Erstellung von Pull Requests eingesetzt. Jeder Agent verwendet sein eigenes Branch-Präfix (z. B. <code>copilot/</code>, <code>cursor/</code>). Durch die Standardisierung dieser Präfixe in der Conventional-Branch-Spezifikation ermöglichen wir:</p>
+<ol>
+<li><strong>Schnelle Identifikation</strong> — Prüfer und Tools können KI-generierte PRs sofort erkennen</li>
+<li><strong>Tool-Validierung</strong> — Tools wie commit-check können KI-Agenten-Branches gegen die Spezifikation validieren</li>
+<li><strong>Einen Registrierungsstandard</strong> — neue KI-Agenten können ein dokumentiertes Präfix übernehmen, anstatt Ad-hoc-Muster zu erfinden</li>
+</ol>
+<p>Der generische <code>ai/</code>-Präfix steht für jeden KI-Agenten ohne dedizierten Präfix zur Verfügung, oder für Teams, die einen anbieterneutralen Identifikator bevorzugen.</p>
+<h3 id="wie-soll-ich-mit-langlebigen-branches-wie-develop-oder-staging-umgehen">Wie soll ich mit langlebigen Branches wie <code>develop</code> oder <code>staging</code> umgehen?</h3>
+<p>In der formalen Grammatik dieser Spezifikation sind nur <code>main</code>, <code>master</code> und <code>develop</code> explizit als Trunk-Branches definiert und benötigen kein Präfix. Als projektspezifische Erweiterung können Teams jedoch zusätzliche langlebige Integrations- oder Umgebungs-Branches (z. B. <code>staging</code>, <code>production</code>) ohne Präfix verwenden, sofern diese konsistent benannt und in den eingesetzten Tools entsprechend konfiguriert bzw. dokumentiert sind.</p>
+<h3 id="welche-tools-können-verwendet-werden-um-automatisch-zu-identifizieren-ob-ein-teammitglied-diese-spezifikation-nicht-erfüllt">Welche Tools können verwendet werden, um automatisch zu identifizieren, ob ein Teammitglied diese Spezifikation nicht erfüllt?</h3>
+<p>Sie können <a href="https://github.com/commit-check/commit-check">commit-check</a> verwenden, um die Branch-Spezifikation zu überprüfen, oder <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, wenn Ihr Code auf GitHub gehostet wird.</p>
+
+  </article>
+</main><footer class="footer">
+  <div class="container">
+    
+    <div class="footer__license">
+      
+      <p>License</p>
+      
+      
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons - CC BY 4.0</a>
+      
+      <span class="footer__sep">//</span> <span class="footer__credit"><a href="https://github.com/conventional-branch/conventional-branch" target="_blank" rel="noopener">Created &amp; maintained</a> by <a href="https://github.com/shenxianpeng" target="_blank" rel="noopener">Xianpeng Shen</a></span>
+    </div>
+    
+    
+    <div class="footer__logos">
+      
+      
+      <a class="footer__logo" href="https://github.com/conventional-branch/conventional-branch"><svg class="github" viewBox="0 0 128 128">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"></path>
+  <path
+    d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm-.743-.55M28.93 94.535c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm-.575-.618M31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm0 0M34.573 101.373c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm0 0M39.073 103.324c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm0 0M44.016 103.685c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm0 0M48.614 102.903c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
+</svg>
+</a>
+      
+      
+    </div>
+  </div>
+</footer>
+<script src="/js/bundle.js"></script>
+</body>
+</html>

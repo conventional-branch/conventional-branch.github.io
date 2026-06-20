@@ -35,9 +35,11 @@
       <div class="logo"></div>
     </a>
     <ul class="header__menu">
-      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.0.0</button>
-        <ul class="dropdown__options"><li class="dropdown__option dropdown__option--active">
+      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.1.0</button>
+        <ul class="dropdown__options"><li class="dropdown__option">
             <a href="/th/v1.0.0/">v1.0.0</a>
+          </li><li class="dropdown__option dropdown__option--active">
+            <a href="/th/v1.1.0/">v1.1.0</a>
           </li></ul>
       </li>
       <li class="header__menu-item dropdown">
@@ -98,49 +100,60 @@
 </section>
 <main>
   <article class="container markdown-body">
-    <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
+    <h1 id="conventional-branch-110">Conventional Branch 1.1.0</h1>
 <h2 id="บทสรุป">บทสรุป</h2>
-<p>Conventional Branch หมายถึงธรรมเนียมปฏิบัติในการตั้งชื่อ Branch ของ Git ที่มีโครงสร้างและเป็นมาตรฐาน ซึ่งมีจุดมุ่งหมายเพื่อให้ชื่อ Branch อ่านเข้าใจง่ายและสามารถนำไปปฏิบัติงานต่อได้สะดวกขึ้น เราได้แนะนำคำนำหน้า (Prefix) ของ Branch บางส่วนที่คุณอาจต้องการใช้งาน แต่คุณก็สามารถกำหนดรูปแบบการตั้งชื่อของคุณเองได้เช่นกัน รูปแบบการตั้งชื่อที่สม่ำเสมอจะช่วยให้ระบุประเภทของ Branch ได้ง่ายยิ่งขึ้น</p>
-<h3 id="ประเดนสำคญ">ประเด็นสำคัญ</h3>
+<p>Conventional Branch หมายถึงธรรมเนียมปฏิบัติในการตั้งชื่อ Branch ของ Git ที่มีโครงสร้างและเป็นมาตรฐาน ซึ่งมีจุดมุ่งหมายเพื่อให้ชื่อ Branch อ่านเข้าใจง่ายและสามารถนําไปปฏิบัติงานต่อได้สะดวกขึ้น เราได้แนะนําคํานําหน้า (Prefix) ของ Branch บางส่วนที่คุณอาจต้องการใช้งาน แต่คุณก็สามารถกําหนดรูปแบบการตั้งชื่อของคุณเองได้เช่นกัน รูปแบบการตั้งชื่อที่สม่ําเสมอจะช่วยให้ระบุประเภทของ Branch ได้ง่ายยิ่งขึ้น</p>
+<h3 id="ประเดนสาคญ">ประเด็นสําคัญ</h3>
 <ol>
-<li><strong>ชื่อ Branch ที่ขับเคลื่อนด้วยวัตถุประสงค์ (Purpose-driven Branch Names)</strong>: ชื่อ Branch แต่ละชื่อจะระบุวัตถุประสงค์อย่างชัดเจน ทำให้ง่ายต่อนักพัฒนาทุกคนในการทำความเข้าใจว่า Branch นี้มีไว้เพื่ออะไร</li>
-<li><strong>การทำงานร่วมกับ CI/CD</strong>: การใช้ชื่อ Branch ที่สม่ำเสมอสามารถช่วยให้ระบบอัตโนมัติ (เช่น Continuous Integration/Continuous Deployment pipelines) เรียกใช้การทำงานเฉพาะเจาะจงตามประเภทของ Branch ได้ (เช่น การดีพลอยอัตโนมัติจาก Branch สำหรับการปล่อยเวอร์ชัน หรือ Release)</li>
-<li><strong>การทำงานร่วมกันในทีม</strong>: ส่งเสริมการทำงานร่วมกันภายในทีมโดยทำให้วัตถุประสงค์ของ Branch มีความชัดเจน ช่วยลดความเข้าใจผิด และทำให้สมาชิกในทีมสามารถสลับไปมาระหว่างงานต่างๆ ได้ง่ายขึ้นโดยไม่เกิดความสับสน</li>
+<li><strong>ชื่อ Branch ที่ขับเคลื่อนด้วยวัตถุประสงค์ (Purpose-driven Branch Names)</strong>: ชื่อ Branch แต่ละชื่อจะระบุวัตถุประสงค์อย่างชัดเจน ทําให้ง่ายต่อนักพัฒนาทุกคนในการทําความเข้าใจว่า Branch นี้มีไว้เพื่ออะไร</li>
+<li><strong>การทํางานร่วมกับ CI/CD</strong>: การใช้ชื่อ Branch ที่สม่ําเสมอสามารถช่วยให้ระบบอัตโนมัติ (เช่น Continuous Integration/Continuous Deployment pipelines) เรียกใช้การทํางานเฉพาะเจาะจงตามประเภทของ Branch ได้ (เช่น การดีพลอยอัตโนมัติจาก Branch สําหรับการปล่อยเวอร์ชัน หรือ Release)</li>
+<li><strong>การทํางานร่วมกันในทีม</strong>: ส่งเสริมการทํางานร่วมกันภายในทีมโดยทําให้วัตถุประสงค์ของ Branch มีความชัดเจน ช่วยลดความเข้าใจผิด และทําให้สมาชิกในทีมสามารถสลับไปมาระหว่างงานต่างๆ ได้ง่ายขึ้นโดยไม่เกิดความสับสน</li>
 </ol>
-<h2 id="ข้อกำหนด">ข้อกำหนด</h2>
+<h2 id="ข้อกําหนด">ข้อกําหนด</h2>
 <h3 id="คำนำหนาสำหรบการตงชอ-branch">คำนำหน้าสำหรับการตั้งชื่อ Branch</h3>
 <p>ข้อกำหนดของ Branch รองรับคำนำหน้า (Prefixes) ดังต่อไปนี้ และควรจัดวางโครงสร้างเป็น:</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
-</code></pre><ul>
-<li><strong><code>main</code></strong>: Branch ของการพัฒนาหลัก (เช่น <code>main</code>, <code>master</code> หรือ <code>develop</code>)</li>
+</code></pre><p><strong>คำนำหน้าตามวัตถุประสงค์</strong> — อธิบายเจตนาของงาน:</p>
+<ul>
 <li><strong><code>feature/</code></strong> (หรือ <strong><code>feat/</code></strong>): สำหรับฟีเจอร์ใหม่ (เช่น <code>feature/add-login-page</code>, <code>feat/add-login-page</code>)</li>
 <li><strong><code>bugfix/</code></strong> (หรือ <strong><code>fix/</code></strong>): สำหรับการแก้ไขข้อบกพร่อง หรือ บั๊ก (เช่น <code>bugfix/fix-header-bug</code>, <code>fix/header-bug</code>)</li>
 <li><strong><code>hotfix/</code></strong>: สำหรับการแก้ไขเร่งด่วน (เช่น <code>hotfix/security-patch</code>)</li>
 <li><strong><code>release/</code></strong>: สำหรับ Branch ที่กำลังเตรียมการปล่อยเวอร์ชัน หรือ รีลีส (เช่น <code>release/v1.2.0</code>)</li>
 <li><strong><code>chore/</code></strong>: สำหรับงานที่ไม่เกี่ยวข้องกับโค้ดโดยตรง เช่น การอัปเดตการพึ่งพา (Dependency) หรือเอกสารอ้างอิง (Docs) (เช่น <code>chore/update-dependencies</code>)</li>
 </ul>
+<p><strong>คำนำหน้าแหล่งที่มาของเอเจนต์ AI</strong> — ระบุ Branch ที่สร้างโดยเอเจนต์การเขียนโค้ด AI:</p>
+<ul>
+<li><strong><code>ai/</code></strong>: คำนำหน้าทั่วไปสำหรับเอเจนต์การเขียนโค้ด AI ใดๆ (เช่น <code>ai/refactor-auth-flow</code>)</li>
+<li><strong><code>copilot/</code></strong>: GitHub Copilot (เช่น <code>copilot/add-login-page</code>)</li>
+<li><strong><code>cursor/</code></strong>: Cursor (เช่น <code>cursor/fix-header-bug</code>)</li>
+<li><strong><code>claude/</code></strong>: Claude Code โดย Anthropic (เช่น <code>claude/security-patch</code>)</li>
+<li><strong><code>codex/</code></strong>: OpenAI Codex (เช่น <code>codex/optimize-query</code>)</li>
+</ul>
+<p>Trunk branches (<code>main</code>, <code>master</code>, <code>develop</code>) ไม่จำเป็นต้องใช้คำนำหน้า</p>
 <hr>
 <h3 id="กฎขนพนฐาน">กฎขั้นพื้นฐาน</h3>
 <ol>
-<li><strong>ใช้อักขระที่เป็นตัวอักษรและตัวเลขพิมพ์เล็ก เครื่องหมายขีดกลาง และจุด (Use Lowercase Alphanumerics, Hyphens, and Dots)</strong>: ให้ใช้ตัวอักษรพิมพ์เล็ก (<code>a-z</code>), ตัวเลข (<code>0-9</code>) และเครื่องหมายยัติภังค์หรือขีดกลาง (<code>-</code>) เพื่อแยกคำเสมอ หลีกเลี่ยงการใช้อักขระพิเศษ เครื่องหมายขีดล่าง (Underscores) หรือช่องว่าง สำหรับ Branch ที่เป็นรีลีส สามารถใช้จุด (<code>.</code>) ในคำอธิบายเพื่อแสดงถึงหมายเลขเวอร์ชันได้ (เช่น <code>release/v1.2.0</code>)</li>
-<li><strong>ห้ามใช้เครื่องหมายขีดกลางหรือจุดติดกัน หรือวางไว้ตำแหน่งหน้าสุดหรือหลังสุด (No Consecutive, Leading, or Trailing Hyphens or Dots)</strong>: ตรวจสอบให้แน่ใจว่าเครื่องหมายขีดกลางและจุดไม่ได้ปรากฏเรียงติดกัน (เช่น <code>feature/new--login</code>, <code>release/v1.-2.0</code>) และไม่ได้อยู่ตรงจุดเริ่มต้นหรือจุดสิ้นสุดของคำอธิบาย (เช่น <code>feature/-new-login</code>, <code>release/v1.2.0.</code>)</li>
+<li><strong>ใช้อักขระที่เป็นตัวอักษรและตัวเลขพิมพ์เล็ก เครื่องหมายขีดกลาง และจุด (Use Lowercase Alphanumerics, Hyphens, and Dots)</strong>: ให้ใช้ตัวอักษรพิมพ์เล็ก (<code>a-z</code>), ตัวเลข (<code>0-9</code>) และเครื่องหมายยัติภังค์หรือขีดกลาง (<code>-</code>) เพื่อแยกคําเสมอ หลีกเลี่ยงการใช้อักขระพิเศษ เครื่องหมายขีดล่าง (Underscores) หรือช่องว่าง สําหรับ Branch ที่เป็นรีลีส สามารถใช้จุด (<code>.</code>) ในคําอธิบายเพื่อแสดงถึงหมายเลขเวอร์ชันได้ (เช่น <code>release/v1.2.0</code>)</li>
+<li><strong>ห้ามใช้เครื่องหมายขีดกลางหรือจุดติดกัน หรือวางไว้ตําแหน่งหน้าสุดหรือหลังสุด (No Consecutive, Leading, or Trailing Hyphens or Dots)</strong>: ตรวจสอบให้แน่ใจว่าเครื่องหมายขีดกลางและจุดไม่ได้ปรากฏเรียงติดกัน (เช่น <code>feature/new--login</code>, <code>release/v1.-2.0</code>) และไม่ได้อยู่ตรงจุดเริ่มต้นหรือจุดสิ้นสุดของคําอธิบาย (เช่น <code>feature/-new-login</code>, <code>release/v1.2.0.</code>)</li>
 <li><strong>รักษาความชัดเจนและกระชับ (Keep It Clear and Concise)</strong>: ชื่อ Branch ควรอธิบายได้ดีแต่มีความกระชับ โดยระบุจุดประสงค์ของงานได้อย่างชัดเจน</li>
-<li><strong>รวมหมายเลขทิกเก็ต (Include Ticket Numbers)</strong>: หากเป็นไปได้ ให้ใส่หมายเลขทิกเก็ต (Ticket number) จากเครื่องมือบริหารจัดการโปรเจกต์ของคุณเข้าไปด้วยเพื่อให้ติดตามงานได้ง่ายขึ้น ตัวอย่างเช่น สำหรับทิกเก็ตหมายเลข <code>issue-123</code> ชื่อ Branch อาจเป็น <code>feature/issue-123-new-login</code></li>
+<li><strong>รวมหมายเลขทิกเก็ต (Include Ticket Numbers)</strong>: หากเป็นไปได้ ให้ใส่หมายเลขทิกเก็ต (Ticket number) จากเครื่องมือบริหารจัดการโปรเจกต์ของคุณเข้าไปด้วยเพื่อให้ติดตามงานได้ง่ายขึ้น ตัวอย่างเช่น สําหรับทิกเก็ตหมายเลข <code>issue-123</code> ชื่อ Branch อาจเป็น <code>feature/issue-123-new-login</code></li>
 </ol>
 <h3 id="รปแบบไวยากรณ">รูปแบบไวยากรณ์</h3>
-<p>รูปแบบไวยากรณ์ Augmented Backus-Naur Form หรือ ABNF ต่อไปนี้ได้กำหนดโครงสร้างเชิงรูปแบบของชื่อ Branch ที่ถูกต้อง:</p>
+<p>รูปแบบไวยากรณ์ Augmented Backus-Naur Form หรือ ABNF ต่อไปนี้ได้กําหนดโครงสร้างเชิงรูปแบบของชื่อ Branch ที่ถูกต้อง:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;ai&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;copilot&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;cursor&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;claude&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;codex&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; lowercase a-z</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; 0-9</span>
 </span></span></code></pre></div><blockquote>
-<p>หมายเหตุ: ไม่อนุญาตให้ใช้เครื่องหมายขีดกลางหรือจุดติดกัน และไม่อนุญาตให้ใช้เครื่องหมายขีดกลางหรือจุดในตำแหน่งเริ่มต้นหรือตำแหน่งสิ้นสุดของคำอธิบาย</p>
+<p>หมายเหตุ: ไม่อนุญาตให้ใช้เครื่องหมายขีดกลางหรือจุดติดกัน และไม่อนุญาตให้ใช้เครื่องหมายขีดกลางหรือจุดในตําแหน่งเริ่มต้นหรือตําแหน่งสิ้นสุดของคําอธิบาย</p>
 </blockquote>
 <h3 id="ตวอยาง">ตัวอย่าง</h3>
 <table>
@@ -175,7 +188,7 @@
 <tr>
 <td><code>feat/add-login-page</code></td>
 <td>✅</td>
-<td>ชื่อเรียกย่อสำหรับฟีเจอร์</td>
+<td>ชื่อเรียกย่อสําหรับฟีเจอร์</td>
 </tr>
 <tr>
 <td><code>bugfix/fix-header-bug</code></td>
@@ -220,12 +233,12 @@
 <tr>
 <td><code>feature/-new-login</code></td>
 <td>❌</td>
-<td>มีเครื่องหมายขีดกลางนำหน้าคำอธิบาย</td>
+<td>มีเครื่องหมายขีดกลางนําหน้าคําอธิบาย</td>
 </tr>
 <tr>
 <td><code>feature/new-login-</code></td>
 <td>❌</td>
-<td>มีเครื่องหมายขีดกลางต่อท้ายคำอธิบาย</td>
+<td>มีเครื่องหมายขีดกลางต่อท้ายคําอธิบาย</td>
 </tr>
 <tr>
 <td><code>release/v1.-2.0</code></td>
@@ -243,6 +256,31 @@
 <td>ไม่อนุญาตให้ใช้เครื่องหมายขีดล่าง (Underscores)</td>
 </tr>
 <tr>
+<td><code>ai/refactor-auth-flow</code></td>
+<td>✅</td>
+<td>คำนำหน้าทั่วไปสำหรับเอเจนต์ AI</td>
+</tr>
+<tr>
+<td><code>copilot/add-login-page</code></td>
+<td>✅</td>
+<td>GitHub Copilot</td>
+</tr>
+<tr>
+<td><code>cursor/fix-header-bug</code></td>
+<td>✅</td>
+<td>Cursor</td>
+</tr>
+<tr>
+<td><code>claude/security-patch</code></td>
+<td>✅</td>
+<td>Claude Code โดย Anthropic</td>
+</tr>
+<tr>
+<td><code>codex/optimize-query</code></td>
+<td>✅</td>
+<td>OpenAI Codex</td>
+</tr>
+<tr>
 <td><code>unknown/some-task</code></td>
 <td>❌</td>
 <td>ไม่รู้จักประเภทของคำนำหน้า</td>
@@ -252,10 +290,10 @@
 <h2 id="สรปทาย">สรุปท้าย</h2>
 <ul>
 <li><strong>การสื่อสารที่ชัดเจน</strong>: เพียงแค่เห็นชื่อ Branch ก็ช่วยให้เข้าใจถึงจุดประสงค์ของการเปลี่ยนแปลงโค้ดนั้นๆ ได้อย่างชัดเจน</li>
-<li><strong>รองรับระบบอัตโนมัติ</strong>: เชื่อมต่อกับกระบวนการอัตโนมัติได้ง่าย (เช่น เวิร์กโฟลว์ (Workflows) ที่แตกต่างกันสำหรับ <code>feature</code>, <code>release</code> และอื่นๆ)</li>
-<li><strong>การขยายขนาด</strong>: ทำงานได้ดีในทีมขนาดใหญ่ที่มีนักพัฒนาหลายคนกำลังปฏิบัติงานหลายส่วนที่แตกต่างกันไปพร้อมๆ กัน</li>
+<li><strong>รองรับระบบอัตโนมัติ</strong>: เชื่อมต่อกับกระบวนการอัตโนมัติได้ง่าย (เช่น เวิร์กโฟลว์ (Workflows) ที่แตกต่างกันสําหรับ <code>feature</code>, <code>release</code> และอื่นๆ)</li>
+<li><strong>การขยายขนาด</strong>: ทํางานได้ดีในทีมขนาดใหญ่ที่มีนักพัฒนาหลายคนกําลังปฏิบัติงานหลายส่วนที่แตกต่างกันไปพร้อมๆ กัน</li>
 </ul>
-<p>โดยสรุปแล้ว Conventional Branch ถูกออกแบบมาเพื่อปรับปรุงการจัดระเบียบโปรเจกต์ การสื่อสาร และการทำงานแบบอัตโนมัติภายในเวิร์กโฟลว์ของ Git (Git workflows) ให้ดียิ่งขึ้น</p>
+<p>โดยสรุปแล้ว Conventional Branch ถูกออกแบบมาเพื่อปรับปรุงการจัดระเบียบโปรเจกต์ การสื่อสาร และการทํางานแบบอัตโนมัติภายในเวิร์กโฟลว์ของ Git (Git workflows) ให้ดียิ่งขึ้น</p>
 <h2 id="เครองมอ">เครื่องมือ</h2>
 <p>ใช้เครื่องมือเหล่านี้เพื่อปรับใช้และบังคับใช้ Conventional Branch ในโปรเจกต์ของคุณ:</p>
 <ul>
@@ -280,16 +318,26 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="คำถามทพบบอย">คำถามที่พบบ่อย</h2>
-<h3 id="ทำไมประเภทของ-branch-ถงไมละเอยดเทา-conventional-commits-เชน-build-ci-docs-style-refactor">ทำไมประเภทของ Branch ถึงไม่ละเอียดเท่า Conventional Commits (เช่น <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
-<p>Branch มีความแตกต่างจากการคอมมิต (Commits) — Branch เป็นเพียงสิ่งชั่วคราวและส่วนใหญ่จะถูกใช้งานจนกว่าจะถูกนำไปรวม (Merged) เท่านั้น การแนะนำประเภทของ Branch ให้มีมากเกินไปนั้นถือเป็นสิ่งไม่จำเป็น และจะทำให้ยากต่อการจัดการและการจดจำ</p>
-<h3 id="มเครองมอใดบางทสามารถใชตรวจสอบไดโดยอตโนมตหากสมาชกในทมไมไดทำตามขอกำหนดน">มีเครื่องมือใดบ้างที่สามารถใช้ตรวจสอบได้โดยอัตโนมัติหากสมาชิกในทีมไม่ได้ทำตามข้อกำหนดนี้?</h3>
-<p>คุณสามารถใช้ <a href="https://github.com/commit-check/commit-check">commit-check</a> เพื่อตรวจสอบข้อกำหนดของ Branch หรือใช้ <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> หากโค้ดของคุณถูกฝากไว้บน GitHub</p>
-<h3 id="ฉนสามารถกำหนดประเภทของ-branch-ดวยตวเองนอกเหนอจากรายการทระบไวไดหรอไม">ฉันสามารถกำหนดประเภทของ Branch ด้วยตัวเองนอกเหนือจากรายการที่ระบุไว้ได้หรือไม่?</h3>
-<p>ได้ ข้อกำหนดนี้เป็นเพียงการกำหนดชุดประเภทที่แนะนำไว้ แต่ละทีมสามารถกำหนดประเภทเพิ่มเติมที่ปรับแต่งเองเพื่อให้สอดคล้องกับเวิร์กโฟลว์ของตนได้ อย่างไรก็ตาม สิ่งสำคัญคือต้องจัดทำเอกสารสำหรับประเภทที่ปรับแต่งขึ้นมาใหม่อย่างชัดเจน เพื่อให้สมาชิกทุกคนในทีมและเครื่องมืออัตโนมัติต่างๆ รับทราบตรงกัน</p>
 <h3 id="conventional-branch-มความเกยวของกบ-conventional-commits-อยางไร">Conventional Branch มีความเกี่ยวข้องกับ Conventional Commits อย่างไร?</h3>
 <p>Conventional Branch ได้รับแรงบันดาลใจมาจาก <a href="https://www.conventionalcommits.org">Conventional Commits</a> และปฏิบัติตามปรัชญาที่คล้ายคลึงกัน นั่นคือ การนำโครงสร้างที่ทั้งมนุษย์และเครื่องจักรสามารถอ่านได้มาใช้กับข้อมูลเมตา (Metadata) ของ Git ในขณะที่ Conventional Commits เป็นการสร้างมาตรฐานให้กับข้อความการคอมมิต (Commit messages) ตัว Conventional Branch จะเป็นการสร้างมาตรฐานให้กับชื่อ Branch ซึ่งข้อกำหนดทั้งสองนี้ต่างช่วยเสริมซึ่งกันและกันได้อย่างลงตัว</p>
+<h3 id="ทำไมประเภทของ-branch-ถงไมละเอยดเทา-conventional-commits-เชน-build-ci-docs-style-refactor">ทำไมประเภทของ Branch ถึงไม่ละเอียดเท่า Conventional Commits (เช่น <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<p>Branch มีความแตกต่างจากการคอมมิต (Commits) — Branch เป็นเพียงสิ่งชั่วคราวและส่วนใหญ่จะถูกใช้งานจนกว่าจะถูกนำไปรวม (Merged) เท่านั้น การแนะนำประเภทของ Branch ให้มีมากเกินไปนั้นถือเป็นสิ่งไม่จำเป็น และจะทำให้ยากต่อการจัดการและการจดจำ</p>
+<h3 id="ฉนสามารถกำหนดประเภทของ-branch-ดวยตวเองนอกเหนอจากรายการทระบไวไดหรอไม">ฉันสามารถกำหนดประเภทของ Branch ด้วยตัวเองนอกเหนือจากรายการที่ระบุไว้ได้หรือไม่?</h3>
+<p>ได้ ข้อกำหนดนี้เป็นเพียงการกำหนดชุดประเภทที่แนะนำไว้ แต่ละทีมสามารถกำหนดประเภทเพิ่มเติมที่ปรับแต่งเองเพื่อให้สอดคล้องกับเวิร์กโฟลว์ของตนได้ อย่างไรก็ตาม สิ่งสำคัญคือต้องจัดทำเอกสารสำหรับประเภทที่ปรับแต่งขึ้นมาใหม่อย่างชัดเจน เพื่อให้สมาชิกทุกคนในทีมและเครื่องมืออัตโนมัติต่างๆ รับทราบตรงกัน</p>
+<h3 id="ความแตกตางหลกระหวาง-v110-และ-v100-คออะไร">ความแตกต่างหลักระหว่าง v1.1.0 และ v1.0.0 คืออะไร?</h3>
+<p>v1.1.0 เพิ่ม <strong>คำนำหน้าแหล่งที่มาของเอเจนต์ AI</strong> เป็นฟีเจอร์ใหม่หลัก (ดูคำถามถัดไปสำหรับสาเหตุที่นำมาใช้) นอกจากนี้ยังมาพร้อมกับเว็บไซต์แบบหลายเวอร์ชันพร้อมตัวสลับเวอร์ชัน เพื่อให้ผู้ใช้สามารถเรียกดูข้อกำหนดทั้งเวอร์ชัน v1.0.0 และ v1.1.0 ได้ ชื่อ Branch ที่มีอยู่แล้วทั้งหมดใน v1.0.0 ยังคงใช้ได้อย่างสมบูรณ์ — ไม่มีการเปลี่ยนแปลงที่ทำให้เสียความเข้ากันได้</p>
+<h3 id="ทำไมตองเพมคำนำหนาแหลงทมาของเอเจนต-ai">ทำไมต้องเพิ่มคำนำหน้าแหล่งที่มาของเอเจนต์ AI?</h3>
+<p>เอเจนต์การเขียนโค้ด AI (GitHub Copilot, Cursor, Claude Code, OpenAI Codex ฯลฯ) ถูกใช้มากขึ้นในการสร้างโค้ดและสร้าง Pull Request แต่ละเอเจนต์ใช้คำนำหน้า Branch ของตัวเอง (เช่น <code>copilot/</code>, <code>cursor/</code>) การทำให้คำนำหน้าเหล่านี้เป็นมาตรฐานในข้อกำหนด Conventional Branch ช่วยให้:</p>
+<ol>
+<li><strong>ระบุได้รวดเร็ว</strong> — ผู้ตรวจสอบและเครื่องมือสามารถจดจำ PR ที่สร้างโดย AI ได้ทันที</li>
+<li><strong>การตรวจสอบด้วยเครื่องมือ</strong> — เครื่องมืออย่าง commit-check สามารถตรวจสอบ Branch ของเอเจนต์ AI ตามข้อกำหนดได้</li>
+<li><strong>มาตรฐานการลงทะเบียน</strong> — เอเจนต์ AI ใหม่สามารถใช้คำนำหน้าที่ได้จัดทำเป็นเอกสารไว้แล้ว แทนการสร้างรูปแบบขึ้นมาเฉพาะกิจ</li>
+</ol>
+<p>คำนำหน้าทั่วไป <code>ai/</code> พร้อมใช้งานสำหรับเอเจนต์ AI ที่ไม่มีคำนำหน้าเฉพาะ หรือสำหรับทีมที่ต้องการตัวระบุที่ไม่ขึ้นกับผู้จำหน่าย นี่คือฟีเจอร์หลักที่ปล่อยใน <strong>v1.1.0</strong> — สำหรับสรุปการเปลี่ยนแปลงทั้งหมดระหว่างเวอร์ชัน โปรดดูคำถามที่พบบ่อยด้านบน</p>
 <h3 id="ฉนควรจดการกบ-branch-ทมอายยาวนานอยาง-develop-หรอ-staging-อยางไร">ฉันควรจัดการกับ Branch ที่มีอายุยาวนานอย่าง <code>develop</code> หรือ <code>staging</code> อย่างไร?</h3>
-<p>Branch สำหรับการรวมโค้ดหรือสำหรับสภาพแวดล้อม (Environment branches) ที่มีอายุการใช้งานยาวนาน ซึ่งเป็นส่วนหนึ่งของข้อกำหนดหลัก (อ้างอิงถึงกฎ <code>trunk-branch</code> ในไวยากรณ์) เช่น <code>main</code>, <code>master</code> หรือ <code>develop</code> จะถูกจัดให้เป็น Branch หลัก (Trunk branches) และไม่จำเป็นต้องมีคำนำหน้า (Prefix) นอกจากนี้ แต่ละทีมยังอาจเลือกที่จะกำหนด Branch ที่มีอายุการใช้งานยาวนานอื่นๆ (ตัวอย่างเช่น <code>staging</code> หรือ <code>production</code>) ให้เป็น Branch ที่มีสถานะเสมือน Branch หลัก (“Trunk-like” branches) ตามธรรมเนียมปฏิบัติได้ แต่สิ่งเหล่านี้ถือเป็นส่วนขยายที่ขึ้นอยู่กับแต่ละทีมซึ่งอยู่นอกเหนือจากข้อกำหนดของรูปแบบไวยากรณ์ อย่างไรก็ตาม ในทุกกรณี Branch เหล่านี้ควรได้รับการตั้งชื่ออย่างสม่ำเสมอในทุกภาคส่วนของโปรเจกต์ของคุณ</p>
+<p>Branch สำหรับการรวมโค้ดหรือสำหรับสภาพแวดล้อม (Environment branches) ที่มีอายุการใช้งานยาวนาน ซึ่งเป็นส่วนหนึ่งของข้อกำหนดหลัก (อ้างอิงถึงกฎ <code>trunk-branch</code> ในไวยากรณ์) เช่น <code>main</code>, <code>master</code> หรือ <code>develop</code> จะถูกจัดให้เป็น Branch หลัก (Trunk branches) และไม่จำเป็นต้องมีคำนำหน้า (Prefix) นอกจากนี้ แต่ละทีมยังอาจเลือกที่จะกำหนด Branch ที่มีอายุการใช้งานยาวนานอื่นๆ (ตัวอย่างเช่น <code>staging</code> หรือ <code>production</code>) ให้เป็น Branch ที่มีสถานะเสมือน Branch หลัก (&ldquo;Trunk-like&rdquo; branches) ตามธรรมเนียมปฏิบัติได้ แต่สิ่งเหล่านี้ถือเป็นส่วนขยายที่ขึ้นอยู่กับแต่ละทีมซึ่งอยู่นอกเหนือจากข้อกำหนดของรูปแบบไวยากรณ์ อย่างไรก็ตาม ในทุกกรณี Branch เหล่านี้ควรได้รับการตั้งชื่ออย่างสม่ำเสมอในทุกภาคส่วนของโปรเจกต์ของคุณ</p>
+<h3 id="มเครองมอใดบางทสามารถใชตรวจสอบไดโดยอตโนมตหากสมาชกในทมไมไดทำตามขอกำหนดน">มีเครื่องมือใดบ้างที่สามารถใช้ตรวจสอบได้โดยอัตโนมัติหากสมาชิกในทีมไม่ได้ทำตามข้อกำหนดนี้?</h3>
+<p>คุณสามารถใช้ <a href="https://github.com/commit-check/commit-check">commit-check</a> เพื่อตรวจสอบข้อกำหนดของ Branch หรือใช้ <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> หากโค้ดของคุณถูกฝากไว้บน GitHub</p>
 
   </article>
 </main><footer class="footer">

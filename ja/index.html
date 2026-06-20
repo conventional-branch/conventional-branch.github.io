@@ -35,9 +35,11 @@
       <div class="logo"></div>
     </a>
     <ul class="header__menu">
-      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.0.0</button>
-        <ul class="dropdown__options"><li class="dropdown__option dropdown__option--active">
+      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.1.0</button>
+        <ul class="dropdown__options"><li class="dropdown__option">
             <a href="/ja/v1.0.0/">v1.0.0</a>
+          </li><li class="dropdown__option dropdown__option--active">
+            <a href="/ja/v1.1.0/">v1.1.0</a>
           </li></ul>
       </li>
       <li class="header__menu-item dropdown">
@@ -98,7 +100,7 @@
 </section>
 <main>
   <article class="container markdown-body">
-    <h1 id="慣例的ブランチ-100">慣例的ブランチ 1.0.0</h1>
+    <h1 id="慣例的ブランチ-110">慣例的ブランチ 1.1.0</h1>
 <h2 id="要約">要約</h2>
 <p>慣例的ブランチとは、Git ブランチの構造化された標準的な命名規則を指し、ブランチをより読みやすく実用的にすることを目的としています。使用したいブランチのプレフィックスをいくつか提案していますが、独自の命名規則を指定することもできます。一貫した命名規則により、タイプ別にブランチを識別しやすくなります。</p>
 <h3 id="重要なポイント">重要なポイント</h3>
@@ -112,14 +114,23 @@
 <p>ブランチ仕様は以下のプレフィックスをサポートし、次のような構造にする必要があります：</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
-</code></pre><ul>
-<li><strong><code>main</code></strong>: メイン開発ブランチ（例：<code>main</code>、<code>master</code>）</li>
+</code></pre><p><strong>目的プレフィックス（Purpose Prefixes）</strong> — 作業の意図を説明します：</p>
+<ul>
 <li><strong><code>feature/</code></strong>（または <strong><code>feat/</code></strong>）: 新機能用（例：<code>feature/add-login-page</code>、<code>feat/add-login-page</code>）</li>
 <li><strong><code>bugfix/</code></strong>（または <strong><code>fix/</code></strong>）: バグ修正用（例：<code>bugfix/fix-header-bug</code>、<code>fix/header-bug</code>）</li>
 <li><strong><code>hotfix/</code></strong>: 緊急修正用（例：<code>hotfix/security-patch</code>）</li>
 <li><strong><code>release/</code></strong>: リリース準備ブランチ用（例：<code>release/v1.2.0</code>）</li>
 <li><strong><code>chore/</code></strong>: 依存関係やドキュメント更新などの非コードタスク用（例：<code>chore/update-dependencies</code>）</li>
 </ul>
+<p><strong>AI エージェントソースプレフィックス（AI Agent Source Prefixes）</strong> — AI コーディングエージェントによって生成されたブランチを識別します：</p>
+<ul>
+<li><strong><code>ai/</code></strong>: 汎用 AI エージェントプレフィックス（例：<code>ai/refactor-auth-flow</code>）</li>
+<li><strong><code>copilot/</code></strong>: GitHub Copilot（例：<code>copilot/add-login-page</code>）</li>
+<li><strong><code>cursor/</code></strong>: Cursor（例：<code>cursor/fix-header-bug</code>）</li>
+<li><strong><code>claude/</code></strong>: Anthropic Claude Code（例：<code>claude/security-patch</code>）</li>
+<li><strong><code>codex/</code></strong>: OpenAI Codex（例：<code>codex/optimize-query</code>）</li>
+</ul>
+<p>トランクブランチ（<code>main</code>、<code>master</code>、<code>develop</code>）はプレフィックスを使用しません。</p>
 <hr>
 <h3 id="基本ルール">基本ルール</h3>
 <ol>
@@ -135,6 +146,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;ai&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;copilot&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;cursor&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;claude&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;codex&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; 小文字 a-z</span>
@@ -243,6 +256,31 @@
 <td>アンダースコアは使用不可</td>
 </tr>
 <tr>
+<td><code>ai/refactor-auth-flow</code></td>
+<td>✅</td>
+<td>汎用 AI エージェントプレフィックス</td>
+</tr>
+<tr>
+<td><code>copilot/add-login-page</code></td>
+<td>✅</td>
+<td>GitHub Copilot</td>
+</tr>
+<tr>
+<td><code>cursor/fix-header-bug</code></td>
+<td>✅</td>
+<td>Cursor</td>
+</tr>
+<tr>
+<td><code>claude/security-patch</code></td>
+<td>✅</td>
+<td>Anthropic Claude Code</td>
+</tr>
+<tr>
+<td><code>codex/optimize-query</code></td>
+<td>✅</td>
+<td>OpenAI Codex</td>
+</tr>
+<tr>
 <td><code>unknown/some-task</code></td>
 <td>❌</td>
 <td>未知のプレフィックスタイプ</td>
@@ -280,16 +318,26 @@
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="よくある質問">よくある質問</h2>
-<h3 id="なぜブランチの種類はconventional-commits例buildcidocsstylerefactorほど詳細ではないのですか">なぜブランチの種類はConventional Commits（例：<code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）ほど詳細ではないのですか？</h3>
-<p>ブランチはコミットとは異なり、一時的なもので、主にマージされるまで使用されます。ブランチにあまり多くの種類を導入することは不要で、管理や記憶が難しくなります。</p>
-<h3 id="チームメンバーがこの仕様を満たしていない場合自動的に識別するために使用できるツールは何ですか">チームメンバーがこの仕様を満たしていない場合、自動的に識別するために使用できるツールは何ですか？</h3>
-<p><a href="https://github.com/commit-check/commit-check">commit-check</a> を使用してブランチ仕様をチェックするか、コードが GitHub でホストされている場合は <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> を使用できます。</p>
-<h3 id="仕様に記載されているもの以外に独自のブランチタイプを定義できますか">仕様に記載されているもの以外に独自のブランチタイプを定義できますか？</h3>
-<p>はい。この仕様は推奨されるタイプのセットを定義しますが、チームはワークフローに合わせて追加のカスタムタイプを定義することができます。ただし、すべてのチームメンバーと自動化ツールが認識できるよう、カスタムタイプを明確に文書化することが重要です。</p>
 <h3 id="conventional-branch-と-conventional-commits-の関係は">Conventional Branch と Conventional Commits の関係は？</h3>
 <p>Conventional Branch は <a href="https://www.conventionalcommits.org">Conventional Commits</a> に触発され、同様の哲学に基づいています：人間と機械が読めるような構造を Git メタデータに組み込むこと。Conventional Commits がコミットメッセージを標準化するのに対して、Conventional Branch はブランチ名を標準化します。両者は自然に補完し合います。</p>
+<h3 id="なぜブランチの種類はconventional-commits例buildcidocsstylerefactorほど詳細ではないのですか">なぜブランチの種類はConventional Commits（例：<code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）ほど詳細ではないのですか？</h3>
+<p>ブランチはコミットとは異なり、一時的なもので、主にマージされるまで使用されます。ブランチにあまり多くの種類を導入することは不要で、管理や記憶が難しくなります。</p>
+<h3 id="仕様に記載されているもの以外に独自のブランチタイプを定義できますか">仕様に記載されているもの以外に独自のブランチタイプを定義できますか？</h3>
+<p>はい。この仕様は推奨されるタイプのセットを定義しますが、チームはワークフローに合わせて追加のカスタムタイプを定義することができます。ただし、すべてのチームメンバーと自動化ツールが認識できるよう、カスタムタイプを明確に文書化することが重要です。</p>
+<h3 id="v110-と-v100-の主な違いは何ですか">v1.1.0 と v1.0.0 の主な違いは何ですか？</h3>
+<p>v1.1.0 の主な新機能は <strong>AI エージェントソースプレフィックス（AI Agent Source Prefixes）</strong> の導入です（その理由は次のよくある質問を参照してください）。また、バージョン管理されたウェブサイトにバージョン切り替え機能が追加され、v1.0.0 と v1.1.0 の両方の仕様を参照できます。既存の v1.0.0 ブランチ名はすべて引き続き有効です — 互換性を損なう変更はありません。</p>
+<h3 id="ai-エージェントソースプレフィックスを追加する理由は">AI エージェントソースプレフィックスを追加する理由は？</h3>
+<p>AI コーディングエージェント（GitHub Copilot、Cursor、Claude Code、OpenAI Codex など）は、コード生成や Pull Request 作成にますます使用されています。各エージェントは独自のブランチプレフィックス（例：<code>copilot/</code>、<code>cursor/</code>）を使用しています。Conventional Branch 仕様でこれらのプレフィックスを標準化することで、以下が可能になります：</p>
+<ol>
+<li><strong>迅速な識別</strong> — レビュアーとツールは AI 生成 PR を即座に認識できます</li>
+<li><strong>ツール検証</strong> — commit-check などのツールが AI エージェントブランチを仕様に照らして検証できます</li>
+<li><strong>登録標準</strong> — 新しい AI エージェントはアドホックなパターンを発明する代わりに、文書化されたプレフィックスを採用できます</li>
+</ol>
+<p><code>ai/</code> 汎用プレフィックスは、専用プレフィックスを持たない AI エージェント、またはベンダーニュートラルな識別子を好むチームのために利用可能です。これは <strong>v1.1.0</strong> でリリースされた主要な新機能です — バージョン間の変更の完全な概要については、上記のよくある質問を参照してください。</p>
 <h3 id="develop-や-staging-のような長期存在するブランチはどう扱えばよいですか"><code>develop</code> や <code>staging</code> のような長期存在するブランチはどう扱えばよいですか？</h3>
 <p>仕様の ABNF では <code>trunk-branch</code> は <code>main</code> / <code>master</code> / <code>develop</code> のみを指しますが、運用上、それ以外の長期存在する統合用または環境用ブランチ（例：<code>staging</code>、<code>production</code>）をプロジェクト独自のトランク相当ブランチとして扱っても構いません（この場合もプレフィックスは不要です）。その際は、これらのブランチ名が仕様の拡張であることを明確に文書化し、プロジェクト全体で一貫した命名を心がけてください。</p>
+<h3 id="チームメンバーがこの仕様を満たしていない場合自動的に識別するために使用できるツールは何ですか">チームメンバーがこの仕様を満たしていない場合、自動的に識別するために使用できるツールは何ですか？</h3>
+<p><a href="https://github.com/commit-check/commit-check">commit-check</a> を使用してブランチ仕様をチェックするか、コードが GitHub でホストされている場合は <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> を使用できます。</p>
 
   </article>
 </main><footer class="footer">
