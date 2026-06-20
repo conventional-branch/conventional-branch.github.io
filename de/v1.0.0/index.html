@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html><head>
-	<meta name="generator" content="Hugo 0.128.0">
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
   <script>
@@ -14,19 +13,19 @@
   <link rel="stylesheet" href="/css/style.css">
 
   <title>Conventional Branch</title>
-  <meta name="description" content="Uma especificação para dar aos nomes dos branches um significado legível para humanos e máquinas"/>
+  <meta name="description" content="Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches"/>
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
 
   
-  <meta name="twitter:card" content="Uma especificação para dar aos nomes dos branches um significado legível para humanos e máquinas">
+  <meta name="twitter:card" content="Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches">
   <meta name="twitter:title" content="Conventional Branch">
-  <meta name="twitter:description" content="Uma especificação para dar aos nomes dos branches um significado legível para humanos e máquinas">
+  <meta name="twitter:description" content="Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches">
 
   
   <meta property="og:title" content="Conventional Branch"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="/pt-br/"/>
-  <meta property="og:description" content="Uma especificação para dar aos nomes dos branches um significado legível para humanos e máquinas"/>
+  <meta property="og:url" content="/de/v1.0.0/"/>
+  <meta property="og:description" content="Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches"/>
   <meta property="og:site_name" content="Conventional Branch"/>
 </head>
 <body class="conventional-branch--loading"><header class="header">
@@ -37,7 +36,7 @@
     <ul class="header__menu">
       <li class="header__menu-item dropdown"><button class="dropdown__label">v1.0.0</button>
         <ul class="dropdown__options"><li class="dropdown__option dropdown__option--active">
-            <a href="/pt-br/v1.0.0/">v1.0.0</a>
+            <a href="/de/v1.0.0/">v1.0.0</a>
           </li></ul>
       </li>
       <li class="header__menu-item dropdown">
@@ -79,15 +78,15 @@
 <section class="welcome">
   <div class="container">
     <h1 class="welcome__title">Conventional Branch</h1>
-    <p class="welcome__description">Uma especificação para dar aos nomes dos branches um significado legível para humanos e máquinas</p>
+    <p class="welcome__description">Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches</p>
     
     <div class="welcome__actions">
       
-      <a class="welcome__action" href="#resumo">Resumo</a>
+      <a class="welcome__action" href="#zusammenfassung">Zusammenfassung</a>
       
-      <a class="welcome__action" href="#especifica%c3%a7%c3%a3o">Especificação Completa</a>
+      <a class="welcome__action" href="#spezifikation">Vollständige Spezifikation</a>
       
-      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">GitHub</a>
+      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">Beitragen</a>
       
     </div>
     
@@ -99,37 +98,37 @@
 <main>
   <article class="container markdown-body">
     <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
-<h2 id="resumo">Resumo</h2>
-<p>Conventional Branch é uma convenção estruturada e padronizada para nomeação de branches no Git, que visa tornar os nomes dos branches mais legíveis e acionáveis. Sugerimos alguns prefixos de branch que você pode usar, mas também é possível especificar sua própria convenção de nomes. Uma convenção consistente facilita a identificação dos branches pelo tipo.</p>
-<h3 id="pontos-chave">Pontos-chave</h3>
+<h2 id="zusammenfassung">Zusammenfassung</h2>
+<p>Conventional Branch bezieht sich auf eine strukturierte und standardisierte Namenskonvention für Git-Branches, die darauf abzielt, Branches lesbarer und umsetzbarer zu machen. Wir haben einige Branch-Präfixe vorgeschlagen, die Sie verwenden könnten, aber Sie können auch Ihre eigene Namenskonvention festlegen. Eine einheitliche Namenskonvention erleichtert die Identifizierung von Branches nach Typ.</p>
+<h3 id="wichtige-punkte">Wichtige Punkte</h3>
 <ol>
-<li><strong>Nomes de branches orientados ao propósito</strong>: cada nome de branch indica claramente seu propósito, facilitando para todos os desenvolvedores entenderem para que serve o branch.</li>
-<li><strong>Integração com CI/CD</strong>: ao usar nomes de branch consistentes, é possível auxiliar sistemas automatizados (como pipelines de integração contínua/entrega contínua) a disparar ações específicas com base no tipo de branch (como implantação automática a partir de branches de release).</li>
-<li><strong>Colaboração em equipe</strong>: incentiva a colaboração dentro das equipes ao tornar explícito o propósito do branch, reduzindo mal-entendidos e facilitando a troca de tarefas entre membros sem confusão.</li>
+<li><strong>Zweckgerichtete Branch-Namen</strong>: Jeder Branch-Name zeigt deutlich seinen Zweck an, wodurch es für alle Entwickler einfach wird zu verstehen, wofür der Branch gedacht ist.</li>
+<li><strong>Integration mit CI/CD</strong>: Durch die Verwendung einheitlicher Branch-Namen können automatisierte Systeme (wie Continuous Integration/Continuous Deployment-Pipelines) dabei helfen, spezifische Aktionen basierend auf dem Branch-Typ auszulösen (z.B. automatische Bereitstellung von Release-Branches).</li>
+<li><strong>Team-Zusammenarbeit</strong>: Es fördert die Zusammenarbeit innerhalb von Teams, indem der Branch-Zweck explizit gemacht wird, Missverständnisse reduziert werden und es Teammitgliedern erleichtert wird, zwischen Aufgaben ohne Verwirrung zu wechseln.</li>
 </ol>
-<h2 id="especificação">Especificação</h2>
-<h3 id="prefixos-de-nomeação-de-branch">Prefixos de nomeação de branch</h3>
-<p>A especificação de branch suporta os seguintes prefixos e deve ser estruturada da seguinte forma:</p>
+<h2 id="spezifikation">Spezifikation</h2>
+<h3 id="branch-namens-präfixe">Branch-Namens-Präfixe</h3>
+<p>Die Branch-Spezifikation unterstützt die folgenden Präfixe und sollte wie folgt strukturiert sein:</p>
 <hr>
-<pre tabindex="0"><code>&lt;tipo&gt;/&lt;descrição&gt;
+<pre tabindex="0"><code>&lt;typ&gt;/&lt;beschreibung&gt;
 </code></pre><ul>
-<li><strong><code>main</code></strong>: o branch principal de desenvolvimento (ex.: <code>main</code>, <code>master</code> ou <code>develop</code>);</li>
-<li><strong><code>feature/</code></strong> (or <strong><code>feat/</code></strong>): para novas funcionalidades (ex.: <code>feature/add-login-page</code>, <code>feat/add-login-page</code>);</li>
-<li><strong><code>bugfix/</code></strong> (or <strong><code>fix/</code></strong>): para correções de bugs (ex.: <code>bugfix/fix-header-bug</code>, <code>fix/header-bug</code>);</li>
-<li><strong><code>hotfix/</code></strong>: para correções urgentes (ex.: <code>hotfix/correcao-seguranca</code>);</li>
-<li><strong><code>release/</code></strong>: para branches de release (ex.: <code>release/v1.2.0</code>); e</li>
-<li><strong><code>chore/</code></strong>: para tarefas não relacionadas ao código, como atualização de dependências ou documentação (ex.: <code>chore/atualizar-dependencias</code>).</li>
+<li><strong><code>main</code></strong>: Der Haupt-Entwicklungsbranch (z.B. <code>main</code>, <code>master</code>, oder <code>develop</code>)</li>
+<li><strong><code>feature/</code></strong> (oder <strong><code>feat/</code></strong>): Für neue Features (z.B. <code>feature/add-login-page</code>, <code>feat/add-login-page</code>)</li>
+<li><strong><code>bugfix/</code></strong> (oder <strong><code>fix/</code></strong>): Für Fehlerbehebungen (z.B. <code>bugfix/fix-header-bug</code>, <code>fix/header-bug</code>)</li>
+<li><strong><code>hotfix/</code></strong>: Für dringende Korrekturen (z.B. <code>hotfix/security-patch</code>)</li>
+<li><strong><code>release/</code></strong>: Für Branches, die ein Release vorbereiten (z.B. <code>release/v1.2.0</code>)</li>
+<li><strong><code>chore/</code></strong>: Für Nicht-Code-Aufgaben wie Abhängigkeiten, Dokumentation-Updates (z.B. <code>chore/update-dependencies</code>)</li>
 </ul>
 <hr>
-<h3 id="regras-básicas">Regras básicas</h3>
+<h3 id="grundregeln">Grundregeln</h3>
 <ol>
-<li><strong>Use letras minúsculas, números, hífens e pontos</strong>: sempre use letras minúsculas (<code>a-z</code>), números (<code>0-9</code>) e hífens (<code>-</code>) para separar palavras. Evite caracteres especiais, underlines ou espaços. Para branches de release, pontos (<code>.</code>) podem ser usados na descrição para representar versões (ex.: <code>release/v1.2.0</code>).</li>
-<li><strong>Sem hífens ou pontos consecutivos, iniciais ou finais</strong>: certifique-se de que hífens e pontos não apareçam consecutivamente (ex.: <code>feature/novo--login</code>, <code>release/v1.-2.0</code>), nem no início ou fim da descrição (ex.: <code>feature/-novo-login</code>, <code>release/v1.2.0.</code>).</li>
-<li><strong>Seja claro e conciso</strong>: o nome do branch deve ser descritivo, mas conciso, indicando claramente o propósito do trabalho.</li>
-<li><strong>Inclua o número do ticket</strong>: se aplicável, inclua o número do ticket da sua ferramenta de gestão de projetos para facilitar o rastreamento. Por exemplo, para o ticket <code>issue-123</code>, o nome do branch pode ser <code>feature/issue-123-novo-login</code>.</li>
+<li><strong>Verwenden Sie kleine Buchstaben und Zahlen, Bindestriche und Punkte</strong>: Verwenden Sie immer Kleinbuchstaben (<code>a-z</code>), Zahlen (<code>0-9</code>) und Bindestriche (<code>-</code>), um Wörter zu trennen. Vermeiden Sie Sonderzeichen, Unterstriche oder Leerzeichen. Für Release-Branches können Punkte (<code>.</code>) in der Beschreibung verwendet werden, um Versionsnummern darzustellen (z.B. <code>release/v1.2.0</code>).</li>
+<li><strong>Keine aufeinanderfolgenden, führenden oder nachfolgenden Bindestriche oder Punkte</strong>: Stellen Sie sicher, dass Bindestriche und Punkte nicht aufeinanderfolgen (z.B. <code>feature/new--login</code>, <code>release/v1.-2.0</code>), noch am Anfang oder Ende der Beschreibung (z.B. <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
+<li><strong>Halten Sie es klar und prägnant</strong>: Der Branch-Name sollte beschreibend aber prägnant sein und den Zweck der Arbeit klar angeben.</li>
+<li><strong>Ticket-Nummern einbeziehen</strong>: Falls zutreffend, beziehen Sie die Ticket-Nummer aus Ihrem Projektmanagement-Tool ein, um die Verfolgung zu erleichtern. Zum Beispiel könnte für ein Ticket <code>issue-123</code> der Branch-Name <code>feature/issue-123-new-login</code> lauten.</li>
 </ol>
-<h3 id="gramática-formal">Gramática formal</h3>
-<p>A gramática ABNF (Augmented Backus-Naur Form) a seguir define formalmente nomes de branches válidos:</p>
+<h3 id="formale-grammatik">Formale Grammatik</h3>
+<p>Die folgende ABNF-Grammatik (Augmented Backus-Naur Form) definiert formal gültige Branch-Namen:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
@@ -137,159 +136,159 @@
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; letras minúsculas a-z</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; dígitos 0-9</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; Kleinbuchstaben a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; Ziffern 0-9</span>
 </span></span></code></pre></div><blockquote>
-<p>Nota: Hífens ou pontos consecutivos e hífens ou pontos no início ou no final da descrição não são permitidos.</p>
+<p>Hinweis: Aufeinanderfolgende Bindestriche oder Punkte sowie Bindestriche oder Punkte am Anfang oder Ende der Beschreibung sind nicht erlaubt.</p>
 </blockquote>
-<h3 id="exemplos">Exemplos</h3>
+<h3 id="beispiele">Beispiele</h3>
 <table>
 <thead>
 <tr>
-<th>Nome do branch</th>
-<th>Válido</th>
-<th>Notas</th>
+<th>Branch-Name</th>
+<th>Gültig</th>
+<th>Hinweise</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>main</code></td>
 <td>✅</td>
-<td>Branch principal</td>
+<td>Trunk-Branch</td>
 </tr>
 <tr>
 <td><code>master</code></td>
 <td>✅</td>
-<td>Branch principal</td>
+<td>Trunk-Branch</td>
 </tr>
 <tr>
 <td><code>develop</code></td>
 <td>✅</td>
-<td>Branch principal</td>
+<td>Trunk-Branch</td>
 </tr>
 <tr>
 <td><code>feature/add-login-page</code></td>
 <td>✅</td>
-<td>Nova funcionalidade</td>
+<td>Neues Feature</td>
 </tr>
 <tr>
 <td><code>feat/add-login-page</code></td>
 <td>✅</td>
-<td>Alias curto para feature</td>
+<td>Kurzform für feature</td>
 </tr>
 <tr>
 <td><code>bugfix/fix-header-bug</code></td>
 <td>✅</td>
-<td>Correção de bug</td>
+<td>Fehlerbehebung</td>
 </tr>
 <tr>
 <td><code>fix/header-bug</code></td>
 <td>✅</td>
-<td>Alias curto para bugfix</td>
+<td>Kurzform für bugfix</td>
 </tr>
 <tr>
 <td><code>hotfix/security-patch</code></td>
 <td>✅</td>
-<td>Correção urgente</td>
+<td>Dringende Korrektur</td>
 </tr>
 <tr>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
-<td>Release com número de versão</td>
+<td>Release mit Versionsnummer</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
 <td>✅</td>
-<td>Tarefa não relacionada ao código</td>
+<td>Nicht-Code-Aufgabe</td>
 </tr>
 <tr>
 <td><code>feature/issue-123-new-login</code></td>
 <td>✅</td>
-<td>Funcionalidade com número de ticket</td>
+<td>Feature mit Ticket-Nummer</td>
 </tr>
 <tr>
 <td><code>Feature/Add-Login</code></td>
 <td>❌</td>
-<td>Maiúsculas não permitidas</td>
+<td>Großbuchstaben nicht erlaubt</td>
 </tr>
 <tr>
 <td><code>feature/new--login</code></td>
 <td>❌</td>
-<td>Hífens consecutivos não permitidos</td>
+<td>Aufeinanderfolgende Bindestriche nicht erlaubt</td>
 </tr>
 <tr>
 <td><code>feature/-new-login</code></td>
 <td>❌</td>
-<td>Descrição não pode começar com hífen</td>
+<td>Beschreibung darf nicht mit Bindestrich beginnen</td>
 </tr>
 <tr>
 <td><code>feature/new-login-</code></td>
 <td>❌</td>
-<td>Descrição não pode terminar com hífen</td>
+<td>Beschreibung darf nicht mit Bindestrich enden</td>
 </tr>
 <tr>
 <td><code>release/v1.-2.0</code></td>
 <td>❌</td>
-<td>Hífen adjacente a ponto não permitido</td>
+<td>Bindestrich neben Punkt nicht erlaubt</td>
 </tr>
 <tr>
 <td><code>fix/header bug</code></td>
 <td>❌</td>
-<td>Espaços não permitidos</td>
+<td>Leerzeichen nicht erlaubt</td>
 </tr>
 <tr>
 <td><code>fix/header_bug</code></td>
 <td>❌</td>
-<td>Sublinhados (<code>_</code>) não permitidos</td>
+<td>Unterstriche nicht erlaubt</td>
 </tr>
 <tr>
 <td><code>unknown/some-task</code></td>
 <td>❌</td>
-<td>Tipo de prefixo desconhecido</td>
+<td>Unbekannter Präfixtyp</td>
 </tr>
 </tbody>
 </table>
-<h2 id="conclusão">Conclusão</h2>
+<h2 id="fazit">Fazit</h2>
 <ul>
-<li><strong>Comunicação clara</strong>: o nome do branch por si só já fornece um entendimento claro do propósito da alteração de código.</li>
-<li><strong>Amigável para automação</strong>: facilmente integrável a processos automatizados, possibilitando, por exemplo, a configuração de diferentes workflows para <code>feature</code>, <code>release</code> etc.</li>
-<li><strong>Escalabilidade</strong>: funciona bem em equipes grandes, onde muitos desenvolvedores trabalham em tarefas diferentes simultaneamente.</li>
+<li><strong>Klare Kommunikation</strong>: Der Branch-Name allein bietet ein klares Verständnis seines Zwecks und der Code-Änderung.</li>
+<li><strong>Automatisierungsfreundlich</strong>: Lässt sich einfach in Automatisierungsprozesse einbinden (z.B. verschiedene Workflows für <code>feature</code>, <code>release</code>, etc.).</li>
+<li><strong>Skalierbarkeit</strong>: Funktioniert gut in großen Teams, wo viele Entwickler gleichzeitig an verschiedenen Aufgaben arbeiten.</li>
 </ul>
-<p>Em resumo, o Conventional Branch foi projetado para melhorar a organização do projeto, a comunicação e a automação nos fluxos de trabalho com Git.</p>
-<h2 id="ferramentas">Ferramentas</h2>
-<p>Use estas ferramentas para adotar e aplicar Conventional Branch no seu projeto:</p>
+<p>Zusammenfassend ist Conventional Branch darauf ausgelegt, die Projektorganisation, Kommunikation und Automatisierung innerhalb von Git-Workflows zu verbessern.</p>
+<h2 id="werkzeuge">Werkzeuge</h2>
+<p>Verwenden Sie diese Werkzeuge, um Conventional Branch in Ihrem Projekt einzuführen und durchzusetzen:</p>
 <ul>
   <li>
     <a href="https://github.com/commit-check/commit-check">commit-check</a>:
-    Verifique nomes de branches, mensagens de commit e metadados Git relacionados localmente.
+    Prüft Branch-Namen, Commit-Nachrichten und zugehörige Git-Metadaten lokal.
   </li>
   <li>
     <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
-    Valide nomes de branches automaticamente no GitHub Actions.
+    Validiert Branch-Namen automatisch in GitHub Actions.
   </li>
   <li>
     <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
-    Crie nomes de branches Conventional Branch no Visual Studio Code.
+    Erstellt Conventional-Branch-Namen aus Visual Studio Code.
   </li>
   <li>
     <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
-    Ensine assistentes de programação com IA a criar nomes válidos de Conventional Branch.
+    Bringt KI-Coding-Assistenten bei, gültige Conventional-Branch-Namen zu erstellen.
   </li>
   
-</ul><p>Instale a skill com:</p>
+</ul><p>Installieren Sie den Skill mit:</p>
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
-<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
-<h3 id="por-que-os-tipos-de-branch-não-são-tão-detalhados-quanto-os-conventional-commits-por-exemplo-build-ci-docs-style-refactor">Por que os tipos de branch não são tão detalhados quanto os Conventional Commits (por exemplo, <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
-<p>Branches são diferentes de commits – são temporários e usados principalmente até serem mesclados. Introduzir muitos tipos de branch seria desnecessário e tornaria mais difícil gerenciá-los e lembrá-los.</p>
-<h3 id="quais-ferramentas-podem-ser-usadas-para-identificar-automaticamente-se-um-membro-da-equipe-não-segue-esta-especificação">Quais ferramentas podem ser usadas para identificar automaticamente se um membro da equipe não segue esta especificação?</h3>
-<p>Você pode usar o <a href="https://github.com/commit-check/commit-check">commit-check</a> para verificar a especificação de branch ou o <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> se seu código estiver hospedado no GitHub.</p>
-<h3 id="posso-definir-meus-próprios-tipos-de-branch-além-dos-listados">Posso definir meus próprios tipos de branch além dos listados?</h3>
-<p>Sim. A especificação define um conjunto recomendado de tipos, mas equipes podem definir tipos personalizados adicionais para seu fluxo de trabalho. No entanto, é importante documentar claramente os tipos personalizados para que todos os membros da equipe e ferramentas automatizadas estejam cientes deles.</p>
-<h3 id="como-o-conventional-branch-se-relaciona-com-o-conventional-commits">Como o Conventional Branch se relaciona com o Conventional Commits?</h3>
-<p>O Conventional Branch foi inspirado pelo <a href="https://www.conventionalcommits.org">Conventional Commits</a> e segue uma filosofia semelhante: trazer estrutura legível por humanos e máquinas para os metadados do Git. Enquanto o Conventional Commits padroniza mensagens de commit, o Conventional Branch padroniza nomes de branches. As duas especificações se complementam naturalmente.</p>
-<h3 id="como-devo-lidar-com-branches-de-longa-duração-como-develop-ou-staging">Como devo lidar com branches de longa duração como <code>develop</code> ou <code>staging</code>?</h3>
-<p>Na gramática formal da especificação, apenas <code>main</code>, <code>master</code> e <code>develop</code> são considerados <code>trunk-branch</code>. Outros branches de integração ou de ambiente de longa duração (por exemplo, <code>staging</code>, <code>production</code>) podem ser adotados por cada projeto como extensões específicas da convenção, também sem prefixo, desde que sejam documentados e usados de forma consistente em todo o projeto.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="warum-sind-branch-typen-nicht-so-detailliert-wie-conventional-commits-zb-build-ci-docs-style-refactor">Warum sind Branch-Typen nicht so detailliert wie Conventional Commits (z. B. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
+<p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>
+<h3 id="welche-tools-können-verwendet-werden-um-automatisch-zu-identifizieren-ob-ein-teammitglied-diese-spezifikation-nicht-erfüllt">Welche Tools können verwendet werden, um automatisch zu identifizieren, ob ein Teammitglied diese Spezifikation nicht erfüllt?</h3>
+<p>Sie können <a href="https://github.com/commit-check/commit-check">commit-check</a> verwenden, um die Branch-Spezifikation zu überprüfen, oder <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, wenn Ihr Code auf GitHub gehostet wird.</p>
+<h3 id="kann-ich-eigene-branch-typen-über-die-aufgeführten-hinaus-definieren">Kann ich eigene Branch-Typen über die aufgeführten hinaus definieren?</h3>
+<p>Ja. Die Spezifikation definiert eine empfohlene Menge von Typen, aber Teams können zusätzliche benutzerdefinierte Typen für ihren Workflow definieren. Es ist jedoch wichtig, benutzerdefinierte Typen klar zu dokumentieren, damit alle Teammitglieder und automatisierte Tools davon wissen.</p>
+<h3 id="wie-verhält-sich-conventional-branch-zu-conventional-commits">Wie verhält sich Conventional Branch zu Conventional Commits?</h3>
+<p>Conventional Branch wurde von <a href="https://www.conventionalcommits.org">Conventional Commits</a> inspiriert und verfolgt eine ähnliche Philosophie: menschlich- und maschinenlesbaren Struktur in Git-Metadaten einzubringen. Während Conventional Commits Commit-Nachrichten standardisiert, standardisiert Conventional Branch Branch-Namen. Die beiden Spezifikationen ergänzen sich auf natürliche Weise.</p>
+<h3 id="wie-soll-ich-mit-langlebigen-branches-wie-develop-oder-staging-umgehen">Wie soll ich mit langlebigen Branches wie <code>develop</code> oder <code>staging</code> umgehen?</h3>
+<p>In der formalen Grammatik dieser Spezifikation sind nur <code>main</code>, <code>master</code> und <code>develop</code> explizit als Trunk-Branches definiert und benötigen kein Präfix. Als projektspezifische Erweiterung können Teams jedoch zusätzliche langlebige Integrations- oder Umgebungs-Branches (z. B. <code>staging</code>, <code>production</code>) ohne Präfix verwenden, sofern diese konsistent benannt und in den eingesetzten Tools entsprechend konfiguriert bzw. dokumentiert sind.</p>
 
   </article>
 </main><footer class="footer">

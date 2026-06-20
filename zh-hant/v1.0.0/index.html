@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html><head>
-	<meta name="generator" content="Hugo 0.128.0">
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
   <script>
@@ -13,21 +12,21 @@
   
   <link rel="stylesheet" href="/css/style.css">
 
-  <title>Conventional Branch</title>
-  <meta name="description" content="A specification for adding human and machine readable meaning to branch"/>
+  <title>約定式分支</title>
+  <meta name="description" content="一種為 Git branch 增添人機可讀含義的規範"/>
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
 
   
-  <meta name="twitter:card" content="A specification for adding human and machine readable meaning to branch">
-  <meta name="twitter:title" content="Conventional Branch">
-  <meta name="twitter:description" content="A specification for adding human and machine readable meaning to branch">
+  <meta name="twitter:card" content="一種為 Git branch 增添人機可讀含義的規範">
+  <meta name="twitter:title" content="約定式分支">
+  <meta name="twitter:description" content="一種為 Git branch 增添人機可讀含義的規範">
 
   
-  <meta property="og:title" content="Conventional Branch"/>
+  <meta property="og:title" content="約定式分支"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="/"/>
-  <meta property="og:description" content="A specification for adding human and machine readable meaning to branch"/>
-  <meta property="og:site_name" content="Conventional Branch"/>
+  <meta property="og:url" content="/zh-hant/v1.0.0/"/>
+  <meta property="og:description" content="一種為 Git branch 增添人機可讀含義的規範"/>
+  <meta property="og:site_name" content="約定式分支"/>
 </head>
 <body class="conventional-branch--loading"><header class="header">
   <div class="container">
@@ -37,7 +36,7 @@
     <ul class="header__menu">
       <li class="header__menu-item dropdown"><button class="dropdown__label">v1.0.0</button>
         <ul class="dropdown__options"><li class="dropdown__option dropdown__option--active">
-            <a href="/v1.0.0/">v1.0.0</a>
+            <a href="/zh-hant/v1.0.0/">v1.0.0</a>
           </li></ul>
       </li>
       <li class="header__menu-item dropdown">
@@ -78,16 +77,16 @@
 </header>
 <section class="welcome">
   <div class="container">
-    <h1 class="welcome__title">Conventional Branch</h1>
-    <p class="welcome__description">A specification for adding human and machine readable meaning to branch</p>
+    <h1 class="welcome__title">約定式分支</h1>
+    <p class="welcome__description">一種為 Git branch 增添人機可讀含義的規範</p>
     
     <div class="welcome__actions">
       
-      <a class="welcome__action" href="#summary">Quick Summary</a>
+      <a class="welcome__action" href="#%e6%a6%82%e8%bf%b0">概述</a>
       
-      <a class="welcome__action" href="#specification">Full Specification</a>
+      <a class="welcome__action" href="#%e8%a6%8f%e7%af%84">完整規範</a>
       
-      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">Contribute</a>
+      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">貢獻</a>
       
     </div>
     
@@ -98,38 +97,38 @@
 </section>
 <main>
   <article class="container markdown-body">
-    <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
-<h2 id="summary">Summary</h2>
-<p>Conventional Branch refers to a structured and standardized naming convention for Git branches which aims to make branch more readable and actionable. We&rsquo;ve suggested some branch prefixes you might want to use but you can also specify your own naming convention. A consistent naming convention makes it easier to identify branches by type.</p>
-<h3 id="key-points">Key Points</h3>
+    <h1 id="約定式分支-100">約定式分支 1.0.0</h1>
+<h2 id="概述">概述</h2>
+<p>約定式分支（Conventional Branch）是指針對 Git branch 的結構化、標準化命名慣例，旨在讓 branch 更易讀且更具可操作性。我們提供一些您可能想採用的 branch 前綴建議，但您也可以自行制定命名慣例。一致的命名慣例能讓您更容易依類型辨識 branch。</p>
+<h3 id="要點">要點</h3>
 <ol>
-<li><strong>Purpose-driven Branch Names</strong>: Each branch name clearly indicates its purpose, making it easy for all developers to understand what the branch is for.</li>
-<li><strong>Integration with CI/CD</strong>: By using consistent branch names, it can help automated systems (like Continuous Integration/Continuous Deployment pipelines) to trigger specific actions based on the branch type (e.g., auto-deployment from release branches).</li>
-<li><strong>Team Collaboration</strong>: It encourages collaboration within teams by making branch purpose explicit, reducing misunderstandings, and making it easier for team members to switch between tasks without confusion.</li>
+<li><strong>以目的為導向的 branch 名稱</strong>：每個 branch 名稱都清楚表明其目的，讓所有開發人員都能輕鬆理解該 branch 的用途。</li>
+<li><strong>與 CI/CD 整合</strong>：透過一致的 branch 命名，它可以協助自動化系統（例如 Continuous Integration/Continuous Deployment 管線）根據 branch 類型觸發特定動作（例如，從 release branch 自動部署）。</li>
+<li><strong>團隊協作</strong>：藉由明確標示 branch 的目的，促進團隊協作、降低誤解，並讓成員更容易在不同任務間切換而不致混淆。</li>
 </ol>
-<h2 id="specification">Specification</h2>
-<h3 id="branch-naming-prefixes">Branch Naming Prefixes</h3>
-<p>The branch specification supports the following prefixes and should be structured as:</p>
+<h2 id="規範">規範</h2>
+<h3 id="branch-命名前綴">branch 命名前綴</h3>
+<p>此 branch 規範支援以下前綴，並應採用如下結構：</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
 </code></pre><ul>
-<li><strong><code>main</code></strong>: The main development branch (e.g., <code>main</code>, <code>master</code>, or <code>develop</code>)</li>
-<li><strong><code>feature/</code></strong> (or <strong><code>feat/</code></strong>): For new features (e.g., <code>feature/add-login-page</code>, <code>feat/add-login-page</code>)</li>
-<li><strong><code>bugfix/</code></strong> (or <strong><code>fix/</code></strong>): For bug fixes (e.g., <code>bugfix/fix-header-bug</code>, <code>fix/header-bug</code>)</li>
-<li><strong><code>hotfix/</code></strong>: For urgent fixes (e.g., <code>hotfix/security-patch</code>)</li>
-<li><strong><code>release/</code></strong>: For branches preparing a release (e.g., <code>release/v1.2.0</code>)</li>
-<li><strong><code>chore/</code></strong>: For non-code tasks like dependency, docs updates (e.g., <code>chore/update-dependencies</code>)</li>
+<li><strong><code>main</code></strong>：主要開發 branch（例如 <code>main</code>、<code>master</code> 或 <code>develop</code>）</li>
+<li><strong><code>feature/</code></strong>（或 <strong><code>feat/</code></strong>）：用於新功能（例如 <code>feature/add-login-page</code>、<code>feat/add-login-page</code>）</li>
+<li><strong><code>bugfix/</code></strong>（或 <strong><code>fix/</code></strong>）：用於 bug 修復（例如 <code>bugfix/fix-header-bug</code>、<code>fix/header-bug</code>）</li>
+<li><strong><code>hotfix/</code></strong>：用於緊急修復（例如 <code>hotfix/security-patch</code>）</li>
+<li><strong><code>release/</code></strong>：用於準備發布的 branch（例如 <code>release/v1.2.0</code>）</li>
+<li><strong><code>chore/</code></strong>：用於非程式碼任務，例如相依套件、文件更新（例如 <code>chore/update-dependencies</code>）</li>
 </ul>
 <hr>
-<h3 id="basic-rules">Basic Rules</h3>
+<h3 id="基本規則">基本規則</h3>
 <ol>
-<li><strong>Use Lowercase Alphanumerics, Hyphens, and Dots</strong>: Always use lowercase letters (<code>a-z</code>), numbers (<code>0-9</code>), and hyphens (<code>-</code>) to separate words. Avoid special characters, underscores, or spaces. For release branches, dots (<code>.</code>) may be used in the description to represent version numbers (e.g., <code>release/v1.2.0</code>).</li>
-<li><strong>No Consecutive, Leading, or Trailing Hyphens or Dots</strong>: Ensure that hyphens and dots do not appear consecutively (e.g., <code>feature/new--login</code>, <code>release/v1.-2.0</code>), nor at the start or end of the description (e.g., <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
-<li><strong>Keep It Clear and Concise</strong>: The branch name should be descriptive yet concise, clearly indicating the purpose of the work.</li>
-<li><strong>Include Ticket Numbers</strong>: If applicable, include the ticket number from your project management tool to make tracking easier. For example, for a ticket <code>issue-123</code>, the branch name could be <code>feature/issue-123-new-login</code>.</li>
+<li><strong>使用小寫英數、連字號與點</strong>：一律使用小寫字母（<code>a-z</code>）、數字（<code>0-9</code>）與連字號（<code>-</code>）分隔單字，避免特殊字元、底線或空白。對於 release branch，可在描述中使用點（<code>.</code>）表示版本號（例如 <code>release/v1.2.0</code>）。</li>
+<li><strong>禁止連續、開頭或結尾的連字號或點</strong>：連字號與點不得連續出現（例如 <code>feature/new--login</code>、<code>release/v1.-2.0</code>），也不得出現在描述的開頭或結尾（例如 <code>feature/-new-login</code>、<code>release/v1.2.0.</code>）。</li>
+<li><strong>保持清楚且精簡</strong>：branch 名稱應在具描述性的同時保持精簡，清楚表達工作的內容與目的。</li>
+<li><strong>包含工單編號</strong>：若適用，請包含專案管理工具的工單編號，方便追蹤。例如，對於工單 <code>issue-123</code>，branch 名稱可以是 <code>feature/issue-123-new-login</code>。</li>
 </ol>
-<h3 id="formal-grammar">Formal Grammar</h3>
-<p>The following Augmented Backus-Naur Form (ABNF) grammar formally defines valid branch names:</p>
+<h3 id="形式文法">形式文法</h3>
+<p>以下 ABNF（Augmented Backus-Naur Form）文法正式定義了有效的 branch 名稱：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
@@ -137,159 +136,159 @@
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; lowercase a-z</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; 0-9</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; 小寫字母 a-z</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; 數字 0-9</span>
 </span></span></code></pre></div><blockquote>
-<p>Note: Consecutive hyphens or dots, and hyphens or dots at the start or end of the description, are not permitted.</p>
+<p>注意：禁止連續的連字號或點，以及出現在描述開頭或結尾的連字號或點。</p>
 </blockquote>
-<h3 id="examples">Examples</h3>
+<h3 id="示例">示例</h3>
 <table>
 <thead>
 <tr>
-<th>Branch Name</th>
-<th>Valid</th>
-<th>Notes</th>
+<th>Branch 名稱</th>
+<th>有效</th>
+<th>說明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>main</code></td>
 <td>✅</td>
-<td>Trunk branch</td>
+<td>主幹分支</td>
 </tr>
 <tr>
 <td><code>master</code></td>
 <td>✅</td>
-<td>Trunk branch</td>
+<td>主幹分支</td>
 </tr>
 <tr>
 <td><code>develop</code></td>
 <td>✅</td>
-<td>Trunk branch</td>
+<td>主幹分支</td>
 </tr>
 <tr>
 <td><code>feature/add-login-page</code></td>
 <td>✅</td>
-<td>New feature</td>
+<td>新功能</td>
 </tr>
 <tr>
 <td><code>feat/add-login-page</code></td>
 <td>✅</td>
-<td>Short alias for feature</td>
+<td>feature 的簡寫形式</td>
 </tr>
 <tr>
 <td><code>bugfix/fix-header-bug</code></td>
 <td>✅</td>
-<td>Bug fix</td>
+<td>Bug 修復</td>
 </tr>
 <tr>
 <td><code>fix/header-bug</code></td>
 <td>✅</td>
-<td>Short alias for bugfix</td>
+<td>bugfix 的簡寫形式</td>
 </tr>
 <tr>
 <td><code>hotfix/security-patch</code></td>
 <td>✅</td>
-<td>Urgent fix</td>
+<td>緊急修復</td>
 </tr>
 <tr>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
-<td>Release with version</td>
+<td>含版本號的發布分支</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
 <td>✅</td>
-<td>Non-code task</td>
+<td>非程式碼任務</td>
 </tr>
 <tr>
 <td><code>feature/issue-123-new-login</code></td>
 <td>✅</td>
-<td>Feature with ticket number</td>
+<td>含工單編號的功能分支</td>
 </tr>
 <tr>
 <td><code>Feature/Add-Login</code></td>
 <td>❌</td>
-<td>Uppercase letters not allowed</td>
+<td>不允許大寫字母</td>
 </tr>
 <tr>
 <td><code>feature/new--login</code></td>
 <td>❌</td>
-<td>Consecutive hyphens not allowed</td>
+<td>不允許連續連字號</td>
 </tr>
 <tr>
 <td><code>feature/-new-login</code></td>
 <td>❌</td>
-<td>Leading hyphen in description</td>
+<td>描述不能以連字號開頭</td>
 </tr>
 <tr>
 <td><code>feature/new-login-</code></td>
 <td>❌</td>
-<td>Trailing hyphen in description</td>
+<td>描述不能以連字號結尾</td>
 </tr>
 <tr>
 <td><code>release/v1.-2.0</code></td>
 <td>❌</td>
-<td>Hyphen adjacent to dot</td>
+<td>連字號不能緊鄰點號</td>
 </tr>
 <tr>
 <td><code>fix/header bug</code></td>
 <td>❌</td>
-<td>Spaces not allowed</td>
+<td>不允許空格</td>
 </tr>
 <tr>
 <td><code>fix/header_bug</code></td>
 <td>❌</td>
-<td>Underscores not allowed</td>
+<td>不允許底線</td>
 </tr>
 <tr>
 <td><code>unknown/some-task</code></td>
 <td>❌</td>
-<td>Unknown prefix type</td>
+<td>未知的前綴類型</td>
 </tr>
 </tbody>
 </table>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="結論">結論</h2>
 <ul>
-<li><strong>Clear Communication</strong>: The branch name alone provides a clear understanding of its purpose the code change.</li>
-<li><strong>Automation-Friendly</strong>: Easily hooks into automation processes (e.g., different workflows for <code>feature</code>, <code>release</code>, etc.).</li>
-<li><strong>Scalability</strong>: Works well in large teams where many developers are working on different tasks simultaneously.</li>
+<li><strong>清楚溝通</strong>：僅從 branch 名稱即可清楚理解此程式碼變更的目的。</li>
+<li><strong>自動化友善</strong>：容易串接自動化流程（例如針對 <code>feature</code>、<code>release</code> 等的不同工作流程）。</li>
+<li><strong>可擴充性</strong>：適用於大型團隊，同時有許多開發人員處理不同任務的情境。</li>
 </ul>
-<p>In summary, conventional branch is designed to improve project organization, communication, and automation within Git workflows.</p>
-<h2 id="tooling">Tooling</h2>
-<p>Use these tools to adopt and enforce Conventional Branch in your project:</p>
+<p>總結來說，Conventional Branch 的設計目標是改善 Git 工作流程中的專案組織、溝通與自動化。</p>
+<h2 id="工具">工具</h2>
+<p>使用這些工具在您的專案中採用並強制執行約定式分支：</p>
 <ul>
   <li>
     <a href="https://github.com/commit-check/commit-check">commit-check</a>:
-    Check branch names, commit messages, and related Git metadata locally.
+    在本機檢查 branch 名稱、commit 訊息與相關 Git metadata。
   </li>
   <li>
     <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>:
-    Validate branch names automatically in GitHub Actions.
+    在 GitHub Actions 中自動驗證 branch 名稱。
   </li>
   <li>
     <a href="https://marketplace.visualstudio.com/items?itemName=pshaddel.conventional-branch">VSCode Conventional Branch</a>:
-    Create Conventional Branch names from Visual Studio Code.
+    在 Visual Studio Code 中建立約定式 branch 名稱。
   </li>
   <li>
     <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Conventional Branch Skill</a>:
-    Teach AI coding assistants how to create valid Conventional Branch names.
+    教 AI 程式助理建立有效的約定式 branch 名稱。
   </li>
   
-</ul><p>Install the skill with:</p>
+</ul><p>使用以下指令安裝該 skill：</p>
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="faq">FAQ</h2>
-<h3 id="why-arent-branch-types-as-detailed-as-conventional-commits-eg-build-ci-docs-style-refactor">Why aren&rsquo;t branch types as detailed as Conventional Commits (e.g., <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
-<p>Branches are different from commits—they are temporary and mainly used until merged. Introducing too many types for branches would be unnecessary and would make them harder to manage and remember.</p>
-<h3 id="what-tools-can-be-used-to-automatically-identify-if-a-team-member-does-not-meet-this-specification">What tools can be used to automatically identify if a team member does not meet this specification?</h3>
-<p>You can use <a href="https://github.com/commit-check/commit-check">commit-check</a> to check branch specification or <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a> if your codes are hosted on GitHub.</p>
-<h3 id="can-i-define-my-own-branch-types-beyond-the-ones-listed">Can I define my own branch types beyond the ones listed?</h3>
-<p>Yes. The specification defines a recommended set of types, but teams can define additional custom types to fit their workflow. It is important, however, to document custom types clearly so that all team members and automated tooling are aware of them.</p>
-<h3 id="how-does-conventional-branch-relate-to-conventional-commits">How does Conventional Branch relate to Conventional Commits?</h3>
-<p>Conventional Branch is inspired by <a href="https://www.conventionalcommits.org">Conventional Commits</a> and follows a similar philosophy: bring human- and machine-readable structure to Git metadata. While Conventional Commits standardizes commit messages, Conventional Branch standardizes branch names. The two specifications complement each other naturally.</p>
-<h3 id="how-should-i-handle-long-lived-branches-like-develop-or-staging">How should I handle long-lived branches like <code>develop</code> or <code>staging</code>?</h3>
-<p>Long-lived integration or environment branches that are part of the core specification (see the <code>trunk-branch</code> rule in the grammar) such as <code>main</code>, <code>master</code>, or <code>develop</code> are treated as trunk branches and do not require a prefix. Teams may additionally choose to treat other long-lived branches (for example, <code>staging</code> or <code>production</code>) as “trunk-like” branches by convention, but these are team-specific extensions outside the formal grammar. In all cases, such branches should be named consistently across your project.</p>
+<h3 id="為什麼-branch-type-不像-conventional-commits例如-buildcidocsstylerefactor那麼詳細">為什麼 branch type 不像 Conventional Commits（例如 <code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）那麼詳細？</h3>
+<p>branch 與 commit 不同——branch 是暫時性的，通常只會使用到 merge 為止。若為 branch 引入過多 type 並無必要，反而會讓管理與記憶變得更困難。</p>
+<h3 id="有哪些工具可以自動識別團隊成員是否符合此規範">有哪些工具可以自動識別團隊成員是否符合此規範？</h3>
+<p>您可以使用 <a href="https://github.com/commit-check/commit-check">commit-check</a> 檢查 branch 規範；若您的程式碼託管於 GitHub，則可使用 <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>。</p>
+<h3 id="我可以定義規範列表之外的自訂-branch-type-嗎">我可以定義規範列表之外的自訂 branch type 嗎？</h3>
+<p>可以。本規範定義了一套推薦的 type，但團隊可根據工作流程定義額外的自訂 type。重要的是，需要將自訂 type 清楚記錄，讓所有團隊成員及自動化工具皆能知悉。</p>
+<h3 id="約定式分支與約定式提交conventional-commits有什麼關係">約定式分支與約定式提交（Conventional Commits）有什麼關係？</h3>
+<p>約定式分支的靈感來源於 <a href="https://www.conventionalcommits.org">Conventional Commits</a>，遵循相似的理念：為 Git 中繼資料引入人機可讀的結構。約定式提交規範提交訊息，約定式分支規範 branch 名稱，兩者相輔相成、天然互補。</p>
+<h3 id="如何處理-develop-或-staging-等長期存在的-branch">如何處理 <code>develop</code> 或 <code>staging</code> 等長期存在的 branch？</h3>
+<p>長期存在的整合或環境 branch（例如 <code>develop</code>、<code>staging</code>、<code>production</code>）通常在專案層級被視為主幹分支，不需要前綴，且應在整個專案中保持一致的命名。依照本規範前文所述的 ABNF 正式文法，預設的 <code>trunk-branch</code> 僅包含標準主幹名稱（例如 <code>main</code>、<code>master</code>、<code>develop</code>）；其他名稱（如 <code>staging</code>、<code>production</code>）則屬於專案自訂的延伸，建議在團隊文件中明確記錄，以便工具與成員正確辨識。</p>
 
   </article>
 </main><footer class="footer">

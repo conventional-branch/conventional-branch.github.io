@@ -59,6 +59,63 @@
                 href="/th/"
                 />
   </url><url>
+    <loc>/th/v1.0.0/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="/de/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="/es/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="/ja/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pl"
+                href="/pl/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="/pt-br/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="/ru/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hant"
+                href="/zh-hant/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="/zh/v1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="th"
+                href="/th/v1.0.0/"
+                />
+  </url><url>
     <loc>/th/categories/</loc>
     <xhtml:link
                 rel="alternate"
