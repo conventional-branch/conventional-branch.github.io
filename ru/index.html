@@ -126,14 +126,44 @@
 <li><strong><code>release/</code></strong>: Для веток, подготавливающих релиз (например, <code>release/v1.2.0</code>)</li>
 <li><strong><code>chore/</code></strong>: Для задач, не связанных с кодом, таких как зависимости, обновления документации (например, <code>chore/update-dependencies</code>)</li>
 </ul>
-<p><strong>Префиксы источника ИИ-агента</strong> — идентифицируют ветки, созданные ИИ-агентами кодирования:</p>
-<ul>
-<li><strong><code>ai/</code></strong>: Универсальный префикс для любого ИИ-агента кодирования (например, <code>ai/refactor-auth-flow</code>)</li>
-<li><strong><code>copilot/</code></strong>: GitHub Copilot (например, <code>copilot/add-login-page</code>)</li>
-<li><strong><code>cursor/</code></strong>: Cursor (например, <code>cursor/fix-header-bug</code>)</li>
-<li><strong><code>claude/</code></strong>: Claude Code от Anthropic (например, <code>claude/security-patch</code>)</li>
-<li><strong><code>codex/</code></strong>: OpenAI Codex (например, <code>codex/optimize-query</code>)</li>
-</ul>
+<p><strong>Префиксы источника ИИ-агента</strong> — идентифицируют ветки, созданные ИИ-агентами кодирования:
+<table>
+  <thead>
+    <tr>
+      <th>Префикс</th>
+      <th>Агент</th>
+      <th>Вендор</th>
+      <th>С версии</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+      <td><code>ai/</code></td>
+      <td>Любой AI-агент</td>
+      <td>—</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>claude/</code></td>
+      <td><a href="https://claude.com/claude-code" rel="noopener">Claude Code</a></td>
+      <td>Anthropic</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>codex/</code></td>
+      <td><a href="https://openai.com/codex" rel="noopener">OpenAI Codex</a></td>
+      <td>OpenAI</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>copilot/</code></td>
+      <td><a href="https://github.com/features/copilot" rel="noopener">GitHub Copilot</a></td>
+      <td>GitHub</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>cursor/</code></td>
+      <td><a href="https://cursor.com" rel="noopener">Cursor</a></td>
+      <td>Anysphere</td>
+      <td>v1.1.0</td>
+    </tr></tbody>
+</table>
+</p>
 <p>Основные ветки (<code>main</code>, <code>master</code>, <code>develop</code>) не используют префикс.</p>
 <hr>
 <h3 id="основные-правила">Основные правила</h3>

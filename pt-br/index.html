@@ -126,14 +126,44 @@
 <li><strong><code>release/</code></strong>: para branches de release (ex.: <code>release/v1.2.0</code>); e</li>
 <li><strong><code>chore/</code></strong>: para tarefas não relacionadas ao código, como atualização de dependências ou documentação (ex.: <code>chore/atualizar-dependencias</code>).</li>
 </ul>
-<p><strong>Prefixos de fonte de agente de IA</strong> — identificam branches gerados por agentes de codificação de IA:</p>
-<ul>
-<li><strong><code>ai/</code></strong>: Prefixo genérico para qualquer agente de codificação de IA (ex.: <code>ai/refactor-auth-flow</code>);</li>
-<li><strong><code>copilot/</code></strong>: GitHub Copilot (ex.: <code>copilot/add-login-page</code>);</li>
-<li><strong><code>cursor/</code></strong>: Cursor (ex.: <code>cursor/fix-header-bug</code>);</li>
-<li><strong><code>claude/</code></strong>: Claude Code da Anthropic (ex.: <code>claude/security-patch</code>);</li>
-<li><strong><code>codex/</code></strong>: OpenAI Codex (ex.: <code>codex/optimize-query</code>).</li>
-</ul>
+<p><strong>Prefixos de fonte de agente de IA</strong> — identificam branches gerados por agentes de codificação de IA:
+<table>
+  <thead>
+    <tr>
+      <th>Prefixo</th>
+      <th>Agente</th>
+      <th>Fornecedor</th>
+      <th>Desde</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+      <td><code>ai/</code></td>
+      <td>Qualquer agente de IA</td>
+      <td>—</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>claude/</code></td>
+      <td><a href="https://claude.com/claude-code" rel="noopener">Claude Code</a></td>
+      <td>Anthropic</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>codex/</code></td>
+      <td><a href="https://openai.com/codex" rel="noopener">OpenAI Codex</a></td>
+      <td>OpenAI</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>copilot/</code></td>
+      <td><a href="https://github.com/features/copilot" rel="noopener">GitHub Copilot</a></td>
+      <td>GitHub</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>cursor/</code></td>
+      <td><a href="https://cursor.com" rel="noopener">Cursor</a></td>
+      <td>Anysphere</td>
+      <td>v1.1.0</td>
+    </tr></tbody>
+</table>
+</p>
 <p>Branches tronco (<code>main</code>, <code>master</code>, <code>develop</code>) não usam prefixo.</p>
 <hr>
 <h3 id="regras-básicas">Regras básicas</h3>

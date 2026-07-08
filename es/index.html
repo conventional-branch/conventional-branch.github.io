@@ -126,14 +126,44 @@
 <li><strong><code>release/</code></strong>: Para ramas que preparan un lanzamiento (p. ej., <code>release/v1.2.0</code>)</li>
 <li><strong><code>chore/</code></strong>: Para tareas no relacionadas con código, como actualizaciones de dependencias o documentación (p. ej., <code>chore/update-dependencies</code>)</li>
 </ul>
-<p><strong>Prefijos de fuente de agente de IA</strong> — identifican ramas generadas por agentes de codificación de IA:</p>
-<ul>
-<li><strong><code>ai/</code></strong>: Prefijo genérico para cualquier agente de codificación de IA (p. ej., <code>ai/refactor-auth-flow</code>)</li>
-<li><strong><code>copilot/</code></strong>: GitHub Copilot (p. ej., <code>copilot/add-login-page</code>)</li>
-<li><strong><code>cursor/</code></strong>: Cursor (p. ej., <code>cursor/fix-header-bug</code>)</li>
-<li><strong><code>claude/</code></strong>: Claude Code de Anthropic (p. ej., <code>claude/security-patch</code>)</li>
-<li><strong><code>codex/</code></strong>: OpenAI Codex (p. ej., <code>codex/optimize-query</code>)</li>
-</ul>
+<p><strong>Prefijos de fuente de agente de IA</strong> — identifican ramas generadas por agentes de codificación de IA:
+<table>
+  <thead>
+    <tr>
+      <th>Prefijo</th>
+      <th>Agente</th>
+      <th>Proveedor</th>
+      <th>Desde</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+      <td><code>ai/</code></td>
+      <td>Cualquier agente de IA</td>
+      <td>—</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>claude/</code></td>
+      <td><a href="https://claude.com/claude-code" rel="noopener">Claude Code</a></td>
+      <td>Anthropic</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>codex/</code></td>
+      <td><a href="https://openai.com/codex" rel="noopener">OpenAI Codex</a></td>
+      <td>OpenAI</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>copilot/</code></td>
+      <td><a href="https://github.com/features/copilot" rel="noopener">GitHub Copilot</a></td>
+      <td>GitHub</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>cursor/</code></td>
+      <td><a href="https://cursor.com" rel="noopener">Cursor</a></td>
+      <td>Anysphere</td>
+      <td>v1.1.0</td>
+    </tr></tbody>
+</table>
+</p>
 <p>Las ramas troncales (<code>main</code>, <code>master</code>, <code>develop</code>) no usan prefijo.</p>
 <hr>
 <h3 id="reglas-básicas">Reglas básicas</h3>

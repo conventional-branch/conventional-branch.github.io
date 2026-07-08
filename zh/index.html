@@ -126,14 +126,44 @@
 <li><strong><code>release/</code></strong>：用于准备发布的分支（例如 <code>release/v1.2.0</code>）</li>
 <li><strong><code>chore/</code></strong>：用于非代码任务，如依赖项、文档更新（例如 <code>chore/update-dependencies</code>）</li>
 </ul>
-<p><strong>AI 智能体源前缀（AI Agent Source Prefixes）</strong> — 识别由 AI 编码智能体生成的分支：</p>
-<ul>
-<li><strong><code>ai/</code></strong>：通用 AI 编码智能体前缀（例如 <code>ai/refactor-auth-flow</code>）</li>
-<li><strong><code>copilot/</code></strong>：GitHub Copilot（例如 <code>copilot/add-login-page</code>）</li>
-<li><strong><code>cursor/</code></strong>：Cursor（例如 <code>cursor/fix-header-bug</code>）</li>
-<li><strong><code>claude/</code></strong>：Anthropic Claude Code（例如 <code>claude/security-patch</code>）</li>
-<li><strong><code>codex/</code></strong>：OpenAI Codex（例如 <code>codex/optimize-query</code>）</li>
-</ul>
+<p><strong>AI 智能体源前缀（AI Agent Source Prefixes）</strong> — 识别由 AI 编码智能体生成的分支：
+<table>
+  <thead>
+    <tr>
+      <th>前缀</th>
+      <th>智能体</th>
+      <th>厂商</th>
+      <th>起始版本</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+      <td><code>ai/</code></td>
+      <td>任意 AI 智能体</td>
+      <td>—</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>claude/</code></td>
+      <td><a href="https://claude.com/claude-code" rel="noopener">Claude Code</a></td>
+      <td>Anthropic</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>codex/</code></td>
+      <td><a href="https://openai.com/codex" rel="noopener">OpenAI Codex</a></td>
+      <td>OpenAI</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>copilot/</code></td>
+      <td><a href="https://github.com/features/copilot" rel="noopener">GitHub Copilot</a></td>
+      <td>GitHub</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>cursor/</code></td>
+      <td><a href="https://cursor.com" rel="noopener">Cursor</a></td>
+      <td>Anysphere</td>
+      <td>v1.1.0</td>
+    </tr></tbody>
+</table>
+</p>
 <p>主干分支（<code>main</code>、<code>master</code>、<code>develop</code>）不使用前缀。</p>
 <hr>
 <h3 id="基本规则">基本规则</h3>

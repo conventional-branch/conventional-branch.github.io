@@ -91,6 +91,53 @@
   <article class="container markdown-body">
     <h1 id="about">About</h1>
 <p>The Conventional Branch specification was inspired by <a href="https://www.conventionalcommits.org">Conventional Commits</a>.</p>
+<h2 id="ai-agent-source-prefixes">AI Agent Source Prefixes</h2>
+<p>As AI coding agents increasingly open their own pull requests, Conventional Branch maintains a registry of their branch prefixes so tools and teams can recognize them consistently. This registry is the machine-readable source of truth — the table below is generated from <a href="https://github.com/conventional-branch/conventional-branch/blob/main/data/agents.yaml"><code>data/agents.yaml</code></a>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Prefix</th>
+      <th>Agent</th>
+      <th>Vendor</th>
+      <th>Since</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+      <td><code>ai/</code></td>
+      <td>Any AI agent</td>
+      <td>—</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>claude/</code></td>
+      <td><a href="https://claude.com/claude-code" rel="noopener">Claude Code</a></td>
+      <td>Anthropic</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>codex/</code></td>
+      <td><a href="https://openai.com/codex" rel="noopener">OpenAI Codex</a></td>
+      <td>OpenAI</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>copilot/</code></td>
+      <td><a href="https://github.com/features/copilot" rel="noopener">GitHub Copilot</a></td>
+      <td>GitHub</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>cursor/</code></td>
+      <td><a href="https://cursor.com" rel="noopener">Cursor</a></td>
+      <td>Anysphere</td>
+      <td>v1.1.0</td>
+    </tr></tbody>
+</table>
+
+<p>Giving each agent a documented prefix (or using the vendor-neutral <code>ai/</code>) lets teams do more than just eyeball who opened a PR:</p>
+<ul>
+<li><strong>Apply review policy by source</strong> — require an extra human approval on agent-generated branches, or auto-assign a reviewer to them.</li>
+<li><strong>Route CI differently</strong> — run a heavier security, license, or lint suite on <code>ai/</code>, <code>copilot/</code>, <code>claude/</code>, … branches before they reach a human reviewer.</li>
+<li><strong>Attribute activity and cost</strong> — measure how much work each agent produces by filtering branches and PRs on their prefix.</li>
+<li><strong>Automate housekeeping</strong> — auto-label PRs, apply branch-protection rules, or trigger notifications based on the prefix.</li>
+</ul>
+<p>Building an agent that opens PRs? <a href="https://github.com/conventional-branch/conventional-branch/blob/main/CONTRIBUTING.md#registering-a-new-ai-agent-prefix">Register its prefix</a> so reviewers and tooling recognize it out of the box.</p>
 <h2 id="tooling-for-conventional-branch">Tooling for Conventional Branch</h2>
 <p>Conventional Branch can be adopted with local checks, CI validation, editor support, and agent skills:</p>
 <ul>

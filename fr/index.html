@@ -126,14 +126,44 @@
 <li><strong><code>release/</code></strong> : Pour les branches préparant une release (par exemple, <code>release/v1.2.0</code>)</li>
 <li><strong><code>chore/</code></strong> : Pour les tâches non liées au code comme les dépendances, les mises à jour de documentation (par exemple, <code>chore/update-dependencies</code>)</li>
 </ul>
-<p><strong>Préfixes de source d&rsquo;agent IA</strong> — identifient les branches générées par des agents de codage IA :</p>
-<ul>
-<li><strong><code>ai/</code></strong> : Préfixe générique pour tout agent de codage IA (par exemple, <code>ai/refactor-auth-flow</code>)</li>
-<li><strong><code>copilot/</code></strong> : GitHub Copilot (par exemple, <code>copilot/add-login-page</code>)</li>
-<li><strong><code>cursor/</code></strong> : Cursor (par exemple, <code>cursor/fix-header-bug</code>)</li>
-<li><strong><code>claude/</code></strong> : Claude Code par Anthropic (par exemple, <code>claude/security-patch</code>)</li>
-<li><strong><code>codex/</code></strong> : OpenAI Codex (par exemple, <code>codex/optimize-query</code>)</li>
-</ul>
+<p><strong>Préfixes de source d&rsquo;agent IA</strong> — identifient les branches générées par des agents de codage IA :
+<table>
+  <thead>
+    <tr>
+      <th>Préfixe</th>
+      <th>Agent</th>
+      <th>Fournisseur</th>
+      <th>Depuis</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+      <td><code>ai/</code></td>
+      <td>Tout agent IA</td>
+      <td>—</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>claude/</code></td>
+      <td><a href="https://claude.com/claude-code" rel="noopener">Claude Code</a></td>
+      <td>Anthropic</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>codex/</code></td>
+      <td><a href="https://openai.com/codex" rel="noopener">OpenAI Codex</a></td>
+      <td>OpenAI</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>copilot/</code></td>
+      <td><a href="https://github.com/features/copilot" rel="noopener">GitHub Copilot</a></td>
+      <td>GitHub</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>cursor/</code></td>
+      <td><a href="https://cursor.com" rel="noopener">Cursor</a></td>
+      <td>Anysphere</td>
+      <td>v1.1.0</td>
+    </tr></tbody>
+</table>
+</p>
 <p>Les branches principales (<code>main</code>, <code>master</code>, <code>develop</code>) n&rsquo;utilisent pas de préfixe.</p>
 <hr>
 <h3 id="règles-de-base">Règles de base</h3>

@@ -126,14 +126,44 @@
 <li><strong><code>release/</code></strong>: Für Branches, die ein Release vorbereiten (z.B. <code>release/v1.2.0</code>)</li>
 <li><strong><code>chore/</code></strong>: Für Nicht-Code-Aufgaben wie Abhängigkeiten, Dokumentation-Updates (z.B. <code>chore/update-dependencies</code>)</li>
 </ul>
-<p><strong>AI-Agenten-Quellpräfixe</strong> — identifizieren Branches, die von KI-Codierungsagenten erstellt wurden:</p>
-<ul>
-<li><strong><code>ai/</code></strong>: Generischer Präfix für jeden KI-Codierungsagenten (z.B. <code>ai/refactor-auth-flow</code>)</li>
-<li><strong><code>copilot/</code></strong>: GitHub Copilot (z.B. <code>copilot/add-login-page</code>)</li>
-<li><strong><code>cursor/</code></strong>: Cursor (z.B. <code>cursor/fix-header-bug</code>)</li>
-<li><strong><code>claude/</code></strong>: Claude Code von Anthropic (z.B. <code>claude/security-patch</code>)</li>
-<li><strong><code>codex/</code></strong>: OpenAI Codex (z.B. <code>codex/optimize-query</code>)</li>
-</ul>
+<p><strong>AI-Agenten-Quellpräfixe</strong> — identifizieren Branches, die von KI-Codierungsagenten erstellt wurden:
+<table>
+  <thead>
+    <tr>
+      <th>Präfix</th>
+      <th>Agent</th>
+      <th>Anbieter</th>
+      <th>Seit</th>
+    </tr>
+  </thead>
+  <tbody><tr>
+      <td><code>ai/</code></td>
+      <td>Beliebiger KI-Agent</td>
+      <td>—</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>claude/</code></td>
+      <td><a href="https://claude.com/claude-code" rel="noopener">Claude Code</a></td>
+      <td>Anthropic</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>codex/</code></td>
+      <td><a href="https://openai.com/codex" rel="noopener">OpenAI Codex</a></td>
+      <td>OpenAI</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>copilot/</code></td>
+      <td><a href="https://github.com/features/copilot" rel="noopener">GitHub Copilot</a></td>
+      <td>GitHub</td>
+      <td>v1.1.0</td>
+    </tr><tr>
+      <td><code>cursor/</code></td>
+      <td><a href="https://cursor.com" rel="noopener">Cursor</a></td>
+      <td>Anysphere</td>
+      <td>v1.1.0</td>
+    </tr></tbody>
+</table>
+</p>
 <p>Trunk-Branches (<code>main</code>, <code>master</code>, <code>develop</code>) verwenden kein Präfix.</p>
 <hr>
 <h3 id="grundregeln">Grundregeln</h3>
