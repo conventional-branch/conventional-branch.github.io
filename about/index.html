@@ -181,12 +181,64 @@
 </ul>
 <p><a href="https://github.com/conventional-branch/conventional-branch"><img alt="Conventional Branch" src="https://img.shields.io/badge/Conventional%20Branch-Spec-6192c3"></a></p>
 <p><em>Want your project on this list?</em> <a href="https://github.com/conventional-branch/conventional-branch/pulls">Send a pull request</a>.</p>
+<h2 id="cicd-integration">CI/CD Integration</h2>
+<p>Because the branch name already encodes its purpose, CI/CD pipelines can key their behavior off the prefix directly, without any extra metadata or configuration lookup. In GitHub Actions, that means an <code>if: startsWith(...)</code> condition per job:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">if</span>: <span style="color:#ae81ff">startsWith(github.head_ref, &#39;feature/&#39;) || startsWith(github.head_ref, &#39;bugfix/&#39;)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">run</span>: <span style="color:#ae81ff">npm test</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">security-review</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">if</span>: <span style="color:#ae81ff">startsWith(github.head_ref, &#39;hotfix/&#39;)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">run</span>: <span style="color:#ae81ff">./scripts/security-scan.sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">release-candidate</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">if</span>: <span style="color:#ae81ff">startsWith(github.head_ref, &#39;release/&#39;)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">run</span>: <span style="color:#ae81ff">./scripts/build-release-candidate.sh</span>
+</span></span></code></pre></div><p>A common mapping of prefixes to pipeline behavior:</p>
+<table>
+<thead>
+<tr>
+<th>Branch prefix</th>
+<th>Typical CI/CD behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feature/*</code></td>
+<td>Run the full test suite; deploy a preview environment</td>
+</tr>
+<tr>
+<td><code>bugfix/*</code></td>
+<td>Run regression tests</td>
+</tr>
+<tr>
+<td><code>hotfix/*</code></td>
+<td>Require a security scan or extra approval before merge</td>
+</tr>
+<tr>
+<td><code>release/*</code></td>
+<td>Trigger the release-candidate pipeline; deploy to staging</td>
+</tr>
+<tr>
+<td><code>chore/*</code></td>
+<td>Skip preview deployment</td>
+</tr>
+</tbody>
+</table>
+<p>Other CI/CD platforms support the same pattern using their own equivalent of a branch-name condition (e.g., GitLab CI&rsquo;s <code>rules: - if:</code>, or a shell check against <code>$CI_COMMIT_REF_NAME</code>). Conventional Branch only standardizes the branch name — the mapping above is a starting point to adapt to your own pipeline.</p>
 <h2 id="how-to-adopt">How to Adopt</h2>
 <ol>
 <li><strong>Communicate the convention</strong> to your team and add it to your contributing guidelines.</li>
 <li><strong>Enforce it automatically</strong> using one of the tools listed above.</li>
 <li><strong>Add the badge</strong> to your repository README to signal adoption.</li>
-<li><strong>Configure your CI/CD</strong> to trigger different workflows based on branch prefix (e.g., auto-deploy on <code>release/</code> branches).</li>
+<li><strong>Configure your CI/CD</strong> to trigger different workflows based on branch prefix (e.g., auto-deploy on <code>release/</code> branches) — see <a href="/about/#cicd-integration">CI/CD Integration</a> above.</li>
 </ol>
 
   </article>
