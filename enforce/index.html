@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html><head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RH9YBHW509');
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>Conventional Branch</title>
+  <meta name="description" content="A specification for adding human and machine readable meaning to branch"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  
+  <meta name="twitter:card" content="A specification for adding human and machine readable meaning to branch">
+  <meta name="twitter:title" content="Conventional Branch">
+  <meta name="twitter:description" content="A specification for adding human and machine readable meaning to branch">
+
+  
+  <meta property="og:title" content="Conventional Branch"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="/enforce/"/>
+  <meta property="og:description" content="A specification for adding human and machine readable meaning to branch"/>
+  <meta property="og:site_name" content="Conventional Branch"/>
+</head>
+<body class="conventional-branch--loading"><header class="header">
+  <div class="container">
+    <a href="/">
+      <div class="logo"></div>
+    </a>
+    <ul class="header__menu">
+      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.1.0</button>
+        <ul class="dropdown__options"><li class="dropdown__option">
+            <a href="/v1.0.0/">v1.0.0</a>
+          </li><li class="dropdown__option dropdown__option--active">
+            <a href="/">v1.1.0</a>
+          </li></ul>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">Languages</button>
+        <ul class="dropdown__options">
+          
+          <li class="dropdown__option"><a href="/de/">Deutsch</a></li>
+          
+          <li class="dropdown__option"><a href="/es/">Español</a></li>
+          
+          <li class="dropdown__option"><a href="/fr/">Français</a></li>
+          
+          <li class="dropdown__option"><a href="/ja/">日本語</a></li>
+          
+          <li class="dropdown__option"><a href="/">English</a></li>
+          
+          <li class="dropdown__option"><a href="/pl/">Polski</a></li>
+          
+          <li class="dropdown__option"><a href="/pt-br/">Português brasileiro</a></li>
+          
+          <li class="dropdown__option"><a href="/ru/">Русский</a></li>
+          
+          <li class="dropdown__option"><a href="/th/">ภาษาไทย</a></li>
+          
+          <li class="dropdown__option"><a href="/zh-hant/">繁體中文</a></li>
+          
+          <li class="dropdown__option"><a href="/zh/">中文</a></li>
+          
+        </ul>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">
+          <a href="/enforce" class="no-style-a">Enforce</a>
+        </button>
+      </li>
+      <li class="header__menu-item dropdown">
+        <button class="dropdown__label">
+          <a href="/about" class="no-style-a">About</a>
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
+<section class="welcome">
+  <div class="mini_container">
+    <h1 class="welcome__title">Conventional Branch</h1>
+    <p class="welcome__description">A specification for adding human and machine readable meaning to branch</p>
+  </div>
+</section>
+<main>
+  <article class="container markdown-body">
+    <h1 id="enforcing-conventional-branch">Enforcing Conventional Branch</h1>
+<p>Copy-pasteable configuration for validating branch names against the specification.</p>
+<p>Enforcement happens at two layers, and they solve different problems. A <strong>server-side</strong>
+rule cannot be bypassed, but the contributor only finds out when they push. A <strong>local</strong>
+check is instant and can be run before a branch exists, but anyone can skip it. Most
+teams want one of each: the server rule is the contract, the local check is the
+courtesy.</p>
+<p>Every regular expression below is the one published in
+<a href="https://conventionalbranch.org/spec.json"><code>spec.json</code></a>, copied verbatim, and a
+conformance check fails the build if this page and the specification ever disagree. The
+expression is deliberately written in a portable subset — no backreferences, no
+lookaround — so it compiles under RE2 as well as PCRE, which is what lets the same
+string work in GitHub, GitLab, Python, JavaScript, and Go alike.</p>
+<p>That check covers the expressions, not the prose. What each platform charges for, and
+which of them can block a push rather than merely report one, is true as written but
+verified by hand — if you find it out of date, please
+<a href="https://github.com/conventional-branch/conventional-branch/issues">say so</a>.</p>
+<p>It already permits <code>main</code>, <code>master</code> and <code>develop</code> unprefixed, so you do not need to
+carve out exceptions for your trunk branches.</p>
+<h2 id="github">GitHub</h2>
+<h3 id="rulesets">Rulesets</h3>
+<p>A ruleset rejects a non-conforming branch outright, and on github.com it is the only
+thing that does. The <code>branch_name_pattern</code> rule takes a regular expression directly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Conventional Branch&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;branch&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enforcement&#34;</span>: <span style="color:#e6db74">&#34;active&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;conditions&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ref_name&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;include&#34;</span>: [<span style="color:#e6db74">&#34;~ALL&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;exclude&#34;</span>: []
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;rules&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;branch_name_pattern&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Branch names must follow the Conventional Branch specification&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;negate&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;regex&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;pattern&#34;</span>: <span style="color:#e6db74">&#34;^(?:main|master|develop|(?:feature|feat|bugfix|fix|hotfix|release|chore|ai|copilot|cursor|claude|codex)/[a-z0-9]+(?:\\.[a-z0-9]+)*(?:-[a-z0-9]+(?:\\.[a-z0-9]+)*)*)$&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Save it as <code>conventional-branch.json</code> and import it under <strong>Settings → Rules → Rulesets
+→ New ruleset → Import a ruleset</strong>, or apply it from the command line:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gh api repos/OWNER/REPO/rulesets --method POST --input conventional-branch.json
+</span></span></code></pre></div><p>Start with <code>&quot;enforcement&quot;: &quot;evaluate&quot;</code> to see what the rule would have rejected without
+blocking anyone, then switch to <code>&quot;active&quot;</code>.</p>
+<p>Rulesets are available on public repositories with every plan, and on private
+repositories with GitHub Pro, Team, and Enterprise Cloud.</p>
+<h3 id="github-actions">GitHub Actions</h3>
+<p>A pull request check, for when a ruleset is not an option or you want the failure
+explained in the PR:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Branch name</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>: <span style="color:#ae81ff">pull_request</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">conventional-branch</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Validate the branch name</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">BRANCH</span>: <span style="color:#ae81ff">${{ github.head_ref }}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          curl -sSfLo spec.json https://conventionalbranch.org/v1.1.0/spec.json
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          python3 - &lt;&lt;&#39;PY&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          import json, os, re, sys
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          spec = json.load(open(&#34;spec.json&#34;))
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          branch = os.environ[&#34;BRANCH&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          if re.fullmatch(spec[&#34;grammar&#34;][&#34;regex&#34;], branch):
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              print(f&#34;{branch}: ok&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              sys.exit(0)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          types = &#34;, &#34;.join(f&#34;{t[&#39;type&#39;]}/&#34; for t in spec[&#34;types&#34;])
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          print(f&#34;::error::&#39;{branch}&#39; does not follow the Conventional Branch &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                f&#34;specification. Expected &lt;type&gt;/&lt;description&gt;, where type is one &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                f&#34;of: {types}. See https://conventionalbranch.org/&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          sys.exit(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          PY</span>          
+</span></span></code></pre></div><p>The URL is the version-pinned one on purpose: a future release of the specification
+cannot change what your pipeline accepts until you choose to bump it.</p>
+<h2 id="gitlab">GitLab</h2>
+<p>Push rules reject the branch at <code>pre-receive</code>, before it reaches the server.</p>
+<p>Under <strong>Settings → Repository → Push rules → Branch name</strong>, paste:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>^(?:main|master|develop|(?:feature|feat|bugfix|fix|hotfix|release|chore|ai|copilot|cursor|claude|codex)/[a-z0-9]+(?:\.[a-z0-9]+)*(?:-[a-z0-9]+(?:\.[a-z0-9]+)*)*)$
+</span></span></code></pre></div><p>Three things worth knowing before you rely on it:</p>
+<ul>
+<li><strong>Push rules require GitLab Premium or Ultimate.</strong> On the Free tier, use the CI job
+below instead.</li>
+<li>GitLab evaluates the expression in multiline mode. It makes no difference to a branch
+name, which cannot contain a newline, but if you ever extend the pattern you can turn
+it off with a leading <code>(?-m)</code>.</li>
+<li>Your default branch is always allowed, whether or not the pattern matches it.</li>
+</ul>
+<p>For the Free tier, the same check as a CI job:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">conventional-branch</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">python:3-alpine</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">if</span>: <span style="color:#ae81ff">$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">script</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">apk add --no-cache curl</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">curl -sSfLo spec.json https://conventionalbranch.org/v1.1.0/spec.json</span>
+</span></span><span style="display:flex;"><span>    - |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      python3 -c &#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      import json, os, re, sys
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      spec = json.load(open(&#34;spec.json&#34;))
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      branch = os.environ[&#34;CI_MERGE_REQUEST_SOURCE_BRANCH_NAME&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      if not re.fullmatch(spec[&#34;grammar&#34;][&#34;regex&#34;], branch):
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          sys.exit(f&#34;{branch} does not follow https://conventionalbranch.org/&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      print(f&#34;{branch}: ok&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#39;</span>      
+</span></span></code></pre></div><h2 id="bitbucket">Bitbucket</h2>
+<p>Bitbucket <strong>Data Center</strong> runs pre-receive hooks, so the rule can be enforced on the
+server. Bitbucket <strong>Cloud</strong> does not run arbitrary server-side hooks — the check has to
+live in Pipelines, which means it reports a failure rather than refusing the push.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">pipelines</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pull-requests</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#39;**&#39;</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">step</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Branch name</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">python:3-alpine</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">script</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">apk add --no-cache curl</span>
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">curl -sSfLo spec.json https://conventionalbranch.org/v1.1.0/spec.json</span>
+</span></span><span style="display:flex;"><span>            - |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              python3 -c &#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              import json, os, re, sys
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              spec = json.load(open(&#34;spec.json&#34;))
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              branch = os.environ[&#34;BITBUCKET_BRANCH&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              if not re.fullmatch(spec[&#34;grammar&#34;][&#34;regex&#34;], branch):
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  sys.exit(f&#34;{branch} does not follow https://conventionalbranch.org/&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              print(f&#34;{branch}: ok&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &#39;</span>              
+</span></span></code></pre></div><h2 id="local-checks">Local checks</h2>
+<h3 id="a-hook-with-no-dependencies">A hook with no dependencies</h3>
+<p><code>pre-push</code> is the last local moment where a bad branch name can still be caught,
+and this needs nothing installed. Save this as <code>.git/hooks/pre-push</code> and make it
+executable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># Reject a push from a branch that does not follow the Conventional Branch</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># specification. https://conventionalbranch.org/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pattern<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;^(main|master|develop|(feature|feat|bugfix|fix|hotfix|release|chore|ai|copilot|cursor|claude|codex)/[a-z0-9]+(\.[a-z0-9]+)*(-[a-z0-9]+(\.[a-z0-9]+)*)*)$&#39;</span>
+</span></span><span style="display:flex;"><span>branch<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>git symbolic-ref --short HEAD<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ! printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$branch<span style="color:#e6db74">&#34;</span> | grep -qE <span style="color:#e6db74">&#34;</span>$pattern<span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Branch &#39;</span>$branch<span style="color:#e6db74">&#39; does not follow the Conventional Branch specification.&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Expected &lt;type&gt;/&lt;description&gt;, for example feature/add-login-page.&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;See https://conventionalbranch.org/&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>This is the only place on this page where the expression differs from <code>spec.json</code>, and
+only in that the non-capturing groups <code>(?:</code> are written as plain <code>(</code>. POSIX <code>grep -E</code>
+does not understand <code>(?:</code>, and <code>grep -P</code> is a GNU extension that macOS does not ship —
+on a Mac it would fail to run and reject <em>every</em> branch. The conformance check verifies
+that this form is the mechanical translation of the published expression and that it
+accepts exactly the same branch names.</p>
+<p>Git hooks are not copied by <code>git clone</code>. To share them with the team, commit the script
+to the repository and point Git at it once:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config core.hooksPath .githooks
+</span></span></code></pre></div><h3 id="a-branching-alias">A branching alias</h3>
+<p>Enforcement tells people they are wrong. An alias makes it easier to be right:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[alias]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">feature</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;!f() { git switch -c \&#34;feature/$(printf &#39;%s&#39; \&#34;$*\&#34; | tr &#39;A-Z _&#39; &#39;a-z--&#39;)\&#34;; }; f&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    bugfix  = &#34;!f() { git switch -c \&#34;bugfix/$(printf &#39;%s&#39; \&#34;$*\&#34; | tr &#39;A-Z _&#39; &#39;a-z--&#39;)\&#34;; }; f&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    hotfix  = &#34;!f() { git switch -c \&#34;hotfix/$(printf &#39;%s&#39; \&#34;$*\&#34; | tr &#39;A-Z _&#39; &#39;a-z--&#39;)\&#34;; }; f&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    chore   = &#34;!f() { git switch -c \&#34;chore/$(printf &#39;%s&#39; \&#34;$*\&#34; | tr &#39;A-Z _&#39; &#39;a-z--&#39;)\&#34;; }; f&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git feature add login page   <span style="color:#75715e"># creates and switches to feature/add-login-page</span>
+</span></span><span style="display:flex;"><span>git feature Fix_Header       <span style="color:#75715e"># creates and switches to feature/fix-header</span>
+</span></span></code></pre></div><p>The <code>tr</code> handles the three ways people usually get it wrong without noticing:
+uppercase, underscores, and words typed with spaces instead of hyphens. It is a
+convenience rather than a check — a description with other punctuation in it still
+gets through, which is what the hook above is for.</p>
+<h2 id="ai-coding-agents">AI coding agents</h2>
+<p>Agents open pull requests now, which makes their branch names your branch names. Two
+ways to teach them the convention.</p>
+<h3 id="the-agent-skill">The agent skill</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx skills add conventional-branch/conventional-branch --skill conventional-branch
+</span></span></code></pre></div><h3 id="a-snippet-for-agentsmd-or-claudemd">A snippet for <code>AGENTS.md</code> or <code>CLAUDE.md</code></h3>
+<p>Several projects on the <a href="https://conventionalbranch.org/about/#projects-using-conventional-branch">adopters list</a>
+already document the convention this way rather than for people. Paste it into whichever
+instruction file your tooling reads:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">## Branch naming
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Branch names follow the [<span style="color:#f92672">Conventional Branch</span>](<span style="color:#a6e22e">https://conventionalbranch.org/</span>)
+</span></span><span style="display:flex;"><span>specification: <span style="color:#e6db74">`&lt;type&gt;/&lt;description&gt;`</span>, lowercase, hyphen-separated.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Types: <span style="color:#e6db74">`feature/`</span> (or <span style="color:#e6db74">`feat/`</span>), <span style="color:#e6db74">`bugfix/`</span> (or <span style="color:#e6db74">`fix/`</span>), <span style="color:#e6db74">`hotfix/`</span>, <span style="color:#e6db74">`release/`</span>, <span style="color:#e6db74">`chore/`</span>.
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">`main`</span>, <span style="color:#e6db74">`master`</span> and <span style="color:#e6db74">`develop`</span> take no prefix.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Examples: <span style="color:#e6db74">`feature/add-login-page`</span>, <span style="color:#e6db74">`bugfix/fix-header-overflow`</span>, <span style="color:#e6db74">`release/v1.2.0`</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>When you create a branch yourself rather than at a person&#39;s direction, prefix it with
+</span></span><span style="display:flex;"><span>your own agent name instead — <span style="color:#e6db74">`claude/`</span>, <span style="color:#e6db74">`codex/`</span>, <span style="color:#e6db74">`copilot/`</span>, <span style="color:#e6db74">`cursor/`</span>, or the
+</span></span><span style="display:flex;"><span>vendor-neutral <span style="color:#e6db74">`ai/`</span> — so the branch records who wrote it.
+</span></span></code></pre></div><h2 id="any-other-platform">Any other platform</h2>
+<p>The portable artifact is the regular expression, and the most reliable way to get it is
+from the specification itself rather than by copying it out of a document:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json<span style="color:#f92672">,</span> re<span style="color:#f92672">,</span> urllib.request
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SPEC <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://conventionalbranch.org/v1.1.0/spec.json&#34;</span>  <span style="color:#75715e"># pinned, never changes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>spec <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(urllib<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlopen(SPEC))
+</span></span><span style="display:flex;"><span>valid <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(spec[<span style="color:#e6db74">&#34;grammar&#34;</span>][<span style="color:#e6db74">&#34;regex&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(bool(valid<span style="color:#f92672">.</span>fullmatch(<span style="color:#e6db74">&#34;feature/add-login-page&#34;</span>)))  <span style="color:#75715e"># True</span>
+</span></span></code></pre></div><p>If you are implementing validation in a tool, run it against
+<a href="https://github.com/conventional-branch/conventional-branch/blob/main/tests/fixtures.json"><code>fixtures.json</code></a>
+as well, so your behavior matches every other implementation.</p>
+
+  </article>
+</main><footer class="footer">
+  <div class="container">
+    
+    <div class="footer__license">
+      
+      <p>License</p>
+      
+      
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons - CC BY 4.0</a>
+      
+      <span class="footer__sep">//</span> <span class="footer__credit"><a href="https://github.com/conventional-branch/conventional-branch" target="_blank" rel="noopener">Created &amp; maintained</a> by <a href="https://github.com/shenxianpeng" target="_blank" rel="noopener">Xianpeng Shen</a></span>
+    </div>
+    
+    
+    <div class="footer__logos">
+      
+      
+      <a class="footer__logo" href="https://github.com/conventional-branch/conventional-branch"><svg class="github" viewBox="0 0 128 128">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"></path>
+  <path
+    d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm-.743-.55M28.93 94.535c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm-.575-.618M31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm0 0M34.573 101.373c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm0 0M39.073 103.324c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm0 0M44.016 103.685c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm0 0M48.614 102.903c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
+</svg>
+</a>
+      
+      
+    </div>
+  </div>
+</footer>
+<script src="/js/bundle.js"></script>
+</body>
+</html>

@@ -61,6 +61,8 @@
   </url><url>
     <loc>/about/</loc>
   </url><url>
+    <loc>/enforce/</loc>
+  </url><url>
     <loc>/v1.0.0/</loc>
     <xhtml:link
                 rel="alternate"

@@ -14,5 +14,12 @@
       <guid>/about/</guid>
       <description>About The Conventional Branch specification was inspired by Conventional Commits.&#xA;AI Agent Source Prefixes As AI coding agents increasingly open their own pull requests, Conventional Branch maintains a registry of their branch prefixes so tools and teams can recognize them consistently. This registry is the machine-readable source of truth — the table below is generated from data/agents.yaml.&#xA;Prefix Agent Vendor Since ai/ Any AI agent — v1.1.0 claude/ Claude Code Anthropic v1.</description>
     </item>
+    <item>
+      <title></title>
+      <link>/enforce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/enforce/</guid>
+      <description>Enforcing Conventional Branch Copy-pasteable configuration for validating branch names against the specification.&#xA;Enforcement happens at two layers, and they solve different problems. A server-side rule cannot be bypassed, but the contributor only finds out when they push. A local check is instant and can be run before a branch exists, but anyone can skip it. Most teams want one of each: the server rule is the contract, the local check is the courtesy.</description>
+    </item>
   </channel>
 </rss>
