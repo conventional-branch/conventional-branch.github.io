@@ -175,7 +175,7 @@
 <li><a href="https://github.com/LedgerHQ/ledger-live/blob/main/CONTRIBUTING.md">LedgerHQ/ledger-live</a>: Mono-repository for packages related to Ledger Live and its JavaScript ecosystem.</li>
 <li><em><a href="https://github.com/search?q=conventional-branch.github.io&type=code&p=1">&hellip; and more projects using Conventional Branch</a>.</em></li>
 </ul>
-<p><a href="https://github.com/conventional-branch/conventional-branch"><img alt="Conventional Branch" src="https://img.shields.io/badge/Conventional%20Branch-Spec-6192c3"></a></p>
+<p><a href="https://conventionalbranch.org/"><img alt="Conventional Branch" src="https://conventionalbranch.org/badge.svg"></a></p>
 <p><em>Want your project on this list?</em> <a href="https://github.com/conventional-branch/conventional-branch/pulls">Send a pull request</a>.</p>
 <h2 id="cicd-integration">CI/CD Integration</h2>
 <p>Because the branch name already encodes its purpose, CI/CD pipelines can key their behavior off the prefix directly, without any extra metadata or configuration lookup. In GitHub Actions, that means an <code>if: startsWith(...)</code> condition per job:</p>
@@ -231,10 +231,24 @@
 <p>Other CI/CD platforms support the same pattern using their own equivalent of a branch-name condition (e.g., GitLab CI&rsquo;s <code>rules: - if:</code>, or a shell check against <code>$CI_COMMIT_REF_NAME</code>). Conventional Branch only standardizes the branch name — the mapping above is a starting point to adapt to your own pipeline.</p>
 <h2 id="how-to-adopt">How to Adopt</h2>
 <ol>
-<li><strong>Communicate the convention</strong> to your team and add it to your contributing guidelines.</li>
-<li><strong>Enforce it automatically</strong> using one of the tools listed above.</li>
-<li><strong>Add the badge</strong> to your repository README to signal adoption.</li>
-<li><strong>Configure your CI/CD</strong> to trigger different workflows based on branch prefix (e.g., auto-deploy on <code>release/</code> branches) — see <a href="/about/#cicd-integration">CI/CD Integration</a> above.</li>
+<li>
+<p><strong>Communicate the convention</strong> to your team and add it to your contributing guidelines.</p>
+</li>
+<li>
+<p><strong>Enforce it automatically</strong> using one of the tools listed above.</p>
+</li>
+<li>
+<p><strong>Add the badge</strong> to your repository README to signal adoption:</p>
+<p><a href="https://conventionalbranch.org/"><img alt="Conventional Branch" src="https://conventionalbranch.org/badge.svg"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>[<span style="color:#f92672">![Conventional Branch</span>](<span style="color:#a6e22e">https://conventionalbranch.org/badge.svg</span>)](https://conventionalbranch.org/)
+</span></span></code></pre></div><p>Or in HTML:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://conventionalbranch.org/&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Conventional Branch 1.1.0&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://conventionalbranch.org/badge.svg&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Configure your CI/CD</strong> to trigger different workflows based on branch prefix (e.g., auto-deploy on <code>release/</code> branches) — see <a href="/about/#cicd-integration">CI/CD Integration</a> above.</p>
+</li>
 </ol>
 
   </article>
