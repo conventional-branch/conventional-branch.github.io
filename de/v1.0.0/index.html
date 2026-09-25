@@ -13,9 +13,15 @@
     gtag('config', 'G-RH9YBHW509');
   </script>
 
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#2B5EA7">
+  
+  <script>document.documentElement.classList.add('js')</script>
+
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/style.css">
 
@@ -62,83 +68,158 @@
   <meta property="og:locale:alternate" content="zh_TW"/>
   <meta property="og:locale:alternate" content="zh_CN"/>
 </head>
-<body class="conventional-branch--loading"><header class="header">
-  <div class="container">
-    <a href="/">
-      <div class="logo"></div>
+
+<body class="page-spec" data-copy-label="Copy" data-copied-label="Copied">
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/de/" aria-label="Conventional Branch home">
+      <span class="brand__mark"><svg class="branch-mark" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="currentColor" d="M44,9a7,7,0,1,0-9,6.7V16a6,6,0,0,1-6,6H21a10.3,10.3,0,0,0-6,2V15.7a7,7,0,1,0-4,0V32.3a7,7,0,1,0,4,0V32a6,6,0,0,1,6-6h8A10,10,0,0,0,39,16v-.3A7,7,0,0,0,44,9ZM10,9a3,3,0,0,1,6,0,3,3,0,0,1-6,0Zm6,30a3,3,0,1,1-3-3A2.9,2.9,0,0,1,16,39ZM37,12a2.9,2.9,0,0,1-3-3,3,3,0,0,1,6,0A2.9,2.9,0,0,1,37,12Z"/></svg>
+</span>
+      <span class="brand__name">Conventional Branch</span>
     </a>
-    <ul class="header__menu">
-      <li class="header__menu-item dropdown"><button class="dropdown__label">v1.0.0</button>
-        <ul class="dropdown__options"><li class="dropdown__option dropdown__option--active">
-            <a href="/de/v1.0.0/">v1.0.0</a>
-          </li><li class="dropdown__option">
-            <a href="/de/">v1.1.0</a>
-          </li></ul>
-      </li>
-      <li class="header__menu-item dropdown">
-        <button class="dropdown__label">Languages</button>
-        <ul class="dropdown__options">
-          
-          <li class="dropdown__option"><a href="/de/">Deutsch</a></li>
-          
-          <li class="dropdown__option"><a href="/es/">Español</a></li>
-          
-          <li class="dropdown__option"><a href="/fr/">Français</a></li>
-          
-          <li class="dropdown__option"><a href="/ja/">日本語</a></li>
-          
-          <li class="dropdown__option"><a href="/">English</a></li>
-          
-          <li class="dropdown__option"><a href="/pl/">Polski</a></li>
-          
-          <li class="dropdown__option"><a href="/pt-br/">Português brasileiro</a></li>
-          
-          <li class="dropdown__option"><a href="/ru/">Русский</a></li>
-          
-          <li class="dropdown__option"><a href="/th/">ภาษาไทย</a></li>
-          
-          <li class="dropdown__option"><a href="/zh-hant/">繁體中文</a></li>
-          
-          <li class="dropdown__option"><a href="/zh/">中文</a></li>
-          
-        </ul>
-      </li>
-      <li class="header__menu-item dropdown">
-        <button class="dropdown__label">
-          <a href="/enforce" class="no-style-a">Enforce</a>
-        </button>
-      </li>
-      <li class="header__menu-item dropdown">
-        <button class="dropdown__label">
-          <a href="/about" class="no-style-a">About</a>
-        </button>
-      </li>
-    </ul>
+    <nav class="site-nav" aria-label="Primary"><a class="nav-link is-current" href="/de/#spec" aria-current="page">Specification</a>
+<a class="nav-link" href="/enforce/">Enforce</a>
+<a class="nav-link" href="/about/">About</a>
+<a class="nav-link" href="https://github.com/sponsors/conventional-branch">Sponsor</a>
+</nav>
+    <div class="site-header__tools">
+      <details class="menu menu--version">
+        <summary class="menu__button" aria-label="Specification version: v1.0.0"><span class="mono">v1.0.0</span><svg class="icon icon--chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+</summary>
+        <div class="menu__panel"><p class="menu__heading">Versions</p>
+<ul class="menu__list">
+  <li><a class="menu__link" href="/de/"><span class="mono">1.1.0</span><span class="menu__meta">Latest</span></a></li>
+  <li><a class="menu__link is-current" href="/de/v1.0.0/"><span class="mono">1.0.0</span><span class="menu__meta">Archived</span></a></li>
+</ul>
+</div>
+      </details>
+      <details class="menu menu--language">
+        <summary class="menu__button" aria-label="Language: Deutsch"><svg class="icon icon--globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+<span>Deutsch</span><svg class="icon icon--chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+</summary>
+        <div class="menu__panel"><p class="menu__heading">Languages</p>
+<ul class="menu__list">
+  <li><a class="menu__link" href="/v1.0.0/" lang="en" hreflang="en">English</a></li>
+  <li><a class="menu__link" href="/zh/v1.0.0/" lang="zh" hreflang="zh">中文</a></li>
+  <li><a class="menu__link" href="/pt-br/v1.0.0/" lang="pt-br" hreflang="pt-br">Português brasileiro</a></li>
+  <li><a class="menu__link" href="/fr/v1.0.0/" lang="fr" hreflang="fr">Français</a></li>
+  <li><a class="menu__link" href="/ja/v1.0.0/" lang="ja" hreflang="ja">日本語</a></li>
+  <li><a class="menu__link is-current" href="/de/v1.0.0/" lang="de" hreflang="de">Deutsch</a></li>
+  <li><a class="menu__link" href="/ru/v1.0.0/" lang="ru" hreflang="ru">Русский</a></li>
+  <li><a class="menu__link" href="/pl/v1.0.0/" lang="pl" hreflang="pl">Polski</a></li>
+  <li><a class="menu__link" href="/zh-hant/v1.0.0/" lang="zh-hant" hreflang="zh-hant">繁體中文</a></li>
+  <li><a class="menu__link" href="/es/v1.0.0/" lang="es" hreflang="es">Español</a></li>
+  <li><a class="menu__link" href="/th/v1.0.0/" lang="th" hreflang="th">ภาษาไทย</a></li>
+</ul>
+</div>
+      </details>
+      <a class="icon-button" href="https://github.com/conventional-branch/conventional-branch" aria-label="Conventional Branch on GitHub"><svg class="github" viewBox="0 0 128 128">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"></path>
+  <path
+    d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm-.743-.55M28.93 94.535c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm-.575-.618M31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm0 0M34.573 101.373c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm0 0M39.073 103.324c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm0 0M44.016 103.685c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm0 0M48.614 102.903c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
+</svg>
+</a>
+      <details class="menu menu--nav">
+        <summary class="menu__button menu__button--icon" aria-label="Menu"><svg class="icon icon--menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+</summary>
+        <div class="menu__panel menu__panel--nav">
+          <nav class="menu__nav" aria-label="Primary"><a class="nav-link is-current" href="/de/#spec" aria-current="page">Specification</a>
+<a class="nav-link" href="/enforce/">Enforce</a>
+<a class="nav-link" href="/about/">About</a>
+<a class="nav-link" href="https://github.com/sponsors/conventional-branch">Sponsor</a>
+</nav><p class="menu__heading">Versions</p>
+<ul class="menu__list">
+  <li><a class="menu__link" href="/de/"><span class="mono">1.1.0</span><span class="menu__meta">Latest</span></a></li>
+  <li><a class="menu__link is-current" href="/de/v1.0.0/"><span class="mono">1.0.0</span><span class="menu__meta">Archived</span></a></li>
+</ul>
+<p class="menu__heading">Languages</p>
+<ul class="menu__list">
+  <li><a class="menu__link" href="/v1.0.0/" lang="en" hreflang="en">English</a></li>
+  <li><a class="menu__link" href="/zh/v1.0.0/" lang="zh" hreflang="zh">中文</a></li>
+  <li><a class="menu__link" href="/pt-br/v1.0.0/" lang="pt-br" hreflang="pt-br">Português brasileiro</a></li>
+  <li><a class="menu__link" href="/fr/v1.0.0/" lang="fr" hreflang="fr">Français</a></li>
+  <li><a class="menu__link" href="/ja/v1.0.0/" lang="ja" hreflang="ja">日本語</a></li>
+  <li><a class="menu__link is-current" href="/de/v1.0.0/" lang="de" hreflang="de">Deutsch</a></li>
+  <li><a class="menu__link" href="/ru/v1.0.0/" lang="ru" hreflang="ru">Русский</a></li>
+  <li><a class="menu__link" href="/pl/v1.0.0/" lang="pl" hreflang="pl">Polski</a></li>
+  <li><a class="menu__link" href="/zh-hant/v1.0.0/" lang="zh-hant" hreflang="zh-hant">繁體中文</a></li>
+  <li><a class="menu__link" href="/es/v1.0.0/" lang="es" hreflang="es">Español</a></li>
+  <li><a class="menu__link" href="/th/v1.0.0/" lang="th" hreflang="th">ภาษาไทย</a></li>
+</ul>
+</div>
+      </details>
+    </div>
   </div>
 </header>
-<section class="welcome">
-  <div class="container">
-    <h1 class="welcome__title">Conventional Branch</h1>
-    <p class="welcome__description">Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches</p>
-    
-    <div class="welcome__actions">
-      
-      <a class="welcome__action" href="#zusammenfassung">Zusammenfassung</a>
-      
-      <a class="welcome__action" href="#spezifikation">Vollständige Spezifikation</a>
-      
-      <a class="welcome__action" href="https://github.com/conventional-branch/conventional-branch">Beitragen</a>
-      
+
+<main id="main"><section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <h1 id="hero-title" class="hero__title">Conventional Branch</h1>
+      <p class="hero__lead">Eine Spezifikation zur Ergänzung von menschen- und maschinenlesbarer Bedeutung für Branches</p>
+      <p class="notice"><svg class="icon icon--info" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.5h.01"/></svg>
+<span>You are reading 1.0.0, an archived version of the specification. <a href="/de/">Read the current version, 1.1.0</a></span>
+      </p>
     </div>
-    
-    <figure class="welcome__image">
-      <img src='/img/git-flow-welcome.png'>
-    </figure>
+    <span class="hero__mark"><svg class="branch-mark" width="180" height="180" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="currentColor" d="M44,9a7,7,0,1,0-9,6.7V16a6,6,0,0,1-6,6H21a10.3,10.3,0,0,0-6,2V15.7a7,7,0,1,0-4,0V32.3a7,7,0,1,0,4,0V32a6,6,0,0,1,6-6h8A10,10,0,0,0,39,16v-.3A7,7,0,0,0,44,9ZM10,9a3,3,0,0,1,6,0,3,3,0,0,1-6,0Zm6,30a3,3,0,1,1-3-3A2.9,2.9,0,0,1,16,39ZM37,12a2.9,2.9,0,0,1-3-3,3,3,0,0,1,6,0A2.9,2.9,0,0,1,37,12Z"/></svg>
+</span>
   </div>
 </section>
-<main>
-  <article class="container markdown-body">
-    <h1 id="conventional-branch-100">Conventional Branch 1.0.0</h1>
+<section id="spec" class="spec" aria-label="The specification">
+  <div class="container doc-grid">
+    <aside class="doc-aside">
+      <div class="doc-aside__inner"><nav class="toc" aria-label="On this page">
+  <details class="toc__details" open>
+    <summary class="aside-heading toc__summary">On this page</summary>
+    <ol class="toc__list">
+      <li>
+        <a href="#zusammenfassung"><span>Zusammenfassung</span></a>
+        <ol>
+          <li><a href="#wichtige-punkte"><span>Wichtige Punkte</span></a></li>
+        </ol>
+      </li>
+      <li>
+        <a href="#spezifikation"><span>Spezifikation</span></a>
+        <ol>
+          <li><a href="#branch-namens-pr%c3%a4fixe"><span>Branch-Namens-Präfixe</span></a></li>
+          <li><a href="#grundregeln"><span>Grundregeln</span></a></li>
+          <li><a href="#formale-grammatik"><span>Formale Grammatik</span></a></li>
+          <li><a href="#beispiele"><span>Beispiele</span></a></li>
+        </ol>
+      </li>
+      <li>
+        <a href="#fazit"><span>Fazit</span></a>
+      </li>
+      <li>
+        <a href="#werkzeuge"><span>Werkzeuge</span></a>
+      </li>
+      <li>
+        <a href="#faq"><span>FAQ</span></a>
+      </li>
+    </ol>
+  </details>
+  <script>if (matchMedia('(max-width: 899px)').matches) document.currentScript.previousElementSibling.open = false</script>
+</nav>
+        <div class="aside-block aside-block--tools">
+          <p class="aside-heading">For tools</p>
+          <ul class="aside-links">
+            <li><a href="/v1.1.0/spec.json"><span class="mono">/v1.1.0/spec.json</span><span>pinned</span></a></li>
+            <li><a href="/spec.json"><span class="mono">/spec.json</span><span>latest</span></a></li>
+            <li><a href="/schema/v1/spec.schema.json"><span class="mono">spec.schema.json</span><span>schema</span></a></li>
+            <li><a href="/llms.txt"><span class="mono">/llms.txt</span><span>for LLMs</span></a></li>
+          </ul>
+        </div>
+        <div class="aside-block aside-block--rule">
+          <a class="aside-edit" href="https://github.com/conventional-branch/conventional-branch/blob/main/content/v1.0.0/_index.de.md"><svg class="icon icon--edit" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg>
+Edit this page on GitHub</a>
+        </div>
+      </div>
+    </aside>
+    <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
+      <h2 class="spec__title" id="conventional-branch-100">Conventional Branch 1.0.0</h2>
 <h2 id="zusammenfassung">Zusammenfassung</h2>
 <p>Conventional Branch bezieht sich auf eine strukturierte und standardisierte Namenskonvention für Git-Branches, die darauf abzielt, Branches lesbarer und umsetzbarer zu machen. Wir haben einige Branch-Präfixe vorgeschlagen, die Sie verwenden könnten, aber Sie können auch Ihre eigene Namenskonvention festlegen. Eine einheitliche Namenskonvention erleichtert die Identifizierung von Branches nach Typ.</p>
 <h3 id="wichtige-punkte">Wichtige Punkte</h3>
@@ -170,15 +251,15 @@
 </ol>
 <h3 id="formale-grammatik">Formale Grammatik</h3>
 <p>Die folgende ABNF-Grammatik (Augmented Backus-Naur Form) definiert formal gültige Branch-Namen:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-abnf" data-lang="abnf"><span style="display:flex;"><span><span style="color:#a6e22e">branch-name</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">trunk-branch</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">prefixed-branch</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">trunk-branch</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;main&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;master&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;develop&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prefixed-branch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#ae81ff">&#34;/&#34;</span> <span style="color:#a6e22e">description</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">type</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">&#34;feature&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;feat&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;bugfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;fix&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;hotfix&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;release&#34;</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">&#34;chore&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">desc-segment</span> <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;-&#34;</span> <span style="color:#a6e22e">desc-segment</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">desc-segment</span>    <span style="color:#f92672">=</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>) <span style="color:#f92672">*</span>(<span style="color:#ae81ff">&#34;.&#34;</span> <span style="color:#f92672">1*</span>(<span style="color:#66d9ef">ALPHA</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">DIGIT</span>))
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALPHA</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x61-7A</span>   <span style="color:#75715e">; Kleinbuchstaben a-z</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DIGIT</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">%x30-39</span>   <span style="color:#75715e">; Ziffern 0-9</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-abnf" data-lang="abnf"><span class="line"><span class="cl"><span class="nc">branch-name</span>     <span class="o">=</span> <span class="nc">trunk-branch</span> <span class="o">/</span> <span class="nc">prefixed-branch</span>
+</span></span><span class="line"><span class="cl"><span class="nc">trunk-branch</span>    <span class="o">=</span> <span class="l">&#34;main&#34;</span> <span class="o">/</span> <span class="l">&#34;master&#34;</span> <span class="o">/</span> <span class="l">&#34;develop&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nc">prefixed-branch</span> <span class="o">=</span> <span class="nc">type</span> <span class="l">&#34;/&#34;</span> <span class="nc">description</span>
+</span></span><span class="line"><span class="cl"><span class="nc">type</span>            <span class="o">=</span> <span class="l">&#34;feature&#34;</span> <span class="o">/</span> <span class="l">&#34;feat&#34;</span> <span class="o">/</span> <span class="l">&#34;bugfix&#34;</span> <span class="o">/</span> <span class="l">&#34;fix&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">/</span> <span class="l">&#34;hotfix&#34;</span> <span class="o">/</span> <span class="l">&#34;release&#34;</span> <span class="o">/</span> <span class="l">&#34;chore&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nc">description</span>     <span class="o">=</span> <span class="nc">desc-segment</span> <span class="o">*</span><span class="p">(</span><span class="l">&#34;-&#34;</span> <span class="nc">desc-segment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nc">desc-segment</span>    <span class="o">=</span> <span class="o">1*</span><span class="p">(</span><span class="k">ALPHA</span> <span class="o">/</span> <span class="k">DIGIT</span><span class="p">)</span> <span class="o">*</span><span class="p">(</span><span class="l">&#34;.&#34;</span> <span class="o">1*</span><span class="p">(</span><span class="k">ALPHA</span> <span class="o">/</span> <span class="k">DIGIT</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">ALPHA</span>           <span class="o">=</span> <span class="l">%x61-7A</span>   <span class="c1">; Kleinbuchstaben a-z</span>
+</span></span><span class="line"><span class="cl"><span class="k">DIGIT</span>           <span class="o">=</span> <span class="l">%x30-39</span>   <span class="c1">; Ziffern 0-9</span>
 </span></span></code></pre></div><blockquote>
 <p>Hinweis: Aufeinanderfolgende Bindestriche oder Punkte sowie Bindestriche oder Punkte am Anfang oder Ende der Beschreibung sind nicht erlaubt.</p>
 </blockquote>
@@ -327,25 +408,50 @@
 <h3 id="welche-tools-können-verwendet-werden-um-automatisch-zu-identifizieren-ob-ein-teammitglied-diese-spezifikation-nicht-erfüllt">Welche Tools können verwendet werden, um automatisch zu identifizieren, ob ein Teammitglied diese Spezifikation nicht erfüllt?</h3>
 <p>Sie können <a href="https://github.com/commit-check/commit-check">commit-check</a> verwenden, um die Branch-Spezifikation zu überprüfen, oder <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>, wenn Ihr Code auf GitHub gehostet wird.</p>
 
-  </article>
-</main><footer class="footer">
+    </article>
+  </div>
+</section>
+
+</main><footer class="site-footer">
   <div class="container">
-    
-    <div class="footer__license">
-      
-      <p>License</p>
-      
-      
-      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons - CC BY 4.0</a>
-      
-      <span class="footer__sep">//</span> <span class="footer__credit"><a href="https://github.com/conventional-branch/conventional-branch" target="_blank" rel="noopener">Created &amp; maintained</a> by <a href="https://github.com/shenxianpeng" target="_blank" rel="noopener">Xianpeng Shen</a></span>
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--footer" href="/de/" aria-label="Conventional Branch home">
+          <span class="brand__mark"><svg class="branch-mark" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="currentColor" d="M44,9a7,7,0,1,0-9,6.7V16a6,6,0,0,1-6,6H21a10.3,10.3,0,0,0-6,2V15.7a7,7,0,1,0-4,0V32.3a7,7,0,1,0,4,0V32a6,6,0,0,1,6-6h8A10,10,0,0,0,39,16v-.3A7,7,0,0,0,44,9ZM10,9a3,3,0,0,1,6,0,3,3,0,0,1-6,0Zm6,30a3,3,0,1,1-3-3A2.9,2.9,0,0,1,16,39ZM37,12a2.9,2.9,0,0,1-3-3,3,3,0,0,1,6,0A2.9,2.9,0,0,1,37,12Z"/></svg>
+</span>
+          <span class="brand__name">Conventional Branch</span>
+        </a>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <div class="footer-col">
+          <p class="footer-col__title">Specification</p>
+          <a href="/de/">1.1.0 — current</a>
+          <a href="/de/v1.0.0/">1.0.0 — archived</a>
+          <a href="/spec.json">spec.json</a>
+          <a href="/schema/v1/spec.schema.json">JSON Schema</a>
+          <a href="/llms.txt">llms.txt</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__title">Adopt</p>
+          <a href="/enforce/">Enforce</a>
+          <a href="/about/#tooling-for-conventional-branch">Tooling</a>
+          <a href="https://github.com/conventional-branch/conventional-branch/blob/main/skills/conventional-branch/SKILL.md">Agent skill</a>
+          <a href="/about/#how-to-adopt">Badge</a>
+          <a href="/about/#projects-using-conventional-branch">Adopters</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__title">Project</p>
+          <a href="https://github.com/conventional-branch/conventional-branch">GitHub</a>
+          <a href="https://github.com/conventional-branch/conventional-branch/blob/main/CONTRIBUTING.md">Contributing</a>
+          <a href="https://github.com/conventional-branch/conventional-branch/blob/main/CHANGELOG.md">Changelog</a>
+          <a href="https://github.com/conventional-branch/conventional-branch/blob/main/CONTRIBUTING.md#registering-a-new-ai-agent-prefix">Register an agent prefix</a>
+          <a href="https://github.com/sponsors/conventional-branch">Sponsor</a>
+        </div>
+      </nav>
     </div>
-    
-    
-    <div class="footer__logos">
-      
-      
-      <a class="footer__logo" href="https://github.com/conventional-branch/conventional-branch"><svg class="github" viewBox="0 0 128 128">
+    <div class="site-footer__bottom">
+      <p>Licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Derived from <a href="https://www.conventionalcommits.org">Conventional Commits</a> · Created &amp; maintained by <a href="https://shenxianpeng.dev">Xianpeng Shen</a></p>
+      <a class="site-footer__github" href="https://github.com/conventional-branch/conventional-branch" aria-label="Conventional Branch on GitHub"><svg class="github" viewBox="0 0 128 128">
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"
@@ -353,12 +459,11 @@
   <path
     d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm-.743-.55M28.93 94.535c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm-.575-.618M31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm0 0M34.573 101.373c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm0 0M39.073 103.324c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm0 0M44.016 103.685c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm0 0M48.614 102.903c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
 </svg>
-</a>
-      
-      
+<span class="mono">conventional-branch</span></a>
     </div>
   </div>
 </footer>
-<script src="/js/bundle.js"></script>
+<script src="/js/bundle.js" defer></script>
+
 </body>
 </html>
