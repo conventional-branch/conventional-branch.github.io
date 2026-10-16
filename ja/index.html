@@ -286,7 +286,7 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="基本ルール">基本ルール</h3>
 <ol>
-<li><strong>小文字の英数字、ハイフン、ドットを使用</strong>: 常に小文字（<code>a-z</code>）、数字（<code>0-9</code>）、ハイフン（<code>-</code>）を使用して単語を区切ります。特殊文字、アンダースコア、スペースは避けてください。リリースブランチでは、バージョン番号を表すために説明部分でドット（<code>.</code>）を使用できます（例：<code>release/v1.2.0</code>）。</li>
+<li><strong>小文字の英数字、ハイフン、ドットを使用</strong>: 常に小文字（<code>a-z</code>）、数字（<code>0-9</code>）、ハイフン（<code>-</code>）を使用して単語を区切ります。特殊文字、アンダースコア、スペースは避けてください。ドット（<code>.</code>）はどのブランチの説明部分でも使用でき、主にバージョン番号を表すために使います（例：<code>release/v1.2.0</code>、<code>chore/upgrade-node-v20.11</code>）。</li>
 <li><strong>連続、先頭、末尾のハイフンやドットは禁止</strong>: ハイフンとドットが連続して表示されないように（例：<code>feature/new--login</code>、<code>release/v1.-2.0</code>）、説明の先頭や末尾に表示されないようにしてください（例：<code>feature/-new-login</code>、<code>release/v1.2.0.</code>）。</li>
 <li><strong>明確で簡潔に保つ</strong>: ブランチ名は説明的でありながら簡潔で、作業の目的を明確に示す必要があります。</li>
 <li><strong>チケット番号を含める</strong>: 該当する場合、プロジェクト管理ツールからのチケット番号を含めて追跡を容易にします。例えば、チケット <code>issue-123</code> の場合、ブランチ名は <code>feature/issue-123-new-login</code> とすることができます。</li>
@@ -361,6 +361,11 @@ Edit this page on GitHub</a>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
 <td>バージョン番号付きリリース</td>
+</tr>
+<tr>
+<td><code>chore/upgrade-node-v20.11</code></td>
+<td>✅</td>
+<td>リリース以外のブランチでのドット</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
@@ -468,10 +473,14 @@ Edit this page on GitHub</a>
 <h2 id="よくある質問">よくある質問</h2>
 <h3 id="conventional-branch-と-conventional-commits-の関係は">Conventional Branch と Conventional Commits の関係は？</h3>
 <p>Conventional Branch は <a href="https://www.conventionalcommits.org">Conventional Commits</a> に触発され、同様の哲学に基づいています：人間と機械が読めるような構造を Git メタデータに組み込むこと。Conventional Commits がコミットメッセージを標準化するのに対して、Conventional Branch はブランチ名を標準化します。両者は自然に補完し合います。</p>
+<h3 id="conventional-branch-がこれらのプレフィックスを考案したのですか">Conventional Branch がこれらのプレフィックスを考案したのですか？</h3>
+<p>いいえ。<code>feature/</code>、<code>hotfix/</code>、<code>release/</code> といったプレフィックスは 2010 年頃に <a href="https://github.com/nvie/gitflow">git-flow</a> ツールによって広まり、<a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branching-model/">Bitbucket のブランチモデル</a>などのツールでも既定値になっています。Conventional Branch はこの慣行を置き換えるのではなく、その上に成り立っています。加えているのは、人とツールが共有できる厳密な定義です。固定されたタイプの集合、形式文法、<a href="/spec.json"><code>spec.json</code></a> で公開している検証用の正規表現、そして適合性テストケースにより、どの検証ツールでも有効と判定される名前が一致します。</p>
 <h3 id="なぜブランチの種類はconventional-commits例buildcidocsstylerefactorほど詳細ではないのですか">なぜブランチの種類はConventional Commits（例：<code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）ほど詳細ではないのですか？</h3>
 <p>ブランチはコミットとは異なり、一時的なもので、主にマージされるまで使用されます。ブランチにあまり多くの種類を導入することは不要で、管理や記憶が難しくなります。</p>
 <h3 id="仕様に記載されているもの以外に独自のブランチタイプを定義できますか">仕様に記載されているもの以外に独自のブランチタイプを定義できますか？</h3>
-<p>はい。この仕様は推奨されるタイプのセットを定義しますが、チームはワークフローに合わせて追加のカスタムタイプを定義することができます。ただし、すべてのチームメンバーと自動化ツールが認識できるよう、カスタムタイプを明確に文書化することが重要です。</p>
+<p>はい、チーム単位の拡張として可能です。文法に記載されたタイプは、仕様に準拠するすべてのツールが受け入れるものです。そのため <code>unknown/some-task</code> のようなブランチは、仕様そのものの上では無効です。追加のタイプ（例：<code>experiment/</code>）が必要なチームは、検証ツールにそれを明示的に登録し（例：<a href="/enforce/#commit-check">commit-check</a> の <code>allow_branch_types</code>）、文書化して、チームメンバーと自動化ツールの認識を揃えてください。たとえば、この仕様自身のリポジトリでは、Dependabot が作成するブランチのために <a href="https://github.com/conventional-branch/conventional-branch/blob/main/commit-check.toml">commit-check の設定</a>に <code>dependabot/</code> を追加しています。</p>
+<h3 id="なぜブランチ名は小文字でなければならないのですか">なぜブランチ名は小文字でなければならないのですか？</h3>
+<p>理由は 2 つあります。第一に、Git は通常ブランチの参照を <code>.git/refs/heads/</code> 配下のファイルとして保存しますが、macOS と Windows の既定のファイルシステムは大文字と小文字を区別しません。<code>Feature/login</code> と <code>feature/login</code> はこれらのマシンでは同じパスになり、Linux では別々のブランチになるため、両方を許すリポジトリはクローンごとに挙動が異なることがあります。第二に、表記が 1 つなら入力・検索・照合が簡単です。<code>release/*</code> で動くツールが <code>Release/*</code> まで想定する必要がありません。</p>
 <h3 id="v110-と-v100-の主な違いは何ですか">v1.1.0 と v1.0.0 の主な違いは何ですか？</h3>
 <p>v1.1.0 の主な新機能は <strong>AI エージェントソースプレフィックス（AI Agent Source Prefixes）</strong> の導入です（その理由は次のよくある質問を参照してください）。また、バージョン管理されたウェブサイトにバージョン切り替え機能が追加され、v1.0.0 と v1.1.0 の両方の仕様を参照できます。既存の v1.0.0 ブランチ名はすべて引き続き有効です — 互換性を損なう変更はありません。</p>
 <h3 id="ai-エージェントソースプレフィックスを追加する理由は">AI エージェントソースプレフィックスを追加する理由は？</h3>

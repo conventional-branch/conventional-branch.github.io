@@ -286,7 +286,7 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="règles-de-base">Règles de base</h3>
 <ol>
-<li><strong>Utilisez des caractères alphanumériques en minuscules, des tirets et des points</strong> : Utilisez toujours des lettres minuscules (<code>a-z</code>), des chiffres (<code>0-9</code>), et des tirets (<code>-</code>) pour séparer les mots. Évitez les caractères spéciaux, les underscores, ou les espaces. Pour les branches de release, les points (<code>.</code>) peuvent être utilisés dans la description pour représenter les numéros de version (par exemple, <code>release/v1.2.0</code>).</li>
+<li><strong>Utilisez des caractères alphanumériques en minuscules, des tirets et des points</strong> : Utilisez toujours des lettres minuscules (<code>a-z</code>), des chiffres (<code>0-9</code>), et des tirets (<code>-</code>) pour séparer les mots. Évitez les caractères spéciaux, les underscores, ou les espaces. Les points (<code>.</code>) sont autorisés dans toute description, généralement pour les numéros de version (par exemple, <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
 <li><strong>Pas de tirets ou points consécutifs, en début ou en fin</strong> : Assurez-vous que les tirets et les points n&rsquo;apparaissent pas de manière consécutive (par exemple, <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ni au début ou à la fin de la description (par exemple, <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
 <li><strong>Restez clair et concis</strong> : Le nom de la branche doit être descriptif mais concis, indiquant clairement l&rsquo;objectif du travail.</li>
 <li><strong>Incluez les numéros de ticket</strong> : Le cas échéant, incluez le numéro de ticket de votre outil de gestion de projet pour faciliter le suivi. Par exemple, pour un ticket <code>issue-123</code>, le nom de la branche pourrait être <code>feature/issue-123-new-login</code>.</li>
@@ -361,6 +361,11 @@ Edit this page on GitHub</a>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
 <td>Release avec numéro de version</td>
+</tr>
+<tr>
+<td><code>chore/upgrade-node-v20.11</code></td>
+<td>✅</td>
+<td>Points hors d&rsquo;une branche de release</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
@@ -468,10 +473,14 @@ Edit this page on GitHub</a>
 <h2 id="faq">FAQ</h2>
 <h3 id="comment-conventional-branch-se-rapporte-t-il-à-conventional-commits-">Comment Conventional Branch se rapporte-t-il à Conventional Commits ?</h3>
 <p>Conventional Branch est inspiré par <a href="https://www.conventionalcommits.org">Conventional Commits</a> et suit une philosophie similaire : apporter une structure lisible par les humains et les machines aux métadonnées Git. Tandis que Conventional Commits standardise les messages de commit, Conventional Branch standardise les noms de branches. Les deux spécifications se complètent naturellement.</p>
+<h3 id="conventional-branch-a-t-il-inventé-ces-préfixes-">Conventional Branch a-t-il inventé ces préfixes ?</h3>
+<p>Non. Des préfixes comme <code>feature/</code>, <code>hotfix/</code> et <code>release/</code> ont été popularisés vers 2010 par l&rsquo;outil <a href="https://github.com/nvie/gitflow">git-flow</a>, et ce sont les valeurs par défaut d&rsquo;outils comme le <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branching-model/">modèle de branches de Bitbucket</a>. Conventional Branch s&rsquo;appuie sur cette pratique au lieu de la remplacer. Ce qu&rsquo;il apporte, c&rsquo;est une définition précise que les personnes et les outils peuvent partager : un ensemble fixe de types, une grammaire formelle, une regex de validation publiée dans <a href="/spec.json"><code>spec.json</code></a> et des cas de conformité, afin que chaque validateur accepte exactement les mêmes noms.</p>
 <h3 id="pourquoi-les-types-de-branches-ne-sont-ils-pas-aussi-détaillés-que-les-conventional-commits-par-ex-build-ci-docs-style-refactor-">Pourquoi les types de branches ne sont-ils pas aussi détaillés que les Conventional Commits (par ex. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>) ?</h3>
 <p>Les branches sont différentes des commits : elles sont temporaires et principalement utilisées jusqu’à leur fusion. Introduire trop de types pour les branches serait inutile et rendrait leur gestion et mémorisation plus difficiles.</p>
 <h3 id="puis-je-définir-mes-propres-types-de-branches-au-delà-de-ceux-listés-">Puis-je définir mes propres types de branches au-delà de ceux listés ?</h3>
-<p>Oui. La spécification définit un ensemble de types recommandés, mais les équipes peuvent définir des types personnalisés supplémentaires pour leur flux de travail. Il est cependant important de documenter clairement les types personnalisés afin que tous les membres de l&rsquo;équipe et les outils automatisés en soient informés.</p>
+<p>Oui, en tant qu&rsquo;extension propre à l&rsquo;équipe. Les types de la grammaire sont ceux que tout outil conforme accepte ; une branche comme <code>unknown/some-task</code> est donc invalide au regard de la spécification elle-même. Une équipe qui a besoin d&rsquo;autres types (par exemple <code>experiment/</code>) doit les déclarer explicitement dans son validateur (par exemple dans <code>allow_branch_types</code> de <a href="/enforce/#commit-check">commit-check</a>) et les documenter, afin que les membres de l&rsquo;équipe et les outils automatisés soient alignés. Le dépôt de la spécification lui-même ajoute par exemple <code>dependabot/</code> à sa <a href="https://github.com/conventional-branch/conventional-branch/blob/main/commit-check.toml">configuration commit-check</a> pour les branches ouvertes par Dependabot.</p>
+<h3 id="pourquoi-les-noms-de-branches-doivent-ils-être-en-minuscules-">Pourquoi les noms de branches doivent-ils être en minuscules ?</h3>
+<p>Pour deux raisons. D&rsquo;abord, Git stocke le plus souvent les références de branches sous forme de fichiers dans <code>.git/refs/heads/</code>, et les systèmes de fichiers par défaut de macOS et de Windows ne distinguent pas la casse : <code>Feature/login</code> et <code>feature/login</code> y correspondent au même chemin, alors que sous Linux ce sont deux branches distinctes. Un dépôt qui autorise les deux peut donc se comporter différemment d&rsquo;un clone à l&rsquo;autre. Ensuite, une seule graphie est plus facile à taper, à rechercher et à filtrer : un outil déclenché par <code>release/*</code> n&rsquo;a pas à prévoir aussi <code>Release/*</code>.</p>
 <h3 id="quelles-sont-les-principales-différences-entre-v110-et-v100-">Quelles sont les principales différences entre v1.1.0 et v1.0.0 ?</h3>
 <p>v1.1.0 ajoute les <strong>Préfixes de source d&rsquo;agent IA</strong> comme nouvelle fonctionnalité principale (voir l&rsquo;entrée FAQ suivante pour savoir pourquoi ils ont été introduits). Il propose également un site web versionné avec un sélecteur de version permettant aux utilisateurs de consulter les spécifications v1.0.0 et v1.1.0. Tous les noms de branches v1.0.0 existants restent totalement valides — aucun changement cassant.</p>
 <h3 id="pourquoi-ajouter-des-préfixes-de-source-dagent-ia-">Pourquoi ajouter des préfixes de source d&rsquo;agent IA ?</h3>

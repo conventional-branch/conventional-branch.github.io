@@ -286,7 +286,7 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="grundregeln">Grundregeln</h3>
 <ol>
-<li><strong>Verwenden Sie kleine Buchstaben und Zahlen, Bindestriche und Punkte</strong>: Verwenden Sie immer Kleinbuchstaben (<code>a-z</code>), Zahlen (<code>0-9</code>) und Bindestriche (<code>-</code>), um Wörter zu trennen. Vermeiden Sie Sonderzeichen, Unterstriche oder Leerzeichen. Für Release-Branches können Punkte (<code>.</code>) in der Beschreibung verwendet werden, um Versionsnummern darzustellen (z.B. <code>release/v1.2.0</code>).</li>
+<li><strong>Verwenden Sie kleine Buchstaben und Zahlen, Bindestriche und Punkte</strong>: Verwenden Sie immer Kleinbuchstaben (<code>a-z</code>), Zahlen (<code>0-9</code>) und Bindestriche (<code>-</code>), um Wörter zu trennen. Vermeiden Sie Sonderzeichen, Unterstriche oder Leerzeichen. Punkte (<code>.</code>) sind in jeder Beschreibung erlaubt, typischerweise für Versionsnummern (z.B. <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
 <li><strong>Keine aufeinanderfolgenden, führenden oder nachfolgenden Bindestriche oder Punkte</strong>: Stellen Sie sicher, dass Bindestriche und Punkte nicht aufeinanderfolgen (z.B. <code>feature/new--login</code>, <code>release/v1.-2.0</code>), noch am Anfang oder Ende der Beschreibung (z.B. <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
 <li><strong>Halten Sie es klar und prägnant</strong>: Der Branch-Name sollte beschreibend aber prägnant sein und den Zweck der Arbeit klar angeben.</li>
 <li><strong>Ticket-Nummern einbeziehen</strong>: Falls zutreffend, beziehen Sie die Ticket-Nummer aus Ihrem Projektmanagement-Tool ein, um die Verfolgung zu erleichtern. Zum Beispiel könnte für ein Ticket <code>issue-123</code> der Branch-Name <code>feature/issue-123-new-login</code> lauten.</li>
@@ -361,6 +361,11 @@ Edit this page on GitHub</a>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
 <td>Release mit Versionsnummer</td>
+</tr>
+<tr>
+<td><code>chore/upgrade-node-v20.11</code></td>
+<td>✅</td>
+<td>Punkte außerhalb eines Release-Branches</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
@@ -468,10 +473,14 @@ Edit this page on GitHub</a>
 <h2 id="faq">FAQ</h2>
 <h3 id="wie-verhält-sich-conventional-branch-zu-conventional-commits">Wie verhält sich Conventional Branch zu Conventional Commits?</h3>
 <p>Conventional Branch wurde von <a href="https://www.conventionalcommits.org">Conventional Commits</a> inspiriert und verfolgt eine ähnliche Philosophie: menschlich- und maschinenlesbaren Struktur in Git-Metadaten einzubringen. Während Conventional Commits Commit-Nachrichten standardisiert, standardisiert Conventional Branch Branch-Namen. Die beiden Spezifikationen ergänzen sich auf natürliche Weise.</p>
+<h3 id="hat-conventional-branch-diese-präfixe-erfunden">Hat Conventional Branch diese Präfixe erfunden?</h3>
+<p>Nein. Präfixe wie <code>feature/</code>, <code>hotfix/</code> und <code>release/</code> wurden um 2010 durch das <a href="https://github.com/nvie/gitflow">git-flow</a>-Tooling verbreitet und sind Standard in Werkzeugen wie dem <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branching-model/">Branching-Modell von Bitbucket</a>. Conventional Branch baut auf dieser Praxis auf, statt sie zu ersetzen. Es ergänzt eine präzise Definition, die Menschen und Werkzeuge teilen können: eine feste Menge von Typen, eine formale Grammatik, eine in <a href="/spec.json"><code>spec.json</code></a> veröffentlichte Validierungs-Regex und Konformitätsfälle, damit jeder Validator genau dieselben Namen akzeptiert.</p>
 <h3 id="warum-sind-branch-typen-nicht-so-detailliert-wie-conventional-commits-zb-build-ci-docs-style-refactor">Warum sind Branch-Typen nicht so detailliert wie Conventional Commits (z. B. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Branches unterscheiden sich von Commits – sie sind temporär und werden hauptsächlich bis zum Merge verwendet. Zu viele Typen für Branches einzuführen, wäre unnötig und würde sie schwerer zu verwalten und zu merken machen.</p>
 <h3 id="kann-ich-eigene-branch-typen-über-die-aufgeführten-hinaus-definieren">Kann ich eigene Branch-Typen über die aufgeführten hinaus definieren?</h3>
-<p>Ja. Die Spezifikation definiert eine empfohlene Menge von Typen, aber Teams können zusätzliche benutzerdefinierte Typen für ihren Workflow definieren. Es ist jedoch wichtig, benutzerdefinierte Typen klar zu dokumentieren, damit alle Teammitglieder und automatisierte Tools davon wissen.</p>
+<p>Ja, als Erweiterung auf Teamebene. Die Typen in der Grammatik sind die, die jedes konforme Werkzeug akzeptiert; ein Branch wie <code>unknown/some-task</code> ist nach der Spezifikation selbst daher ungültig. Braucht ein Team weitere Typen (etwa <code>experiment/</code>), sollte es sie in seinem Validator ausdrücklich eintragen (zum Beispiel unter <code>allow_branch_types</code> in <a href="/enforce/#commit-check">commit-check</a>) und dokumentieren, damit Teammitglieder und automatisierte Werkzeuge übereinstimmen. Das Repository der Spezifikation selbst ergänzt zum Beispiel in seiner <a href="https://github.com/conventional-branch/conventional-branch/blob/main/commit-check.toml">commit-check-Konfiguration</a> <code>dependabot/</code> für die Branches, die Dependabot anlegt.</p>
+<h3 id="warum-müssen-branch-namen-kleingeschrieben-werden">Warum müssen Branch-Namen kleingeschrieben werden?</h3>
+<p>Aus zwei Gründen. Erstens speichert Git Branch-Referenzen meist als Dateien unter <code>.git/refs/heads/</code>, und die Standard-Dateisysteme von macOS und Windows unterscheiden nicht zwischen Groß- und Kleinschreibung: <code>Feature/login</code> und <code>feature/login</code> landen dort auf demselben Pfad, unter Linux sind es aber zwei verschiedene Branches. Ein Repository, das beides zulässt, kann sich deshalb von Klon zu Klon unterschiedlich verhalten. Zweitens ist eine einzige Schreibweise leichter zu tippen, zu suchen und abzugleichen: Ein Werkzeug, das auf <code>release/*</code> reagiert, muss nicht auch noch <code>Release/*</code> berücksichtigen.</p>
 <h3 id="was-sind-die-hauptunterschiede-zwischen-v110-und-v100">Was sind die Hauptunterschiede zwischen v1.1.0 und v1.0.0?</h3>
 <p>v1.1.0 führt <strong>AI-Agenten-Quellpräfixe</strong> als wichtigstes neues Feature ein (siehe den nächsten FAQ-Eintrag für die Gründe). Außerdem bietet die versionierte Website einen Versionsumschalter, mit dem Benutzer sowohl die v1.0.0- als auch die v1.1.0-Spezifikation durchsuchen können. Alle vorhandenen v1.0.0-Branch-Namen bleiben vollständig gültig — keine breaking changes.</p>
 <h3 id="warum-ai-agenten-quellpräfixe-hinzufügen">Warum AI-Agenten-Quellpräfixe hinzufügen?</h3>

@@ -286,7 +286,7 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="podstawowe-zasady">Podstawowe zasady</h3>
 <ol>
-<li><strong>Używaj małych liter, cyfr, myślników i kropek</strong>: Zawsze używaj małych liter (<code>a-z</code>), cyfr (<code>0-9</code>) i myślników (<code>-</code>) do oddzielania słów. Unikaj znaków specjalnych, podkreśleń lub spacji. W przypadku gałęzi wydania kropki (<code>.</code>) mogą być używane w opisie do reprezentowania numerów wersji (np. <code>release/v1.2.0</code>).</li>
+<li><strong>Używaj małych liter, cyfr, myślników i kropek</strong>: Zawsze używaj małych liter (<code>a-z</code>), cyfr (<code>0-9</code>) i myślników (<code>-</code>) do oddzielania słów. Unikaj znaków specjalnych, podkreśleń lub spacji. Kropki (<code>.</code>) są dozwolone w każdym opisie, zwykle w numerach wersji (np. <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
 <li><strong>Bez następujących po sobie, wiodących lub końcowych myślników lub kropek</strong>: Upewnij się, że myślniki i kropki nie pojawiają się kolejno po sobie (np. <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ani na początku czy końcu opisu (np. <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
 <li><strong>Zachowaj jasność i zwięzłość</strong>: Nazwa gałęzi powinna być opisowa, ale zwięzła, jasno wskazująca cel pracy.</li>
 <li><strong>Dołącz numery biletów</strong>: Jeśli to możliwe, dołącz numer biletu z narzędzia zarządzania projektami, aby ułatwić śledzenie. Na przykład, dla biletu <code>issue-123</code>, nazwa gałęzi mogłaby być <code>feature/issue-123-new-login</code>.</li>
@@ -361,6 +361,11 @@ Edit this page on GitHub</a>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
 <td>Wydanie z numerem wersji</td>
+</tr>
+<tr>
+<td><code>chore/upgrade-node-v20.11</code></td>
+<td>✅</td>
+<td>Kropki poza gałęzią wydania</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
@@ -468,10 +473,14 @@ Edit this page on GitHub</a>
 <h2 id="faq">FAQ</h2>
 <h3 id="jak-conventional-branch-ma-się-do-conventional-commits">Jak Conventional Branch ma się do Conventional Commits?</h3>
 <p>Conventional Branch jest zainspirowany przez <a href="https://www.conventionalcommits.org">Conventional Commits</a> i podąża za podobną filozofią: wprowadzenie struktury czytelnej dla ludzi i maszyn do metadanych Git. Podczas gdy Conventional Commits standaryzuje wiadomości commitów, Conventional Branch standaryzuje nazwy gałęzi. Obie specyfikacje naturalnie się uzupełniają.</p>
+<h3 id="czy-conventional-branch-wymyśliło-te-prefiksy">Czy Conventional Branch wymyśliło te prefiksy?</h3>
+<p>Nie. Prefiksy takie jak <code>feature/</code>, <code>hotfix/</code> i <code>release/</code> spopularyzowało około 2010 roku narzędzie <a href="https://github.com/nvie/gitflow">git-flow</a>; są też domyślne w narzędziach takich jak <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branching-model/">model gałęzi Bitbucket</a>. Conventional Branch opiera się na tej praktyce, zamiast ją zastępować. Dodaje precyzyjną definicję, którą mogą współdzielić ludzie i narzędzia: stały zestaw typów, formalną gramatykę, wyrażenie regularne do walidacji opublikowane w <a href="/spec.json"><code>spec.json</code></a> oraz przypadki zgodności, dzięki czemu każdy walidator akceptuje dokładnie te same nazwy.</p>
 <h3 id="dlaczego-typy-gałęzi-nie-są-tak-szczegółowe-jak-w-conventional-commits-np-build-ci-docs-style-refactor">Dlaczego typy gałęzi nie są tak szczegółowe jak w Conventional Commits (np. <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Gałęzie różnią się od commitów — są tymczasowe i używane głównie do momentu scalenia. Wprowadzenie zbyt wielu typów dla gałęzi byłoby niepotrzebne i utrudniłoby ich zarządzanie oraz zapamiętywanie.</p>
 <h3 id="czy-mogę-zdefiniować-własne-typy-gałęzi-poza-wymienionymi">Czy mogę zdefiniować własne typy gałęzi poza wymienionymi?</h3>
-<p>Tak. Specyfikacja definiuje zalecany zestaw typów, ale zespoły mogą definiować dodatkowe niestandardowe typy dla swojego przepływu pracy. Ważne jest jednak, aby jasno dokumentować niestandardowe typy, tak aby wszyscy członkowie zespołu i zautomatyzowane narzędzia były ich świadome.</p>
+<p>Tak, jako rozszerzenie na poziomie zespołu. Typy w gramatyce to te, które akceptuje każde zgodne narzędzie, dlatego gałąź taka jak <code>unknown/some-task</code> jest nieprawidłowa według samej specyfikacji. Zespół, który potrzebuje dodatkowych typów (np. <code>experiment/</code>), powinien jawnie dodać je do swojego walidatora (na przykład w <code>allow_branch_types</code> w <a href="/enforce/#commit-check">commit-check</a>) i opisać je w dokumentacji, aby członkowie zespołu i zautomatyzowane narzędzia działali zgodnie. Na przykład repozytorium samej specyfikacji dodaje w swojej <a href="https://github.com/conventional-branch/conventional-branch/blob/main/commit-check.toml">konfiguracji commit-check</a> typ <code>dependabot/</code> dla gałęzi tworzonych przez Dependabot.</p>
+<h3 id="dlaczego-nazwy-gałęzi-muszą-być-pisane-małymi-literami">Dlaczego nazwy gałęzi muszą być pisane małymi literami?</h3>
+<p>Z dwóch powodów. Po pierwsze, Git zwykle przechowuje referencje gałęzi jako pliki w <code>.git/refs/heads/</code>, a domyślne systemy plików macOS i Windows nie rozróżniają wielkości liter: <code>Feature/login</code> i <code>feature/login</code> wskazują tam tę samą ścieżkę, a w Linuksie są dwiema różnymi gałęziami. Repozytorium, które dopuszcza obie formy, może więc zachowywać się różnie w zależności od klonu. Po drugie, jedna pisownia jest łatwiejsza do wpisania, wyszukania i dopasowania: narzędzie uruchamiane dla <code>release/*</code> nie musi uwzględniać także <code>Release/*</code>.</p>
 <h3 id="jakie-są-główne-różnice-między-v110-a-v100">Jakie są główne różnice między v1.1.0 a v1.0.0?</h3>
 <p>v1.1.0 dodaje <strong>Prefiksy źródła agenta AI</strong> jako główną nową funkcję (dlaczego je wprowadzono, wyjaśnia następne pytanie w FAQ). Oferuje również witrynę z wersjonowaniem z przełącznikiem wersji, umożliwiającym użytkownikom przeglądanie specyfikacji v1.0.0 i v1.1.0. Wszystkie istniejące nazwy gałęzi v1.0.0 pozostają w pełni ważne — bez zmian łamiących zgodność.</p>
 <h3 id="dlaczego-dodać-prefiksy-źródła-agenta-ai">Dlaczego dodać prefiksy źródła agenta AI?</h3>

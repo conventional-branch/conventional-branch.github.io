@@ -286,7 +286,7 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="reglas-básicas">Reglas básicas</h3>
 <ol>
-<li><strong>Usar alfanuméricos en minúsculas, guiones y puntos</strong>: Utilice siempre letras minúsculas (<code>a-z</code>), números (<code>0-9</code>) y guiones (<code>-</code>) para separar palabras. Evite caracteres especiales, guiones bajos o espacios. Para las ramas de release, los puntos (<code>.</code>) se pueden usar en la descripción para representar números de versión (p. ej., <code>release/v1.2.0</code>).</li>
+<li><strong>Usar alfanuméricos en minúsculas, guiones y puntos</strong>: Utilice siempre letras minúsculas (<code>a-z</code>), números (<code>0-9</code>) y guiones (<code>-</code>) para separar palabras. Evite caracteres especiales, guiones bajos o espacios. Los puntos (<code>.</code>) se permiten en cualquier descripción, normalmente para números de versión (p. ej., <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
 <li><strong>Sin guiones o puntos consecutivos, iniciales o finales</strong>: Asegúrese de que los guiones y los puntos no aparezcan de forma consecutiva (p. ej., <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ni al inicio o al final de la descripción (p. ej., <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
 <li><strong>Ser claro y conciso</strong>: El nombre de la rama debe ser descriptivo pero conciso, indicando claramente el propósito del trabajo.</li>
 <li><strong>Incluir números de ticket</strong>: Si corresponde, incluya el número de ticket de su herramienta de gestión de proyectos para facilitar el seguimiento. Por ejemplo, para un ticket <code>issue-123</code>, el nombre de la rama podría ser <code>feature/issue-123-new-login</code>.</li>
@@ -361,6 +361,11 @@ Edit this page on GitHub</a>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
 <td>Release con número de versión</td>
+</tr>
+<tr>
+<td><code>chore/upgrade-node-v20.11</code></td>
+<td>✅</td>
+<td>Puntos fuera de una rama de release</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
@@ -468,10 +473,14 @@ Edit this page on GitHub</a>
 <h2 id="preguntas-frecuentes">Preguntas frecuentes</h2>
 <h3 id="cómo-se-relaciona-conventional-branch-con-conventional-commits">¿Cómo se relaciona Conventional Branch con Conventional Commits?</h3>
 <p>Conventional Branch está inspirado en <a href="https://www.conventionalcommits.org">Conventional Commits</a> y sigue una filosofía similar: aportar estructura legible por humanos y máquinas a los metadatos de Git. Mientras que Conventional Commits estandariza los mensajes de commit, Conventional Branch estandariza los nombres de ramas. Ambas especificaciones se complementan de forma natural.</p>
+<h3 id="conventional-branch-inventó-estos-prefijos">¿Conventional Branch inventó estos prefijos?</h3>
+<p>No. Prefijos como <code>feature/</code>, <code>hotfix/</code> y <code>release/</code> se popularizaron hacia 2010 con la herramienta <a href="https://github.com/nvie/gitflow">git-flow</a> y son los valores predeterminados de herramientas como el <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branching-model/">modelo de ramas de Bitbucket</a>. Conventional Branch se basa en esa práctica en lugar de sustituirla. Lo que aporta es una definición precisa que personas y herramientas pueden compartir: un conjunto fijo de tipos, una gramática formal, una regex de validación publicada en <a href="/spec.json"><code>spec.json</code></a> y casos de conformidad, para que todos los validadores acepten exactamente los mismos nombres.</p>
 <h3 id="por-qué-los-tipos-de-ramas-no-son-tan-detallados-como-los-conventional-commits-p-ej-build-ci-docs-style-refactor">¿Por qué los tipos de ramas no son tan detallados como los Conventional Commits (p. ej., <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Las ramas son diferentes de los commits: son temporales y se usan principalmente hasta que se fusionan. Introducir demasiados tipos para las ramas sería innecesario y dificultaría su gestión y memorización.</p>
 <h3 id="puedo-definir-mis-propios-tipos-de-ramas-más-allá-de-los-listados">¿Puedo definir mis propios tipos de ramas más allá de los listados?</h3>
-<p>Sí. La especificación define un conjunto recomendado de tipos, pero los equipos pueden definir tipos personalizados adicionales para su flujo de trabajo. Sin embargo, es importante documentar claramente los tipos personalizados para que todos los miembros del equipo y las herramientas automatizadas estén al tanto de ellos.</p>
+<p>Sí, como una extensión del equipo. Los tipos de la gramática son los que acepta cualquier herramienta conforme, así que una rama como <code>unknown/some-task</code> es inválida según la propia especificación. Un equipo que necesite más tipos (por ejemplo, <code>experiment/</code>) debe declararlos explícitamente en su validador (por ejemplo, en <code>allow_branch_types</code> de <a href="/enforce/#commit-check">commit-check</a>) y documentarlos, para que los miembros del equipo y las herramientas automatizadas estén de acuerdo. El propio repositorio de la especificación, por ejemplo, añade <code>dependabot/</code> a su <a href="https://github.com/conventional-branch/conventional-branch/blob/main/commit-check.toml">configuración de commit-check</a> para las ramas que abre Dependabot.</p>
+<h3 id="por-qué-los-nombres-de-rama-deben-ir-en-minúsculas">¿Por qué los nombres de rama deben ir en minúsculas?</h3>
+<p>Por dos razones. Primero, Git suele guardar las referencias de las ramas como archivos en <code>.git/refs/heads/</code>, y los sistemas de archivos predeterminados de macOS y Windows no distinguen mayúsculas de minúsculas: <code>Feature/login</code> y <code>feature/login</code> apuntan allí a la misma ruta, mientras que en Linux son dos ramas distintas. Por eso, un repositorio que permita ambas puede comportarse de forma distinta según el clon. Segundo, una sola grafía es más fácil de escribir, buscar y filtrar: una herramienta que se activa con <code>release/*</code> no tiene que prever también <code>Release/*</code>.</p>
 <h3 id="cuáles-son-las-principales-diferencias-entre-v110-y-v100">¿Cuáles son las principales diferencias entre v1.1.0 y v1.0.0?</h3>
 <p>v1.1.0 añade <strong>Prefijos de fuente de agente de IA</strong> como la nueva característica principal (consulte la siguiente entrada de preguntas frecuentes para saber por qué se introdujeron). También incluye un sitio web versionado con un conmutador de versiones para que los usuarios puedan navegar tanto por la especificación v1.0.0 como por la v1.1.0. Todos los nombres de ramas v1.0.0 existentes siguen siendo totalmente válidos — sin cambios que rompan la compatibilidad.</p>
 <h3 id="por-qué-añadir-prefijos-de-fuente-de-agente-de-ia">¿Por qué añadir prefijos de fuente de agente de IA?</h3>

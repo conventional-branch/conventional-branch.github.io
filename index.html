@@ -285,7 +285,7 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="basic-rules">Basic Rules</h3>
 <ol>
-<li><strong>Use Lowercase Alphanumerics, Hyphens, and Dots</strong>: Always use lowercase letters (<code>a-z</code>), numbers (<code>0-9</code>), and hyphens (<code>-</code>) to separate words. Avoid special characters, underscores, or spaces. For release branches, dots (<code>.</code>) may be used in the description to represent version numbers (e.g., <code>release/v1.2.0</code>).</li>
+<li><strong>Use Lowercase Alphanumerics, Hyphens, and Dots</strong>: Always use lowercase letters (<code>a-z</code>), numbers (<code>0-9</code>), and hyphens (<code>-</code>) to separate words. Avoid special characters, underscores, or spaces. Dots (<code>.</code>) are allowed in any description, typically for version numbers (e.g., <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
 <li><strong>No Consecutive, Leading, or Trailing Hyphens or Dots</strong>: Ensure that hyphens and dots do not appear consecutively (e.g., <code>feature/new--login</code>, <code>release/v1.-2.0</code>), nor at the start or end of the description (e.g., <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
 <li><strong>Keep It Clear and Concise</strong>: The branch name should be descriptive yet concise, clearly indicating the purpose of the work.</li>
 <li><strong>Include Ticket Numbers</strong>: If applicable, include the ticket number from your project management tool to make tracking easier. For example, for a ticket <code>issue-123</code>, the branch name could be <code>feature/issue-123-new-login</code>.</li>
@@ -360,6 +360,11 @@ Edit this page on GitHub</a>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
 <td>Release with version</td>
+</tr>
+<tr>
+<td><code>chore/upgrade-node-v20.11</code></td>
+<td>✅</td>
+<td>Dots outside a release branch</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
@@ -467,10 +472,14 @@ Edit this page on GitHub</a>
 <h2 id="faq">FAQ</h2>
 <h3 id="how-does-conventional-branch-relate-to-conventional-commits">How does Conventional Branch relate to Conventional Commits?</h3>
 <p>Conventional Branch is inspired by <a href="https://www.conventionalcommits.org">Conventional Commits</a> and follows a similar philosophy: bring human- and machine-readable structure to Git metadata. While Conventional Commits standardizes commit messages, Conventional Branch standardizes branch names. The two specifications complement each other naturally.</p>
+<h3 id="did-conventional-branch-invent-these-prefixes">Did Conventional Branch invent these prefixes?</h3>
+<p>No. Prefixes such as <code>feature/</code>, <code>hotfix/</code> and <code>release/</code> were popularized around 2010 by the <a href="https://github.com/nvie/gitflow">git-flow</a> tooling, and they are the defaults in tools such as <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branching-model/">Bitbucket&rsquo;s branching model</a>. Conventional Branch builds on that practice rather than replacing it. What it adds is a precise definition that people and tools can share: a fixed set of types, a formal grammar, a validation regex published in <a href="/spec.json"><code>spec.json</code></a>, and conformance cases, so that every validator accepts exactly the same names.</p>
 <h3 id="why-arent-branch-types-as-detailed-as-conventional-commits-eg-build-ci-docs-style-refactor">Why aren&rsquo;t branch types as detailed as Conventional Commits (e.g., <code>build</code>, <code>ci</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>)?</h3>
 <p>Branches are different from commits—they are temporary and mainly used until merged. Introducing too many types for branches would be unnecessary and would make them harder to manage and remember.</p>
 <h3 id="can-i-define-my-own-branch-types-beyond-the-ones-listed">Can I define my own branch types beyond the ones listed?</h3>
-<p>Yes. The specification defines a recommended set of types, but teams can define additional custom types to fit their workflow. It is important, however, to document custom types clearly so that all team members and automated tooling are aware of them.</p>
+<p>Yes, as a team-level extension. The types in the grammar are the ones every conforming tool accepts, so a branch such as <code>unknown/some-task</code> is invalid under the specification itself. A team that needs more types (say, <code>experiment/</code>) should list them explicitly in its validator (for example, <code>allow_branch_types</code> in <a href="/enforce/#commit-check">commit-check</a>) and document them, so that team members and automated tooling agree on them. The specification&rsquo;s own repository, for instance, adds <code>dependabot/</code> to its <a href="https://github.com/conventional-branch/conventional-branch/blob/main/commit-check.toml">commit-check configuration</a> for the branches Dependabot opens.</p>
+<h3 id="why-must-branch-names-be-lowercase">Why must branch names be lowercase?</h3>
+<p>For two reasons. First, Git usually stores branch refs as files under <code>.git/refs/heads/</code>, and the default file systems on macOS and Windows are case-insensitive: <code>Feature/login</code> and <code>feature/login</code> map to the same path there but are two different branches on Linux, so a repository that allows both can behave differently from one clone to the next. Second, a single spelling is easier to type, search and match: a tool that triggers on <code>release/*</code> doesn&rsquo;t also have to anticipate <code>Release/*</code>.</p>
 <h3 id="what-are-the-main-differences-between-v110-and-v100">What are the main differences between v1.1.0 and v1.0.0?</h3>
 <p>v1.1.0 adds <strong>AI Agent Source Prefixes</strong> as the primary new feature (see the next FAQ entry for why these were introduced). It also ships a versioned website with a version switcher so users can browse both the v1.0.0 and v1.1.0 specifications. All existing v1.0.0 branch names remain fully valid — no breaking changes.</p>
 <h3 id="why-add-ai-agent-source-prefixes">Why add AI Agent Source Prefixes?</h3>

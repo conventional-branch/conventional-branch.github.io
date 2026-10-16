@@ -286,7 +286,7 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="基本规则">基本规则</h3>
 <ol>
-<li><strong>使用小写字母、数字、连字符和点</strong>：分支名称应全部使用小写字母 (<code>a-z</code>)、数字 (<code>0-9</code>) 及连字符 (<code>-</code>) 进行分隔。避免使用特殊字符、下划线或空格。对于 release 分支，可以在描述中使用点 (<code>.</code>) 来表示版本号（例如 <code>release/v1.2.0</code>）。</li>
+<li><strong>使用小写字母、数字、连字符和点</strong>：分支名称应全部使用小写字母 (<code>a-z</code>)、数字 (<code>0-9</code>) 及连字符 (<code>-</code>) 进行分隔。避免使用特殊字符、下划线或空格。任何分支的描述中都可以使用点 (<code>.</code>)，通常用于表示版本号（例如 <code>release/v1.2.0</code>、<code>chore/upgrade-node-v20.11</code>）。</li>
 <li><strong>禁止连续、开头或结尾的连字符或点</strong>：确保连字符和点不能连续出现（例如 <code>feature/new--login</code>, <code>release/v1.-2.0</code>），也不能出现在描述的开头或结尾（例如 <code>feature/-new-login</code>, <code>release/v1.2.0.</code>）。</li>
 <li><strong>保持清晰简洁</strong>：分支名称应简明扼要，清楚表达工作的内容和目的。</li>
 <li><strong>包含工单编号</strong>：如果适用，应包含项目管理工具中的工单编号，以便于追踪。例如，对于工单 <code>issue-123</code>，分支名称可以是 <code>feature/issue-123-new-login</code>。</li>
@@ -361,6 +361,11 @@ Edit this page on GitHub</a>
 <td><code>release/v1.2.0</code></td>
 <td>✅</td>
 <td>含版本号的发布分支</td>
+</tr>
+<tr>
+<td><code>chore/upgrade-node-v20.11</code></td>
+<td>✅</td>
+<td>非 release 分支中的点</td>
 </tr>
 <tr>
 <td><code>chore/update-dependencies</code></td>
@@ -468,10 +473,14 @@ Edit this page on GitHub</a>
 <h2 id="常见问题">常见问题</h2>
 <h3 id="约定式分支与约定式提交conventional-commits有什么关系">约定式分支与约定式提交（Conventional Commits）有什么关系？</h3>
 <p>约定式分支的灵感来源于 <a href="https://www.conventionalcommits.org">Conventional Commits</a>，遵循相似的理念：为 Git 元数据引入人机可读的结构。约定式提交规范化了提交信息，约定式分支规范化了分支名称。两者相辅相成，天然互补。</p>
+<h3 id="约定式分支发明了这些前缀吗">约定式分支发明了这些前缀吗？</h3>
+<p>没有。<code>feature/</code>、<code>hotfix/</code>、<code>release/</code> 这类前缀在 2010 年前后由 <a href="https://github.com/nvie/gitflow">git-flow</a> 工具推广开来，也是 <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branching-model/">Bitbucket 分支模型</a>等工具的默认值。约定式分支建立在这一实践之上，而不是要取代它。它补充的是一份人和工具都能共用的精确定义：固定的类型集合、形式文法、发布在 <a href="/spec.json"><code>spec.json</code></a> 中的校验正则，以及一致性测试用例，让每个校验工具接受的名称完全相同。</p>
 <h3 id="为什么分支类型不像-conventional-commits例如-buildcidocsstylerefactor那么详细">为什么分支类型不像 Conventional Commits（例如 <code>build</code>、<code>ci</code>、<code>docs</code>、<code>style</code>、<code>refactor</code>）那么详细？</h3>
 <p>分支与提交不同 —— 分支是临时的，大部分只出现在合并前。为分支引入过多类型是没有必要的，也会让管理和记忆变得更困难。</p>
 <h3 id="我可以定义规范列表之外的自定义分支类型吗">我可以定义规范列表之外的自定义分支类型吗？</h3>
-<p>可以。本规范定义了一套推荐的类型，但团队可以根据工作流程定义额外的自定义类型。重要的是，需要将自定义类型清楚地记录下来，以便所有团队成员和自动化工具都能了解。</p>
+<p>可以，作为团队层面的扩展。文法中列出的类型是所有符合规范的工具都会接受的类型，因此像 <code>unknown/some-task</code> 这样的分支按规范本身是无效的。如果团队需要更多类型（例如 <code>experiment/</code>），应在校验工具中显式列出它们（例如 <a href="/enforce/#commit-check">commit-check</a> 的 <code>allow_branch_types</code>），并写进文档，让团队成员和自动化工具保持一致。例如，本规范自己的仓库就在 <a href="https://github.com/conventional-branch/conventional-branch/blob/main/commit-check.toml">commit-check 配置</a>中为 Dependabot 创建的分支添加了 <code>dependabot/</code>。</p>
+<h3 id="为什么分支名称必须小写">为什么分支名称必须小写？</h3>
+<p>有两个原因。第一，Git 通常把分支引用存成 <code>.git/refs/heads/</code> 下的文件，而 macOS 和 Windows 默认的文件系统不区分大小写：<code>Feature/login</code> 和 <code>feature/login</code> 在这些机器上指向同一个路径，在 Linux 上却是两个不同的分支，所以同时允许两种写法的仓库，在不同克隆中的行为可能不一致。第二，只有一种写法更容易输入、搜索和匹配：按 <code>release/*</code> 触发的工具不必再考虑 <code>Release/*</code>。</p>
 <h3 id="v110-与-v100-的主要区别是什么">v1.1.0 与 v1.0.0 的主要区别是什么？</h3>
 <p>v1.1.0 的主要新特性是引入了 <strong>AI 智能体源前缀（AI Agent Source Prefixes）</strong>（具体原因见下一条常见问题）。同时，版本化网站增加了版本切换器，用户可以浏览 v1.0.0 和 v1.1.0 两种规范。所有现有的 v1.0.0 分支名称仍然完全有效 —— 没有不兼容的变更。</p>
 <h3 id="为什么要添加-ai-智能体源前缀ai-agent-source-prefixes">为什么要添加 AI 智能体源前缀（AI Agent Source Prefixes）？</h3>
