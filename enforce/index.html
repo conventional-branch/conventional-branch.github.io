@@ -233,6 +233,13 @@
         </ol>
       </li>
       <li>
+        <a href="#bots-and-automation"><span>Bots and automation</span></a>
+        <ol>
+          <li><a href="#leave-them-out"><span>Leave them out</span></a></li>
+          <li><a href="#name-them-to-fit"><span>Name them to fit</span></a></li>
+        </ol>
+      </li>
+      <li>
         <a href="#ai-coding-agents"><span>AI coding agents</span></a>
         <ol>
           <li><a href="#the-agent-skill"><span>The agent skill</span></a></li>
@@ -324,10 +331,11 @@ comment on the pull request if you let it:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">  </span><span class="c"># true also checks commit messages against Conventional Commits</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">pr-comments</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></div><p>It reads the <a href="/enforce/#commit-check"><code>commit-check.toml</code></a> described under local checks, so CI
-and every contributor&rsquo;s machine apply the same configuration. As of commit-check 2.18
-it validates the type prefix and the trunk names; the rules for the description —
-lowercase, hyphens, no doubled separators — are enforced by the ruleset above or the
-script below, not by the action.</p>
+and every contributor&rsquo;s machine apply the same configuration. By default it validates
+the type prefix and the trunk names. To hold the description to the grammar as well —
+lowercase, hyphens, no doubled separators — set <code>require_description_grammar = true</code>
+in that file (commit-check 2.19 and later); otherwise those rules are left to the
+ruleset above or the script below.</p>
 <p>A script that applies the regex from the specification in full, if you would rather
 not depend on an action:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Branch name</span><span class="w">
@@ -421,7 +429,7 @@ is its default — and as a <a href="https://pre-commit.com">pre-commit</a> hook
 commit, so a wrong name is caught before it is anywhere but your machine:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">repos</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/commit-check/commit-check</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l">v2.18.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l">v2.19.1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">check-branch</span><span class="w">
 </span></span></span></code></pre></div><p>Its default type list is a superset of the specification&rsquo;s: it also accepts the
@@ -430,6 +438,7 @@ Conventional Commits types (<code>docs/</code>, <code>refactor/</code>, …) and
 <code>commit-check.toml</code> at the repository root:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">branch</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">conventional_branch</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">require_description_grammar</span> <span class="p">=</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="nx">allow_branch_types</span> <span class="p">=</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">  <span class="s2">&#34;feature&#34;</span><span class="p">,</span> <span class="s2">&#34;feat&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="s2">&#34;bugfix&#34;</span><span class="p">,</span> <span class="s2">&#34;fix&#34;</span><span class="p">,</span>
@@ -443,8 +452,9 @@ Conventional Commits types (<code>docs/</code>, <code>refactor/</code>, …) and
 branches — and the conformance check holds them to <code>spec.json</code> as it holds the regexes
 on this page, so a prefix registered in a future release cannot leave this file behind.
 The same file configures the GitHub Action above and <code>commit-check --branch</code> anywhere
-else. Like the action, it checks the type prefix; the description grammar is the hook
-below&rsquo;s to enforce, or the server rule&rsquo;s.</p>
+else. <code>require_description_grammar</code> holds the part after the <code>/</code> to the specification&rsquo;s
+grammar too; leave it out, and commit-check checks only the type prefix, leaving the
+description to the hook below or the server rule.</p>
 <h3 id="a-hook-with-no-dependencies">A hook with no dependencies</h3>
 <p><code>pre-push</code> is the last local moment where a bad branch name can still be caught,
 and this needs nothing installed. Save this as <code>.git/hooks/pre-push</code> and make it
@@ -484,6 +494,45 @@ to the repository and point Git at it once:</p>
 uppercase, underscores, and words typed with spaces instead of hyphens. It is a
 convenience rather than a check — a description with other punctuation in it still
 gets through, which is what the hook above is for.</p>
+<h2 id="bots-and-automation">Bots and automation</h2>
+<p>Dependency and release bots name their own branches, and most of those names do not
+follow the specification: <code>dependabot/npm_and_yarn/lodash-4.17.21</code>, <code>renovate/lodash-4.x</code>,
+<code>release-please--branches--main</code>. A rule that rejects them also rejects the pull requests
+they open. Either leave them out of the check, or have the bot name its branches to fit.</p>
+<h3 id="leave-them-out">Leave them out</h3>
+<p>On GitHub, exclude their branches from the ruleset rather than loosening its pattern. In
+the ruleset above, fill in <code>exclude</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;conditions&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ref_name&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;include&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;~ALL&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;exclude&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;refs/heads/dependabot/**/*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;refs/heads/renovate/**/*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;refs/heads/release-please--*&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>commit-check skips the branch check for a commit whose author is on the <code>[branch]</code> table&rsquo;s
+<code>ignore_authors</code> list. Add the line to the <code>commit-check.toml</code> above:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">ignore_authors</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;dependabot[bot]&#34;</span><span class="p">,</span> <span class="s2">&#34;renovate[bot]&#34;</span><span class="p">,</span> <span class="s2">&#34;github-actions[bot]&#34;</span><span class="p">]</span>
+</span></span></code></pre></div><p>The pre-push hook needs no exception: bots push from their own infrastructure, not from a
+clone with your hooks installed.</p>
+<h3 id="name-them-to-fit">Name them to fit</h3>
+<ul>
+<li><strong>Renovate</strong>: <code>&quot;branchPrefix&quot;: &quot;chore/&quot;</code> with <code>&quot;branchNameStrict&quot;: true</code> turns
+<code>renovate/lodash-4.x</code> into <code>chore/lodash-4-x</code>. Set <code>&quot;branchPrefixOld&quot;: &quot;renovate/&quot;</code> for
+the switch, so Renovate still finds the pull requests it already opened.</li>
+<li><strong>Dependabot</strong>: on github.com and GitHub Enterprise Cloud, <code>pull-request-branch-name</code>
+takes a <code>prefix</code>, a <code>template</code>, a <code>word-separator</code> and a <code>branch-name-case</code>. Even so, a
+dependency whose own name contains a <code>/</code>, such as a scoped npm package, adds a segment
+the grammar does not allow, so leaving Dependabot out of the check is the reliable choice.</li>
+<li><strong>release-please</strong> has no option for its branch name yet
+(<a href="https://github.com/googleapis/release-please/issues/2629">googleapis/release-please#2629</a>),
+so leave it out.</li>
+<li><strong>peter-evans/create-pull-request</strong> takes the branch name as its <code>branch</code> input; give it
+one that fits, such as <code>chore/update-generated-files</code>, instead of the default
+<code>create-pull-request/patch</code>.</li>
+</ul>
 <h2 id="ai-coding-agents">AI coding agents</h2>
 <p>Agents open pull requests now, which makes their branch names your branch names. Two
 ways to teach them the convention.</p>
