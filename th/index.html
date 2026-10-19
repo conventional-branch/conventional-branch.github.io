@@ -2,7 +2,7 @@
 <html lang="th"><head>
 	<meta name="generator" content="Hugo 0.128.0">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
@@ -68,10 +68,12 @@
   <meta property="og:locale:alternate" content="ru_RU"/>
   <meta property="og:locale:alternate" content="zh_TW"/>
   <meta property="og:locale:alternate" content="zh_CN"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"ชื่อ Branch คือป้ายชื่อที่ Git ใช้เรียกสายการพัฒนาหนึ่งสาย เช่น main หรือ feature/add-login-page โดย Git เก็บชื่อนี้ไว้เป็น ref ภายใต้ refs/heads/ Git ยอมรับชื่อได้หลากหลายมาก ชื่อ Branch เพียงอย่างเดียวจึงไม่ได้บอกอะไรที่เชื่อถือได้เกี่ยวกับงานใน Branch นั้น Conventional Branch กำหนดโครงสร้างให้เป็น \u003ctype\u003e/\u003cdescription\u003e คือประเภทที่บอกว่างานนี้มีไว้เพื่ออะไร ตามด้วยคำอธิบายสั้นๆ ที่เป็นตัวพิมพ์เล็ก โดยคั่นคำด้วยเครื่องหมายขีดกลาง ตัวอย่างเช่น:\n- feature/add-login-page\n- bugfix/fix-header-bug\n- release/v1.2.0\nTrunk branches (main, master, develop) ไม่ต้องใช้คำนำหน้า"},"name":"ชื่อ Branch คืออะไร?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"ขึ้นต้นด้วย feature/ หรือชื่อเรียกย่อ feat/ แล้วอธิบายฟีเจอร์นั้นหลังเครื่องหมายทับ หากงานนั้นมีทิกเก็ตในเครื่องมือบริหารจัดการโปรเจกต์ของคุณ ให้ใส่หมายเลขทิกเก็ตด้วย ตัวอย่างเช่น:\n- feature/add-login-page\n- feat/add-login-page\n- feature/issue-123-new-login"},"name":"ฉันควรตั้งชื่อ Feature Branch อย่างไร?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Branch chore/ มีไว้สำหรับงานที่ไม่เกี่ยวข้องกับโค้ดโดยตรง เช่น การอัปเดต Dependency หรือเอกสาร ประเภทของ Branch ถูกตั้งใจให้มีน้อยกว่าประเภทของ Conventional Commits (ดูด้านล่าง) งานบำรุงรักษาลักษณะนี้จึงจัดอยู่ใน chore/ ตัวอย่างเช่น:\n- chore/update-dependencies\n- chore/upgrade-node-v20.11\n- chore/update-generated-files\nบอตจัดการ Dependency บางตัว เช่น Renovate ก็สามารถตั้งค่าให้ใช้คำนำหน้านี้ได้เช่นกัน ดูบอตและระบบอัตโนมัติ"},"name":"Chore Branch คืออะไร?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"ใช้ release/ ตามด้วยสิ่งที่ Branch นั้นกำลังเตรียม ซึ่งโดยทั่วไปคือหมายเลขเวอร์ชัน ใช้จุดได้ แต่ห้ามอยู่ที่จุดเริ่มต้นหรือจุดสิ้นสุดของคำอธิบาย และห้ามอยู่ติดกับเครื่องหมายขีดกลาง:\n- release/v1.2.0 — ถูกต้อง\n- release/v1.2.0. — ไม่ถูกต้อง: มีจุดต่อท้าย\n- release/v1.-2.0 — ไม่ถูกต้อง: มีเครื่องหมายขีดกลางอยู่ติดกับจุด\nคำนำหน้าที่สม่ำเสมอยังช่วยให้ Pipeline ทำงานกับ release/* ได้ เช่น ดีพลอยอัตโนมัติจาก Release Branch"},"name":"ฉันควรตั้งชื่อ Release Branch อย่างไร?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"ใช้ hotfix/ สำหรับการแก้ไขเร่งด่วน และใช้ bugfix/ (หรือ fix/) สำหรับการแก้ไขที่ไม่เร่งด่วน อธิบายสิ่งที่กำลังแก้ไข และใส่หมายเลขทิกเก็ตด้วยหากมี ตัวอย่างเช่น:\n- hotfix/security-patch\n- hotfix/issue-123-security-patch\n- bugfix/fix-header-bug สำหรับการแก้ไขที่ไม่เร่งด่วน"},"name":"ฉันควรตั้งชื่อ Hotfix Branch อย่างไร?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Conventional Branch ได้รับแรงบันดาลใจมาจาก Conventional Commits และปฏิบัติตามปรัชญาที่คล้ายคลึงกัน นั่นคือ การนำโครงสร้างที่ทั้งมนุษย์และเครื่องจักรสามารถอ่านได้มาใช้กับข้อมูลเมตา (Metadata) ของ Git ในขณะที่ Conventional Commits เป็นการสร้างมาตรฐานให้กับข้อความการคอมมิต (Commit messages) ตัว Conventional Branch จะเป็นการสร้างมาตรฐานให้กับชื่อ Branch ซึ่งข้อกำหนดทั้งสองนี้ต่างช่วยเสริมซึ่งกันและกันได้อย่างลงตัว"},"name":"Conventional Branch มีความเกี่ยวข้องกับ Conventional Commits อย่างไร?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"ไม่ใช่ คำนำหน้าอย่าง feature/, hotfix/ และ release/ แพร่หลายราวปี 2010 ผ่านเครื่องมือ git-flow และเป็นค่าเริ่มต้นในเครื่องมืออย่าง Branching model ของ Bitbucket Conventional Branch ต่อยอดจากแนวปฏิบัตินี้แทนที่จะเข้ามาแทนที่ สิ่งที่เพิ่มเข้ามาคือคำนิยามที่แม่นยำซึ่งทั้งคนและเครื่องมือใช้ร่วมกันได้ ได้แก่ ชุดประเภทที่กำหนดตายตัว ไวยากรณ์อย่างเป็นทางการ Regex สำหรับตรวจสอบที่เผยแพร่ใน spec.json และกรณีทดสอบความสอดคล้อง เพื่อให้เครื่องมือตรวจสอบทุกตัวยอมรับชื่อชุดเดียวกันทุกประการ"},"name":"Conventional Branch เป็นผู้คิดค้นคำนำหน้าเหล่านี้หรือไม่?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Branch มีความแตกต่างจากการคอมมิต (Commits) — Branch เป็นเพียงสิ่งชั่วคราวและส่วนใหญ่จะถูกใช้งานจนกว่าจะถูกนำไปรวม (Merged) เท่านั้น การแนะนำประเภทของ Branch ให้มีมากเกินไปนั้นถือเป็นสิ่งไม่จำเป็น และจะทำให้ยากต่อการจัดการและการจดจำ"},"name":"ทำไมประเภทของ Branch ถึงไม่ละเอียดเท่า Conventional Commits (เช่น build, ci, docs, style, refactor)?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"ได้ ในฐานะส่วนขยายระดับทีม ประเภทที่อยู่ในไวยากรณ์คือประเภทที่เครื่องมือที่สอดคล้องกับข้อกำหนดทุกตัวยอมรับ ดังนั้น Branch อย่าง unknown/some-task จึงไม่ถูกต้องตามข้อกำหนดนี้เอง ทีมที่ต้องการประเภทเพิ่มเติม (เช่น experiment/) ควรระบุประเภทเหล่านั้นในเครื่องมือตรวจสอบอย่างชัดเจน (เช่น ใน allow_branch_types ของ commit-check) และจัดทำเอกสารไว้ เพื่อให้สมาชิกในทีมและเครื่องมืออัตโนมัติเข้าใจตรงกัน ตัวอย่างเช่น Repository ของข้อกำหนดนี้เองได้เพิ่ม dependabot/ ไว้ในการตั้งค่า commit-check สำหรับ Branch ที่ Dependabot สร้างขึ้น"},"name":"ฉันสามารถกำหนดประเภทของ Branch ด้วยตัวเองนอกเหนือจากรายการที่ระบุไว้ได้หรือไม่?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"มีเหตุผลสองข้อ ข้อแรก Git มักเก็บการอ้างอิง Branch เป็นไฟล์ใน .git/refs/heads/ และระบบไฟล์เริ่มต้นของ macOS และ Windows ไม่แยกตัวพิมพ์เล็กและใหญ่ Feature/login กับ feature/login จึงชี้ไปยังพาธเดียวกันบนเครื่องเหล่านั้น แต่บน Linux จะเป็นสอง Branch ที่ต่างกัน Repository ที่ยอมรับทั้งสองแบบจึงอาจทำงานต่างกันในแต่ละ Clone ข้อที่สอง การเขียนแบบเดียวทำให้พิมพ์ ค้นหา และจับคู่ได้ง่ายกว่า เครื่องมือที่ทำงานตาม release/* ไม่ต้องรองรับ Release/* เพิ่มอีก"},"name":"ทำไมชื่อ Branch ต้องเป็นตัวพิมพ์เล็ก?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"v1.1.0 เพิ่ม คำนำหน้าแหล่งที่มาของเอเจนต์ AI เป็นฟีเจอร์ใหม่หลัก (ดูคำถามถัดไปสำหรับสาเหตุที่นำมาใช้) นอกจากนี้ยังมาพร้อมกับเว็บไซต์แบบหลายเวอร์ชันพร้อมตัวสลับเวอร์ชัน เพื่อให้ผู้ใช้สามารถเรียกดูข้อกำหนดทั้งเวอร์ชัน v1.0.0 และ v1.1.0 ได้ ชื่อ Branch ที่มีอยู่แล้วทั้งหมดใน v1.0.0 ยังคงใช้ได้อย่างสมบูรณ์ — ไม่มีการเปลี่ยนแปลงที่ทำให้เสียความเข้ากันได้"},"name":"ความแตกต่างหลักระหว่าง v1.1.0 และ v1.0.0 คืออะไร?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"เอเจนต์การเขียนโค้ด AI (GitHub Copilot, Cursor, Claude Code, OpenAI Codex ฯลฯ) ถูกใช้มากขึ้นในการสร้างโค้ดและสร้าง Pull Request แต่ละเอเจนต์ใช้คำนำหน้า Branch ของตัวเอง (เช่น copilot/, cursor/) การทำให้คำนำหน้าเหล่านี้เป็นมาตรฐานในข้อกำหนด Conventional Branch ช่วยให้:\n- ระบุได้รวดเร็ว — ผู้ตรวจสอบและเครื่องมือสามารถจดจำ PR ที่สร้างโดย AI ได้ทันที\n- การตรวจสอบด้วยเครื่องมือ — เครื่องมืออย่าง commit-check สามารถตรวจสอบ Branch ของเอเจนต์ AI ตามข้อกำหนดได้\n- มาตรฐานการลงทะเบียน — เอเจนต์ AI ใหม่สามารถใช้คำนำหน้าที่ได้จัดทำเป็นเอกสารไว้แล้ว แทนการสร้างรูปแบบขึ้นมาเฉพาะกิจ\nคำนำหน้าทั่วไป ai/ พร้อมใช้งานสำหรับเอเจนต์ AI ที่ไม่มีคำนำหน้าเฉพาะ หรือสำหรับทีมที่ต้องการตัวระบุที่ไม่ขึ้นกับผู้จำหน่าย นี่คือฟีเจอร์หลักที่ปล่อยใน v1.1.0 — สำหรับสรุปการเปลี่ยนแปลงทั้งหมดระหว่างเวอร์ชัน โปรดดูคำถามที่พบบ่อยด้านบน"},"name":"ทำไมต้องเพิ่มคำนำหน้าแหล่งที่มาของเอเจนต์ AI?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Branch สำหรับการรวมโค้ดหรือสำหรับสภาพแวดล้อม (Environment branches) ที่มีอายุการใช้งานยาวนาน ซึ่งเป็นส่วนหนึ่งของข้อกำหนดหลัก (อ้างอิงถึงกฎ trunk-branch ในไวยากรณ์) เช่น main, master หรือ develop จะถูกจัดให้เป็น Branch หลัก (Trunk branches) และไม่จำเป็นต้องมีคำนำหน้า (Prefix) นอกจากนี้ แต่ละทีมยังอาจเลือกที่จะกำหนด Branch ที่มีอายุการใช้งานยาวนานอื่นๆ (ตัวอย่างเช่น staging หรือ production) ให้เป็น Branch ที่มีสถานะเสมือน Branch หลัก (“Trunk-like” branches) ตามธรรมเนียมปฏิบัติได้ แต่สิ่งเหล่านี้ถือเป็นส่วนขยายที่ขึ้นอยู่กับแต่ละทีมซึ่งอยู่นอกเหนือจากข้อกำหนดของรูปแบบไวยากรณ์ อย่างไรก็ตาม ในทุกกรณี Branch เหล่านี้ควรได้รับการตั้งชื่ออย่างสม่ำเสมอในทุกภาคส่วนของโปรเจกต์ของคุณ"},"name":"ฉันควรจัดการกับ Branch ที่มีอายุยาวนานอย่าง develop หรือ staging อย่างไร?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"คุณสามารถใช้ commit-check เพื่อตรวจสอบข้อกำหนดของ Branch หรือใช้ commit-check-action หากโค้ดของคุณถูกฝากไว้บน GitHub"},"name":"มีเครื่องมือใดบ้างที่สามารถใช้ตรวจสอบได้โดยอัตโนมัติหากสมาชิกในทีมไม่ได้ทำตามข้อกำหนดนี้?"}]}</script>
 </head>
 
 <body class="page-spec" data-copy-label="Copy" data-copied-label="Copied">
-<a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="/th/" aria-label="Conventional Branch home">
       <span class="brand__mark"><svg class="branch-mark" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="currentColor" d="M44,9a7,7,0,1,0-9,6.7V16a6,6,0,0,1-6,6H21a10.3,10.3,0,0,0-6,2V15.7a7,7,0,1,0-4,0V32.3a7,7,0,1,0,4,0V32a6,6,0,0,1,6-6h8A10,10,0,0,0,39,16v-.3A7,7,0,0,0,44,9ZM10,9a3,3,0,0,1,6,0,3,3,0,0,1-6,0Zm6,30a3,3,0,1,1-3-3A2.9,2.9,0,0,1,16,39ZM37,12a2.9,2.9,0,0,1-3-3,3,3,0,0,1,6,0A2.9,2.9,0,0,1,37,12Z"/></svg>
@@ -471,6 +473,44 @@ Edit this page on GitHub</a>
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="คำถามทพบบอย">คำถามที่พบบ่อย</h2>
+<h3 id="ชอ-branch-คออะไร">ชื่อ Branch คืออะไร?</h3>
+<p>ชื่อ Branch คือป้ายชื่อที่ Git ใช้เรียกสายการพัฒนาหนึ่งสาย เช่น <code>main</code> หรือ <code>feature/add-login-page</code> โดย Git เก็บชื่อนี้ไว้เป็น ref ภายใต้ <code>refs/heads/</code> Git ยอมรับชื่อได้หลากหลายมาก ชื่อ Branch เพียงอย่างเดียวจึงไม่ได้บอกอะไรที่เชื่อถือได้เกี่ยวกับงานใน Branch นั้น Conventional Branch กำหนดโครงสร้างให้เป็น <code>&lt;type&gt;/&lt;description&gt;</code> คือประเภทที่บอกว่างานนี้มีไว้เพื่ออะไร ตามด้วยคำอธิบายสั้นๆ ที่เป็นตัวพิมพ์เล็ก โดยคั่นคำด้วยเครื่องหมายขีดกลาง ตัวอย่างเช่น:</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>bugfix/fix-header-bug</code></li>
+<li><code>release/v1.2.0</code></li>
+</ul>
+<p>Trunk branches (<code>main</code>, <code>master</code>, <code>develop</code>) ไม่ต้องใช้คำนำหน้า</p>
+<h3 id="ฉนควรตงชอ-feature-branch-อยางไร">ฉันควรตั้งชื่อ Feature Branch อย่างไร?</h3>
+<p>ขึ้นต้นด้วย <code>feature/</code> หรือชื่อเรียกย่อ <code>feat/</code> แล้วอธิบายฟีเจอร์นั้นหลังเครื่องหมายทับ หากงานนั้นมีทิกเก็ตในเครื่องมือบริหารจัดการโปรเจกต์ของคุณ ให้ใส่หมายเลขทิกเก็ตด้วย ตัวอย่างเช่น:</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>feat/add-login-page</code></li>
+<li><code>feature/issue-123-new-login</code></li>
+</ul>
+<h3 id="chore-branch-คออะไร">Chore Branch คืออะไร?</h3>
+<p>Branch <code>chore/</code> มีไว้สำหรับงานที่ไม่เกี่ยวข้องกับโค้ดโดยตรง เช่น การอัปเดต Dependency หรือเอกสาร ประเภทของ Branch ถูกตั้งใจให้มีน้อยกว่าประเภทของ Conventional Commits (ดูด้านล่าง) งานบำรุงรักษาลักษณะนี้จึงจัดอยู่ใน <code>chore/</code> ตัวอย่างเช่น:</p>
+<ul>
+<li><code>chore/update-dependencies</code></li>
+<li><code>chore/upgrade-node-v20.11</code></li>
+<li><code>chore/update-generated-files</code></li>
+</ul>
+<p>บอตจัดการ Dependency บางตัว เช่น Renovate ก็สามารถตั้งค่าให้ใช้คำนำหน้านี้ได้เช่นกัน ดู<a href="/enforce/#name-them-to-fit">บอตและระบบอัตโนมัติ</a></p>
+<h3 id="ฉนควรตงชอ-release-branch-อยางไร">ฉันควรตั้งชื่อ Release Branch อย่างไร?</h3>
+<p>ใช้ <code>release/</code> ตามด้วยสิ่งที่ Branch นั้นกำลังเตรียม ซึ่งโดยทั่วไปคือหมายเลขเวอร์ชัน ใช้จุดได้ แต่ห้ามอยู่ที่จุดเริ่มต้นหรือจุดสิ้นสุดของคำอธิบาย และห้ามอยู่ติดกับเครื่องหมายขีดกลาง:</p>
+<ul>
+<li><code>release/v1.2.0</code> — ถูกต้อง</li>
+<li><code>release/v1.2.0.</code> — ไม่ถูกต้อง: มีจุดต่อท้าย</li>
+<li><code>release/v1.-2.0</code> — ไม่ถูกต้อง: มีเครื่องหมายขีดกลางอยู่ติดกับจุด</li>
+</ul>
+<p>คำนำหน้าที่สม่ำเสมอยังช่วยให้ Pipeline ทำงานกับ <code>release/*</code> ได้ เช่น ดีพลอยอัตโนมัติจาก Release Branch</p>
+<h3 id="ฉนควรตงชอ-hotfix-branch-อยางไร">ฉันควรตั้งชื่อ Hotfix Branch อย่างไร?</h3>
+<p>ใช้ <code>hotfix/</code> สำหรับการแก้ไขเร่งด่วน และใช้ <code>bugfix/</code> (หรือ <code>fix/</code>) สำหรับการแก้ไขที่ไม่เร่งด่วน อธิบายสิ่งที่กำลังแก้ไข และใส่หมายเลขทิกเก็ตด้วยหากมี ตัวอย่างเช่น:</p>
+<ul>
+<li><code>hotfix/security-patch</code></li>
+<li><code>hotfix/issue-123-security-patch</code></li>
+<li><code>bugfix/fix-header-bug</code> สำหรับการแก้ไขที่ไม่เร่งด่วน</li>
+</ul>
 <h3 id="conventional-branch-มความเกยวของกบ-conventional-commits-อยางไร">Conventional Branch มีความเกี่ยวข้องกับ Conventional Commits อย่างไร?</h3>
 <p>Conventional Branch ได้รับแรงบันดาลใจมาจาก <a href="https://www.conventionalcommits.org">Conventional Commits</a> และปฏิบัติตามปรัชญาที่คล้ายคลึงกัน นั่นคือ การนำโครงสร้างที่ทั้งมนุษย์และเครื่องจักรสามารถอ่านได้มาใช้กับข้อมูลเมตา (Metadata) ของ Git ในขณะที่ Conventional Commits เป็นการสร้างมาตรฐานให้กับข้อความการคอมมิต (Commit messages) ตัว Conventional Branch จะเป็นการสร้างมาตรฐานให้กับชื่อ Branch ซึ่งข้อกำหนดทั้งสองนี้ต่างช่วยเสริมซึ่งกันและกันได้อย่างลงตัว</p>
 <h3 id="conventional-branch-เปนผคดคนคำนำหนาเหลานหรอไม">Conventional Branch เป็นผู้คิดค้นคำนำหน้าเหล่านี้หรือไม่?</h3>

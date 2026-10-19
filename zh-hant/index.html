@@ -2,7 +2,7 @@
 <html lang="zh-hant"><head>
 	<meta name="generator" content="Hugo 0.128.0">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
@@ -68,10 +68,12 @@
   <meta property="og:locale:alternate" content="ru_RU"/>
   <meta property="og:locale:alternate" content="th_TH"/>
   <meta property="og:locale:alternate" content="zh_CN"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"branch 名稱是 Git 為一條開發線所取的標籤，例如 main 或 feature/add-login-page；Git 會把它存成 refs/heads/ 底下的一個 ref。Git 接受的名稱範圍很廣，因此光看 branch 名稱，無法可靠地得知 branch 上在進行什麼工作。約定式分支為它規定了 \u003ctype\u003e/\u003cdescription\u003e 的結構：先是說明工作用途的 type，接著是簡短的小寫描述，單字之間以連字號分隔。例如：\n- feature/add-login-page\n- bugfix/fix-header-bug\n- release/v1.2.0\n主幹分支（main、master、develop）不使用前綴。"},"name":"什麼是 branch 名稱？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"以 feature/ 或其簡寫形式 feat/ 開頭，並在斜線後描述該功能。若這項工作在專案管理工具中有對應的工單，請包含工單編號。例如：\n- feature/add-login-page\n- feat/add-login-page\n- feature/issue-123-new-login"},"name":"feature branch 應該如何命名？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"chore/ branch 用於非程式碼任務，例如更新相依套件或文件。branch type 刻意比 Conventional Commits 的 type 少（見下文），因此這類維護工作都歸入 chore/。例如：\n- chore/update-dependencies\n- chore/upgrade-node-v20.11\n- chore/update-generated-files\nRenovate 等部分相依套件更新機器人也可以設定為使用這個前綴；請參閱機器人與自動化。"},"name":"什麼是 chore branch？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"使用 release/，後面接上該 branch 要準備的內容，通常是版本號。可以使用點，但不能出現在描述的開頭或結尾，也不能緊鄰連字號：\n- release/v1.2.0 — 有效\n- release/v1.2.0. — 無效：以點結尾\n- release/v1.-2.0 — 無效：連字號緊鄰點號\n一致的前綴也能讓管線針對 release/* 觸發動作，例如從 release branch 自動部署。"},"name":"release branch 應該如何命名？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"緊急修復使用 hotfix/，不緊急的修復則使用 bugfix/（或 fix/）。描述要修復的內容；若有工單，請包含工單編號。例如：\n- hotfix/security-patch\n- hotfix/issue-123-security-patch\n- bugfix/fix-header-bug，用於不緊急的修復"},"name":"hotfix branch 應該如何命名？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"約定式分支的靈感來源於 Conventional Commits，遵循相似的理念：為 Git 中繼資料引入人機可讀的結構。約定式提交規範提交訊息，約定式分支規範 branch 名稱，兩者相輔相成、天然互補。"},"name":"約定式分支與約定式提交（Conventional Commits）有什麼關係？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"沒有。feature/、hotfix/、release/ 這類前綴約在 2010 年由 git-flow 工具推廣開來，也是 Bitbucket branching model 等工具的預設值。約定式分支建立在這項實務之上，而非取而代之。它補上的是一份人與工具都能共用的精確定義：固定的 type 集合、形式文法、發布於 spec.json 的驗證正規表示式，以及一致性測試案例，讓每個驗證工具接受的名稱完全相同。"},"name":"約定式分支發明了這些前綴嗎？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"branch 與 commit 不同——branch 是暫時性的，通常只會使用到 merge 為止。若為 branch 引入過多 type 並無必要，反而會讓管理與記憶變得更困難。"},"name":"為什麼 branch type 不像 Conventional Commits（例如 build、ci、docs、style、refactor）那麼詳細？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"可以，作為團隊層級的擴充。文法中列出的 type 是所有符合規範的工具都會接受的 type，因此像 unknown/some-task 這樣的 branch 依規範本身是無效的。若團隊需要更多 type（例如 experiment/），應在驗證工具中明確列出（例如 commit-check 的 allow_branch_types），並寫入文件，讓團隊成員與自動化工具保持一致。例如，本規範自己的 repository 就在 commit-check 設定中為 Dependabot 建立的 branch 加入了 dependabot/。"},"name":"我可以定義規範列表之外的自訂 branch type 嗎？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"原因有二。第一，Git 通常將 branch 參照存成 .git/refs/heads/ 下的檔案，而 macOS 與 Windows 預設的檔案系統不區分大小寫：Feature/login 與 feature/login 在這些機器上指向同一路徑，在 Linux 上卻是兩個不同的 branch，因此同時允許兩種寫法的 repository 在不同 clone 中的行為可能不一致。第二，只有一種寫法更容易輸入、搜尋與比對：依 release/* 觸發的工具不必再考慮 Release/*。"},"name":"為什麼 branch 名稱必須小寫？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"v1.1.0 的主要新功能是引入了 AI 智能體來源前綴（AI Agent Source Prefixes）（具體原因見下一條常見問題）。同時，版本化網站增加了版本切換器，使用者可以瀏覽 v1.0.0 和 v1.1.0 兩種規範。所有現有的 v1.0.0 branch 名稱仍然完全有效 —— 沒有不相容的變更。"},"name":"v1.1.0 與 v1.0.0 的主要差異是什麼？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"AI 編碼智能體（GitHub Copilot、Cursor、Claude Code、OpenAI Codex 等）越來越多地被用於生成程式碼和建立 Pull Request。每個智能體都使用自己的分支前綴（例如 copilot/、cursor/）。透過在約定式分支規範中標準化這些前綴，我們可以實現：\n- 快速識別 — 審查者和工具可以立即識別 AI 生成的 PR\n- 工具驗證 — 諸如 commit-check 之類的工具可以驗證 AI 智能體分支是否符合規範\n- 註冊標準 — 新的 AI 智能體可以採用已記錄的前綴，而不是自行建立臨時的模式\nai/ 通用前綴適用於沒有專用前綴的 AI 智能體，或者適用於傾向於使用供應商中立識別碼的團隊。這是 v1.1.0 發佈的關鍵新特性 —— 版本間變更的完整摘要請參見上一條常見問題。"},"name":"為什麼要添加 AI 智能體來源前綴（AI Agent Source Prefixes）？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"長期存在的整合或環境 branch（例如 develop、staging、production）通常在專案層級被視為主幹分支，不需要前綴，且應在整個專案中保持一致的命名。依照本規範前文所述的 ABNF 正式文法，預設的 trunk-branch 僅包含標準主幹名稱（例如 main、master、develop）；其他名稱（如 staging、production）則屬於專案自訂的延伸，建議在團隊文件中明確記錄，以便工具與成員正確辨識。"},"name":"如何處理 develop 或 staging 等長期存在的 branch？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"您可以使用 commit-check 檢查 branch 規範；若您的程式碼託管於 GitHub，則可使用 commit-check-action。"},"name":"有哪些工具可以自動識別團隊成員是否符合此規範？"}]}</script>
 </head>
 
 <body class="page-spec" data-copy-label="Copy" data-copied-label="Copied">
-<a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="/zh-hant/" aria-label="Conventional Branch home">
       <span class="brand__mark"><svg class="branch-mark" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="currentColor" d="M44,9a7,7,0,1,0-9,6.7V16a6,6,0,0,1-6,6H21a10.3,10.3,0,0,0-6,2V15.7a7,7,0,1,0-4,0V32.3a7,7,0,1,0,4,0V32a6,6,0,0,1,6-6h8A10,10,0,0,0,39,16v-.3A7,7,0,0,0,44,9ZM10,9a3,3,0,0,1,6,0,3,3,0,0,1-6,0Zm6,30a3,3,0,1,1-3-3A2.9,2.9,0,0,1,16,39ZM37,12a2.9,2.9,0,0,1-3-3,3,3,0,0,1,6,0A2.9,2.9,0,0,1,37,12Z"/></svg>
@@ -471,6 +473,44 @@ Edit this page on GitHub</a>
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="faq">FAQ</h2>
+<h3 id="什麼是-branch-名稱">什麼是 branch 名稱？</h3>
+<p>branch 名稱是 Git 為一條開發線所取的標籤，例如 <code>main</code> 或 <code>feature/add-login-page</code>；Git 會把它存成 <code>refs/heads/</code> 底下的一個 ref。Git 接受的名稱範圍很廣，因此光看 branch 名稱，無法可靠地得知 branch 上在進行什麼工作。約定式分支為它規定了 <code>&lt;type&gt;/&lt;description&gt;</code> 的結構：先是說明工作用途的 type，接著是簡短的小寫描述，單字之間以連字號分隔。例如：</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>bugfix/fix-header-bug</code></li>
+<li><code>release/v1.2.0</code></li>
+</ul>
+<p>主幹分支（<code>main</code>、<code>master</code>、<code>develop</code>）不使用前綴。</p>
+<h3 id="feature-branch-應該如何命名">feature branch 應該如何命名？</h3>
+<p>以 <code>feature/</code> 或其簡寫形式 <code>feat/</code> 開頭，並在斜線後描述該功能。若這項工作在專案管理工具中有對應的工單，請包含工單編號。例如：</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>feat/add-login-page</code></li>
+<li><code>feature/issue-123-new-login</code></li>
+</ul>
+<h3 id="什麼是-chore-branch">什麼是 chore branch？</h3>
+<p><code>chore/</code> branch 用於非程式碼任務，例如更新相依套件或文件。branch type 刻意比 Conventional Commits 的 type 少（見下文），因此這類維護工作都歸入 <code>chore/</code>。例如：</p>
+<ul>
+<li><code>chore/update-dependencies</code></li>
+<li><code>chore/upgrade-node-v20.11</code></li>
+<li><code>chore/update-generated-files</code></li>
+</ul>
+<p>Renovate 等部分相依套件更新機器人也可以設定為使用這個前綴；請參閱<a href="/enforce/#name-them-to-fit">機器人與自動化</a>。</p>
+<h3 id="release-branch-應該如何命名">release branch 應該如何命名？</h3>
+<p>使用 <code>release/</code>，後面接上該 branch 要準備的內容，通常是版本號。可以使用點，但不能出現在描述的開頭或結尾，也不能緊鄰連字號：</p>
+<ul>
+<li><code>release/v1.2.0</code> — 有效</li>
+<li><code>release/v1.2.0.</code> — 無效：以點結尾</li>
+<li><code>release/v1.-2.0</code> — 無效：連字號緊鄰點號</li>
+</ul>
+<p>一致的前綴也能讓管線針對 <code>release/*</code> 觸發動作，例如從 release branch 自動部署。</p>
+<h3 id="hotfix-branch-應該如何命名">hotfix branch 應該如何命名？</h3>
+<p>緊急修復使用 <code>hotfix/</code>，不緊急的修復則使用 <code>bugfix/</code>（或 <code>fix/</code>）。描述要修復的內容；若有工單，請包含工單編號。例如：</p>
+<ul>
+<li><code>hotfix/security-patch</code></li>
+<li><code>hotfix/issue-123-security-patch</code></li>
+<li><code>bugfix/fix-header-bug</code>，用於不緊急的修復</li>
+</ul>
 <h3 id="約定式分支與約定式提交conventional-commits有什麼關係">約定式分支與約定式提交（Conventional Commits）有什麼關係？</h3>
 <p>約定式分支的靈感來源於 <a href="https://www.conventionalcommits.org">Conventional Commits</a>，遵循相似的理念：為 Git 中繼資料引入人機可讀的結構。約定式提交規範提交訊息，約定式分支規範 branch 名稱，兩者相輔相成、天然互補。</p>
 <h3 id="約定式分支發明了這些前綴嗎">約定式分支發明了這些前綴嗎？</h3>

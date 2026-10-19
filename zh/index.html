@@ -2,7 +2,7 @@
 <html lang="zh"><head>
 	<meta name="generator" content="Hugo 0.128.0">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
@@ -68,10 +68,12 @@
   <meta property="og:locale:alternate" content="ru_RU"/>
   <meta property="og:locale:alternate" content="th_TH"/>
   <meta property="og:locale:alternate" content="zh_TW"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"分支名称是 Git 给一条开发线起的标签，例如 main 或 feature/add-login-page；Git 把它作为 refs/heads/ 下的一个引用（ref）保存。Git 能接受的名称范围很广，所以分支名称本身并不能可靠地说明分支上在做什么工作。约定式分支为它规定了 \u003ctype\u003e/\u003cdescription\u003e 的结构：先是说明工作用途的类型，然后是简短的小写描述，单词之间用连字符分隔。例如：\n- feature/add-login-page\n- bugfix/fix-header-bug\n- release/v1.2.0\n主干分支（main、master、develop）不使用前缀。"},"name":"什么是分支名称？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"以 feature/ 或其简写形式 feat/ 开头，在斜杠后描述该功能。如果这项工作在项目管理工具中有对应的工单，请包含工单编号。例如：\n- feature/add-login-page\n- feat/add-login-page\n- feature/issue-123-new-login"},"name":"feature 分支应该如何命名？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"chore/ 分支用于非代码任务，例如更新依赖项或文档。分支类型有意比 Conventional Commits 的类型少（见下文），因此这类维护工作都归入 chore/。例如：\n- chore/update-dependencies\n- chore/upgrade-node-v20.11\n- chore/update-generated-files\nRenovate 等一些依赖更新机器人也可以配置为使用这个前缀；参见机器人与自动化。"},"name":"什么是 chore 分支？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"使用 release/，后面跟上该分支要准备的内容，通常是版本号。可以使用点，但不能出现在描述的开头或结尾，也不能紧邻连字符：\n- release/v1.2.0 — 有效\n- release/v1.2.0. — 无效：以点结尾\n- release/v1.-2.0 — 无效：连字符紧邻点号\n统一的前缀还能让管道针对 release/* 触发操作，例如从发布分支自动部署。"},"name":"release 分支应该如何命名？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"紧急修复使用 hotfix/，不紧急的修复使用 bugfix/（或 fix/）。描述要修复的内容；如果有工单，请包含工单编号。例如：\n- hotfix/security-patch\n- hotfix/issue-123-security-patch\n- bugfix/fix-header-bug，用于不紧急的修复"},"name":"hotfix 分支应该如何命名？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"约定式分支的灵感来源于 Conventional Commits，遵循相似的理念：为 Git 元数据引入人机可读的结构。约定式提交规范化了提交信息，约定式分支规范化了分支名称。两者相辅相成，天然互补。"},"name":"约定式分支与约定式提交（Conventional Commits）有什么关系？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"没有。feature/、hotfix/、release/ 这类前缀在 2010 年前后由 git-flow 工具推广开来，也是 Bitbucket 分支模型等工具的默认值。约定式分支建立在这一实践之上，而不是要取代它。它补充的是一份人和工具都能共用的精确定义：固定的类型集合、形式文法、发布在 spec.json 中的校验正则，以及一致性测试用例，让每个校验工具接受的名称完全相同。"},"name":"约定式分支发明了这些前缀吗？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"分支与提交不同 —— 分支是临时的，大部分只出现在合并前。为分支引入过多类型是没有必要的，也会让管理和记忆变得更困难。"},"name":"为什么分支类型不像 Conventional Commits（例如 build、ci、docs、style、refactor）那么详细？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"可以，作为团队层面的扩展。文法中列出的类型是所有符合规范的工具都会接受的类型，因此像 unknown/some-task 这样的分支按规范本身是无效的。如果团队需要更多类型（例如 experiment/），应在校验工具中显式列出它们（例如 commit-check 的 allow_branch_types），并写进文档，让团队成员和自动化工具保持一致。例如，本规范自己的仓库就在 commit-check 配置中为 Dependabot 创建的分支添加了 dependabot/。"},"name":"我可以定义规范列表之外的自定义分支类型吗？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"有两个原因。第一，Git 通常把分支引用存成 .git/refs/heads/ 下的文件，而 macOS 和 Windows 默认的文件系统不区分大小写：Feature/login 和 feature/login 在这些机器上指向同一个路径，在 Linux 上却是两个不同的分支，所以同时允许两种写法的仓库，在不同克隆中的行为可能不一致。第二，只有一种写法更容易输入、搜索和匹配：按 release/* 触发的工具不必再考虑 Release/*。"},"name":"为什么分支名称必须小写？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"v1.1.0 的主要新特性是引入了 AI 智能体源前缀（AI Agent Source Prefixes）（具体原因见下一条常见问题）。同时，版本化网站增加了版本切换器，用户可以浏览 v1.0.0 和 v1.1.0 两种规范。所有现有的 v1.0.0 分支名称仍然完全有效 —— 没有不兼容的变更。"},"name":"v1.1.0 与 v1.0.0 的主要区别是什么？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"AI 编码智能体（GitHub Copilot、Cursor、Claude Code、OpenAI Codex 等）越来越多地被用于生成代码和创建 Pull Request。每个智能体都使用自己的分支前缀（例如 copilot/、cursor/）。通过在约定式分支规范中标准化这些前缀，我们可以实现：\n- 快速识别 — 审查者和工具可以立即识别 AI 生成的 PR\n- 工具验证 — 诸如 commit-check 之类的工具可以验证 AI 智能体分支是否符合规范\n- 注册标准 — 新的 AI 智能体可以采用已记录的 prefix，而不是自行创建临时的模式\nai/ 通用前缀适用于没有专用前缀的 AI 智能体，或者适用于倾向于使用供应商无关标识符的团队。这是 v1.1.0 发布的关键新特性 —— 版本间变更的完整摘要请参见上一条常见问题。"},"name":"为什么要添加 AI 智能体源前缀（AI Agent Source Prefixes）？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"长期存在的集成或环境分支（如 develop，以及某些项目约定使用的 staging、production 等）通常被视为主干分支，不需要前缀，并应在整个项目中保持一致的命名。需要注意的是，在上文给出的 ABNF 语法中，trunk-branch 形式规则只包含 main / master / develop；staging、production 等仅作为各团队可选的长期分支示例，不属于该形式语法的一部分，语法校验工具可按需要在此基础上扩展支持。"},"name":"如何处理 develop 或 staging 等长期存在的分支？"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"你可以使用 commit-check 来检查分支规范，或者如果你的代码托管在 GitHub 上，则使用 commit-check-action。"},"name":"如果团队成员不符合此规范，可以使用哪些工具来自动识别？"}]}</script>
 </head>
 
 <body class="page-spec" data-copy-label="Copy" data-copied-label="Copied">
-<a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="/zh/" aria-label="Conventional Branch home">
       <span class="brand__mark"><svg class="branch-mark" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="currentColor" d="M44,9a7,7,0,1,0-9,6.7V16a6,6,0,0,1-6,6H21a10.3,10.3,0,0,0-6,2V15.7a7,7,0,1,0-4,0V32.3a7,7,0,1,0,4,0V32a6,6,0,0,1,6-6h8A10,10,0,0,0,39,16v-.3A7,7,0,0,0,44,9ZM10,9a3,3,0,0,1,6,0,3,3,0,0,1-6,0Zm6,30a3,3,0,1,1-3-3A2.9,2.9,0,0,1,16,39ZM37,12a2.9,2.9,0,0,1-3-3,3,3,0,0,1,6,0A2.9,2.9,0,0,1,37,12Z"/></svg>
@@ -471,6 +473,44 @@ Edit this page on GitHub</a>
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="常见问题">常见问题</h2>
+<h3 id="什么是分支名称">什么是分支名称？</h3>
+<p>分支名称是 Git 给一条开发线起的标签，例如 <code>main</code> 或 <code>feature/add-login-page</code>；Git 把它作为 <code>refs/heads/</code> 下的一个引用（ref）保存。Git 能接受的名称范围很广，所以分支名称本身并不能可靠地说明分支上在做什么工作。约定式分支为它规定了 <code>&lt;type&gt;/&lt;description&gt;</code> 的结构：先是说明工作用途的类型，然后是简短的小写描述，单词之间用连字符分隔。例如：</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>bugfix/fix-header-bug</code></li>
+<li><code>release/v1.2.0</code></li>
+</ul>
+<p>主干分支（<code>main</code>、<code>master</code>、<code>develop</code>）不使用前缀。</p>
+<h3 id="feature-分支应该如何命名">feature 分支应该如何命名？</h3>
+<p>以 <code>feature/</code> 或其简写形式 <code>feat/</code> 开头，在斜杠后描述该功能。如果这项工作在项目管理工具中有对应的工单，请包含工单编号。例如：</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>feat/add-login-page</code></li>
+<li><code>feature/issue-123-new-login</code></li>
+</ul>
+<h3 id="什么是-chore-分支">什么是 chore 分支？</h3>
+<p><code>chore/</code> 分支用于非代码任务，例如更新依赖项或文档。分支类型有意比 Conventional Commits 的类型少（见下文），因此这类维护工作都归入 <code>chore/</code>。例如：</p>
+<ul>
+<li><code>chore/update-dependencies</code></li>
+<li><code>chore/upgrade-node-v20.11</code></li>
+<li><code>chore/update-generated-files</code></li>
+</ul>
+<p>Renovate 等一些依赖更新机器人也可以配置为使用这个前缀；参见<a href="/enforce/#name-them-to-fit">机器人与自动化</a>。</p>
+<h3 id="release-分支应该如何命名">release 分支应该如何命名？</h3>
+<p>使用 <code>release/</code>，后面跟上该分支要准备的内容，通常是版本号。可以使用点，但不能出现在描述的开头或结尾，也不能紧邻连字符：</p>
+<ul>
+<li><code>release/v1.2.0</code> — 有效</li>
+<li><code>release/v1.2.0.</code> — 无效：以点结尾</li>
+<li><code>release/v1.-2.0</code> — 无效：连字符紧邻点号</li>
+</ul>
+<p>统一的前缀还能让管道针对 <code>release/*</code> 触发操作，例如从发布分支自动部署。</p>
+<h3 id="hotfix-分支应该如何命名">hotfix 分支应该如何命名？</h3>
+<p>紧急修复使用 <code>hotfix/</code>，不紧急的修复使用 <code>bugfix/</code>（或 <code>fix/</code>）。描述要修复的内容；如果有工单，请包含工单编号。例如：</p>
+<ul>
+<li><code>hotfix/security-patch</code></li>
+<li><code>hotfix/issue-123-security-patch</code></li>
+<li><code>bugfix/fix-header-bug</code>，用于不紧急的修复</li>
+</ul>
 <h3 id="约定式分支与约定式提交conventional-commits有什么关系">约定式分支与约定式提交（Conventional Commits）有什么关系？</h3>
 <p>约定式分支的灵感来源于 <a href="https://www.conventionalcommits.org">Conventional Commits</a>，遵循相似的理念：为 Git 元数据引入人机可读的结构。约定式提交规范化了提交信息，约定式分支规范化了分支名称。两者相辅相成，天然互补。</p>
 <h3 id="约定式分支发明了这些前缀吗">约定式分支发明了这些前缀吗？</h3>

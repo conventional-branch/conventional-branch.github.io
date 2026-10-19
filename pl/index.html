@@ -2,7 +2,7 @@
 <html lang="pl"><head>
 	<meta name="generator" content="Hugo 0.128.0">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
@@ -68,10 +68,12 @@
   <meta property="og:locale:alternate" content="th_TH"/>
   <meta property="og:locale:alternate" content="zh_TW"/>
   <meta property="og:locale:alternate" content="zh_CN"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Nazwa gałęzi to etykieta, którą Git nadaje linii rozwoju, na przykład main lub feature/add-login-page; Git przechowuje ją jako referencję (ref) w refs/heads/. Git akceptuje bardzo różne nazwy, więc sama nazwa gałęzi nie mówi nic pewnego o pracy, która się na niej odbywa. Conventional Branch nadaje jej strukturę \u003ctyp\u003e/\u003copis\u003e: typ, który mówi, czemu służy praca, a po nim krótki opis małymi literami, ze słowami oddzielonymi myślnikami. Na przykład:\n- feature/add-login-page\n- bugfix/fix-header-bug\n- release/v1.2.0\nGałęzie główne (main, master, develop) nie używają prefiksu."},"name":"Czym jest nazwa gałęzi?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Zacznij ją od feature/ lub krótkiego aliasu feat/ i opisz funkcję po ukośniku. Jeśli praca ma bilet w twoim narzędziu zarządzania projektami, dołącz jego numer. Na przykład:\n- feature/add-login-page\n- feat/add-login-page\n- feature/issue-123-new-login"},"name":"Jak nazwać gałąź feature?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Gałąź chore/ służy do zadań niezwiązanych z kodem, takich jak aktualizacja zależności lub dokumentacji. Typów gałęzi jest celowo mniej niż typów Conventional Commits (zobacz niżej), więc tego rodzaju prace utrzymaniowe trafiają do chore/. Na przykład:\n- chore/update-dependencies\n- chore/upgrade-node-v20.11\n- chore/update-generated-files\nNiektóre boty aktualizujące zależności, takie jak Renovate, również można skonfigurować tak, aby używały tego prefiksu; zobacz Boty i automatyzacja."},"name":"Czym jest gałąź chore?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Użyj release/, a po nim tego, co gałąź przygotowuje, zwykle numeru wersji. Kropki są dozwolone, ale nie na początku ani na końcu opisu i nie obok myślnika:\n- release/v1.2.0 — prawidłowa\n- release/v1.2.0. — nieprawidłowa: kropka na końcu\n- release/v1.-2.0 — nieprawidłowa: myślnik obok kropki\nSpójny prefiks pozwala też potokowi reagować na release/*, na przykład automatycznie wdrażać z gałęzi wydania."},"name":"Jak nazwać gałąź release?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Użyj hotfix/ dla pilnej poprawki, a bugfix/ (lub fix/) dla poprawki, która nie jest pilna. Opisz, co jest poprawiane, i dołącz numer biletu, jeśli istnieje. Na przykład:\n- hotfix/security-patch\n- hotfix/issue-123-security-patch\n- bugfix/fix-header-bug — dla poprawki, która nie jest pilna"},"name":"Jak nazwać gałąź hotfix?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Conventional Branch jest zainspirowany przez Conventional Commits i podąża za podobną filozofią: wprowadzenie struktury czytelnej dla ludzi i maszyn do metadanych Git. Podczas gdy Conventional Commits standaryzuje wiadomości commitów, Conventional Branch standaryzuje nazwy gałęzi. Obie specyfikacje naturalnie się uzupełniają."},"name":"Jak Conventional Branch ma się do Conventional Commits?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Nie. Prefiksy takie jak feature/, hotfix/ i release/ spopularyzowało około 2010 roku narzędzie git-flow; są też domyślne w narzędziach takich jak model gałęzi Bitbucket. Conventional Branch opiera się na tej praktyce, zamiast ją zastępować. Dodaje precyzyjną definicję, którą mogą współdzielić ludzie i narzędzia: stały zestaw typów, formalną gramatykę, wyrażenie regularne do walidacji opublikowane w spec.json oraz przypadki zgodności, dzięki czemu każdy walidator akceptuje dokładnie te same nazwy."},"name":"Czy Conventional Branch wymyśliło te prefiksy?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Gałęzie różnią się od commitów — są tymczasowe i używane głównie do momentu scalenia. Wprowadzenie zbyt wielu typów dla gałęzi byłoby niepotrzebne i utrudniłoby ich zarządzanie oraz zapamiętywanie."},"name":"Dlaczego typy gałęzi nie są tak szczegółowe jak w Conventional Commits (np. build, ci, docs, style, refactor)?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Tak, jako rozszerzenie na poziomie zespołu. Typy w gramatyce to te, które akceptuje każde zgodne narzędzie, dlatego gałąź taka jak unknown/some-task jest nieprawidłowa według samej specyfikacji. Zespół, który potrzebuje dodatkowych typów (np. experiment/), powinien jawnie dodać je do swojego walidatora (na przykład w allow_branch_types w commit-check) i opisać je w dokumentacji, aby członkowie zespołu i zautomatyzowane narzędzia działali zgodnie. Na przykład repozytorium samej specyfikacji dodaje w swojej konfiguracji commit-check typ dependabot/ dla gałęzi tworzonych przez Dependabot."},"name":"Czy mogę zdefiniować własne typy gałęzi poza wymienionymi?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Z dwóch powodów. Po pierwsze, Git zwykle przechowuje referencje gałęzi jako pliki w .git/refs/heads/, a domyślne systemy plików macOS i Windows nie rozróżniają wielkości liter: Feature/login i feature/login wskazują tam tę samą ścieżkę, a w Linuksie są dwiema różnymi gałęziami. Repozytorium, które dopuszcza obie formy, może więc zachowywać się różnie w zależności od klonu. Po drugie, jedna pisownia jest łatwiejsza do wpisania, wyszukania i dopasowania: narzędzie uruchamiane dla release/* nie musi uwzględniać także Release/*."},"name":"Dlaczego nazwy gałęzi muszą być pisane małymi literami?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"v1.1.0 dodaje Prefiksy źródła agenta AI jako główną nową funkcję (dlaczego je wprowadzono, wyjaśnia następne pytanie w FAQ). Oferuje również witrynę z wersjonowaniem z przełącznikiem wersji, umożliwiającym użytkownikom przeglądanie specyfikacji v1.0.0 i v1.1.0. Wszystkie istniejące nazwy gałęzi v1.0.0 pozostają w pełni ważne — bez zmian łamiących zgodność."},"name":"Jakie są główne różnice między v1.1.0 a v1.0.0?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Agenci kodujący AI (GitHub Copilot, Cursor, Claude Code, OpenAI Codex itp.) są coraz częściej używani do generowania kodu i tworzenia pull requestów. Każdy agent używa własnego prefiksu gałęzi (np. copilot/, cursor/). Poprzez standaryzację tych prefiksów w specyfikacji Conventional Branch, umożliwiamy:\n- Szybką identyfikację — recenzenci i narzędzia mogą natychmiast rozpoznać PRy generowane przez AI\n- Walidację narzędziową — narzędzia takie jak commit-check mogą walidować gałęzie agentów AI względem specyfikacji\n- Standard rejestracji — nowi agenci AI mogą przyjąć udokumentowany prefiks zamiast wymyślać tymczasowe wzorce\nGeneryczny prefiks ai/ jest dostępny dla każdego agenta AI bez dedykowanego prefiksu lub dla zespołów, które preferują neutralnego dostawcę. To kluczowa nowa funkcja wydana w v1.1.0 — pełne podsumowanie zmian między wersjami znajduje się w powyższym pytaniu FAQ."},"name":"Dlaczego dodać prefiksy źródła agenta AI?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Długo żyjące gałęzie integracyjne lub środowiskowe (np. develop, staging, production) są w praktyce często traktowane jak gałęzie główne i nie wymagają prefiksu, o ile w danym projekcie zostanie to jasno ustalone. Formalna gramatyka ABNF definiuje jednak gałąź główną (trunk-branch) jedynie jako main, master lub develop, a dodatkowe nazwy (takie jak staging czy production) są opcjonalnymi konwencjami specyficznymi dla projektu, które należy odpowiednio udokumentować i skonfigurować w narzędziach."},"name":"Jak radzić sobie z długo żyjącymi gałęziami, takimi jak develop lub staging?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Możesz użyć commit-check do sprawdzania specyfikacji gałęzi lub commit-check-action, jeśli twój kod jest hostowany na GitHub."},"name":"Jakich narzędzi można użyć, aby automatycznie sprawdzić, czy członek zespołu nie spełnia tej specyfikacji?"}]}</script>
 </head>
 
 <body class="page-spec" data-copy-label="Copy" data-copied-label="Copied">
-<a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="/pl/" aria-label="Conventional Branch home">
       <span class="brand__mark"><svg class="branch-mark" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="currentColor" d="M44,9a7,7,0,1,0-9,6.7V16a6,6,0,0,1-6,6H21a10.3,10.3,0,0,0-6,2V15.7a7,7,0,1,0-4,0V32.3a7,7,0,1,0,4,0V32a6,6,0,0,1,6-6h8A10,10,0,0,0,39,16v-.3A7,7,0,0,0,44,9ZM10,9a3,3,0,0,1,6,0,3,3,0,0,1-6,0Zm6,30a3,3,0,1,1-3-3A2.9,2.9,0,0,1,16,39ZM37,12a2.9,2.9,0,0,1-3-3,3,3,0,0,1,6,0A2.9,2.9,0,0,1,37,12Z"/></svg>
@@ -471,6 +473,44 @@ Edit this page on GitHub</a>
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="faq">FAQ</h2>
+<h3 id="czym-jest-nazwa-gałęzi">Czym jest nazwa gałęzi?</h3>
+<p>Nazwa gałęzi to etykieta, którą Git nadaje linii rozwoju, na przykład <code>main</code> lub <code>feature/add-login-page</code>; Git przechowuje ją jako referencję (ref) w <code>refs/heads/</code>. Git akceptuje bardzo różne nazwy, więc sama nazwa gałęzi nie mówi nic pewnego o pracy, która się na niej odbywa. Conventional Branch nadaje jej strukturę <code>&lt;typ&gt;/&lt;opis&gt;</code>: typ, który mówi, czemu służy praca, a po nim krótki opis małymi literami, ze słowami oddzielonymi myślnikami. Na przykład:</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>bugfix/fix-header-bug</code></li>
+<li><code>release/v1.2.0</code></li>
+</ul>
+<p>Gałęzie główne (<code>main</code>, <code>master</code>, <code>develop</code>) nie używają prefiksu.</p>
+<h3 id="jak-nazwać-gałąź-feature">Jak nazwać gałąź feature?</h3>
+<p>Zacznij ją od <code>feature/</code> lub krótkiego aliasu <code>feat/</code> i opisz funkcję po ukośniku. Jeśli praca ma bilet w twoim narzędziu zarządzania projektami, dołącz jego numer. Na przykład:</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>feat/add-login-page</code></li>
+<li><code>feature/issue-123-new-login</code></li>
+</ul>
+<h3 id="czym-jest-gałąź-chore">Czym jest gałąź chore?</h3>
+<p>Gałąź <code>chore/</code> służy do zadań niezwiązanych z kodem, takich jak aktualizacja zależności lub dokumentacji. Typów gałęzi jest celowo mniej niż typów Conventional Commits (zobacz niżej), więc tego rodzaju prace utrzymaniowe trafiają do <code>chore/</code>. Na przykład:</p>
+<ul>
+<li><code>chore/update-dependencies</code></li>
+<li><code>chore/upgrade-node-v20.11</code></li>
+<li><code>chore/update-generated-files</code></li>
+</ul>
+<p>Niektóre boty aktualizujące zależności, takie jak Renovate, również można skonfigurować tak, aby używały tego prefiksu; zobacz <a href="/enforce/#name-them-to-fit">Boty i automatyzacja</a>.</p>
+<h3 id="jak-nazwać-gałąź-release">Jak nazwać gałąź release?</h3>
+<p>Użyj <code>release/</code>, a po nim tego, co gałąź przygotowuje, zwykle numeru wersji. Kropki są dozwolone, ale nie na początku ani na końcu opisu i nie obok myślnika:</p>
+<ul>
+<li><code>release/v1.2.0</code> — prawidłowa</li>
+<li><code>release/v1.2.0.</code> — nieprawidłowa: kropka na końcu</li>
+<li><code>release/v1.-2.0</code> — nieprawidłowa: myślnik obok kropki</li>
+</ul>
+<p>Spójny prefiks pozwala też potokowi reagować na <code>release/*</code>, na przykład automatycznie wdrażać z gałęzi wydania.</p>
+<h3 id="jak-nazwać-gałąź-hotfix">Jak nazwać gałąź hotfix?</h3>
+<p>Użyj <code>hotfix/</code> dla pilnej poprawki, a <code>bugfix/</code> (lub <code>fix/</code>) dla poprawki, która nie jest pilna. Opisz, co jest poprawiane, i dołącz numer biletu, jeśli istnieje. Na przykład:</p>
+<ul>
+<li><code>hotfix/security-patch</code></li>
+<li><code>hotfix/issue-123-security-patch</code></li>
+<li><code>bugfix/fix-header-bug</code> — dla poprawki, która nie jest pilna</li>
+</ul>
 <h3 id="jak-conventional-branch-ma-się-do-conventional-commits">Jak Conventional Branch ma się do Conventional Commits?</h3>
 <p>Conventional Branch jest zainspirowany przez <a href="https://www.conventionalcommits.org">Conventional Commits</a> i podąża za podobną filozofią: wprowadzenie struktury czytelnej dla ludzi i maszyn do metadanych Git. Podczas gdy Conventional Commits standaryzuje wiadomości commitów, Conventional Branch standaryzuje nazwy gałęzi. Obie specyfikacje naturalnie się uzupełniają.</p>
 <h3 id="czy-conventional-branch-wymyśliło-te-prefiksy">Czy Conventional Branch wymyśliło te prefiksy?</h3>

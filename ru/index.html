@@ -2,7 +2,7 @@
 <html lang="ru"><head>
 	<meta name="generator" content="Hugo 0.128.0">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH9YBHW509"></script>
@@ -68,10 +68,12 @@
   <meta property="og:locale:alternate" content="th_TH"/>
   <meta property="og:locale:alternate" content="zh_TW"/>
   <meta property="og:locale:alternate" content="zh_CN"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Имя ветки — это метка, которую Git присваивает линии разработки, например main или feature/add-login-page; Git хранит его как ссылку (ref) в refs/heads/. Git принимает самые разные имена, поэтому само по себе имя ветки ничего надёжного о работе в ней не сообщает. Conventional Branch задаёт ему структуру \u003cтип\u003e/\u003cописание\u003e: тип, который говорит, для чего предназначена работа, а затем короткое описание строчными буквами, слова в котором разделены дефисами. Например:\n- feature/add-login-page\n- bugfix/fix-header-bug\n- release/v1.2.0\nОсновные ветки (main, master, develop) не используют префикс."},"name":"Что такое имя ветки?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Начните её с feature/ или с короткого псевдонима feat/ и опишите функциональность после косой черты. Если для работы есть тикет в вашем инструменте управления проектами, включите его номер. Например:\n- feature/add-login-page\n- feat/add-login-page\n- feature/issue-123-new-login"},"name":"Как следует называть ветку feature?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Ветка chore/ предназначена для задач, не связанных с кодом, таких как обновление зависимостей или документации. Типов веток намеренно меньше, чем типов Conventional Commits (см. ниже), поэтому такие работы по сопровождению относятся к chore/. Например:\n- chore/update-dependencies\n- chore/upgrade-node-v20.11\n- chore/update-generated-files\nНекоторые боты для обновления зависимостей, например Renovate, тоже можно настроить на этот префикс; см. Боты и автоматизация."},"name":"Что такое ветка chore?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Используйте release/, а после него укажите то, что готовит ветка, обычно номер версии. Точки допускаются, но не в начале или в конце описания и не рядом с дефисом:\n- release/v1.2.0 — допустимо\n- release/v1.2.0. — недопустимо: точка в конце\n- release/v1.-2.0 — недопустимо: дефис рядом с точкой\nЕдиный префикс также позволяет конвейеру реагировать на release/*, например для автоматического развёртывания из веток релиза."},"name":"Как следует называть ветку release?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Используйте hotfix/ для срочного исправления и bugfix/ (или fix/) для несрочного. Опишите, что исправляется, и включите номер тикета, если он есть. Например:\n- hotfix/security-patch\n- hotfix/issue-123-security-patch\n- bugfix/fix-header-bug — для несрочного исправления"},"name":"Как следует называть ветку hotfix?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Conventional Branch вдохновлён Conventional Commits и следует схожей философии: привнести структуру, читаемую людьми и машинами, в метаданные Git. Conventional Commits стандартизирует сообщения коммитов, а Conventional Branch стандартизирует имена веток. Обе спецификации естественным образом дополняют друг друга."},"name":"Как Conventional Branch соотносится с Conventional Commits?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Нет. Такие префиксы, как feature/, hotfix/ и release/, распространились около 2010 года благодаря инструменту git-flow и используются по умолчанию в таких инструментах, как модель ветвления Bitbucket. Conventional Branch опирается на эту практику, а не заменяет её. Он добавляет точное определение, общее для людей и инструментов: фиксированный набор типов, формальную грамматику, регулярное выражение для проверки, опубликованное в spec.json, и тестовые случаи соответствия, чтобы любой валидатор принимал ровно одни и те же имена."},"name":"Conventional Branch придумал эти префиксы?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Ветки отличаются от коммитов — они временные и используются в основном до слияния. Введение слишком большого количества типов веток было бы лишним и усложняло бы их управление и запоминание."},"name":"Почему типы веток не так детализированы, как Conventional Commits (например, build, ci, docs, style, refactor)?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Да, как расширение на уровне команды. Типы из грамматики — это те, которые принимает любой соответствующий спецификации инструмент, поэтому ветка вида unknown/some-task недопустима по самой спецификации. Если команде нужны дополнительные типы (например, experiment/), их следует явно указать в валидаторе (например, в allow_branch_types в commit-check) и задокументировать, чтобы участники команды и автоматизированные инструменты действовали согласованно. Например, репозиторий самой спецификации добавляет в свою конфигурацию commit-check тип dependabot/ для веток, которые создаёт Dependabot."},"name":"Могу ли я определить собственные типы веток помимо перечисленных?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"По двум причинам. Во-первых, Git обычно хранит ссылки на ветки как файлы в .git/refs/heads/, а файловые системы macOS и Windows по умолчанию не различают регистр: Feature/login и feature/login там указывают на один и тот же путь, а в Linux это две разные ветки. Поэтому репозиторий, допускающий оба варианта, может вести себя по-разному в разных клонах. Во-вторых, одно написание проще набирать, искать и сопоставлять: инструменту, который срабатывает на release/*, не нужно учитывать ещё и Release/*."},"name":"Почему имена веток должны быть в нижнем регистре?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"v1.1.0 добавляет Префиксы источника ИИ-агента в качестве основной новой функции (см. следующий вопрос FAQ о том, почему они были введены). Он также включает версионированный веб-сайт с переключателем версий, позволяющим пользователям просматривать спецификации v1.0.0 и v1.1.0. Все существующие имена веток v1.0.0 остаются полностью действительными — без обратно несовместимых изменений."},"name":"В чём основные различия между v1.1.0 и v1.0.0?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"ИИ-агенты кодирования (GitHub Copilot, Cursor, Claude Code, OpenAI Codex и др.) всё чаще используются для генерации кода и создания pull request. Каждый агент использует свой собственный префикс ветки (например, copilot/, cursor/). Стандартизируя эти префиксы в спецификации Conventional Branch, мы обеспечиваем:\n- Быструю идентификацию — рецензенты и инструменты могут немедленно распознать PR, созданные ИИ\n- Проверку инструментами — такие инструменты, как commit-check, могут проверять ветки ИИ-агентов на соответствие спецификации\n- Стандарт регистрации — новые ИИ-агенты могут принять документированный префикс вместо изобретения ситуативных шаблонов\nУниверсальный префикс ai/ доступен для любого ИИ-агента без выделенного префикса или для команд, которые предпочитают нейтральный по отношению к поставщику идентификатор. Это ключевая новая функция, выпущенная в v1.1.0 — полную сводку изменений между версиями см. в FAQ выше."},"name":"Зачем добавлять префиксы источника ИИ-агента?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Долгоживущие интеграционные или средовые ветки (например, develop, staging, production) рассматриваются как основные ветки и не требуют префикса. В формальной грамматике ABNF к trunk‑веткам относятся только main/master/develop; использование дополнительных долгоживущих веток (таких как staging, production и т.п.) как trunk‑веток является командным расширением за пределами базовой спецификации и должно быть явно задокументировано. Их следует именовать последовательно во всём проекте."},"name":"Как следует обращаться с долгоживущими ветками, такими как develop или staging?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Вы можете использовать commit-check для проверки спецификации веток или commit-check-action, если ваш код размещён на GitHub."},"name":"Какие инструменты можно использовать для автоматического определения того, что член команды не соответствует данной спецификации?"}]}</script>
 </head>
 
 <body class="page-spec" data-copy-label="Copy" data-copied-label="Copied">
-<a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="/ru/" aria-label="Conventional Branch home">
       <span class="brand__mark"><svg class="branch-mark" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="currentColor" d="M44,9a7,7,0,1,0-9,6.7V16a6,6,0,0,1-6,6H21a10.3,10.3,0,0,0-6,2V15.7a7,7,0,1,0-4,0V32.3a7,7,0,1,0,4,0V32a6,6,0,0,1,6-6h8A10,10,0,0,0,39,16v-.3A7,7,0,0,0,44,9ZM10,9a3,3,0,0,1,6,0,3,3,0,0,1-6,0Zm6,30a3,3,0,1,1-3-3A2.9,2.9,0,0,1,16,39ZM37,12a2.9,2.9,0,0,1-3-3,3,3,0,0,1,6,0A2.9,2.9,0,0,1,37,12Z"/></svg>
@@ -471,6 +473,44 @@ Edit this page on GitHub</a>
 <pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="часто-задаваемые-вопросы">Часто задаваемые вопросы</h2>
+<h3 id="что-такое-имя-ветки">Что такое имя ветки?</h3>
+<p>Имя ветки — это метка, которую Git присваивает линии разработки, например <code>main</code> или <code>feature/add-login-page</code>; Git хранит его как ссылку (ref) в <code>refs/heads/</code>. Git принимает самые разные имена, поэтому само по себе имя ветки ничего надёжного о работе в ней не сообщает. Conventional Branch задаёт ему структуру <code>&lt;тип&gt;/&lt;описание&gt;</code>: тип, который говорит, для чего предназначена работа, а затем короткое описание строчными буквами, слова в котором разделены дефисами. Например:</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>bugfix/fix-header-bug</code></li>
+<li><code>release/v1.2.0</code></li>
+</ul>
+<p>Основные ветки (<code>main</code>, <code>master</code>, <code>develop</code>) не используют префикс.</p>
+<h3 id="как-следует-называть-ветку-feature">Как следует называть ветку feature?</h3>
+<p>Начните её с <code>feature/</code> или с короткого псевдонима <code>feat/</code> и опишите функциональность после косой черты. Если для работы есть тикет в вашем инструменте управления проектами, включите его номер. Например:</p>
+<ul>
+<li><code>feature/add-login-page</code></li>
+<li><code>feat/add-login-page</code></li>
+<li><code>feature/issue-123-new-login</code></li>
+</ul>
+<h3 id="что-такое-ветка-chore">Что такое ветка chore?</h3>
+<p>Ветка <code>chore/</code> предназначена для задач, не связанных с кодом, таких как обновление зависимостей или документации. Типов веток намеренно меньше, чем типов Conventional Commits (см. ниже), поэтому такие работы по сопровождению относятся к <code>chore/</code>. Например:</p>
+<ul>
+<li><code>chore/update-dependencies</code></li>
+<li><code>chore/upgrade-node-v20.11</code></li>
+<li><code>chore/update-generated-files</code></li>
+</ul>
+<p>Некоторые боты для обновления зависимостей, например Renovate, тоже можно настроить на этот префикс; см. <a href="/enforce/#name-them-to-fit">Боты и автоматизация</a>.</p>
+<h3 id="как-следует-называть-ветку-release">Как следует называть ветку release?</h3>
+<p>Используйте <code>release/</code>, а после него укажите то, что готовит ветка, обычно номер версии. Точки допускаются, но не в начале или в конце описания и не рядом с дефисом:</p>
+<ul>
+<li><code>release/v1.2.0</code> — допустимо</li>
+<li><code>release/v1.2.0.</code> — недопустимо: точка в конце</li>
+<li><code>release/v1.-2.0</code> — недопустимо: дефис рядом с точкой</li>
+</ul>
+<p>Единый префикс также позволяет конвейеру реагировать на <code>release/*</code>, например для автоматического развёртывания из веток релиза.</p>
+<h3 id="как-следует-называть-ветку-hotfix">Как следует называть ветку hotfix?</h3>
+<p>Используйте <code>hotfix/</code> для срочного исправления и <code>bugfix/</code> (или <code>fix/</code>) для несрочного. Опишите, что исправляется, и включите номер тикета, если он есть. Например:</p>
+<ul>
+<li><code>hotfix/security-patch</code></li>
+<li><code>hotfix/issue-123-security-patch</code></li>
+<li><code>bugfix/fix-header-bug</code> — для несрочного исправления</li>
+</ul>
 <h3 id="как-conventional-branch-соотносится-с-conventional-commits">Как Conventional Branch соотносится с Conventional Commits?</h3>
 <p>Conventional Branch вдохновлён <a href="https://www.conventionalcommits.org">Conventional Commits</a> и следует схожей философии: привнести структуру, читаемую людьми и машинами, в метаданные Git. Conventional Commits стандартизирует сообщения коммитов, а Conventional Branch стандартизирует имена веток. Обе спецификации естественным образом дополняют друг друга.</p>
 <h3 id="conventional-branch-придумал-эти-префиксы">Conventional Branch придумал эти префиксы?</h3>
