@@ -429,12 +429,12 @@ is its default — and as a <a href="https://pre-commit.com">pre-commit</a> hook
 commit, so a wrong name is caught before it is anywhere but your machine:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">repos</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/commit-check/commit-check</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l">v2.19.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l">v2.19.4</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">check-branch</span><span class="w">
 </span></span></span></code></pre></div><p>Its default type list is a superset of the specification&rsquo;s: it also accepts the
-Conventional Commits types (<code>docs/</code>, <code>refactor/</code>, …) and the <code>dependabot/</code> and
-<code>renovate/</code> prefixes. To accept exactly the types the specification defines, add a
+Conventional Commits types (<code>docs/</code>, <code>refactor/</code>, …), the <code>dependabot/</code> and
+<code>renovate/</code> prefixes, and <code>agents/</code>, which VS Code&rsquo;s Agents window uses. To accept exactly the types the specification defines, add a
 <code>commit-check.toml</code> at the repository root:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">branch</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">conventional_branch</span> <span class="p">=</span> <span class="kc">true</span>
