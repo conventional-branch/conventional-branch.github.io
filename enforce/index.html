@@ -10,7 +10,17 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-RH9YBHW509');
+    
+    (function () {
+      var internal = false;
+      try {
+        var mark = new URLSearchParams(location.search).get('internal');
+        if (mark === '1') localStorage.setItem('cb-internal', '1');
+        else if (mark === '0') localStorage.removeItem('cb-internal');
+        internal = localStorage.getItem('cb-internal') === '1';
+      } catch (e) {}
+      gtag('config', 'G-RH9YBHW509', internal ? { traffic_type: 'internal' } : {});
+    })();
   </script>
 
   <meta name="color-scheme" content="light">
@@ -279,7 +289,7 @@ carve out exceptions for your trunk branches.</p>
 <h3 id="rulesets">Rulesets</h3>
 <p>A ruleset rejects a non-conforming branch outright, and on github.com it is the only
 thing that does. The <code>branch_name_pattern</code> rule takes a regular expression directly.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+<div class="highlight" data-snippet="github_ruleset"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conventional Branch&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;branch&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;enforcement&#34;</span><span class="p">:</span> <span class="s2">&#34;active&#34;</span><span class="p">,</span>
@@ -303,7 +313,7 @@ thing that does. The <code>branch_name_pattern</code> rule takes a regular expre
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Save it as <code>conventional-branch.json</code> and import it under <strong>Settings → Rules → Rulesets
 → New ruleset → Import a ruleset</strong>, or apply it from the command line:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gh api repos/OWNER/REPO/rulesets --method POST --input conventional-branch.json
+<div class="highlight" data-snippet="github_ruleset_cli"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gh api repos/OWNER/REPO/rulesets --method POST --input conventional-branch.json
 </span></span></code></pre></div><p>Start with <code>&quot;enforcement&quot;: &quot;evaluate&quot;</code> to see what the rule would have rejected without
 blocking anyone, then switch to <code>&quot;active&quot;</code>.</p>
 <p>Rulesets are available on public repositories with every plan, and on private
@@ -313,7 +323,7 @@ repositories with GitHub Pro, Team, and Enterprise Cloud.</p>
 explained in the PR. <a href="https://github.com/commit-check/commit-check-action">commit-check-action</a>
 checks the branch name by default and reports the result as a job summary, and as a
 comment on the pull request if you let it:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Branch name</span><span class="w">
+<div class="highlight" data-snippet="github_action"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Branch name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l">pull_request</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -338,7 +348,7 @@ in that file (commit-check 2.19 and later); otherwise those rules are left to th
 ruleset above or the script below.</p>
 <p>A script that applies the regex from the specification in full, if you would rather
 not depend on an action:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Branch name</span><span class="w">
+<div class="highlight" data-snippet="github_actions_script"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Branch name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l">pull_request</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -372,7 +382,7 @@ cannot change what your pipeline accepts until you choose to bump it.</p>
 <h2 id="gitlab">GitLab</h2>
 <p>Push rules reject the branch at <code>pre-receive</code>, before it reaches the server.</p>
 <p>Under <strong>Settings → Repository → Push rules → Branch name</strong>, paste:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">^(?:main|master|develop|(?:feature|feat|bugfix|fix|hotfix|release|chore|ai|copilot|cursor|claude|codex)/[a-z0-9]+(?:\.[a-z0-9]+)*(?:-[a-z0-9]+(?:\.[a-z0-9]+)*)*)$
+<div class="highlight" data-snippet="gitlab_push_rule"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">^(?:main|master|develop|(?:feature|feat|bugfix|fix|hotfix|release|chore|ai|copilot|cursor|claude|codex)/[a-z0-9]+(?:\.[a-z0-9]+)*(?:-[a-z0-9]+(?:\.[a-z0-9]+)*)*)$
 </span></span></code></pre></div><p>Three things worth knowing before you rely on it:</p>
 <ul>
 <li><strong>Push rules require GitLab Premium or Ultimate.</strong> On the Free tier, use the CI job
@@ -383,7 +393,7 @@ it off with a leading <code>(?-m)</code>.</li>
 <li>Your default branch is always allowed, whether or not the pattern matches it.</li>
 </ul>
 <p>For the Free tier, the same check as a CI job:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">conventional-branch</span><span class="p">:</span><span class="w">
+<div class="highlight" data-snippet="gitlab_ci"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">conventional-branch</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">python:3-alpine</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME</span><span class="w">
@@ -403,7 +413,7 @@ it off with a leading <code>(?-m)</code>.</li>
 <p>Bitbucket <strong>Data Center</strong> runs pre-receive hooks, so the rule can be enforced on the
 server. Bitbucket <strong>Cloud</strong> does not run arbitrary server-side hooks — the check has to
 live in Pipelines, which means it reports a failure rather than refusing the push.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">pipelines</span><span class="p">:</span><span class="w">
+<div class="highlight" data-snippet="bitbucket"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">pipelines</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull-requests</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">&#39;**&#39;</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -427,7 +437,7 @@ live in Pipelines, which means it reports a failure rather than refusing the pus
 against the specification&rsquo;s type prefixes out of the box — <code>conventional_branch = true</code>
 is its default — and as a <a href="https://pre-commit.com">pre-commit</a> hook it runs at every
 commit, so a wrong name is caught before it is anywhere but your machine:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">repos</span><span class="p">:</span><span class="w">
+<div class="highlight" data-snippet="pre_commit"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">repos</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/commit-check/commit-check</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l">v2.19.4</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w">
@@ -436,7 +446,7 @@ commit, so a wrong name is caught before it is anywhere but your machine:</p>
 Conventional Commits types (<code>docs/</code>, <code>refactor/</code>, …), the <code>dependabot/</code> and
 <code>renovate/</code> prefixes, and <code>agents/</code>, which VS Code&rsquo;s Agents window uses. To accept exactly the types the specification defines, add a
 <code>commit-check.toml</code> at the repository root:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">branch</span><span class="p">]</span>
+<div class="highlight" data-snippet="commit_check_toml"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">branch</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">conventional_branch</span> <span class="p">=</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="nx">require_description_grammar</span> <span class="p">=</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="nx">allow_branch_types</span> <span class="p">=</span> <span class="p">[</span>
@@ -459,7 +469,7 @@ description to the hook below or the server rule.</p>
 <p><code>pre-push</code> is the last local moment where a bad branch name can still be caught,
 and this needs nothing installed. Save this as <code>.git/hooks/pre-push</code> and make it
 executable:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+<div class="highlight" data-snippet="git_hook"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># Reject a push from a branch that does not follow the Conventional Branch</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># specification. https://conventionalbranch.org/</span>
 </span></span><span class="line"><span class="cl">
@@ -480,15 +490,15 @@ that this form is the mechanical translation of the published expression and tha
 accepts exactly the same branch names.</p>
 <p>Git hooks are not copied by <code>git clone</code>. To share them with the team, commit the script
 to the repository and point Git at it once:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config core.hooksPath .githooks
+<div class="highlight" data-snippet="git_hooks_path"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config core.hooksPath .githooks
 </span></span></code></pre></div><h3 id="a-branching-alias">A branching alias</h3>
 <p>Enforcement tells people they are wrong. An alias makes it easier to be right:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[alias]</span>
+<div class="highlight" data-snippet="git_alias"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[alias]</span>
 </span></span><span class="line"><span class="cl">    <span class="na">feature</span> <span class="o">=</span> <span class="s">&#34;!f() { git switch -c \&#34;feature/$(printf &#39;%s&#39; \&#34;$*\&#34; | tr &#39;A-Z _&#39; &#39;a-z--&#39;)\&#34;; }; f&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">    bugfix  = &#34;!f() { git switch -c \&#34;bugfix/$(printf &#39;%s&#39; \&#34;$*\&#34; | tr &#39;A-Z _&#39; &#39;a-z--&#39;)\&#34;; }; f&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">    hotfix  = &#34;!f() { git switch -c \&#34;hotfix/$(printf &#39;%s&#39; \&#34;$*\&#34; | tr &#39;A-Z _&#39; &#39;a-z--&#39;)\&#34;; }; f&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">    chore   = &#34;!f() { git switch -c \&#34;chore/$(printf &#39;%s&#39; \&#34;$*\&#34; | tr &#39;A-Z _&#39; &#39;a-z--&#39;)\&#34;; }; f&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git feature add login page   <span class="c1"># creates and switches to feature/add-login-page</span>
+</span></span></code></pre></div><div class="highlight" data-snippet="git_alias_usage"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git feature add login page   <span class="c1"># creates and switches to feature/add-login-page</span>
 </span></span><span class="line"><span class="cl">git feature Fix_Header       <span class="c1"># creates and switches to feature/fix-header</span>
 </span></span></code></pre></div><p>The <code>tr</code> handles the three ways people usually get it wrong without noticing:
 uppercase, underscores, and words typed with spaces instead of hyphens. It is a
@@ -502,7 +512,7 @@ they open. Either leave them out of the check, or have the bot name its branches
 <h3 id="leave-them-out">Leave them out</h3>
 <p>On GitHub, exclude their branches from the ruleset rather than loosening its pattern. In
 the ruleset above, fill in <code>exclude</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;conditions&#34;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight" data-snippet="github_ruleset_bot_exclude"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;conditions&#34;</span><span class="err">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;ref_name&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;include&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;~ALL&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;exclude&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -514,7 +524,7 @@ the ruleset above, fill in <code>exclude</code>:</p>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>commit-check skips the branch check for a commit whose author is on the <code>[branch]</code> table&rsquo;s
 <code>ignore_authors</code> list. Add the line to the <code>commit-check.toml</code> above:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">ignore_authors</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;dependabot[bot]&#34;</span><span class="p">,</span> <span class="s2">&#34;renovate[bot]&#34;</span><span class="p">,</span> <span class="s2">&#34;github-actions[bot]&#34;</span><span class="p">]</span>
+<div class="highlight" data-snippet="commit_check_ignore_bots"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">ignore_authors</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;dependabot[bot]&#34;</span><span class="p">,</span> <span class="s2">&#34;renovate[bot]&#34;</span><span class="p">,</span> <span class="s2">&#34;github-actions[bot]&#34;</span><span class="p">]</span>
 </span></span></code></pre></div><p>The pre-push hook needs no exception: bots push from their own infrastructure, not from a
 clone with your hooks installed.</p>
 <h3 id="name-them-to-fit">Name them to fit</h3>
@@ -537,12 +547,12 @@ one that fits, such as <code>chore/update-generated-files</code>, instead of the
 <p>Agents open pull requests now, which makes their branch names your branch names. Two
 ways to teach them the convention.</p>
 <h3 id="the-agent-skill">The agent skill</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx skills add conventional-branch/conventional-branch --skill conventional-branch
+<div class="highlight" data-snippet="agent_skill"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx skills add conventional-branch/conventional-branch --skill conventional-branch
 </span></span></code></pre></div><h3 id="a-snippet-for-agentsmd-or-claudemd">A snippet for <code>AGENTS.md</code> or <code>CLAUDE.md</code></h3>
 <p>Several projects on the <a href="https://conventionalbranch.org/about/#projects-using-conventional-branch">adopters list</a>
 already document the convention this way rather than for people. Paste it into whichever
 instruction file your tooling reads:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## Branch naming
+<div class="highlight" data-snippet="agents_md"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## Branch naming
 </span></span></span><span class="line"><span class="cl"><span class="gu"></span>
 </span></span><span class="line"><span class="cl">Branch names follow the [<span class="nt">Conventional Branch</span>](<span class="na">https://conventionalbranch.org/</span>)
 </span></span><span class="line"><span class="cl">specification: <span class="sb">`&lt;type&gt;/&lt;description&gt;`</span>, lowercase, hyphen-separated.
@@ -558,7 +568,7 @@ instruction file your tooling reads:</p>
 </span></span></code></pre></div><h2 id="any-other-platform">Any other platform</h2>
 <p>The portable artifact is the regular expression, and the most reliable way to get it is
 from the specification itself rather than by copying it out of a document:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">urllib.request</span>
+<div class="highlight" data-snippet="python"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">urllib.request</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">SPEC</span> <span class="o">=</span> <span class="s2">&#34;https://conventionalbranch.org/v1.1.0/spec.json&#34;</span>  <span class="c1"># pinned, never changes</span>
 </span></span><span class="line"><span class="cl">

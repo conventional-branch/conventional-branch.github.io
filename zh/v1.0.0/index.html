@@ -10,7 +10,17 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-RH9YBHW509');
+    
+    (function () {
+      var internal = false;
+      try {
+        var mark = new URLSearchParams(location.search).get('internal');
+        if (mark === '1') localStorage.setItem('cb-internal', '1');
+        else if (mark === '0') localStorage.removeItem('cb-internal');
+        internal = localStorage.getItem('cb-internal') === '1';
+      } catch (e) {}
+      gtag('config', 'G-RH9YBHW509', internal ? { traffic_type: 'internal' } : {});
+    })();
   </script>
 
   <meta name="color-scheme" content="light">
@@ -397,7 +407,7 @@ Edit this page on GitHub</a>
   </li>
   
 </ul><p>使用以下命令安装该 skill：</p>
-<pre><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
+<pre data-snippet="agent_skill"><code class="language-bash">npx skills add conventional-branch/conventional-branch --skill conventional-branch</code></pre>
 
 <h2 id="常见问题">常见问题</h2>
 <h3 id="约定式分支与约定式提交conventional-commits有什么关系">约定式分支与约定式提交（Conventional Commits）有什么关系？</h3>
