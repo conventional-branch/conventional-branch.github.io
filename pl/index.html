@@ -236,7 +236,7 @@ Edit this page on GitHub</a>
     <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
       <h2 class="spec__title" id="conventional-branch-110">Conventional Branch 1.1.0</h2>
 <h2 id="podsumowanie">Podsumowanie</h2>
-<p>Conventional Branch odnosi się do uporządkowanej i ustandaryzowanej konwencji nazewnictwa gałęzi Git, której celem jest uczynienie gałęzi bardziej czytelnymi i wykonalnymi. Zaproponowaliśmy kilka prefiksów gałęzi, które możesz chcieć używać, ale możesz także określić własną konwencję nazewnictwa. Spójna konwencja nazewnictwa ułatwia identyfikację gałęzi według typu.</p>
+<p>Conventional Branch odnosi się do uporządkowanej i ustandaryzowanej konwencji nazewnictwa gałęzi Git, której celem jest uczynienie gałęzi bardziej czytelnymi i wykonalnymi. Określa ona stały zestaw typów gałęzi, które akceptuje każde zgodne narzędzie; zespół, który potrzebuje więcej typów, może dodać je jako udokumentowane rozszerzenie (zob. FAQ). Spójna konwencja nazewnictwa ułatwia identyfikację gałęzi według typu.</p>
 <h3 id="kluczowe-punkty">Kluczowe punkty</h3>
 <ol>
 <li><strong>Nazwy gałęzi zorientowane na cel</strong>: Każda nazwa gałęzi jasno wskazuje jej cel, ułatwiając wszystkim programistom zrozumienie, do czego służy gałąź.</li>
@@ -244,8 +244,9 @@ Edit this page on GitHub</a>
 <li><strong>Współpraca zespołowa</strong>: Zachęca do współpracy w zespołach poprzez wyjaśnienie celu gałęzi, zmniejszenie nieporozumień i ułatwienie członkom zespołu przełączania się między zadaniami bez zamieszania.</li>
 </ol>
 <h2 id="specyfikacja">Specyfikacja</h2>
+<p>Słowa kluczowe „MUSI” (MUST), „NIE MOŻE” (MUST NOT), „POWINIEN” (SHOULD) i „MOŻE” (MAY) w tym dokumencie należy interpretować zgodnie z <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a>.</p>
 <h3 id="prefiksy-nazw-gałęzi">Prefiksy nazw gałęzi</h3>
-<p>Specyfikacja gałęzi obsługuje następujące prefiksy i powinna być zorganizowana jako:</p>
+<p>Nazwa gałęzi, z wyjątkiem gałęzi głównych, MUSI (MUST) mieć następującą strukturę i używać jednego z poniższych typów:</p>
 <hr>
 <pre tabindex="0"><code>&lt;typ&gt;/&lt;opis&gt;
 </code></pre><p><strong>Prefiksy celu</strong> — opisują intencję pracy:</p>
@@ -298,10 +299,10 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="podstawowe-zasady">Podstawowe zasady</h3>
 <ol>
-<li><strong>Używaj małych liter, cyfr, myślników i kropek</strong>: Zawsze używaj małych liter (<code>a-z</code>), cyfr (<code>0-9</code>) i myślników (<code>-</code>) do oddzielania słów. Unikaj znaków specjalnych, podkreśleń lub spacji. Kropki (<code>.</code>) są dozwolone w każdym opisie, zwykle w numerach wersji (np. <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
-<li><strong>Bez następujących po sobie, wiodących lub końcowych myślników lub kropek</strong>: Upewnij się, że myślniki i kropki nie pojawiają się kolejno po sobie (np. <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ani na początku czy końcu opisu (np. <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
-<li><strong>Zachowaj jasność i zwięzłość</strong>: Nazwa gałęzi powinna być opisowa, ale zwięzła, jasno wskazująca cel pracy.</li>
-<li><strong>Dołącz numery biletów</strong>: Jeśli to możliwe, dołącz numer biletu z narzędzia zarządzania projektami, aby ułatwić śledzenie. Na przykład, dla biletu <code>issue-123</code>, nazwa gałęzi mogłaby być <code>feature/issue-123-new-login</code>.</li>
+<li><strong>Używaj małych liter, cyfr, myślników i kropek</strong>: Opis MUSI (MUST) zawierać wyłącznie małe litery (<code>a-z</code>), cyfry (<code>0-9</code>), myślniki (<code>-</code>) oddzielające słowa oraz kropki (<code>.</code>). NIE MOŻE (MUST NOT) zawierać wielkich liter, znaków specjalnych, podkreśleń ani spacji. Kropki MOGĄ (MAY) występować w każdym opisie, zwykle w numerach wersji (np. <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
+<li><strong>Bez następujących po sobie, wiodących lub końcowych myślników lub kropek</strong>: Myślniki i kropki NIE MOGĄ (MUST NOT) występować kolejno po sobie (np. <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ani na początku czy końcu opisu (np. <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
+<li><strong>Zachowaj jasność i zwięzłość</strong>: Nazwa gałęzi POWINNA (SHOULD) być opisowa, ale zwięzła, jasno wskazująca cel pracy.</li>
+<li><strong>Dołącz numery biletów</strong>: Jeśli to możliwe, opis POWINIEN (SHOULD) zawierać numer biletu z narzędzia zarządzania projektami, aby ułatwić śledzenie. Tak jak resztę opisu, zapisuje się go małymi literami (<code>PROJ-123</code> staje się <code>proj-123</code>). Na przykład, dla biletu <code>issue-123</code>, nazwa gałęzi mogłaby być <code>feature/issue-123-new-login</code>.</li>
 </ol>
 <h3 id="formalna-gramatyka">Formalna gramatyka</h3>
 <p>Poniższa gramatyka ABNF (Augmented Backus-Naur Form) formalnie definiuje prawidłowe nazwy gałęzi:</p>

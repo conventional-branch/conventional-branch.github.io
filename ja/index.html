@@ -236,7 +236,7 @@ Edit this page on GitHub</a>
     <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
       <h2 class="spec__title" id="慣例的ブランチ-110">慣例的ブランチ 1.1.0</h2>
 <h2 id="要約">要約</h2>
-<p>慣例的ブランチとは、Git ブランチの構造化された標準的な命名規則を指し、ブランチをより読みやすく実用的にすることを目的としています。使用したいブランチのプレフィックスをいくつか提案していますが、独自の命名規則を指定することもできます。一貫した命名規則により、タイプ別にブランチを識別しやすくなります。</p>
+<p>慣例的ブランチとは、Git ブランチの構造化された標準的な命名規則を指し、ブランチをより読みやすく実用的にすることを目的としています。本仕様は、準拠するすべてのツールが受け入れる固定のブランチタイプを定めています。さらにタイプが必要なチームは、文書化した拡張として独自に追加できます（よくある質問を参照）。一貫した命名規則により、タイプ別にブランチを識別しやすくなります。</p>
 <h3 id="重要なポイント">重要なポイント</h3>
 <ol>
 <li><strong>目的主導のブランチ名</strong>: 各ブランチ名はその目的を明確に示し、すべての開発者がそのブランチの用途を理解しやすくします。</li>
@@ -244,8 +244,9 @@ Edit this page on GitHub</a>
 <li><strong>チーム連携</strong>: ブランチの目的を明確にすることでチーム内の連携を促進し、誤解を減らし、チームメンバーが混乱することなくタスク間を切り替えやすくします。</li>
 </ol>
 <h2 id="仕様">仕様</h2>
+<p>本仕様におけるキーワード「しなければならない」（MUST）、「してはならない」（MUST NOT）、「すべきである」（SHOULD）、「してもよい」（MAY）は、<a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a> の定義に従って解釈します。</p>
 <h3 id="ブランチ命名のプレフィックス">ブランチ命名のプレフィックス</h3>
-<p>ブランチ仕様は以下のプレフィックスをサポートし、次のような構造にする必要があります：</p>
+<p>トランクブランチ以外のブランチ名は、以下のタイプのいずれかを使い、次の構造にしなければなりません（MUST）：</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
 </code></pre><p><strong>目的プレフィックス（Purpose Prefixes）</strong> — 作業の意図を説明します：</p>
@@ -298,10 +299,10 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="基本ルール">基本ルール</h3>
 <ol>
-<li><strong>小文字の英数字、ハイフン、ドットを使用</strong>: 常に小文字（<code>a-z</code>）、数字（<code>0-9</code>）、ハイフン（<code>-</code>）を使用して単語を区切ります。特殊文字、アンダースコア、スペースは避けてください。ドット（<code>.</code>）はどのブランチの説明部分でも使用でき、主にバージョン番号を表すために使います（例：<code>release/v1.2.0</code>、<code>chore/upgrade-node-v20.11</code>）。</li>
-<li><strong>連続、先頭、末尾のハイフンやドットは禁止</strong>: ハイフンとドットが連続して表示されないように（例：<code>feature/new--login</code>、<code>release/v1.-2.0</code>）、説明の先頭や末尾に表示されないようにしてください（例：<code>feature/-new-login</code>、<code>release/v1.2.0.</code>）。</li>
-<li><strong>明確で簡潔に保つ</strong>: ブランチ名は説明的でありながら簡潔で、作業の目的を明確に示す必要があります。</li>
-<li><strong>チケット番号を含める</strong>: 該当する場合、プロジェクト管理ツールからのチケット番号を含めて追跡を容易にします。例えば、チケット <code>issue-123</code> の場合、ブランチ名は <code>feature/issue-123-new-login</code> とすることができます。</li>
+<li><strong>小文字の英数字、ハイフン、ドットを使用</strong>: 説明部分は小文字（<code>a-z</code>）、数字（<code>0-9</code>）、単語を区切るハイフン（<code>-</code>）、ドット（<code>.</code>）のみを使用しなければなりません（MUST）。大文字、特殊文字、アンダースコア、スペースを含めてはなりません（MUST NOT）。ドットはどのブランチの説明部分でも使用してもよく（MAY）、主にバージョン番号を表すために使います（例：<code>release/v1.2.0</code>、<code>chore/upgrade-node-v20.11</code>）。</li>
+<li><strong>連続、先頭、末尾のハイフンやドットは禁止</strong>: ハイフンとドットを連続させてはならず（MUST NOT）（例：<code>feature/new--login</code>、<code>release/v1.-2.0</code>）、説明の先頭や末尾に置いてもなりません（例：<code>feature/-new-login</code>、<code>release/v1.2.0.</code>）。</li>
+<li><strong>明確で簡潔に保つ</strong>: ブランチ名は説明的でありながら簡潔で、作業の目的を明確に示すべきです（SHOULD）。</li>
+<li><strong>チケット番号を含める</strong>: 該当する場合、追跡を容易にするため、説明部分にプロジェクト管理ツールのチケット番号を含めるべきです（SHOULD）。チケット番号も説明の他の部分と同じく小文字で書きます（<code>PROJ-123</code> は <code>proj-123</code>）。例えば、チケット <code>issue-123</code> の場合、ブランチ名は <code>feature/issue-123-new-login</code> とすることができます。</li>
 </ol>
 <h3 id="形式文法">形式文法</h3>
 <p>以下の ABNF（拡張バッカス・ナウア記法）文法は、有効なブランチ名を形式的に定義します：</p>

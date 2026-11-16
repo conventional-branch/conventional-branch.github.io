@@ -236,7 +236,7 @@ Edit this page on GitHub</a>
     <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
       <h2 class="spec__title" id="conventional-branch-110">Conventional Branch 1.1.0</h2>
 <h2 id="zusammenfassung">Zusammenfassung</h2>
-<p>Conventional Branch bezieht sich auf eine strukturierte und standardisierte Namenskonvention für Git-Branches, die darauf abzielt, Branches lesbarer und umsetzbarer zu machen. Wir haben einige Branch-Präfixe vorgeschlagen, die Sie verwenden könnten, aber Sie können auch Ihre eigene Namenskonvention festlegen. Eine einheitliche Namenskonvention erleichtert die Identifizierung von Branches nach Typ.</p>
+<p>Conventional Branch bezieht sich auf eine strukturierte und standardisierte Namenskonvention für Git-Branches, die darauf abzielt, Branches lesbarer und umsetzbarer zu machen. Sie legt eine feste Menge von Branch-Typen fest, die jedes konforme Werkzeug akzeptiert; ein Team, das weitere Typen braucht, kann sie als dokumentierte Erweiterung ergänzen (siehe FAQ). Eine einheitliche Namenskonvention erleichtert die Identifizierung von Branches nach Typ.</p>
 <h3 id="wichtige-punkte">Wichtige Punkte</h3>
 <ol>
 <li><strong>Zweckgerichtete Branch-Namen</strong>: Jeder Branch-Name zeigt deutlich seinen Zweck an, wodurch es für alle Entwickler einfach wird zu verstehen, wofür der Branch gedacht ist.</li>
@@ -244,8 +244,9 @@ Edit this page on GitHub</a>
 <li><strong>Team-Zusammenarbeit</strong>: Es fördert die Zusammenarbeit innerhalb von Teams, indem der Branch-Zweck explizit gemacht wird, Missverständnisse reduziert werden und es Teammitgliedern erleichtert wird, zwischen Aufgaben ohne Verwirrung zu wechseln.</li>
 </ol>
 <h2 id="spezifikation">Spezifikation</h2>
+<p>Die Schlüsselwörter „MUSS“ (MUST), „DARF NICHT“ (MUST NOT), „SOLLTE“ (SHOULD) und „KANN“ (MAY) in diesem Dokument sind wie in <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a> beschrieben zu interpretieren.</p>
 <h3 id="branch-namens-präfixe">Branch-Namens-Präfixe</h3>
-<p>Die Branch-Spezifikation unterstützt die folgenden Präfixe und sollte wie folgt strukturiert sein:</p>
+<p>Ein Branch-Name, der kein Trunk-Branch ist, MUSS (MUST) wie folgt aufgebaut sein und einen der unten aufgeführten Typen verwenden:</p>
 <hr>
 <pre tabindex="0"><code>&lt;typ&gt;/&lt;beschreibung&gt;
 </code></pre><p><strong>Zweck-Präfixe</strong> — beschreiben die Absicht der Arbeit:</p>
@@ -298,10 +299,10 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="grundregeln">Grundregeln</h3>
 <ol>
-<li><strong>Verwenden Sie kleine Buchstaben und Zahlen, Bindestriche und Punkte</strong>: Verwenden Sie immer Kleinbuchstaben (<code>a-z</code>), Zahlen (<code>0-9</code>) und Bindestriche (<code>-</code>), um Wörter zu trennen. Vermeiden Sie Sonderzeichen, Unterstriche oder Leerzeichen. Punkte (<code>.</code>) sind in jeder Beschreibung erlaubt, typischerweise für Versionsnummern (z.B. <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
-<li><strong>Keine aufeinanderfolgenden, führenden oder nachfolgenden Bindestriche oder Punkte</strong>: Stellen Sie sicher, dass Bindestriche und Punkte nicht aufeinanderfolgen (z.B. <code>feature/new--login</code>, <code>release/v1.-2.0</code>), noch am Anfang oder Ende der Beschreibung (z.B. <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
-<li><strong>Halten Sie es klar und prägnant</strong>: Der Branch-Name sollte beschreibend aber prägnant sein und den Zweck der Arbeit klar angeben.</li>
-<li><strong>Ticket-Nummern einbeziehen</strong>: Falls zutreffend, beziehen Sie die Ticket-Nummer aus Ihrem Projektmanagement-Tool ein, um die Verfolgung zu erleichtern. Zum Beispiel könnte für ein Ticket <code>issue-123</code> der Branch-Name <code>feature/issue-123-new-login</code> lauten.</li>
+<li><strong>Verwenden Sie kleine Buchstaben und Zahlen, Bindestriche und Punkte</strong>: Die Beschreibung MUSS (MUST) ausschließlich Kleinbuchstaben (<code>a-z</code>), Zahlen (<code>0-9</code>), Bindestriche (<code>-</code>) zur Trennung von Wörtern und Punkte (<code>.</code>) verwenden. Sie DARF NICHT (MUST NOT) Großbuchstaben, Sonderzeichen, Unterstriche oder Leerzeichen enthalten. Punkte KÖNNEN (MAY) in jeder Beschreibung vorkommen, typischerweise für Versionsnummern (z.B. <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
+<li><strong>Keine aufeinanderfolgenden, führenden oder nachfolgenden Bindestriche oder Punkte</strong>: Bindestriche und Punkte DÜRFEN NICHT (MUST NOT) aufeinanderfolgen (z.B. <code>feature/new--login</code>, <code>release/v1.-2.0</code>) und auch nicht am Anfang oder Ende der Beschreibung stehen (z.B. <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
+<li><strong>Halten Sie es klar und prägnant</strong>: Der Branch-Name SOLLTE (SHOULD) beschreibend, aber prägnant sein und den Zweck der Arbeit klar angeben.</li>
+<li><strong>Ticket-Nummern einbeziehen</strong>: Falls zutreffend, SOLLTE (SHOULD) die Beschreibung die Ticket-Nummer aus Ihrem Projektmanagement-Tool enthalten, um die Verfolgung zu erleichtern. Wie der Rest der Beschreibung wird sie kleingeschrieben (<code>PROJ-123</code> wird zu <code>proj-123</code>). Zum Beispiel könnte für ein Ticket <code>issue-123</code> der Branch-Name <code>feature/issue-123-new-login</code> lauten.</li>
 </ol>
 <h3 id="formale-grammatik">Formale Grammatik</h3>
 <p>Die folgende ABNF-Grammatik (Augmented Backus-Naur Form) definiert formal gültige Branch-Namen:</p>

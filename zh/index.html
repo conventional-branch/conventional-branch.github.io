@@ -236,7 +236,7 @@ Edit this page on GitHub</a>
     <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
       <h2 class="spec__title" id="约定式分支-110">约定式分支 1.1.0</h2>
 <h2 id="概述">概述</h2>
-<p>约定式分支是指 Git 分支的结构化和标准化命名约定，旨在使分支更具可读性和可操作性。我们建议了一些您可能想要使用的分支前缀，但您也可以指定自己的命名约定。一致的命名约定使按类型识别分支变得更加容易。</p>
+<p>约定式分支是指 Git 分支的结构化和标准化命名约定，旨在使分支更具可读性和可操作性。它规定了一组固定的分支类型，所有符合规范的工具都接受这些类型；团队如需更多类型，可以作为有文档说明的扩展自行添加（见常见问题）。一致的命名约定使按类型识别分支变得更加容易。</p>
 <h3 id="要点">要点</h3>
 <ol>
 <li><strong>以目的为导向的分支名称</strong>：每个分支名称都清楚地表明了其目的，使所有开发人员都能轻松了解该分支的用途。</li>
@@ -244,8 +244,9 @@ Edit this page on GitHub</a>
 <li><strong>团队协作</strong>：它通过明确分支目的来鼓励团队内部的协作，减少误解并使团队成员更容易在任务之间切换而不会产生混淆。</li>
 </ol>
 <h2 id="规范">规范</h2>
+<p>本规范中的关键词“必须”（MUST）、“禁止”（MUST NOT）、“应当”（SHOULD）和“可以”（MAY）按 <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a> 的定义解释。</p>
 <h3 id="分支命名前缀">分支命名前缀</h3>
-<p>分支规范支持以下前缀，其结构应如下：</p>
+<p>除主干分支外，分支名称必须（MUST）采用以下结构，并使用下列类型之一：</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
 </code></pre><p><strong>用途前缀（Purpose Prefixes）</strong> — 描述工作的意图：</p>
@@ -298,10 +299,10 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="基本规则">基本规则</h3>
 <ol>
-<li><strong>使用小写字母、数字、连字符和点</strong>：分支名称应全部使用小写字母 (<code>a-z</code>)、数字 (<code>0-9</code>) 及连字符 (<code>-</code>) 进行分隔。避免使用特殊字符、下划线或空格。任何分支的描述中都可以使用点 (<code>.</code>)，通常用于表示版本号（例如 <code>release/v1.2.0</code>、<code>chore/upgrade-node-v20.11</code>）。</li>
-<li><strong>禁止连续、开头或结尾的连字符或点</strong>：确保连字符和点不能连续出现（例如 <code>feature/new--login</code>, <code>release/v1.-2.0</code>），也不能出现在描述的开头或结尾（例如 <code>feature/-new-login</code>, <code>release/v1.2.0.</code>）。</li>
-<li><strong>保持清晰简洁</strong>：分支名称应简明扼要，清楚表达工作的内容和目的。</li>
-<li><strong>包含工单编号</strong>：如果适用，应包含项目管理工具中的工单编号，以便于追踪。例如，对于工单 <code>issue-123</code>，分支名称可以是 <code>feature/issue-123-new-login</code>。</li>
+<li><strong>使用小写字母、数字、连字符和点</strong>：描述必须（MUST）只使用小写字母 (<code>a-z</code>)、数字 (<code>0-9</code>)、用于分隔单词的连字符 (<code>-</code>) 和点 (<code>.</code>)，禁止（MUST NOT）包含大写字母、特殊字符、下划线或空格。任何分支的描述中都可以（MAY）使用点，通常用于表示版本号（例如 <code>release/v1.2.0</code>、<code>chore/upgrade-node-v20.11</code>）。</li>
+<li><strong>禁止连续、开头或结尾的连字符或点</strong>：连字符和点禁止（MUST NOT）连续出现（例如 <code>feature/new--login</code>, <code>release/v1.-2.0</code>），也禁止出现在描述的开头或结尾（例如 <code>feature/-new-login</code>, <code>release/v1.2.0.</code>）。</li>
+<li><strong>保持清晰简洁</strong>：分支名称应当（SHOULD）简明扼要，清楚表达工作的内容和目的。</li>
+<li><strong>包含工单编号</strong>：如果适用，描述应当（SHOULD）包含项目管理工具中的工单编号，以便于追踪。工单编号与描述的其余部分一样使用小写（<code>PROJ-123</code> 写作 <code>proj-123</code>）。例如，对于工单 <code>issue-123</code>，分支名称可以是 <code>feature/issue-123-new-login</code>。</li>
 </ol>
 <h3 id="形式文法">形式文法</h3>
 <p>以下 ABNF（扩充巴科斯-诺尔范式）文法正式定义了有效的分支名称：</p>

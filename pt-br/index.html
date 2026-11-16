@@ -236,7 +236,7 @@ Edit this page on GitHub</a>
     <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
       <h2 class="spec__title" id="conventional-branch-110">Conventional Branch 1.1.0</h2>
 <h2 id="resumo">Resumo</h2>
-<p>Conventional Branch é uma convenção estruturada e padronizada para nomeação de branches no Git, que visa tornar os nomes dos branches mais legíveis e acionáveis. Sugerimos alguns prefixos de branch que você pode usar, mas também é possível especificar sua própria convenção de nomes. Uma convenção consistente facilita a identificação dos branches pelo tipo.</p>
+<p>Conventional Branch é uma convenção estruturada e padronizada para nomeação de branches no Git, que visa tornar os nomes dos branches mais legíveis e acionáveis. Ela define um conjunto fixo de tipos de branch que toda ferramenta compatível aceita; uma equipe que precise de mais tipos pode adicioná-los como uma extensão documentada (veja as perguntas frequentes). Uma convenção consistente facilita a identificação dos branches pelo tipo.</p>
 <h3 id="pontos-chave">Pontos-chave</h3>
 <ol>
 <li><strong>Nomes de branches orientados ao propósito</strong>: cada nome de branch indica claramente seu propósito, facilitando para todos os desenvolvedores entenderem para que serve o branch.</li>
@@ -244,8 +244,9 @@ Edit this page on GitHub</a>
 <li><strong>Colaboração em equipe</strong>: incentiva a colaboração dentro das equipes ao tornar explícito o propósito do branch, reduzindo mal-entendidos e facilitando a troca de tarefas entre membros sem confusão.</li>
 </ol>
 <h2 id="especificação">Especificação</h2>
+<p>As palavras-chave “DEVE” (MUST), “NÃO DEVE” (MUST NOT), “DEVERIA” (SHOULD) e “PODE” (MAY) neste documento devem ser interpretadas conforme descrito na <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a>.</p>
 <h3 id="prefixos-de-nomeação-de-branch">Prefixos de nomeação de branch</h3>
-<p>A especificação de branch suporta os seguintes prefixos e deve ser estruturada da seguinte forma:</p>
+<p>Um nome de branch, exceto os branches tronco, DEVE (MUST) ser estruturado da seguinte forma, usando um dos tipos abaixo:</p>
 <hr>
 <pre tabindex="0"><code>&lt;tipo&gt;/&lt;descrição&gt;
 </code></pre><p><strong>Prefixos de propósito</strong> — descrevem a intenção do trabalho:</p>
@@ -298,10 +299,10 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="regras-básicas">Regras básicas</h3>
 <ol>
-<li><strong>Use letras minúsculas, números, hífens e pontos</strong>: sempre use letras minúsculas (<code>a-z</code>), números (<code>0-9</code>) e hífens (<code>-</code>) para separar palavras. Evite caracteres especiais, underlines ou espaços. Pontos (<code>.</code>) são permitidos em qualquer descrição, normalmente para números de versão (ex.: <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
-<li><strong>Sem hífens ou pontos consecutivos, iniciais ou finais</strong>: certifique-se de que hífens e pontos não apareçam consecutivamente (ex.: <code>feature/novo--login</code>, <code>release/v1.-2.0</code>), nem no início ou fim da descrição (ex.: <code>feature/-novo-login</code>, <code>release/v1.2.0.</code>).</li>
-<li><strong>Seja claro e conciso</strong>: o nome do branch deve ser descritivo, mas conciso, indicando claramente o propósito do trabalho.</li>
-<li><strong>Inclua o número do ticket</strong>: se aplicável, inclua o número do ticket da sua ferramenta de gestão de projetos para facilitar o rastreamento. Por exemplo, para o ticket <code>issue-123</code>, o nome do branch pode ser <code>feature/issue-123-novo-login</code>.</li>
+<li><strong>Use letras minúsculas, números, hífens e pontos</strong>: A descrição DEVE (MUST) usar apenas letras minúsculas (<code>a-z</code>), números (<code>0-9</code>), hífens (<code>-</code>) para separar palavras e pontos (<code>.</code>). NÃO DEVE (MUST NOT) conter letras maiúsculas, caracteres especiais, underlines ou espaços. Pontos PODEM (MAY) aparecer em qualquer descrição, normalmente para números de versão (ex.: <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
+<li><strong>Sem hífens ou pontos consecutivos, iniciais ou finais</strong>: Hífens e pontos NÃO DEVEM (MUST NOT) aparecer consecutivamente (ex.: <code>feature/novo--login</code>, <code>release/v1.-2.0</code>), nem no início ou fim da descrição (ex.: <code>feature/-novo-login</code>, <code>release/v1.2.0.</code>).</li>
+<li><strong>Seja claro e conciso</strong>: O nome do branch DEVERIA (SHOULD) ser descritivo, mas conciso, indicando claramente o propósito do trabalho.</li>
+<li><strong>Inclua o número do ticket</strong>: Se aplicável, a descrição DEVERIA (SHOULD) incluir o número do ticket da sua ferramenta de gestão de projetos para facilitar o rastreamento. Como o resto da descrição, ele é escrito em minúsculas (<code>PROJ-123</code> vira <code>proj-123</code>). Por exemplo, para o ticket <code>issue-123</code>, o nome do branch pode ser <code>feature/issue-123-novo-login</code>.</li>
 </ol>
 <h3 id="gramática-formal">Gramática formal</h3>
 <p>A gramática ABNF (Augmented Backus-Naur Form) a seguir define formalmente nomes de branches válidos:</p>

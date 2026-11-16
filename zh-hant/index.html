@@ -236,7 +236,7 @@ Edit this page on GitHub</a>
     <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
       <h2 class="spec__title" id="約定式分支-110">約定式分支 1.1.0</h2>
 <h2 id="概述">概述</h2>
-<p>約定式分支（Conventional Branch）是指針對 Git branch 的結構化、標準化命名慣例，旨在讓 branch 更易讀且更具可操作性。我們提供一些您可能想採用的 branch 前綴建議，但您也可以自行制定命名慣例。一致的命名慣例能讓您更容易依類型辨識 branch。</p>
+<p>約定式分支（Conventional Branch）是指針對 Git branch 的結構化、標準化命名慣例，旨在讓 branch 更易讀且更具可操作性。它規定了一組固定的 branch 類型，所有符合規範的工具都接受這些類型；團隊若需要更多類型，可作為有文件說明的擴充自行加入（見 FAQ）。一致的命名慣例能讓您更容易依類型辨識 branch。</p>
 <h3 id="要點">要點</h3>
 <ol>
 <li><strong>以目的為導向的 branch 名稱</strong>：每個 branch 名稱都清楚表明其目的，讓所有開發人員都能輕鬆理解該 branch 的用途。</li>
@@ -244,8 +244,9 @@ Edit this page on GitHub</a>
 <li><strong>團隊協作</strong>：藉由明確標示 branch 的目的，促進團隊協作、降低誤解，並讓成員更容易在不同任務間切換而不致混淆。</li>
 </ol>
 <h2 id="規範">規範</h2>
+<p>本規範中的關鍵詞「必須」（MUST）、「禁止」（MUST NOT）、「應當」（SHOULD）與「可以」（MAY）依 <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a> 的定義解釋。</p>
 <h3 id="branch-命名前綴">branch 命名前綴</h3>
-<p>此 branch 規範支援以下前綴，並應採用如下結構：</p>
+<p>除主幹分支外，branch 名稱必須（MUST）採用以下結構，並使用下列類型之一：</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
 </code></pre><p><strong>用途前綴（Purpose Prefixes）</strong> — 描述工作的意圖：</p>
@@ -298,10 +299,10 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="基本規則">基本規則</h3>
 <ol>
-<li><strong>使用小寫英數、連字號與點</strong>：一律使用小寫字母（<code>a-z</code>）、數字（<code>0-9</code>）與連字號（<code>-</code>）分隔單字，避免特殊字元、底線或空白。任何 branch 的描述中都可以使用點（<code>.</code>），通常用於表示版本號（例如 <code>release/v1.2.0</code>、<code>chore/upgrade-node-v20.11</code>）。</li>
-<li><strong>禁止連續、開頭或結尾的連字號或點</strong>：連字號與點不得連續出現（例如 <code>feature/new--login</code>、<code>release/v1.-2.0</code>），也不得出現在描述的開頭或結尾（例如 <code>feature/-new-login</code>、<code>release/v1.2.0.</code>）。</li>
-<li><strong>保持清楚且精簡</strong>：branch 名稱應在具描述性的同時保持精簡，清楚表達工作的內容與目的。</li>
-<li><strong>包含工單編號</strong>：若適用，請包含專案管理工具的工單編號，方便追蹤。例如，對於工單 <code>issue-123</code>，branch 名稱可以是 <code>feature/issue-123-new-login</code>。</li>
+<li><strong>使用小寫英數、連字號與點</strong>：描述必須（MUST）只使用小寫字母（<code>a-z</code>）、數字（<code>0-9</code>）、用於分隔單字的連字號（<code>-</code>）與點（<code>.</code>），禁止（MUST NOT）包含大寫字母、特殊字元、底線或空白。任何 branch 的描述中都可以（MAY）使用點，通常用於表示版本號（例如 <code>release/v1.2.0</code>、<code>chore/upgrade-node-v20.11</code>）。</li>
+<li><strong>禁止連續、開頭或結尾的連字號或點</strong>：連字號與點禁止（MUST NOT）連續出現（例如 <code>feature/new--login</code>、<code>release/v1.-2.0</code>），也禁止出現在描述的開頭或結尾（例如 <code>feature/-new-login</code>、<code>release/v1.2.0.</code>）。</li>
+<li><strong>保持清楚且精簡</strong>：branch 名稱應當（SHOULD）在具描述性的同時保持精簡，清楚表達工作的內容與目的。</li>
+<li><strong>包含工單編號</strong>：若適用，描述應當（SHOULD）包含專案管理工具的工單編號，方便追蹤。工單編號與描述的其餘部分一樣使用小寫（<code>PROJ-123</code> 寫作 <code>proj-123</code>）。例如，對於工單 <code>issue-123</code>，branch 名稱可以是 <code>feature/issue-123-new-login</code>。</li>
 </ol>
 <h3 id="形式文法">形式文法</h3>
 <p>以下 ABNF（Augmented Backus-Naur Form）文法正式定義了有效的 branch 名稱：</p>

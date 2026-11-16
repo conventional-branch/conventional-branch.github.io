@@ -236,7 +236,7 @@ Edit this page on GitHub</a>
     <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
       <h2 class="spec__title" id="conventional-branch-110">Conventional Branch 1.1.0</h2>
 <h2 id="resumen">Resumen</h2>
-<p>Conventional Branch hace referencia a una convención de nomenclatura estructurada y estandarizada para ramas de Git, cuyo objetivo es hacer que las ramas sean más legibles y accionables. Hemos sugerido algunos prefijos de rama que quizás desee utilizar, pero también puede especificar su propia convención de nomenclatura. Una convención de nomenclatura coherente facilita la identificación de las ramas por tipo.</p>
+<p>Conventional Branch hace referencia a una convención de nomenclatura estructurada y estandarizada para ramas de Git, cuyo objetivo es hacer que las ramas sean más legibles y accionables. Define un conjunto fijo de tipos de rama que toda herramienta conforme acepta; un equipo que necesite más tipos puede añadirlos como una extensión documentada (consulte las preguntas frecuentes). Una convención de nomenclatura coherente facilita la identificación de las ramas por tipo.</p>
 <h3 id="puntos-clave">Puntos clave</h3>
 <ol>
 <li><strong>Nombres de ramas orientados al propósito</strong>: Cada nombre de rama indica claramente su propósito, lo que facilita a todos los desarrolladores entender para qué sirve la rama.</li>
@@ -244,8 +244,9 @@ Edit this page on GitHub</a>
 <li><strong>Colaboración en equipo</strong>: Fomenta la colaboración dentro de los equipos al hacer explícito el propósito de la rama, reduciendo malentendidos y facilitando el cambio entre tareas sin confusión.</li>
 </ol>
 <h2 id="especificación">Especificación</h2>
+<p>Las palabras clave «DEBE» (MUST), «NO DEBE» (MUST NOT), «DEBERÍA» (SHOULD) y «PUEDE» (MAY) de este documento se interpretan según lo descrito en <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a>.</p>
 <h3 id="prefijos-de-nomenclatura-de-ramas">Prefijos de nomenclatura de ramas</h3>
-<p>La especificación de ramas admite los siguientes prefijos y debe estructurarse de la siguiente manera:</p>
+<p>Un nombre de rama, salvo las ramas troncales, DEBE (MUST) estructurarse de la siguiente manera, usando uno de los tipos indicados a continuación:</p>
 <hr>
 <pre tabindex="0"><code>&lt;tipo&gt;/&lt;descripción&gt;
 </code></pre><p><strong>Prefijos de propósito</strong> — describen la intención del trabajo:</p>
@@ -298,10 +299,10 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="reglas-básicas">Reglas básicas</h3>
 <ol>
-<li><strong>Usar alfanuméricos en minúsculas, guiones y puntos</strong>: Utilice siempre letras minúsculas (<code>a-z</code>), números (<code>0-9</code>) y guiones (<code>-</code>) para separar palabras. Evite caracteres especiales, guiones bajos o espacios. Los puntos (<code>.</code>) se permiten en cualquier descripción, normalmente para números de versión (p. ej., <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
-<li><strong>Sin guiones o puntos consecutivos, iniciales o finales</strong>: Asegúrese de que los guiones y los puntos no aparezcan de forma consecutiva (p. ej., <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ni al inicio o al final de la descripción (p. ej., <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
-<li><strong>Ser claro y conciso</strong>: El nombre de la rama debe ser descriptivo pero conciso, indicando claramente el propósito del trabajo.</li>
-<li><strong>Incluir números de ticket</strong>: Si corresponde, incluya el número de ticket de su herramienta de gestión de proyectos para facilitar el seguimiento. Por ejemplo, para un ticket <code>issue-123</code>, el nombre de la rama podría ser <code>feature/issue-123-new-login</code>.</li>
+<li><strong>Usar alfanuméricos en minúsculas, guiones y puntos</strong>: La descripción DEBE (MUST) usar solo letras minúsculas (<code>a-z</code>), números (<code>0-9</code>), guiones (<code>-</code>) para separar palabras y puntos (<code>.</code>). NO DEBE (MUST NOT) contener letras mayúsculas, caracteres especiales, guiones bajos ni espacios. Los puntos PUEDEN (MAY) aparecer en cualquier descripción, normalmente para números de versión (p. ej., <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
+<li><strong>Sin guiones o puntos consecutivos, iniciales o finales</strong>: Los guiones y los puntos NO DEBEN (MUST NOT) aparecer de forma consecutiva (p. ej., <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ni al inicio o al final de la descripción (p. ej., <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
+<li><strong>Ser claro y conciso</strong>: El nombre de la rama DEBERÍA (SHOULD) ser descriptivo pero conciso, indicando claramente el propósito del trabajo.</li>
+<li><strong>Incluir números de ticket</strong>: Si corresponde, la descripción DEBERÍA (SHOULD) incluir el número de ticket de su herramienta de gestión de proyectos para facilitar el seguimiento. Como el resto de la descripción, se escribe en minúsculas (<code>PROJ-123</code> pasa a ser <code>proj-123</code>). Por ejemplo, para un ticket <code>issue-123</code>, el nombre de la rama podría ser <code>feature/issue-123-new-login</code>.</li>
 </ol>
 <h3 id="gramática-formal">Gramática formal</h3>
 <p>La siguiente gramática ABNF (Augmented Backus-Naur Form) define formalmente los nombres de ramas válidos:</p>

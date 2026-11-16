@@ -236,7 +236,7 @@ Edit this page on GitHub</a>
     <article class="markdown-body doc-body spec__body" data-spec-types="feature feat bugfix fix hotfix release chore ai claude codex copilot cursor">
       <h2 class="spec__title" id="conventional-branch-110">Conventional Branch 1.1.0</h2>
 <h2 id="résumé">Résumé</h2>
-<p>Conventional Branch fait référence à une convention de nommage structurée et standardisée pour les branches Git qui vise à rendre les branches plus lisibles et exploitables. Nous avons suggéré quelques préfixes de branches que vous pourriez vouloir utiliser, mais vous pouvez également spécifier votre propre convention de nommage. Une convention de nommage cohérente facilite l&rsquo;identification des branches par type.</p>
+<p>Conventional Branch fait référence à une convention de nommage structurée et standardisée pour les branches Git qui vise à rendre les branches plus lisibles et exploitables. Elle définit un ensemble fixe de types de branches que tout outil conforme accepte ; une équipe qui a besoin d&rsquo;autres types peut les ajouter sous forme d&rsquo;extension documentée (voir la FAQ). Une convention de nommage cohérente facilite l&rsquo;identification des branches par type.</p>
 <h3 id="points-clés">Points clés</h3>
 <ol>
 <li><strong>Noms de branches orientés objectif</strong> : Chaque nom de branche indique clairement son objectif, facilitant la compréhension par tous les développeurs de l&rsquo;objet de la branche.</li>
@@ -244,8 +244,9 @@ Edit this page on GitHub</a>
 <li><strong>Collaboration d&rsquo;équipe</strong> : Cela encourage la collaboration au sein des équipes en rendant explicite l&rsquo;objectif de la branche, réduisant les malentendus et facilitant le passage d&rsquo;une tâche à l&rsquo;autre pour les membres de l&rsquo;équipe sans confusion.</li>
 </ol>
 <h2 id="spécification">Spécification</h2>
+<p>Les mots-clés « DOIT » (MUST), « NE DOIT PAS » (MUST NOT), « DEVRAIT » (SHOULD) et « PEUT » (MAY) dans ce document doivent être interprétés comme décrit dans la <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a>.</p>
 <h3 id="préfixes-de-nommage-des-branches">Préfixes de nommage des branches</h3>
-<p>La spécification des branches prend en charge les préfixes suivants et doit être structurée comme suit :</p>
+<p>Un nom de branche, hors branches principales, DOIT (MUST) être structuré comme suit, avec l&rsquo;un des types ci-dessous :</p>
 <hr>
 <pre tabindex="0"><code>&lt;type&gt;/&lt;description&gt;
 </code></pre><p><strong>Préfixes d&rsquo;objectif</strong> — décrivent l&rsquo;intention du travail :</p>
@@ -298,10 +299,10 @@ Edit this page on GitHub</a>
 <hr>
 <h3 id="règles-de-base">Règles de base</h3>
 <ol>
-<li><strong>Utilisez des caractères alphanumériques en minuscules, des tirets et des points</strong> : Utilisez toujours des lettres minuscules (<code>a-z</code>), des chiffres (<code>0-9</code>), et des tirets (<code>-</code>) pour séparer les mots. Évitez les caractères spéciaux, les underscores, ou les espaces. Les points (<code>.</code>) sont autorisés dans toute description, généralement pour les numéros de version (par exemple, <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
-<li><strong>Pas de tirets ou points consécutifs, en début ou en fin</strong> : Assurez-vous que les tirets et les points n&rsquo;apparaissent pas de manière consécutive (par exemple, <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ni au début ou à la fin de la description (par exemple, <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
-<li><strong>Restez clair et concis</strong> : Le nom de la branche doit être descriptif mais concis, indiquant clairement l&rsquo;objectif du travail.</li>
-<li><strong>Incluez les numéros de ticket</strong> : Le cas échéant, incluez le numéro de ticket de votre outil de gestion de projet pour faciliter le suivi. Par exemple, pour un ticket <code>issue-123</code>, le nom de la branche pourrait être <code>feature/issue-123-new-login</code>.</li>
+<li><strong>Utilisez des caractères alphanumériques en minuscules, des tirets et des points</strong> : La description DOIT (MUST) utiliser uniquement des lettres minuscules (<code>a-z</code>), des chiffres (<code>0-9</code>), des tirets (<code>-</code>) pour séparer les mots et des points (<code>.</code>). Elle NE DOIT PAS (MUST NOT) contenir de majuscules, de caractères spéciaux, d&rsquo;underscores ou d&rsquo;espaces. Les points PEUVENT (MAY) apparaître dans toute description, généralement pour les numéros de version (par exemple, <code>release/v1.2.0</code>, <code>chore/upgrade-node-v20.11</code>).</li>
+<li><strong>Pas de tirets ou points consécutifs, en début ou en fin</strong> : Les tirets et les points NE DOIVENT PAS (MUST NOT) apparaître de manière consécutive (par exemple, <code>feature/new--login</code>, <code>release/v1.-2.0</code>), ni au début ou à la fin de la description (par exemple, <code>feature/-new-login</code>, <code>release/v1.2.0.</code>).</li>
+<li><strong>Restez clair et concis</strong> : Le nom de la branche DEVRAIT (SHOULD) être descriptif mais concis, indiquant clairement l&rsquo;objectif du travail.</li>
+<li><strong>Incluez les numéros de ticket</strong> : Le cas échéant, la description DEVRAIT (SHOULD) inclure le numéro de ticket de votre outil de gestion de projet pour faciliter le suivi. Comme le reste de la description, il s&rsquo;écrit en minuscules (<code>PROJ-123</code> devient <code>proj-123</code>). Par exemple, pour un ticket <code>issue-123</code>, le nom de la branche pourrait être <code>feature/issue-123-new-login</code>.</li>
 </ol>
 <h3 id="grammaire-formelle">Grammaire formelle</h3>
 <p>La grammaire ABNF (Augmented Backus-Naur Form) suivante définit formellement les noms de branches valides :</p>
